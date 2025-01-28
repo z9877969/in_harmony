@@ -21,11 +21,5 @@
     "husky": "^9.1.7",
     "lint-staged": "^15.4.3",
     "prettier": "^3.4.2"
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0 --fix",
-    "src/**/*.{json,css,scss,md}": [
-      "prettier --write"
-    ]
   }
 }

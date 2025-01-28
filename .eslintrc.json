@@ -7,7 +7,7 @@
     "react/jsx-no-target-blank": "off",
     "react-refresh/only-export-components": [
       "warn",
-      { "allowConstantExport": true, "allowExportNames": ["useDeliveryForm"] }
+      { "allowConstantExport": true, "allowExportNames": ["metadata"] }
     ],
     "no-var": "error",
     "no-console": "warn",

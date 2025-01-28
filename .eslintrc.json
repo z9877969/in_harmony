@@ -1,3 +1,16 @@
 {
-  "extends": "next/core-web-vitals"
+  "root": true,
+  "extends": ["next", "next/core-web-vitals", "eslint:recommended"],
+  "plugins": ["react-refresh"],
+
+  "rules": {
+    "react/jsx-no-target-blank": "off",
+    "react-refresh/only-export-components": [
+      "warn",
+      { "allowConstantExport": true, "allowExportNames": ["useDeliveryForm"] }
+    ],
+    "no-var": "error",
+    "no-console": "warn",
+    "no-param-reassign": "warn"
+  }
 }

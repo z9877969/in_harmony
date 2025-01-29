@@ -66,3 +66,15 @@ a:focus {
 ::-webkit-scrollbar-track {
   background-color: lightgray;
 }
+
+.visuallyHidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+}

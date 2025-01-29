@@ -1,13 +1,11 @@
 'use client';
 
-import { Swiper, SwiperSlide } from 'swiper/react';
 import s from './MainPageCollection.module.scss';
 import 'swiper/css';
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
-import CustomPagination from '../CustomPagination/CustomPagination';
-import { ACTIVE_COLLECTION_LIST } from '../constants';
-import CollectionsCard from '../CollectionsCard/CollectionsCard';
+// import { useRouter } from 'next/navigation';
+import CollectionList from '../ActiveCollectionList/ActiveCollectionList';
+import CollectionSwiper from '../ActiveCollectionSwiper/ActiveCollectionSwiper';
 
 const MainPageCollection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -36,59 +34,24 @@ const MainPageCollection = () => {
   const goToSlide = (index) => {
     setCurrentSlide(index);
   };
+
   return (
     <section>
       <div className={s.mainContainer}>
         <h2 className={s.title}>Активні збори</h2>
         {isTablet ? (
           <>
-            <Swiper
-              className={s.customSwiper}
-              spaceBetween={24}
-              breakpoints={{
-                768: {
-                  slidesPerView: 2,
-                },
-              }}
+            <CollectionSwiper
               onSlideChange={handleSlideChange}
-            >
-              {ACTIVE_COLLECTION_LIST.slice(0, visibleItems).map(
-                (collection) => (
-                  <SwiperSlide key={collection._id}>
-                    <CollectionsCard collection={collection} />
-                  </SwiperSlide>
-                )
-              )}
-            </Swiper>
-            {isTablet && (
-              <CustomPagination
-                totalSlides={2}
-                currentSlide={currentSlide}
-                goToSlide={goToSlide}
-              />
-            )}
+              currentSlide={currentSlide}
+              goToSlide={goToSlide}
+              visibleItems={visibleItems}
+              customSwiper={s.customSwiper}
+            />
           </>
         ) : (
-          <>
-            <ul className={s.collectionList}>
-              {ACTIVE_COLLECTION_LIST.slice(0, visibleItems).map(
-                (collection) => (
-                  <li key={collection._id}>
-                    <CollectionsCard collection={collection} />
-                  </li>
-                )
-              )}
-            </ul>
-          </>
+          <CollectionList visibleItems={visibleItems} />
         )}
-        {/* <div className={s.buttonContainer}>
-          <button
-            onClick={() => router.push('/all-collection')}
-            className={s.showMoreBtn}
-          >
-            Всі збори
-          </button>
-        </div> */}
       </div>
     </section>
   );

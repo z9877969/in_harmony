@@ -1,6 +1,14 @@
 import Image from 'next/image';
-import s from './CollectionsCard.module.scss';
+import s from './ActiveCollectionsCard.module.scss';
 import ProgressBar from '../ProgressBur/ProgressBur';
+
+const Icon = ({ name, className }) => {
+  return (
+    <svg className={`icon ${className}`}>
+      <use xlinkHref={`/icons/sprite.svg#${name}`} />
+    </svg>
+  );
+};
 
 function CollectionsCard({ collection }) {
   return (
@@ -29,6 +37,7 @@ function CollectionsCard({ collection }) {
           target={collection.target}
         />
         <p className={s.peopleDonate}>
+          <Icon name="icon-people" className="custom-class" />
           <span>{collection.peopleDonate}</span> донорів
         </p>
       </div>

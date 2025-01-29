@@ -1,8 +1,8 @@
 import Image from 'next/image';
-import s from './ActiveCollections.module.scss';
+import s from './CollectionsCard.module.scss';
 import ProgressBar from '../ProgressBur/ProgressBur';
 
-function ActiveCollections({ collection }) {
+function CollectionsCard({ collection }) {
   return (
     <div className={s.ContentContainer}>
       <div className={s.collectionImg}>
@@ -36,4 +36,4 @@ function ActiveCollections({ collection }) {
   );
 }
 
-export default ActiveCollections;
+export default CollectionsCard;

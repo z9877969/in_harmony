@@ -1,4 +1,4 @@
-export const COLLECTION_LIST = [
+export const ACTIVE_COLLECTION_LIST = [
   {
     _id: '1',
     title: 'На підтримку воїнів',

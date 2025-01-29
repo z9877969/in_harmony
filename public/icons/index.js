@@ -1,4 +1,3 @@
-export { default as sprite } from './sprite.svg';
 export { default as uaFlag } from './flag-for-ukraine.svg';
 export { default as googleLogo } from './google-logo.svg';
 export { default as inHarmonyLogo } from './logo-inHarmony.svg';

@@ -1,0 +1,87 @@
+@import '@/shared/styles/mixins';
+@import '@/shared/styles/colors';
+@mixin button {
+  touch-action: manipulation;
+  display: inline-flex;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  width: 60px;
+  height: 36px;
+  border-radius: 32px;
+  align-items: center;
+  justify-content: center;
+}
+.buttons {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+}
+.btnDisabled {
+  @include button;
+  border: 1px solid #bfc0c4;
+}
+
+.btnEnabled {
+  @include button;
+  background-color: transparent;
+  border: 1px solid $primary-text-color;
+}
+
+.embla {
+  width: 100%;
+  margin: 48px auto 0;
+  --slide-height: 38rem;
+  --slide-size: 100%;
+}
+.embla__viewport {
+  overflow: hidden;
+}
+.container {
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+}
+.controls {
+  margin-top: 32px;
+
+  @include media(tablet) {
+    margin-top: 40px;
+  }
+  @include media(desktop) {
+    margin-top: 48px;
+  }
+}
+.dots {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  gap: 12px;
+}
+
+@mixin dot-btn {
+  appearance: none;
+  background-color: transparent;
+  touch-action: manipulation;
+  display: inline-flex;
+  text-decoration: none;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  width: 0.6rem;
+  height: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.dotBtn {
+  @include dot-btn;
+  border: 1px solid #bfc0c4;
+  color: $primary-text-color;
+}
+.dotActive {
+  @include dot-btn;
+  background-color: $primary-text-color;
+}

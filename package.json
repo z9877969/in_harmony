@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "clsx": "^2.1.1",
+    "embla-carousel-react": "^8.5.2",
     "next": "14.2.22",
     "normalize-scss": "^8.0.0",
     "react": "^18",

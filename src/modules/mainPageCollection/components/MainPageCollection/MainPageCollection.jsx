@@ -3,15 +3,19 @@
 import s from './MainPageCollection.module.scss';
 import 'swiper/css';
 import { useEffect, useState } from 'react';
-import ActiveCollectionSwiper from '../ActiveCollectionSwiper/ActiveCollectionSwiper';
 import ActiveCollectionList from '../ActiveCollectionList/ActiveCollectionList';
-// import { useRouter } from 'next/navigation';
+import collections from '../../data/collections.json';
+import ActiveCollectionsCard from '../ActiveCollectionsCard/ActiveCollectionsCard';
+import { SwiperSlide } from 'swiper/react';
+import DotsSwiper from '../../../../shared/components/DotsSwiper/DotsSwiper';
+import Button from '@/shared/components/Button/Button';
+import { useRouter } from 'next/navigation';
+import { Container } from '@/shared/components';
 
 const MainPageCollection = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
   const [isTablet, setIsTablet] = useState(false);
-  const [visibleItems, setVisibleItems] = useState(3);
-  // const router = useRouter();
+  const [visibleItems] = useState(3);
+  const router = useRouter();
 
   useEffect(() => {
     const handleResize = () => {
@@ -27,30 +31,46 @@ const MainPageCollection = () => {
     };
   }, []);
 
-  const handleSlideChange = (swiper) => {
-    setCurrentSlide(swiper.activeIndex);
-  };
-
-  const goToSlide = (index) => {
-    setCurrentSlide(index);
-  };
+  const totalSlides = 2;
 
   return (
     <section className={s.collectionSection}>
-      <div className={s.mainContainer}>
-        <h2 className={s.title}>Активні збори</h2>
-        {isTablet ? (
-          <ActiveCollectionSwiper
-            onSlideChange={handleSlideChange}
-            currentSlide={currentSlide}
-            goToSlide={goToSlide}
-            visibleItems={visibleItems}
-            customSwiper={s.customSwiper}
-          />
-        ) : (
-          <ActiveCollectionList visibleItems={visibleItems} />
-        )}
-      </div>
+      <Container>
+        <div className={s.mainContainer}>
+          <h2 className={s.title}>Активні збори</h2>
+          <div>
+            {isTablet ? (
+              <DotsSwiper
+                visibleItems={visibleItems}
+                customSwiper={s.customSwiper}
+                totalSlides={totalSlides}
+                slideCount={2}
+                spaceBetween={24}
+              >
+                {collections.slice(0, visibleItems).map((collection) => (
+                  <SwiperSlide key={collection._id}>
+                    <ActiveCollectionsCard collection={collection} />
+                  </SwiperSlide>
+                ))}
+              </DotsSwiper>
+            ) : (
+              <ActiveCollectionList
+                visibleItems={visibleItems}
+                collection={collections}
+              />
+            )}
+          </div>
+          <Button
+            onClick={() => router.push('/all-collections')}
+            border="true"
+            className={s.desktopButton}
+            size="large"
+            fontSize="eighteen"
+          >
+            Всі збори
+          </Button>
+        </div>
+      </Container>
     </section>
   );
 };

@@ -1,5 +1,4 @@
 @import '../../../../shared/styles/mixins';
-@import '../../../../shared/styles/_variables';
 
 .collectionSection {
   padding: 48px 0;
@@ -10,17 +9,16 @@
 }
 
 .mainContainer {
-  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 
   @include media(tablet) {
-    padding: 0 40px;
-    max-width: 768px;
-    margin: 0 auto;
+    gap: 42px;
   }
 
   @include media(desktop) {
-    padding: 0 72px;
-    max-width: 1440px;
+    gap: 48px;
   }
 
   .customSwiper {
@@ -30,9 +28,20 @@
 
 .title {
   max-width: 300px;
-  margin-bottom: 32px;
   font-family: $secondary-font-family;
   font-weight: 700;
   font-size: 32px;
   line-height: 1.25;
+}
+
+.desktopButton {
+  @include media(tablet) {
+    min-height: 54px;
+    width: 448px;
+    margin: 0 auto;
+  }
+
+  @include media(desktop) {
+    min-height: 48px;
+  }
 }

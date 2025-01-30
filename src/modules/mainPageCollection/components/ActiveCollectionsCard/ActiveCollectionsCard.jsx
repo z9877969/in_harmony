@@ -1,9 +1,13 @@
 import Image from 'next/image';
 import s from './ActiveCollectionsCard.module.scss';
-import ProgressBar from '../ProgressBur/ProgressBur';
+import ProgressBar from '../../../../shared/components/ProgressBar/ProgressBar';
 import { Icon } from '@/shared/components';
+import Button from '@/shared/components/Button/Button';
+import { useRouter } from 'next/navigation';
 
 function ActiveCollectionsCard({ collection }) {
+  const router = useRouter();
+
   return (
     <div className={s.ContentContainer}>
       <div className={s.collectionImg}>
@@ -24,16 +28,26 @@ function ActiveCollectionsCard({ collection }) {
           <h3 className={s.title}>{collection.title} </h3>
           <p className={s.desc}>{collection.desc}</p>
         </div>
-
         <ProgressBar
           collected={collection.collected}
           target={collection.target}
         />
-
         <p className={s.peopleDonate}>
           <Icon iconName="icon-people" className={s.collectionIcon} />
           <span>{collection.peopleDonate}</span> донорів
         </p>
+        <div className={s.buttonContainer}>
+          <Button
+            border="true"
+            size="large"
+            onClick={() => router.push(`/collection/${collection._id}`)}
+          >
+            Детальніше
+          </Button>
+          <Button onClick={() => router.push('')} size="large">
+            Задонатити
+          </Button>
+        </div>
       </div>
     </div>
   );

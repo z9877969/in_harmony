@@ -15,9 +15,16 @@ const Button = ({
   return (
     <button
       type={type}
-      className={clsx(s.button, s[variant], s[size], s[fontSize], className, {
-        [s.border]: border,
-      })}
+      className={clsx(
+        s.button,
+        variant && s[variant],
+        size && s[size],
+        fontSize && s[fontSize],
+        className && className,
+        {
+          [s.border]: border,
+        }
+      )}
       onClick={onClick}
     >
       {children}

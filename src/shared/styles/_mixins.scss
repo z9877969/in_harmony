@@ -59,3 +59,7 @@ screen types:
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
 }
+
+@mixin animation-rules($_prop: all, $_duration: '0.3s') {
+  transition: $_prop $_duration ease;
+}

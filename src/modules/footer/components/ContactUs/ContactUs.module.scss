@@ -1,0 +1,45 @@
+@import '@/shared/styles/mixins.scss';
+@import '@/shared/styles/colors.scss';
+
+.contactUsSection {
+  display: flex;
+  padding: 24px;
+  flex-direction: column;
+  gap: 24px;
+  border-radius: 32px;
+  background: $social-icons-color;
+  // rgba(255, 255, 255, 0.3); //TODO this color at the maket but not exists in colors.css
+}
+
+.title {
+  align-self: stretch;
+  color: inherit;
+  font-family: Montserrat, sans-serif;
+  @include font(20, 30);
+  font-style: normal;
+  font-weight: 700;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.submitBtn {
+  margin-top: 12px;
+  display: flex;
+  width: 322px;
+  padding: 12px 32px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 60px;
+  border: none;
+  background: $violet-ui-text-color;
+  cursor: pointer;
+
+  color: $wite-text-color;
+  @include font(20, 30);
+  font-weight: 600;
+}

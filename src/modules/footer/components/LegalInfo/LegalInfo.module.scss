@@ -1,0 +1,39 @@
+@import '@/shared/styles/mixins.scss';
+@import '@/shared/styles/colors.scss';
+
+.legalInfoSection {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.navLink {
+  @include font(18, 27);
+  font-weight: 600;
+  align-self: stretch;
+}
+
+.title {
+  @include font(18, 27);
+  font-weight: 600;
+}
+
+.text {
+  color: $footer-text-color;
+  @include font(16, 24);
+  font-style: normal;
+  font-weight: 400;
+}
+
+.toLine {
+  display: flex;
+  gap: 4px;
+}
+
+.key {
+  flex-shrink: 0;
+}
+
+.value {
+  flex-shrink: 0;
+}

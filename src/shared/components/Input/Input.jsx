@@ -6,7 +6,7 @@ import s from './Input.module.scss';
 
 const Input = ({ type, label, className, ...props }) => {
   const id = useId();
-  const inputClass = clsx(s['input'], s[className]);
+  const inputClass = clsx(s['input'], className && className);
 
   return (
     <div>

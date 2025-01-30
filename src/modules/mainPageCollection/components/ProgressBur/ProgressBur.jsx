@@ -4,6 +4,7 @@ import s from './ProgressBur.module.scss';
 const ProgressBar = ({ collected, target }) => {
   const progress = (collected / target) * 100;
   const formattedProgress = Math.round(progress);
+
   return (
     <div className={s.mainProgressContainer}>
       <div className={s.targetContainer}>

@@ -13,7 +13,7 @@ const ActiveCollectionSwiper = ({
   customSwiper,
 }) => {
   return (
-    <div>
+    <>
       <Swiper
         className={clsx(customSwiper)}
         spaceBetween={24}
@@ -36,7 +36,7 @@ const ActiveCollectionSwiper = ({
         currentSlide={currentSlide}
         goToSlide={goToSlide}
       />
-    </div>
+    </>
   );
 };
 

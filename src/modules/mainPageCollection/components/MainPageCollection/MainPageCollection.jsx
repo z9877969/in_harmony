@@ -40,15 +40,13 @@ const MainPageCollection = () => {
       <div className={s.mainContainer}>
         <h2 className={s.title}>Активні збори</h2>
         {isTablet ? (
-          <>
-            <ActiveCollectionSwiper
-              onSlideChange={handleSlideChange}
-              currentSlide={currentSlide}
-              goToSlide={goToSlide}
-              visibleItems={visibleItems}
-              customSwiper={s.customSwiper}
-            />
-          </>
+          <ActiveCollectionSwiper
+            onSlideChange={handleSlideChange}
+            currentSlide={currentSlide}
+            goToSlide={goToSlide}
+            visibleItems={visibleItems}
+            customSwiper={s.customSwiper}
+          />
         ) : (
           <ActiveCollectionList visibleItems={visibleItems} />
         )}

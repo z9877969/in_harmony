@@ -1,3 +1,5 @@
+@import '../../../../shared/styles/_colors';
+
 .customPagination {
   position: relative;
   display: flex;
@@ -11,12 +13,12 @@
   width: 6px;
   height: 6px;
   border-radius: 100%;
-  background-color: #b3b3b3;
+  background-color: $swiper-inactive-dots-color;
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .activeDot {
-  background-color: black;
+  background-color: $swiper-active-dots-color;
 }

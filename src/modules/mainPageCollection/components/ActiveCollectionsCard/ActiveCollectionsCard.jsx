@@ -29,6 +29,7 @@ function ActiveCollectionsCard({ collection }) {
           collected={collection.collected}
           target={collection.target}
         />
+
         <p className={s.peopleDonate}>
           <Icon iconName="icon-people" className={s.collectionIcon} />
           <span>{collection.peopleDonate}</span> донорів

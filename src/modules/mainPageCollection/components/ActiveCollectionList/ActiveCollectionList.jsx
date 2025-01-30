@@ -5,15 +5,13 @@ import ActiveCollectionsCard from '../ActiveCollectionsCard/ActiveCollectionsCar
 
 const ActiveCollectionList = ({ visibleItems }) => {
   return (
-    <>
-      <ul className={s.collectionList}>
-        {ACTIVE_COLLECTION_LIST.slice(0, visibleItems).map((collection) => (
-          <li key={collection._id}>
-            <ActiveCollectionsCard collection={collection} />
-          </li>
-        ))}
-      </ul>
-    </>
+    <ul className={s.collectionList}>
+      {ACTIVE_COLLECTION_LIST.slice(0, visibleItems).map((collection) => (
+        <li key={collection._id}>
+          <ActiveCollectionsCard collection={collection} />
+        </li>
+      ))}
+    </ul>
   );
 };
 

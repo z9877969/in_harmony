@@ -1,8 +1,9 @@
 @import '../../../../shared/styles/mixins';
 @import '../../../../shared/styles/variables';
+@import '../../../../shared/styles/_colors';
 
 .ContentContainer {
-  background-color: #b3b3b3;
+  background-color: $swiper-inactive-dots-color;
   padding: 16px 16px 24px 16px;
   border-radius: 32px;
   max-width: 370px;
@@ -50,7 +51,7 @@
     content: '';
     width: 8px;
     height: 8px;
-    background-color: black;
+    background-color: $primary-text-color;
     display: block;
     border-radius: 100%;
   }

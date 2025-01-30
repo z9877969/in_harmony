@@ -1,4 +1,5 @@
 @import '../../../../shared/styles/mixins';
+@import '../../../../shared/styles/_variables';
 
 .collectionSection {
   padding: 48px 0;
@@ -10,9 +11,6 @@
 
 .mainContainer {
   padding: 0 16px;
-
-  @include media(mobile) {
-  }
 
   @include media(tablet) {
     padding: 0 40px;
@@ -33,4 +31,8 @@
 .title {
   max-width: 300px;
   margin-bottom: 32px;
+  font-family: $secondary-font-family;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.25;
 }

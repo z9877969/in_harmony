@@ -1,6 +1,11 @@
-const Icon = ({ iconName = '', className = '' }) => {
+import clsx from 'clsx';
+import s from './Icon.module.scss';
+
+const Icon = ({ iconName, className, ...props }) => {
+  const iconClass = clsx(s['icon'], s[className]);
+
   return (
-    <svg className={className}>
+    <svg className={iconClass} {...props}>
       <use href={`/icons/sprite.svg#${iconName}`}></use>
     </svg>
   );

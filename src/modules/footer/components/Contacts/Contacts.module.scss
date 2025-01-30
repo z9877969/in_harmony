@@ -1,0 +1,25 @@
+@import '@/shared/styles/mixins.scss';
+@import '@/shared/styles/colors.scss';
+
+.title {
+  margin-bottom: 20px;
+  font-weight: 600;
+  @include font(18, 27);
+}
+
+.text {
+  font-style: normal;
+  color: $footer-text-color;
+  @include font(16, 24);
+  font-weight: 400;
+  max-width: 370px;
+}
+
+.textDecoration {
+  font-style: normal;
+  font-weight: 600;
+}
+
+.mb-16 {
+  margin-bottom: 16px;
+}

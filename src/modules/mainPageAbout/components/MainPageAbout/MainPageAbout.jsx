@@ -1,7 +1,8 @@
 import { Container } from '@/shared/components';
 import ActivitiesCard from '../ActivitiesCard/ActivitiesCard';
 import s from './MainPageAbout.module.scss';
-import data from '../../data.json';
+import data from '../../data/info.json';
+import Button from '@/shared/components/Button/Button';
 
 const MainPageAbout = () => {
   return (
@@ -27,7 +28,9 @@ const MainPageAbout = () => {
         <section className={s.motivation}>{data.motivation}</section>
         <section className={s.image}></section>
         <section className={s.learnMore}>
-          <button>{data.learnMore}</button>
+          <Button variant="secondary" border={true}>
+            {data.learnMore}
+          </Button>
         </section>
       </div>
     </Container>

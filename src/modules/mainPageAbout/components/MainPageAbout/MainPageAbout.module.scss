@@ -2,6 +2,7 @@
 @import '/src/shared/styles/colors';
 
 .container {
+  padding: 48px 0;
   display: grid;
   row-gap: 40px;
   justify-items: center;
@@ -10,6 +11,7 @@
     gap: 48px;
   }
   @include media(desktop) {
+    padding: 76px 0;
     grid-template-areas:
       'about image'
       'activities activities'
@@ -67,6 +69,9 @@
     max-width: none;
     margin-bottom: 56px;
   }
+  @include media(desktop) {
+    margin-bottom: 68px;
+  }
 }
 
 .cards {
@@ -106,7 +111,7 @@
 .image {
   width: 370px;
   height: 220px;
-  background-color: lightgrey;
+  background-color: #dddddd;
   border-radius: 32px;
   margin-bottom: -8px;
 

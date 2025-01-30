@@ -17,6 +17,7 @@ const MainPageAbout = () => {
             {data.activities.cards.map((item) => (
               <ActivitiesCard
                 key={item.id}
+                logo={item.logo}
                 title={item.title}
                 description={item.description}
               />

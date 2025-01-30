@@ -1,9 +1,10 @@
 @import '/src/shared/styles/mixins';
+@import '/src/shared/styles/colors';
 
 .card {
   width: 370px;
   height: 336px;
-  background-color: #b3b3b3;
+  background-color: $swiper-inactive-dots-color;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,14 +21,46 @@
 }
 
 .logo {
-  width: 130px;
-  height: 130px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
-  background-color: lightgrey;
-  border: 10px solid white;
+  background-color: #d9d9d9;
+  border: 10px solid $primary-bg-color;
   position: relative;
-  top: -40px;
-  margin-bottom: -40px;
+  top: -50px;
+  margin-bottom: -50px;
+}
+
+.icon-support {
+  width: 105px;
+  height: 75px;
+  position: relative;
+  top: 30px;
+  left: 8px;
+}
+
+.icon-hand {
+  width: 93px;
+  height: 89px;
+  position: relative;
+  top: 16px;
+  left: 13px;
+}
+
+.icon-animal-paw {
+  width: 88px;
+  height: 84px;
+  position: relative;
+  top: 24px;
+  left: 16px;
+}
+
+.icon-house {
+  width: 83px;
+  height: 79px;
+  position: relative;
+  top: 21px;
+  left: 18px;
 }
 
 .card > h3 {

@@ -1,0 +1,57 @@
+@import '@/shared/styles/mixins.scss';
+@import '@/shared/styles/colors.scss';
+
+.footer {
+  background-color: $footer-bg-color;
+  padding-top: 24px;
+  padding-bottom: 32px;
+  color: $footer-bold-text-color;
+}
+.footerContentWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.contactSection {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.navigationSection {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.teamSection {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.linkBtn {
+  color: inherit;
+  text-align: center;
+  @include font(16, 24);
+  font-weight: 600;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: auto;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.copyright {
+  display: block;
+  color: inherit;
+  text-align: center;
+  @include font(16, 24);
+  font-weight: 400;
+}

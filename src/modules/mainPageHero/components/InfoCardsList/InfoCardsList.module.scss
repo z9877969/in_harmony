@@ -1,6 +1,5 @@
-@import '@/shared/styles/variables';
 @import '@/shared/styles/mixins';
-@import '@/shared/styles/colors';
+
 .containerCards {
   width: 370px;
   height: 344px;
@@ -8,7 +7,7 @@
   border-radius: 32px;
   background-color: #dddddd;
   position: absolute;
-  top: 172%;
+  top: 140%;
 
   @include media(tablet) {
     width: 688px;
@@ -17,7 +16,7 @@
     margin-top: 320px;
     display: flex;
     align-items: center;
-    top: 128%;
+    top: 90%;
   }
 
   @include media(desktop) {

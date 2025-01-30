@@ -1,10 +1,5 @@
 import s from './InfoCardsList.module.scss';
-
-const infoData = [
-  { amount: '1 млн грн', label: 'Загальна сума зборів' },
-  { amount: '8 000+', label: 'Кількість реалізованих проєктів' },
-  { amount: '35 000+', label: 'Кількість врятованих життів' },
-];
+import infoData from '../../data/infoData.json';
 
 const InfoCardsList = () => {
   return (

@@ -1,5 +1,5 @@
 import s from './MainPageHero.module.scss';
-import Container from '../../../../shared/components/Container/Container';
+import { Container } from '@/shared/components';
 import InfoCardsList from '../InfoCardsList/InfoCardsList';
 const MainPageHero = () => {
   return (

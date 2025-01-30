@@ -1,0 +1,82 @@
+@import '@/shared/styles/variables';
+@import '@/shared/styles/mixins';
+@import '@/shared/styles/colors';
+.containerCards {
+  width: 370px;
+  height: 344px;
+  padding: 32px 60px;
+  border-radius: 32px;
+  background-color: #dddddd;
+  position: absolute;
+  top: 172%;
+
+  @include media(tablet) {
+    width: 688px;
+    height: 360px;
+    padding: 40px 40px;
+    margin-top: 320px;
+    display: flex;
+    align-items: center;
+    top: 128%;
+  }
+
+  @include media(desktop) {
+    width: 766px;
+    height: 200px;
+    padding: 40px 40px;
+    margin-top: 0px;
+    position: absolute;
+    top: 80%;
+    right: 44%;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.infoCards {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  text-align: center;
+  gap: 32px;
+
+  @include media(tablet) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @include media(desktop) {
+    flex-wrap: nowrap;
+    align-items: stretch;
+    justify-content: flex-start;
+  }
+}
+.amount {
+  font-family: $secondary-font-family;
+  @include font(36, 36);
+  font-weight: 700;
+  color: $primary-text-color;
+  margin-bottom: 12px;
+
+  @include media(tablet) {
+    @include font(40, 60);
+  }
+
+  @include media(desktop) {
+    @include font(40, 60);
+    white-space: nowrap;
+  }
+}
+
+.label {
+  font-family: $primary-font-family;
+  @include font(16, 24);
+  font-weight: 400;
+  color: $secondary-text-color;
+}

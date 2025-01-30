@@ -1,0 +1,84 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  @include animation-rules();
+  border: none;
+  outline: transparent;
+  border-radius: 60px;
+  font-weight: 600;
+  font-size: 16px;
+  width: 100%;
+}
+
+//font size
+
+.eighteen {
+  font-size: 18px;
+}
+
+.twenty {
+  font-size: 20px;
+}
+
+// colors
+.primary {
+  background-color: $violet-ui-text-color;
+  color: $wite-text-color;
+}
+
+.secondary {
+  background-color: $primary-bg-color;
+  color: $primary-text-color;
+}
+
+//size
+.small {
+  height: 36px;
+  padding: 12px 32px;
+}
+
+.medium {
+  height: 44px;
+  padding: 12px 32px;
+}
+
+.large {
+  height: 48px;
+  padding: 12px 32px;
+}
+
+.extraLarge {
+  height: 64px;
+  padding: 12px 32px;
+}
+
+.smallIcon {
+  width: 188px;
+  padding: 12px 32px;
+  gap: 10px;
+}
+
+.smallWhite {
+  padding: 10px 32px;
+}
+
+.withArrowSmall {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.withArrowLarge {
+  padding: 18px 32px;
+  display: flex;
+  justify-content: space-between;
+}
+
+// border
+.border {
+  border: 2px solid $violet-ui-text-color;
+  background: transparent;
+  color: $violet-ui-text-color;
+}

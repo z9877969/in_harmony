@@ -7,6 +7,14 @@ const nextConfig = {
     });
     return config;
   },
+  sassOptions: {
+    additionalData: `
+      @import "src/shared/styles/_breakpoints.scss";
+      @import "src/shared/styles/_colors.scss";
+      @import "src/shared/styles/_mixins.scss";
+      @import "src/shared/styles/_variables.scss";
+    `,
+  },
 };
 
 export default nextConfig;

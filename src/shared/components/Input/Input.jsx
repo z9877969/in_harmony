@@ -1,10 +1,13 @@
 'use client';
 
+import { clsx } from 'clsx';
 import { useId } from 'react';
 import s from './Input.module.scss';
 
-const Input = ({ type, label }) => {
+const Input = ({ type, label, className, ...props }) => {
   const id = useId();
+  const inputClass = clsx(s['input'], className && className);
+
   return (
     <div>
       {label && (
@@ -12,7 +15,7 @@ const Input = ({ type, label }) => {
           {label}
         </label>
       )}
-      <input className={s.input} id={id} type={type} />
+      <input className={inputClass} id={id} type={type} {...props} />
     </div>
   );
 };

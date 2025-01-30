@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Swiper } from 'swiper/react';
-import CustomPagination from '../../../modules/mainPageCollection/components/CustomPagination/CustomPagination';
+import CustomPagination from './CustomPagination/CustomPagination';
 import clsx from 'clsx';
 
 const DotsSwiper = ({

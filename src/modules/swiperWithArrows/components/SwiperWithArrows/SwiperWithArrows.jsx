@@ -1,12 +1,13 @@
 'use client';
 import useEmblaCarousel from 'embla-carousel-react';
-import { NextButton, PrevButton, usePrevNextButtons } from './ArrowButtons';
-import { DotButton, useDotButton } from './DotButton';
-import s from './SwiperArrows.module.scss';
-import ContentBlock from './ContentBlock/ContentBlock';
+import { NextButton, PrevButton } from '../ArrowButtons/ArrowButtons';
+import { usePrevNextButtons } from '../../hooks/usePrevNextButtons';
+import { DotButton } from '../DotButton/DotButton';
+import { useDotButton } from '../../hooks/useDotButton';
+import s from './SwiperWhithArrows.module.scss';
 
-const SwiperArrows = (props) => {
-  const { slides, options } = props;
+const SwiperWithArrows = (props) => {
+  const { slides, Component, options } = props;
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
 
   const { selectedIndex, scrollSnaps, onDotButtonClick } =
@@ -24,7 +25,7 @@ const SwiperArrows = (props) => {
       <div className={s.embla__viewport} ref={emblaRef}>
         <div className={s.container}>
           {slides.map((slid) => (
-            <ContentBlock slid={slid} key={slid.id} />
+            <Component slid={slid} key={slid.id} />
           ))}
         </div>
       </div>
@@ -47,4 +48,4 @@ const SwiperArrows = (props) => {
   );
 };
 
-export default SwiperArrows;
+export default SwiperWithArrows;

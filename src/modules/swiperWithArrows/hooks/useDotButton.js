@@ -1,6 +1,5 @@
 'use client';
-import React, { useCallback, useEffect, useState } from 'react';
-import s from './SwiperArrows.module.scss';
+import { useCallback, useEffect, useState } from 'react';
 
 export const useDotButton = (emblaApi, onButtonClick) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -37,18 +36,4 @@ export const useDotButton = (emblaApi, onButtonClick) => {
     scrollSnaps,
     onDotButtonClick,
   };
-};
-
-export const DotButton = (props) => {
-  const { children, active, className, ...restProps } = props;
-
-  return (
-    <button
-      type="button"
-      className={active ? `${s.dotActive}` : `${s.dotBtn}`}
-      {...restProps}
-    >
-      {children}
-    </button>
-  );
 };

@@ -1,6 +1,6 @@
-import s from './ContentBlock.module.scss';
+import s from './CardForSwiperWhithArrow.module.scss';
 
-const ContentBlock = ({ slid }) => {
+const CardForSwiperWhithArrow = ({ slid }) => {
   const { title, text, item, total, currency, term, days, period } = slid;
   return (
     <div className={s.list}>
@@ -29,4 +29,4 @@ const ContentBlock = ({ slid }) => {
   );
 };
 
-export default ContentBlock;
+export default CardForSwiperWhithArrow;

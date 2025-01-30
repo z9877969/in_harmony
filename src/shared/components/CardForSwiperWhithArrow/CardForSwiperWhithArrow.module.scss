@@ -1,29 +1,13 @@
 @import '@/shared/styles/mixins';
 @import '@/shared/styles/variables';
 
-.content {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  @include media(desktop) {
-    width: 50%;
-  }
+.list {
+  transform: translate3d(0, 0, 0);
+  flex: 0 0 var(--slide-size);
+  min-width: 0;
+  padding-left: var(--slide-spacing);
 }
-.imgBlock {
-  width: 100%;
-  height: 234px;
-  border-radius: 2.3rem;
-  background: #dddddd;
 
-  @include media(tablet) {
-    height: 400px;
-  }
-  @include media(desktop) {
-    width: 50%;
-    height: auto;
-  }
-}
 .slide {
   display: flex;
   flex-direction: column-reverse;
@@ -36,11 +20,23 @@
   }
 }
 
-.list {
-  transform: translate3d(0, 0, 0);
-  flex: 0 0 var(--slide-size);
-  min-width: 0;
-  padding-left: var(--slide-spacing);
+.content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @include media(desktop) {
+    width: 50%;
+  }
+}
+
+.wrapper {
+  @include media(tablet) {
+    padding: 24px auto;
+  }
+  @include media(desktop) {
+    padding: 103px 50px;
+  }
 }
 
 .title {
@@ -69,18 +65,26 @@
     margin-bottom: 20px;
   }
 }
-.wrapper {
-  @include media(tablet) {
-    padding: 24px auto;
-  }
-  @include media(desktop) {
-    padding: 103px 50px;
-  }
-}
+
 .preTitle {
   @include font(18, 27);
   font-size: 18px;
   font-weight: 600;
   line-height: 27px;
   text-align: left;
+}
+
+.imgBlock {
+  width: 100%;
+  height: 234px;
+  border-radius: 2.3rem;
+  background: #dddddd;
+
+  @include media(tablet) {
+    height: 400px;
+  }
+  @include media(desktop) {
+    width: 50%;
+    height: auto;
+  }
 }

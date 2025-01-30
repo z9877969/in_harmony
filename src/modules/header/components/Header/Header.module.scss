@@ -1,0 +1,148 @@
+@import '../../../../shared/styles/mixins';
+@import '../../../../shared/styles/colors';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0px;
+  .logo {
+    display: flex;
+    gap: 16px;
+  }
+  .mobileMenuBtn {
+    padding: 0px;
+    background-color: transparent;
+    border: none;
+  }
+  .mobileMenuIcon {
+    width: 32px;
+    height: 32px;
+    stroke: $secondary-text-color;
+  }
+  .iconLogo {
+    width: 48px;
+    height: 48px;
+  }
+  .rightSide {
+    display: flex;
+    gap: 16px;
+  }
+  .donateBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    background-color: $orange-color;
+    border: none;
+    border-radius: 60px;
+    width: 177px;
+    padding: 12px 0;
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+    color: $wite-text-color;
+    @include colored-button-effects-styles($orange-color, $wite-text-color);
+  }
+  .heartIcon {
+    width: 24px;
+    height: 24px;
+    fill: $primary-bg-color;
+  }
+  .langBlock {
+    display: none;
+  }
+  .nav {
+    display: none;
+  }
+  .socials {
+    display: none;
+  }
+  @include media(mobile) {
+  }
+
+  @include media(to-tablet) {
+  }
+
+  @include media(tablet) {
+    .langBlock {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .langIcon {
+      width: 32px;
+      height: 32px;
+    }
+    .langBtn {
+      display: flex;
+      padding: 0px;
+      background-color: transparent;
+      border: none;
+    }
+    .langBtnIcon {
+      width: 16px;
+      height: 16px;
+      stroke: $secondary-text-color;
+      fill: none;
+    }
+  }
+
+  @include media(to-desktop) {
+  }
+
+  @include media(desktop) {
+    .mobileMenuBtn {
+      display: none;
+    }
+    .desktopStyle {
+      display: flex;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+    }
+    .navList {
+      display: flex;
+      gap: 32px;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 1.5;
+      color: $secondary-text-color;
+      margin-right: 32px;
+    }
+    .socials {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-right: 83px;
+    }
+    .socialLink {
+      display: flex;
+      justify-content: center;
+      margin: 0 auto;
+      border-radius: 100%;
+      padding: 6px;
+      background-color: $footer-input-bg-color;
+    }
+    .socialsIcon {
+      width: 24px;
+      height: 24px;
+      fill: #9d40e0;
+    }
+    .active {
+      color: $violet-ui-text-color;
+      ::after {
+        content: '';
+        display: block;
+        width: 40px;
+        border-radius: 60px;
+        height: 2px;
+        margin: 0px auto;
+        background-color: $violet-ui-text-color;
+      }
+    }
+  }
+}

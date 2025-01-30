@@ -3,7 +3,7 @@ import s from './ProgressBur.module.scss';
 
 const ProgressBar = ({ collected, target }) => {
   const progress = (collected / target) * 100;
-
+  const formattedProgress = Math.round(progress);
   return (
     <div className={s.mainProgressContainer}>
       <div className={s.targetContainer}>
@@ -23,25 +23,10 @@ const ProgressBar = ({ collected, target }) => {
             style={{ width: `${progress}%` }}
           ></div>
         </div>
-        <p className={s.rate}>{progress}%</p>
+        <p className={s.rate}>{formattedProgress}%</p>
       </div>
     </div>
   );
 };
 
 export default ProgressBar;
-
-// const ProgressBar = ({ progress }) => {
-//   const roundedProgress = Math.min(Math.ceil(progress / 25) * 25, 100);
-
-//   return (
-//     <div className={s.progressBarContainer]}>
-//       <div
-//         className={s.progressBar}
-//         data-progress={roundedProgress}
-//       ></div>
-//     </div>
-//   );
-// };
-
-// export default ProgressBar;

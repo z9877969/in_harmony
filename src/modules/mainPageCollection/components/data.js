@@ -17,7 +17,7 @@ export const ACTIVE_COLLECTION_LIST = [
     title: 'На підтримку воїнів',
     importance: 'Терміновий збір',
     image: '',
-    collected: 5000,
+    collected: 3600,
     target: 100000,
     alt: 'Collection 1',
     peopleDonate: 100,

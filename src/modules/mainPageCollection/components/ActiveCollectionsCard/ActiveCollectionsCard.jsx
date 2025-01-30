@@ -1,16 +1,9 @@
 import Image from 'next/image';
 import s from './ActiveCollectionsCard.module.scss';
 import ProgressBar from '../ProgressBur/ProgressBur';
+import { Icon } from '@/shared/components';
 
-const Icon = ({ name, className }) => {
-  return (
-    <svg className={`icon ${className}`}>
-      <use xlinkHref={`/icons/sprite.svg#${name}`} />
-    </svg>
-  );
-};
-
-function CollectionsCard({ collection }) {
+function ActiveCollectionsCard({ collection }) {
   return (
     <div className={s.ContentContainer}>
       <div className={s.collectionImg}>
@@ -37,7 +30,7 @@ function CollectionsCard({ collection }) {
           target={collection.target}
         />
         <p className={s.peopleDonate}>
-          <Icon name="icon-people" className="custom-class" />
+          <Icon iconName="icon-people" className={s.collectionIcon} />
           <span>{collection.peopleDonate}</span> донорів
         </p>
       </div>
@@ -45,4 +38,4 @@ function CollectionsCard({ collection }) {
   );
 }
 
-export default CollectionsCard;
+export default ActiveCollectionsCard;

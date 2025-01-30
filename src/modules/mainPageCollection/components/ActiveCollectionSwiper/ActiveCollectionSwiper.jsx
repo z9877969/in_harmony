@@ -1,11 +1,11 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import CollectionsCard from '../ActiveCollectionsCard/ActiveCollectionsCard';
 import CustomPagination from '../CustomPagination/CustomPagination';
 import clsx from 'clsx';
-import { ACTIVE_COLLECTION_LIST } from '../constants';
+import { ACTIVE_COLLECTION_LIST } from '../data';
+import ActiveCollectionsCard from '../ActiveCollectionsCard/ActiveCollectionsCard';
 
-const CollectionSwiper = ({
+const ActiveCollectionSwiper = ({
   onSlideChange,
   currentSlide,
   goToSlide,
@@ -26,7 +26,7 @@ const CollectionSwiper = ({
       >
         {ACTIVE_COLLECTION_LIST.slice(0, visibleItems).map((collection) => (
           <SwiperSlide key={collection._id}>
-            <CollectionsCard collection={collection} />
+            <ActiveCollectionsCard collection={collection} />
           </SwiperSlide>
         ))}
       </Swiper>
@@ -40,4 +40,4 @@ const CollectionSwiper = ({
   );
 };
 
-export default CollectionSwiper;
+export default ActiveCollectionSwiper;

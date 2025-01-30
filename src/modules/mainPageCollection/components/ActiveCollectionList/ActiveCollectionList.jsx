@@ -1,15 +1,15 @@
 import React from 'react';
-import CollectionsCard from '../ActiveCollectionsCard/ActiveCollectionsCard';
-import { ACTIVE_COLLECTION_LIST } from '../constants';
+import { ACTIVE_COLLECTION_LIST } from '../data';
 import s from './ActiveCollectionList.module.scss';
+import ActiveCollectionsCard from '../ActiveCollectionsCard/ActiveCollectionsCard';
 
-const CollectionList = ({ visibleItems }) => {
+const ActiveCollectionList = ({ visibleItems }) => {
   return (
     <>
       <ul className={s.collectionList}>
         {ACTIVE_COLLECTION_LIST.slice(0, visibleItems).map((collection) => (
           <li key={collection._id}>
-            <CollectionsCard collection={collection} />
+            <ActiveCollectionsCard collection={collection} />
           </li>
         ))}
       </ul>
@@ -17,4 +17,4 @@ const CollectionList = ({ visibleItems }) => {
   );
 };
 
-export default CollectionList;
+export default ActiveCollectionList;

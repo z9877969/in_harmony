@@ -3,9 +3,9 @@
 import s from './MainPageCollection.module.scss';
 import 'swiper/css';
 import { useEffect, useState } from 'react';
+import ActiveCollectionSwiper from '../ActiveCollectionSwiper/ActiveCollectionSwiper';
+import ActiveCollectionList from '../ActiveCollectionList/ActiveCollectionList';
 // import { useRouter } from 'next/navigation';
-import CollectionList from '../ActiveCollectionList/ActiveCollectionList';
-import CollectionSwiper from '../ActiveCollectionSwiper/ActiveCollectionSwiper';
 
 const MainPageCollection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -41,7 +41,7 @@ const MainPageCollection = () => {
         <h2 className={s.title}>Активні збори</h2>
         {isTablet ? (
           <>
-            <CollectionSwiper
+            <ActiveCollectionSwiper
               onSlideChange={handleSlideChange}
               currentSlide={currentSlide}
               goToSlide={goToSlide}
@@ -50,7 +50,7 @@ const MainPageCollection = () => {
             />
           </>
         ) : (
-          <CollectionList visibleItems={visibleItems} />
+          <ActiveCollectionList visibleItems={visibleItems} />
         )}
       </div>
     </section>

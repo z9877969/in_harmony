@@ -36,7 +36,7 @@ const MainPageCollection = () => {
   };
 
   return (
-    <section>
+    <section className={s.collectionSection}>
       <div className={s.mainContainer}>
         <h2 className={s.title}>Активні збори</h2>
         {isTablet ? (

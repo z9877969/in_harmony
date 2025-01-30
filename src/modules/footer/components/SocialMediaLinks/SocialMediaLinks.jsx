@@ -1,4 +1,4 @@
-import Icon from '@/shared/components/Icon/Icon.jsx';
+import { Icon } from '@/shared/components/index.js';
 import s from './SocialMediaLinks.module.scss';
 
 const SocialMediaLinks = () => {
@@ -20,7 +20,7 @@ const SocialMediaLinks = () => {
               iconName="icon-instagram"
               width="24"
               height="24"
-              style={{ fill: '#6702a1' }}
+              className="footerSocialMediaIcon"
             />
           </a>
         </li>
@@ -36,7 +36,7 @@ const SocialMediaLinks = () => {
               iconName="icon-telegram"
               width="24"
               height="24"
-              style={{ fill: '#6702a1' }}
+              className="footerSocialMediaIcon"
             />
           </a>
         </li>
@@ -52,7 +52,7 @@ const SocialMediaLinks = () => {
               iconName="icon-tiktok"
               width="24"
               height="24"
-              style={{ fill: '#6702a1' }}
+              className="footerSocialMediaIcon"
             />
           </a>
         </li>
@@ -68,7 +68,7 @@ const SocialMediaLinks = () => {
               iconName="icon-facebook"
               width="24"
               height="24"
-              style={{ fill: '#6702a1' }}
+              className="footerSocialMediaIcon"
             />
           </a>
         </li>

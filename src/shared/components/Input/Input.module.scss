@@ -1,8 +1,9 @@
 @import '@/shared/styles/mixins.scss';
+@import '@/shared/styles/colors.scss';
 
 .label {
   align-self: stretch;
-  color: var(--Final-UI-dark-grey, #222); //TODO!!!
+  color: $secondary-text-color;
   font-family: 'Open Sans';
   @include font(16, 24);
   font-weight: 700;
@@ -17,11 +18,22 @@
   align-self: stretch;
   border-radius: 60px;
   border: none;
-  background: var(--Final-UI-light, #f5f0f9);
+  background-color: $footer-input-bg-color;
 
   &::placeholder {
-    color: var(--Final-UI-dark-grey, #222); //TODO!!!
+    color: $secondary-text-color;
     @include font(16, 24);
     font-weight: 400;
+  }
+}
+
+.inputFooter {
+  @include media(tablet) {
+    background-color: transparent;
+    border: 1px solid $border-gray-color;
+
+    &::placeholder {
+      color: $primary-text-color;
+    }
   }
 }

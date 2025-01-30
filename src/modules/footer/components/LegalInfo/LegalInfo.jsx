@@ -1,8 +1,8 @@
 'use client';
 
-import Link from 'next/link.js'
-import { usePathname } from 'next/navigation.js'
-import s from './LegalInfo.module.scss'
+import Link from 'next/link.js';
+import { usePathname } from 'next/navigation.js';
+import s from './LegalInfo.module.scss';
 
 function LegalInfo() {
   const pathname = usePathname();

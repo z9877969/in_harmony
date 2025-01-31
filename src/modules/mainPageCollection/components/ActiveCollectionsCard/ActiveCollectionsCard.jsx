@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { Button, Icon } from '@/shared/components';
 import { CollectionProgress } from '@/modules/mainPageCollection';
+import collections from '../../data/collections.json';
 import s from './ActiveCollectionsCard.module.scss';
 
 function ActiveCollectionsCard({ collection }) {
@@ -43,10 +44,10 @@ function ActiveCollectionsCard({ collection }) {
             size="large"
             onClick={() => router.push(`/collection/${collection._id}`)}
           >
-            Детальніше
+            {collections.button_details}
           </Button>
           <Button onClick={() => router.push('')} size="large">
-            Задонатити
+            {collections.button_donas}
           </Button>
         </div>
       </div>

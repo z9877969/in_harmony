@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "clsx": "^2.1.1",
+    "formik": "^2.4.6",
     "next": "14.2.22",
     "normalize-scss": "^8.0.0",
     "react": "^18",

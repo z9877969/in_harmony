@@ -1,0 +1,45 @@
+@import '../../styles/_colors';
+
+.boxRadio {
+  display: flex;
+  overflow: hidden;
+  background-color: $primary-bg-color;
+  border-radius: 60px;
+  padding: 0px 6px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+.option {
+  border-radius: 60px;
+  width: 163px;
+  height: 36px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  transition: background-color 0.3s;
+  cursor: pointer;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  color: $footer-bold-text-color;
+}
+
+.active {
+  font-weight: 600;
+  background-color: $radio-active-bg-color;
+  color: $primary-bg-color;
+}
+
+@include media(tablet) {
+  .option {
+    width: 199px;
+  }
+}
+
+@include media(desktop) {
+  .option {
+    width: 182px;
+  }
+}

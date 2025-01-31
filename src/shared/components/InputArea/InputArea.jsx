@@ -12,7 +12,7 @@ const InputArea = ({
   ...props
 }) => {
   const id = useId();
-  const textAreaClass = clsx(s['textArea'], s[className]);
+  const textAreaClass = clsx(s['textArea'], className && className);
 
   return (
     <div>

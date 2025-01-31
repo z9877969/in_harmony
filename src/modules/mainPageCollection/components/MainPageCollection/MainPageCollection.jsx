@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { SwiperSlide } from 'swiper/react';
 import { Button, Container, DotsSwiper } from '@/shared/components';
 import { ActiveCollectionList } from '@/modules/mainPageCollection';
-import collections from '../../data/collections.json';
+import collections from '../../data/section-content.json';
 import { ActiveCollectionsCard } from '@/modules/mainPageCollection';
 import s from './MainPageCollection.module.scss';
 

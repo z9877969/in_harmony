@@ -3,3 +3,6 @@ export { default as Input } from './Input/Input';
 export { default as InputArea } from './InputArea/InputArea';
 export { default as Icon } from './Icon/Icon';
 export { default as Button } from './Button/Button';
+export { default as DotsSwiper } from './DotsSwiper/DotsSwiper.jsx';
+export { default as CustomPagination } from './DotsSwiper/CustomPagination/CustomPagination';
+export { default as ProgressBar } from './ProgressBar/ProgressBar';

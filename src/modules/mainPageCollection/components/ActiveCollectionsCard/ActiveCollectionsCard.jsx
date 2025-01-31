@@ -1,9 +1,10 @@
-import Image from 'next/image';
-import s from './ActiveCollectionsCard.module.scss';
-import ProgressBar from '../../../../shared/components/ProgressBar/ProgressBar';
-import { Icon } from '@/shared/components';
-import Button from '@/shared/components/Button/Button';
+'use client';
+
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
+import { Button, Icon } from '@/shared/components';
+import { CollectionProgress } from '@/modules/mainPageCollection';
+import s from './ActiveCollectionsCard.module.scss';
 
 function ActiveCollectionsCard({ collection }) {
   const router = useRouter();
@@ -28,7 +29,7 @@ function ActiveCollectionsCard({ collection }) {
           <h3 className={s.title}>{collection.title} </h3>
           <p className={s.desc}>{collection.desc}</p>
         </div>
-        <ProgressBar
+        <CollectionProgress
           collected={collection.collected}
           target={collection.target}
         />

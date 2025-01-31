@@ -1,16 +1,13 @@
 'use client';
 
-import s from './MainPageCollection.module.scss';
-import 'swiper/css';
 import { useEffect, useState } from 'react';
-import ActiveCollectionList from '../ActiveCollectionList/ActiveCollectionList';
-import collections from '../../data/collections.json';
-import ActiveCollectionsCard from '../ActiveCollectionsCard/ActiveCollectionsCard';
-import { SwiperSlide } from 'swiper/react';
-import DotsSwiper from '../../../../shared/components/DotsSwiper/DotsSwiper';
-import Button from '@/shared/components/Button/Button';
 import { useRouter } from 'next/navigation';
-import { Container } from '@/shared/components';
+import { SwiperSlide } from 'swiper/react';
+import { Button, Container, DotsSwiper } from '@/shared/components';
+import { ActiveCollectionList } from '@/modules/mainPageCollection';
+import { collections } from '@/modules/mainPageCollection';
+import { ActiveCollectionsCard } from '@/modules/mainPageCollection';
+import s from './MainPageCollection.module.scss';
 
 const MainPageCollection = () => {
   const [isTablet, setIsTablet] = useState(false);

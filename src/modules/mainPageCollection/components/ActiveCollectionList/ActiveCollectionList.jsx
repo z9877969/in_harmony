@@ -1,6 +1,6 @@
 import React from 'react';
+import { ActiveCollectionsCard } from '@/modules/mainPageCollection';
 import s from './ActiveCollectionList.module.scss';
-import ActiveCollectionsCard from '../ActiveCollectionsCard/ActiveCollectionsCard';
 
 const ActiveCollectionList = ({ visibleItems, collection }) => {
   return (

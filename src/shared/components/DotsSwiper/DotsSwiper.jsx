@@ -1,7 +1,10 @@
+'use client';
+
 import React, { useState } from 'react';
-import { Swiper } from 'swiper/react';
-import CustomPagination from './CustomPagination/CustomPagination';
 import clsx from 'clsx';
+import { Swiper } from 'swiper/react';
+import 'swiper/css';
+import { CustomPagination } from '..';
 
 const DotsSwiper = ({
   customSwiper,
@@ -26,11 +29,6 @@ const DotsSwiper = ({
         className={clsx(customSwiper)}
         spaceBetween={spaceBetween}
         slidesPerView={slideCount}
-        // breakpoints={{
-        //   768: {
-        //     slidesPerView: 2,
-        //   },
-        // }}
         onSlideChange={handleSlideChange}
       >
         {children}

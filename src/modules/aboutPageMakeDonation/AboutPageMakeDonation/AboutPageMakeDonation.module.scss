@@ -1,0 +1,95 @@
+.makeDonationSection {
+  padding-top: 48px;
+  padding-bottom: 96px;
+  margin: 0 auto;
+
+  @include media(desktop) {
+    padding-top: 76px;
+    padding-bottom: 152px;
+  }
+}
+
+.mainContainer {
+  display: flex;
+  gap: 48px;
+}
+
+.mainContentContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  @include media(tablet) {
+    gap: 40px;
+  }
+
+  @include media(desktop) {
+    gap: 48px;
+  }
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 370px;
+
+  @include media(tablet) {
+    gap: 12px;
+    max-width: 688px;
+  }
+
+  @include media(desktop) {
+    gap: 18px;
+    max-width: 612px;
+  }
+}
+
+.desc {
+  font-weight: 600;
+  @include font(16, 24);
+
+  @include media(tablet) {
+    @include font(18, 27);
+  }
+}
+
+.buttonsContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 24px;
+
+  @include media(tablet) {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .buttonSize {
+    width: 100%;
+
+    @include media(tablet) {
+      width: 332px;
+    }
+
+    @include media(desktop) {
+      width: 166px;
+    }
+  }
+}
+
+.imageContainer {
+  display: none;
+
+  @include media(desktop) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 636px;
+    height: 360px;
+    background-color: $img-backdrop-color;
+    border-radius: 32px;
+  }
+}

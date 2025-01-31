@@ -1,1 +1,1 @@
-export { default as AboutPageMakeDonation } from './AboutPageMakeDonation/AboutPageMakeDonation.jsx';
+export { default as AboutPageMakeDonation } from './components/AboutPageMakeDonation/AboutPageMakeDonation.jsx';

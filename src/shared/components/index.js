@@ -5,8 +5,11 @@ export { default as Icon } from './Icon/Icon';
 export { default as SectionTitle } from './SectionTitle/SectionTitle';
 export { default as CardForSwiperWhithArrow } from './CardForSwiperWhithArrow/CardForSwiperWhithArrow';
 export { default as Button } from './Button/Button';
+export { default as FormWithSumButtons } from './FormWithSumButtons/FormWithSumButtons.jsx';
+export { default as RadioButton } from './RadioButton/RadioButton.jsx';
 export { default as Dropdown } from './Dropdown/Dropdown';
 export { default as PublicPrivateForm } from './PublicPrivateForm/PublicPrivateForm';
 export { default as DotsSwiper } from './DotsSwiper/DotsSwiper.jsx';
 export { default as CustomPagination } from './DotsSwiper/CustomPagination/CustomPagination';
 export { default as ProgressBar } from './ProgressBar/ProgressBar';
+

@@ -1,0 +1,15 @@
+@import '../../../../shared/styles/mixins';
+
+.collectionList {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  @include media(desktop) {
+    flex-direction: row;
+    gap: 24px;
+  }
+}

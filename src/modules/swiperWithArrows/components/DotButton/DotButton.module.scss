@@ -1,0 +1,27 @@
+@import '@/shared/styles/mixins';
+@import '@/shared/styles/colors';
+
+@mixin dot-btn {
+  appearance: none;
+  touch-action: manipulation;
+  display: inline-flex;
+  text-decoration: none;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  width: 0.6rem;
+  height: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.dotBtn {
+  @include dot-btn;
+  background-color: $swiper-inactive-dots-color;
+}
+.dotActive {
+  @include dot-btn;
+  background-color: $swiper-active-dots-color;
+}

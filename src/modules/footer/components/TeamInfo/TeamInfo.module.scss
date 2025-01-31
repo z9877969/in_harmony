@@ -1,0 +1,29 @@
+@import '@/shared/styles/mixins.scss';
+@import '@/shared/styles/colors.scss';
+
+.teamWrapper {
+  align-self: center;
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+
+  @include media(tablet) {
+    align-self: self-end;
+  }
+}
+
+.teamInfoName {
+  @include font(18, 27);
+  font-weight: 600;
+  margin-bottom: 12px;
+
+  @include media(tablet) {
+    @include font(20, 30);
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+}
+
+.teamInfoPosition {
+  @include font(16, 24);
+  font-weight: 400;
+}

@@ -1,0 +1,53 @@
+{
+  "team": {
+    "members": [
+      {
+        "id": 1,
+        "firstName": "Ілона",
+        "lastName": "Морараш",
+        "position": "UI/UX Designer",
+        "social": [
+          { "name": "instagram", "url": "https://www.instagram.com" },
+          { "name": "telegram", "url": "https://www.telegram.com" },
+          { "name": "facebook", "url": "https://www.facebook.com" },
+          { "name": "linkedin", "url": "https://www.linkedin.com" },
+          { "name": "behance", "url": "https://www.behance.net" }
+        ]
+      },
+      {
+        "id": 2,
+        "firstName": "Ганна",
+        "lastName": "Желдак",
+        "position": "UI/UX Designer",
+        "social": [
+          { "name": "instagram", "url": "https://www.instagram.com" },
+          { "name": "telegram", "url": "https://www.telegram.com" },
+          { "name": "facebook", "url": "https://www.facebook.com" },
+          { "name": "linkedin", "url": "https://www.linkedin.com" },
+          { "name": "behance", "url": "https://www.behance.net" }
+        ]
+      },
+      {
+        "id": 3,
+        "firstName": "Наталія",
+        "lastName": "Медведєва",
+        "position": "UI/UX Designer",
+        "social": [
+          { "name": "instagram", "url": "https://www.instagram.com" },
+          { "name": "telegram", "url": "https://www.telegram.com" },
+          { "name": "facebook", "url": "https://www.facebook.com" },
+          { "name": "linkedin", "url": "https://www.linkedin.com" },
+          { "name": "behance", "url": "https://www.behance.net" }
+        ]
+      }
+    ]
+  },
+  "company": {
+    "social": [
+      { "name": "instagram", "url": "https://www.instagram.com" },
+      { "name": "telegram", "url": "https://www.telegram.com" },
+      { "name": "tiktok", "url": "https://www.tiktok.com" },
+      { "name": "facebook", "url": "https://www.facebook.com" }
+    ]
+  }
+}

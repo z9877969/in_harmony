@@ -1,77 +1,52 @@
 import { Icon } from '@/shared/components/index.js';
+import clsx from 'clsx';
+import SocialMediaItem from '../SocialMediaItem/SocialMediaItem.jsx';
 import s from './SocialMediaLinks.module.scss';
 
-const SocialMediaLinks = () => {
+const SocialMediaLinks = ({ data, className = '' }) => {
+  const classItem = clsx(s['socialIconsItem'], className && className);
+  console.log('classItemS: ', className);
+
   return (
-    <section aria-labelledby="social-media">
+    <section className={s.socialMediaSection} aria-labelledby="social-media">
       <h2 id="social-media" className="visuallyHidden">
-        Наші соціальні мережі
+        Cоціальні мережі
       </h2>
       <ul className={s.socialIconsList}>
-        <li className={s.socialIconsItem}>
-          <a
-            className={s.socialIconsLink}
-            href="https://www.instagram.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="instagram"
-          >
-            <Icon
-              iconName="icon-instagram"
-              width="24"
-              height="24"
-              className="footerSocialMediaIcon"
-            />
-          </a>
-        </li>
-        <li className={s.socialIconsItem}>
-          <a
-            className={s.socialIconsLink}
-            href="https://www.telegram.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="telegram"
-          >
-            <Icon
-              iconName="icon-telegram"
-              width="24"
-              height="24"
-              className="footerSocialMediaIcon"
-            />
-          </a>
-        </li>
-        <li className={s.socialIconsItem}>
-          <a
-            className={s.socialIconsLink}
-            href="https://www.tiktok.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="tiktok"
-          >
-            <Icon
-              iconName="icon-tiktok"
-              width="24"
-              height="24"
-              className="footerSocialMediaIcon"
-            />
-          </a>
-        </li>
-        <li className={s.socialIconsItem}>
-          <a
-            className={s.socialIconsLink}
-            href="https://www.facebook.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="facebook"
-          >
-            <Icon
-              iconName="icon-facebook"
-              width="24"
-              height="24"
-              className="footerSocialMediaIcon"
-            />
-          </a>
-        </li>
+        {data &&
+          data.map((socialItem, index) => (
+            <SocialMediaItem
+              className={s[className]}
+              socialItem={socialItem}
+              key={index}
+            >
+              <Icon
+                iconName={`icon-${socialItem.name}`}
+                width="24"
+                height="24"
+                className={s[className]}
+              />
+            </SocialMediaItem>
+            // <li
+            //   className={`${s['socialIconsItem']} ${s[className]}`}
+            //   key={index}
+            // >
+            //   <a
+            //     className={s.socialIconsLink}
+            //     href={url}
+            //     target="_blank"
+            //     rel="noopener noreferrer"
+            //     aria-label={name}
+            //   >
+            //     <Icon
+            //       iconName={`icon-${name}`}
+            //       width="24"
+            //       height="24"
+            //       className={s[className]}
+            //     />
+            //   </a>
+            // </li>
+          ))}
       </ul>
     </section>
   );

@@ -1,0 +1,19 @@
+@import '@/shared/styles/mixins.scss';
+@import '@/shared/styles/colors.scss';
+
+.ImageContainer {
+  width: 100px;
+  height: 100px;
+  border: none;
+  border-radius: 22px;
+  background-color: $social-icons-dark-grey-color;
+  flex-shrink: 0;
+
+  @include media(tablet) {
+    width: 200px;
+    height: 200px;
+    border-radius: 32px;
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+  }
+}

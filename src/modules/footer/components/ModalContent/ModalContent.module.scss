@@ -1,0 +1,26 @@
+@import '@/shared/styles/mixins.scss';
+@import '@/shared/styles/colors.scss';
+
+.modalTitle {
+  width: 209px;
+  font-family: Montserrat, sans-serif;
+  @include font(20, 30);
+  font-weight: 700;
+  margin-bottom: 12px;
+
+  @include media(tablet) {
+    width: auto;
+    @include font(24, 36);
+    margin-bottom: 16px;
+  }
+
+  @include media(desktop) {
+    @include font(32, 48);
+    margin-bottom: 24px;
+  }
+}
+
+.modalText {
+  @include font(16, 24);
+  font-weight: 400;
+}

@@ -1,5 +1,5 @@
-import { Icon } from '@/shared/components';
 import { uaFlag as LangIcon } from '/public/icons';
+import { Icon } from '@/shared/components';
 
 import s from './LangSwitcher.module.scss';
 

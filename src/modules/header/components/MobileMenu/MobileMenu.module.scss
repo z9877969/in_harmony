@@ -1,39 +1,53 @@
-.logo {
+.mobileMenu {
+  position: fixed;
   display: flex;
-  gap: 16px;
+  top: 80px;
+  flex-direction: column;
+  gap: 32px;
+  width: 100vw;
+  height: 100vh;
+  background-color: $primary-bg-color;
+  z-index: 9999;
+  overflow: hidden;
+  transform: translateX(-150%);
+  transition: all 0.3s;
 
-  .mobileMenuBtn {
-    padding: 0px;
-    background-color: transparent;
-    border: none;
+  .nav {
+    display: flex;
   }
-  .mobileMenuIcon {
-    width: 32px;
-    height: 32px;
-    stroke: $secondary-text-color;
+  .navList {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.5;
+    color: $secondary-text-color;
   }
-  .iconLogo {
-    width: 48px;
-    height: 48px;
+  .active {
+    color: $violet-ui-text-color;
   }
-  @include media(mobile) {
+  .socials {
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
+  .socialLink {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    border-radius: 100%;
+    padding: 6px;
+    background-color: $footer-input-bg-color;
+  }
+  .socialsIcon {
+    width: 24px;
+    height: 24px;
+    fill: #9d40e0;
+  }
+}
 
-  @include media(to-tablet) {
-  }
-
-  @include media(tablet) {
-  }
-
-  @include media(to-desktop) {
-  }
-
-  @include media(desktop) {
-    .mobileMenuBtn {
-      display: none;
-    }
-    .desktopStyle {
-      display: flex;
-    }
-  }
+.visible {
+  transform: translateX(0);
+  transition: all 0.3s;
 }

@@ -1,7 +1,4 @@
-@import '../../../../shared/styles/mixins';
-@import '../../../../shared/styles/colors';
-
-.donateBtn {
+.donateLink {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,20 +20,5 @@
     width: 24px;
     height: 24px;
     fill: $primary-bg-color;
-  }
-
-  @include media(mobile) {
-  }
-
-  @include media(to-tablet) {
-  }
-
-  @include media(tablet) {
-  }
-
-  @include media(to-desktop) {
-  }
-
-  @include media(desktop) {
   }
 }

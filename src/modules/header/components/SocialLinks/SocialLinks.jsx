@@ -1,6 +1,6 @@
-import s from './SocialLinks.module.scss';
-
 import { Icon } from '@/shared/components';
+
+import s from './SocialLinks.module.scss';
 
 const SocialLinks = () => {
   return (

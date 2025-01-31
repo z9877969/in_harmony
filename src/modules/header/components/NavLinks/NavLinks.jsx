@@ -1,8 +1,9 @@
 'use client';
-import { usePathname } from 'next/navigation';
-import s from './NavLinks.module.scss';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+
+import s from './NavLinks.module.scss';
 
 const NavLinks = () => {
   const pathname = usePathname();
@@ -13,11 +14,11 @@ const NavLinks = () => {
         <li className={pathname === `/${locale}` ? s.active : ''}>
           <Link href={`/${locale}`}>Головна</Link>
         </li>
-        <li className={pathname === `/${locale}/donations` ? s.active : ''}>
-          <Link href={`/${locale}/donations`}>Поточні збори</Link>
+        <li className={pathname === `/${locale}/collection` ? s.active : ''}>
+          <Link href={`/${locale}/collection`}>Поточні збори</Link>
         </li>
-        <li className={pathname === `/${locale}/reports` ? s.active : ''}>
-          <Link href={`/${locale}/reports`}>Звітність</Link>
+        <li className={pathname === `/${locale}/reporting` ? s.active : ''}>
+          <Link href={`/${locale}/reporting`}>Звітність</Link>
         </li>
         <li className={pathname === `/${locale}/about` ? s.active : ''}>
           <Link href={`/${locale}/about`}>Про нас</Link>

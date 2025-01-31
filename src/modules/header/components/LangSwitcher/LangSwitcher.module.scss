@@ -1,6 +1,3 @@
-@import '../../../../shared/styles/mixins';
-@import '../../../../shared/styles/colors';
-
 .langBlock {
   display: none;
   @include media(mobile) {
@@ -30,11 +27,5 @@
       stroke: $secondary-text-color;
       fill: none;
     }
-  }
-
-  @include media(to-desktop) {
-  }
-
-  @include media(desktop) {
   }
 }

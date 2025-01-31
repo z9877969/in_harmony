@@ -1,19 +1,5 @@
-@import '../../../../shared/styles/mixins';
-@import '../../../../shared/styles/colors';
-
 .socials {
   display: none;
-  @include media(mobile) {
-  }
-
-  @include media(to-tablet) {
-  }
-
-  @include media(tablet) {
-  }
-
-  @include media(to-desktop) {
-  }
 
   @include media(desktop) {
     display: flex;

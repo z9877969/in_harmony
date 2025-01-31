@@ -1,14 +1,14 @@
 'use client';
 
 import { useRef, useState, useEffect } from 'react';
-import { AboutPagePartnersCard } from '@/modules/aboutPagePartners';
+import AboutPagePartnersCard from '../AboutPagePartnersCard/AboutPagePartnersCard';
 import s from './AboutPagePartnersCarousel.module.scss';
 const AboutPagePartnersCarousel = ({ partners }) => {
   const containerRef = useRef(null);
   const [scrollAmount, setScrollAmount] = useState(0);
   const [isScrolling] = useState(true);
 
-  const duplicatedItems = [...partners, ...partners];
+  const duplicatedItems = [...partners.logo, ...partners.logo];
 
   useEffect(() => {
     if (!isScrolling || !containerRef.current) return;

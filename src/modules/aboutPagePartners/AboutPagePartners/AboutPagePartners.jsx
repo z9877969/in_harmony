@@ -1,8 +1,6 @@
 import { Container } from '@/shared/components';
-import {
-  AboutPagePartnersCarousel,
-  partners,
-} from '@/modules/aboutPagePartners';
+import partners from '../data/partners.json';
+import AboutPagePartnersCarousel from '../AboutPagePartnersCarousel/AboutPagePartnersCarousel';
 import s from './AboutPagePartners.module.scss';
 
 const AboutPagePartners = () => {
@@ -11,11 +9,8 @@ const AboutPagePartners = () => {
       <Container>
         <div className={s.mainContainer}>
           <div className={s.textContainer}>
-            <h2 className={s.title}>Наші партнери</h2>
-            <p className={s.desc}>
-              Партнери — це надійна підтримка, завдяки якій ми можемо досягати
-              більшого.
-            </p>
+            <h2 className={s.title}>{partners.title}</h2>
+            <p className={s.desc}>{partners.desc}</p>
           </div>
           <AboutPagePartnersCarousel partners={partners} />
         </div>

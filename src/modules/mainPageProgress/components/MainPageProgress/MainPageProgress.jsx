@@ -1,5 +1,5 @@
 'use client';
-import Container from '@/shared/components';
+import { Container } from '@/shared/components';
 import { SectionTitle } from '@/shared/components';
 import { CardForSwiperWhithArrow } from '@/shared/components';
 import { SwiperWithArrows } from '@/modules/swiperWithArrows';

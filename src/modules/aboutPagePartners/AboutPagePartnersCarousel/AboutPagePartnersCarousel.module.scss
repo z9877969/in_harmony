@@ -1,0 +1,10 @@
+@import '../../../shared/styles/_mixins';
+
+.list {
+  display: flex;
+  gap: 16px;
+
+  @include media(tablet) {
+    gap: 24px;
+  }
+}

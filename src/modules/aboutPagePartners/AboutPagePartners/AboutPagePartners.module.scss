@@ -1,0 +1,61 @@
+@import '../../../shared/styles/_mixins';
+
+.partnersSection {
+  padding: 48px 0;
+
+  @include media(desktop) {
+    padding: 76px 0;
+  }
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  @include media(tablet) {
+    gap: 40px;
+  }
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 370px;
+
+  @include media(tablet) {
+    gap: 12px;
+    max-width: 688px;
+
+    @include font(18, 27);
+  }
+
+  @include media(desktop) {
+    gap: 18px;
+    max-width: 577px;
+  }
+
+  .title {
+    font-family: $secondary-font-family;
+    font-weight: 700;
+    @include font(24, 28);
+
+    @include media(tablet) {
+      @include font(32, 40);
+    }
+
+    @include media(desktop) {
+      @include font(40, 48);
+    }
+  }
+
+  .desc {
+    font-weight: 600;
+    @include font(16, 24);
+
+    @include media(tablet) {
+      @include font(18, 27);
+    }
+  }
+}

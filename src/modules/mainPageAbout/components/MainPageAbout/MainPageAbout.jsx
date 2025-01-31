@@ -6,34 +6,36 @@ import Button from '@/shared/components/Button/Button';
 
 const MainPageAbout = () => {
   return (
-    <Container>
-      <div className={s.container}>
-        <section className={s.about}>
-          <h1>{data.title}</h1>
-          <p>{data.description}</p>
-        </section>
-        <section className={s.activities}>
-          <h1>{data.activities.title}</h1>
-          <div className={s.cards}>
-            {data.activities.cards.map((item) => (
-              <ActivitiesCard
-                key={item.id}
-                logo={item.logo}
-                title={item.title}
-                description={item.description}
-              />
-            ))}
-          </div>
-        </section>
-        <section className={s.motivation}>{data.motivation}</section>
-        <section className={s.image}></section>
-        <section className={s.learnMore}>
-          <Button variant="secondary" border={true}>
-            {data.learnMore}
-          </Button>
-        </section>
-      </div>
-    </Container>
+    <section>
+      <Container>
+        <div className={s.contentContainer}>
+          <section className={s.about}>
+            <h2>{data.title}</h2>
+            <p>{data.description}</p>
+          </section>
+          <section className={s.activities}>
+            <h3>{data.activities.title}</h3>
+            <div className={s.cards}>
+              {data.activities.cards.map((item) => (
+                <ActivitiesCard
+                  key={item.id}
+                  logo={item.logo}
+                  title={item.title}
+                  description={item.description}
+                />
+              ))}
+            </div>
+          </section>
+          <section className={s.motivation}>{data.motivation}</section>
+          <section className={s.image}></section>
+          <section className={s.learnMore}>
+            <Button variant="secondary" border={true}>
+              {data.learnMore}
+            </Button>
+          </section>
+        </div>
+      </Container>
+    </section>
   );
 };
 

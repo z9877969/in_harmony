@@ -1,7 +1,4 @@
-@import '/src/shared/styles/mixins';
-@import '/src/shared/styles/colors';
-
-.container {
+.contentContainer {
   padding: 48px 0;
   display: grid;
   row-gap: 40px;
@@ -36,7 +33,7 @@
   }
 }
 
-.about > h1 {
+.about > h2 {
   @include font(24, 28);
   font-family: --font-montserrat, sans-serif;
   margin-bottom: 24px;
@@ -58,7 +55,7 @@
   }
 }
 
-.activities > h1 {
+.activities > h3 {
   @include font(24, 28);
   font-family: --font-montserrat, sans-serif;
   margin-bottom: 72px;

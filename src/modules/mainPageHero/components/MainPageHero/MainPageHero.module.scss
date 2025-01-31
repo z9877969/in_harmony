@@ -39,10 +39,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 1150px;
+
+  @include media(tablet) {
+    min-height: 1200px;
+  }
 
   @include media(desktop) {
+    min-height: 700px;
   }
 }
+
 .heroTitle {
   font-family: $secondary-font-family;
   @include font(24, 36);

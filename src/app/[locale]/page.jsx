@@ -3,6 +3,7 @@ import { MainPageCollection } from '@/modules/mainPageCollection';
 import { MainPageDonat } from '@/modules/mainPageDonat';
 import { MainPageHero } from '@/modules/mainPageHero';
 import { MainPageProgress } from '@/modules/mainPageProgress';
+
 import s from './page.module.scss';
 // to remove -Start
 import { uaFlag as UaFlagIcon } from '/public/icons';

@@ -3,6 +3,7 @@
 import { useRef, useState, useEffect } from 'react';
 import AboutPagePartnersCard from '../AboutPagePartnersCard/AboutPagePartnersCard';
 import s from './AboutPagePartnersCarousel.module.scss';
+
 const AboutPagePartnersCarousel = ({ partners }) => {
   const containerRef = useRef(null);
   const [scrollAmount, setScrollAmount] = useState(0);

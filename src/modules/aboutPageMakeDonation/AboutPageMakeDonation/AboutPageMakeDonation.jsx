@@ -1,9 +1,9 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import { Button, Container, Icon, SectionTitle } from '@/shared/components';
 import donation from '../data/section-content.json';
 import s from './AboutPageMakeDonation.module.scss';
-import { useRouter } from 'next/navigation';
 
 const AboutPageMakeDonation = () => {
   const router = useRouter(s);

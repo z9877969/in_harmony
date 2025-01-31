@@ -1,0 +1,36 @@
+@import '@/shared/styles/mixins';
+@import '@/shared/styles/colors';
+
+.embla {
+  width: 100%;
+  margin: auto;
+  --slide-height: 38rem;
+  --slide-size: 100%;
+}
+.embla__viewport {
+  overflow: hidden;
+}
+.container {
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+}
+.controls {
+  margin-top: 32px;
+  @include media(tablet) {
+    margin-top: 40px;
+  }
+  @include media(desktop) {
+    margin-top: 48px;
+  }
+}
+.buttons {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+}
+.dots {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  gap: 12px;
+}

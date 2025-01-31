@@ -1,0 +1,27 @@
+@import '@/shared/styles/mixins';
+@import '@/shared/styles/colors';
+@mixin button {
+  touch-action: manipulation;
+  display: inline-flex;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  width: 60px;
+  height: 36px;
+  border-radius: 32px;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnDisabled {
+  @include button;
+  border: 1px solid $swiper-inactive-dots-color;
+}
+
+.btnEnabled {
+  @include button;
+  background-color: transparent;
+  border: 1px solid $swiper-active-dots-color;
+}
+

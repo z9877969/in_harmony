@@ -1,4 +1,47 @@
+@import '../../../../shared/styles/mixins';
+
+.collectionSection {
+  padding: 48px 0;
+
+  @include media(desktop) {
+    padding: 76px 0;
+  }
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  @include media(tablet) {
+    gap: 42px;
+  }
+
+  @include media(desktop) {
+    gap: 48px;
+  }
+
+  .customSwiper {
+    overflow: visible;
+  }
+}
+
 .title {
   max-width: 300px;
-  margin: 0 auto;
+  font-family: $secondary-font-family;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.25;
+}
+
+.desktopButton {
+  @include media(tablet) {
+    min-height: 54px;
+    width: 448px;
+    margin: 0 auto;
+  }
+
+  @include media(desktop) {
+    min-height: 48px;
+  }
 }

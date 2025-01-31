@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { Button, Icon } from '@/shared/components';
 import { CollectionProgress } from '@/modules/mainPageCollection';
-import collections from '../../data/collections.json';
+import collections from '../../data/section-content.json';
 import s from './ActiveCollectionsCard.module.scss';
 
 function ActiveCollectionsCard({ collection }) {

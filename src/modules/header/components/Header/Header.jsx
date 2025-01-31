@@ -1,13 +1,45 @@
-import { Container } from '@/shared/components';
+import { Container, Icon } from '@/shared/components';
+import { inHarmonyLogo as Logo } from '/public/icons';
+
+import LangSwitcher from '../LangSwitcher/LangSwitcher';
+import Link from '../Link/Link';
+import NavLinks from '../NavLinks/NavLinks';
+import SocialLinks from '../SocialLinks/SocialLinks';
+import MobileMenu from '../MobileMenu/MobileMenu';
+
 import s from './Header.module.scss';
 
 const Header = () => {
   return (
-    <header>
-      <Container>
-        <h2 className={s.title}>Header content</h2>
-      </Container>
-    </header>
+    <>
+      <header>
+        <Container>
+          {/* Left side header */}
+          <div className={s.header}>
+            <div className={s.logoContainer}>
+              <MobileMenu />
+              <Link>
+                <Logo className={s.iconLogo} />
+              </Link>
+            </div>
+            {/* Navigations header */}
+            <div className={s.desktopStyle}>
+              <NavLinks />
+              {/* Socials link header*/}
+              <SocialLinks />
+              {/* Right side header */}
+              <div className={s.rightSide}>
+                <Link href={'/donations'} className={s.donateLink}>
+                  <Icon className={s.heartIcon} iconName="icon-heart" />
+                  Допомога
+                </Link>
+                <LangSwitcher />
+              </div>
+            </div>
+          </div>
+        </Container>
+      </header>
+    </>
   );
 };
 

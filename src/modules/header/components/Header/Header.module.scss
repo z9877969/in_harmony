@@ -1,0 +1,65 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0px;
+  .logoContainer {
+    display: flex;
+    gap: 16px;
+  }
+  .mobileMenuBtn {
+    padding: 0px;
+    background-color: transparent;
+    border: none;
+  }
+  .mobileMenuIcon {
+    width: 32px;
+    height: 32px;
+    stroke: $secondary-text-color;
+  }
+  .iconLogo {
+    width: 48px;
+    height: 48px;
+  }
+
+  .donateLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    background-color: $orange-color;
+    border: none;
+    border-radius: 60px;
+    width: 177px;
+    padding: 12px 0;
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+    color: $wite-text-color;
+    @include colored-button-effects-styles($orange-color, $wite-text-color);
+
+    .heartIcon {
+      width: 24px;
+      height: 24px;
+      fill: $primary-bg-color;
+    }
+  }
+
+  @include media(tablet) {
+    .rightSide {
+      display: flex;
+      gap: 16px;
+    }
+  }
+
+  @include media(desktop) {
+    .mobileMenuBtn {
+      display: none;
+    }
+    .desktopStyle {
+      display: flex;
+    }
+  }
+}

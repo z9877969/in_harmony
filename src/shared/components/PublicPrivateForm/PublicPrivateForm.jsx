@@ -15,6 +15,7 @@ const PublicPrivateForm = () => {
         Надихайте інших –<br /> зробіть свій внесок публічним!
       </p>
       <div className={s.inputContainer}>
+        <h3>TogglerComponent</h3>
         <Input type="text" placeholder="Ім'я" name="name" className={s.input} />
         <Input
           type="text"

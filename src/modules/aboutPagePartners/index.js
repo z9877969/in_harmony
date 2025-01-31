@@ -1,1 +1,1 @@
-export { default as AboutPagePartners } from './AboutPagePartners/AboutPagePartners.jsx';
+export { default as AboutPagePartners } from './components/AboutPagePartners/AboutPagePartners';

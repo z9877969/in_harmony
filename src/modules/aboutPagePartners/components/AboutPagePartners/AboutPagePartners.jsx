@@ -1,5 +1,5 @@
 import { Container } from '@/shared/components';
-import partners from '../data/section-content.json';
+import partners from '../../data/section-content.json';
 import AboutPagePartnersCarousel from '../AboutPagePartnersCarousel/AboutPagePartnersCarousel';
 import s from './AboutPagePartners.module.scss';
 

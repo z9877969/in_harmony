@@ -1,8 +1,8 @@
 'use client';
 
 import { useRef, useState, useEffect } from 'react';
-import AboutPagePartnersCard from '../AboutPagePartnersCard/AboutPagePartnersCard';
 import s from './AboutPagePartnersCarousel.module.scss';
+import AboutPagePartnersCard from '../AboutPagePartnersCard/AboutPagePartnersCard';
 
 const AboutPagePartnersCarousel = ({ partners }) => {
   const containerRef = useRef(null);

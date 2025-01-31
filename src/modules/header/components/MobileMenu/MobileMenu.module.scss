@@ -1,15 +1,7 @@
-@import '../../../../shared/styles/mixins';
-@import '../../../../shared/styles/colors';
-
-.header {
+.logo {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 0px;
-  .logoContainer {
-    display: flex;
-    gap: 16px;
-  }
+  gap: 16px;
+
   .mobileMenuBtn {
     padding: 0px;
     background-color: transparent;
@@ -31,10 +23,6 @@
   }
 
   @include media(tablet) {
-    .rightSide {
-      display: flex;
-      gap: 16px;
-    }
   }
 
   @include media(to-desktop) {

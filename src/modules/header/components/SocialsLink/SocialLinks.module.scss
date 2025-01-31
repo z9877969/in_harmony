@@ -1,0 +1,38 @@
+@import '../../../../shared/styles/mixins';
+@import '../../../../shared/styles/colors';
+
+.socials {
+  display: none;
+  @include media(mobile) {
+  }
+
+  @include media(to-tablet) {
+  }
+
+  @include media(tablet) {
+  }
+
+  @include media(to-desktop) {
+  }
+
+  @include media(desktop) {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-right: 83px;
+
+    .socialLink {
+      display: flex;
+      justify-content: center;
+      margin: 0 auto;
+      border-radius: 100%;
+      padding: 6px;
+      background-color: $footer-input-bg-color;
+    }
+    .socialsIcon {
+      width: 24px;
+      height: 24px;
+      fill: #9d40e0;
+    }
+  }
+}

@@ -1,0 +1,44 @@
+@import '../../../../shared/styles/mixins';
+@import '../../../../shared/styles/colors';
+
+.nav {
+  display: none;
+  @include media(mobile) {
+  }
+
+  @include media(to-tablet) {
+  }
+
+  @include media(tablet) {
+  }
+
+  @include media(to-desktop) {
+  }
+
+  @include media(desktop) {
+    display: flex;
+    align-items: center;
+
+    .navList {
+      display: flex;
+      gap: 32px;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 1.5;
+      color: $secondary-text-color;
+      margin-right: 32px;
+    }
+    .active {
+      color: $violet-ui-text-color;
+      ::after {
+        content: '';
+        display: block;
+        width: 40px;
+        height: 2px;
+        border: radius 50%;
+        margin: 0px auto;
+        background-color: $violet-ui-text-color;
+      }
+    }
+  }
+}

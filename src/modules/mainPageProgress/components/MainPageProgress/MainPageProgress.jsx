@@ -7,8 +7,8 @@ import { CardForSwiperWhithArrow } from '@/shared/components';
 import Container from '@/shared/components/Container/Container';
 const MainPageProgress = () => {
   return (
-    <Container>
-      <section className={s.container}>
+    <section className={s.container}>
+      <Container>
         <SectionTitle className={s.title} title="Останні досягнення" />
         <SwiperWithArrows
           options={{
@@ -19,8 +19,8 @@ const MainPageProgress = () => {
           slides={content}
           Component={CardForSwiperWhithArrow}
         />
-      </section>
-    </Container>
+      </Container>
+    </section>
   );
 };
 

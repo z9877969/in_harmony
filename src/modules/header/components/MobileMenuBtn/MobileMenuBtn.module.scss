@@ -1,0 +1,20 @@
+.mobileMenuBtn {
+  padding: 0px;
+  background-color: transparent;
+  border: none;
+
+  .mobileMenuOpen {
+    width: 32px;
+    height: 32px;
+    stroke: $secondary-text-color;
+  }
+  .mobileMenuClose {
+    width: 32px;
+    height: 32px;
+    fill: $secondary-text-color;
+  }
+
+  @include media(desktop) {
+    display: none;
+  }
+}

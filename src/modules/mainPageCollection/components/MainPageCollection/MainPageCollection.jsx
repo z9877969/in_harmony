@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { SwiperSlide } from 'swiper/react';
 import { Button, Container, DotsSwiper } from '@/shared/components';
 import { ActiveCollectionList } from '@/modules/mainPageCollection';
-import { collections } from '@/modules/mainPageCollection';
+import collections from '../../data/section-content.json';
 import { ActiveCollectionsCard } from '@/modules/mainPageCollection';
 import s from './MainPageCollection.module.scss';
 
@@ -13,6 +13,8 @@ const MainPageCollection = () => {
   const [isTablet, setIsTablet] = useState(false);
   const [visibleItems] = useState(3);
   const router = useRouter();
+
+  const allCollections = collections.collections;
 
   useEffect(() => {
     const handleResize = () => {
@@ -34,7 +36,7 @@ const MainPageCollection = () => {
     <section className={s.collectionSection}>
       <Container>
         <div className={s.mainContainer}>
-          <h2 className={s.title}>Активні збори</h2>
+          <h2 className={s.title}>{collections.title}</h2>
           <div>
             {isTablet ? (
               <DotsSwiper
@@ -44,7 +46,7 @@ const MainPageCollection = () => {
                 slideCount={2}
                 spaceBetween={24}
               >
-                {collections.slice(0, visibleItems).map((collection) => (
+                {allCollections.slice(0, visibleItems).map((collection) => (
                   <SwiperSlide key={collection._id}>
                     <ActiveCollectionsCard collection={collection} />
                   </SwiperSlide>
@@ -64,7 +66,7 @@ const MainPageCollection = () => {
             size="large"
             fontSize="eighteen"
           >
-            Всі збори
+            {collections.all_collections_button}
           </Button>
         </div>
       </Container>

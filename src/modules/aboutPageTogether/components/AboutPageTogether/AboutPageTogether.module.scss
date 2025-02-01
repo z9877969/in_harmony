@@ -1,5 +1,12 @@
-.contentContainer {
+.wrapper {
   padding: 48px 0;
+
+  @include media(desktop) {
+    padding: 76px 0;
+  }
+}
+
+.contentContainer {
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -7,12 +14,9 @@
   @include media(tablet) {
     gap: 40px;
   }
-  @include media(desktop) {
-    padding: 76px 0;
-  }
 }
 
-.title > h2 {
+.title {
   @include font(24, 28);
   font-family: $secondary-font-family;
   max-width: 300px;

@@ -6,33 +6,34 @@ import s from './MainPageAbout.module.scss';
 
 const MainPageAbout = () => {
   return (
-    <section>
+    <section className={s.wrapper}>
       <Container>
         <div className={s.contentContainer}>
-          <section className={s.about}>
+          <div className={s.about}>
             <h2>{data.title}</h2>
             <p>{data.description}</p>
-          </section>
-          <section className={s.activities}>
+          </div>
+          <div className={s.activities}>
             <h3>{data.activities.title}</h3>
-            <div className={s.cards}>
+            <ul className={s.cards}>
               {data.activities.cards.map((item) => (
-                <ActivitiesCard
-                  key={item.id}
-                  icon={item.icon}
-                  title={item.title}
-                  description={item.description}
-                />
+                <li key={item.id}>
+                  <ActivitiesCard
+                    icon={item.icon}
+                    title={item.title}
+                    description={item.description}
+                  />
+                </li>
               ))}
-            </div>
-          </section>
-          <section className={s.motivation}>{data.motivation}</section>
-          <section className={s.image}></section>
-          <section className={s.learnMore}>
+            </ul>
+          </div>
+          <p className={s.motivation}>{data.motivation}</p>
+          <div className={s.image}></div>
+          <div className={s.learnMore}>
             <Button variant="secondary" border={true}>
               {data.learnMore}
             </Button>
-          </section>
+          </div>
         </div>
       </Container>
     </section>

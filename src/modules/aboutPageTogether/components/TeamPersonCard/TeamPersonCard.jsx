@@ -4,7 +4,7 @@ import s from './TeamPersonCard.module.scss';
 const TeamPersonCard = ({ icon, name, role, description }) => {
   return (
     <div className={s.card}>
-      <section className={s.info}>
+      <div className={s.info}>
         <div className={s.icon}>
           <Icon className={s[icon]} iconName={icon} />
         </div>
@@ -12,8 +12,8 @@ const TeamPersonCard = ({ icon, name, role, description }) => {
           <p>{name}</p>
           <span>{role}</span>
         </div>
-      </section>
-      <section className={s.description}>{description}</section>
+      </div>
+      <p className={s.description}>{description}</p>
     </div>
   );
 };

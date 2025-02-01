@@ -1,5 +1,12 @@
-.contentContainer {
+.wrapper {
   padding: 48px 0;
+
+  @include media(desktop) {
+    padding: 76px 0;
+  }
+}
+
+.contentContainer {
   display: grid;
   row-gap: 40px;
   justify-items: center;
@@ -8,7 +15,6 @@
     gap: 48px;
   }
   @include media(desktop) {
-    padding: 76px 0;
     grid-template-areas:
       'about image'
       'activities activities'
@@ -101,7 +107,7 @@
   }
   @include media(desktop) {
     @include font(24, 28);
-    width: 620px;
+    width: 650px;
   }
 }
 

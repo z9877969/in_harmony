@@ -5,27 +5,26 @@ import s from './AboutPageTogether.module.scss';
 
 const AboutPageTogether = () => {
   return (
-    <section>
+    <section className={s.wrapper}>
       <Container>
         <div className={s.contentContainer}>
-          <section className={s.title}>
-            <h2>{data.title}</h2>
-          </section>
-          <section className={s.team}>
+          <h2 className={s.title}>{data.title}</h2>
+          <div className={s.team}>
             <h3>{data.team.title}</h3>
             <p>{data.team.description}</p>
-          </section>
-          <section className={s.cards}>
+          </div>
+          <ul className={s.cards}>
             {data.team.cards.map((item) => (
-              <TeamPersonCard
-                key={item.id}
-                icon={item.icon}
-                name={item.name}
-                role={item.role}
-                description={item.description}
-              />
+              <li key={item.id}>
+                <TeamPersonCard
+                  icon={item.icon}
+                  name={item.name}
+                  role={item.role}
+                  description={item.description}
+                />
+              </li>
             ))}
-          </section>
+          </ul>
         </div>
       </Container>
     </section>

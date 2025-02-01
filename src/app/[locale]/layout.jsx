@@ -3,6 +3,7 @@ import '../globals.scss';
 import clsx from 'clsx';
 import { Header } from '@/modules/header';
 import { Footer } from '@/modules/footer';
+import { BreadCrumbs } from '@/shared/components';
 
 export const metadata = {
   title: 'In Harmony',
@@ -26,6 +27,7 @@ export default function RootLayout({ children }) {
     <html lang="uk">
       <body className={clsx(montserrat.className, open_sans.className)}>
         <Header />
+        <BreadCrumbs />
         <main>{children}</main>
         <Footer />
       </body>

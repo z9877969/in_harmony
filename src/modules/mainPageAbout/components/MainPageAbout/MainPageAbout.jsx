@@ -1,8 +1,8 @@
 import { Container } from '@/shared/components';
-import ActivitiesCard from '../ActivitiesCard/ActivitiesCard';
-import s from './MainPageAbout.module.scss';
-import data from '../../data/info.json';
 import Button from '@/shared/components/Button/Button';
+import ActivitiesCard from '../ActivitiesCard/ActivitiesCard';
+import data from '../../data/sectionContent.json';
+import s from './MainPageAbout.module.scss';
 
 const MainPageAbout = () => {
   return (
@@ -19,7 +19,7 @@ const MainPageAbout = () => {
               {data.activities.cards.map((item) => (
                 <ActivitiesCard
                   key={item.id}
-                  logo={item.logo}
+                  icon={item.icon}
                   title={item.title}
                   description={item.description}
                 />

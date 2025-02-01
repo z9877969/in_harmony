@@ -35,7 +35,7 @@
 
 .about > h2 {
   @include font(24, 28);
-  font-family: --font-montserrat, sans-serif;
+  font-family: $secondary-font-family;
   margin-bottom: 24px;
 
   @include media(tablet) {
@@ -48,6 +48,7 @@
 
 .about > p {
   @include font(16, 24);
+  font-family: $primary-font-family;
   font-weight: 400;
 
   @include media(desktop) {
@@ -57,7 +58,7 @@
 
 .activities > h3 {
   @include font(24, 28);
-  font-family: --font-montserrat, sans-serif;
+  font-family: $secondary-font-family;
   margin-bottom: 72px;
   max-width: 300px;
 
@@ -87,15 +88,14 @@
 
 .motivation {
   @include font(18, 27);
+  font-family: $primary-font-family;
   text-align: center;
-  font-weight: 600;
   margin-bottom: -16px;
 
   @include media(tablet) {
     grid-row: 4 / 5;
     @include font(20, 28);
-    font-family: --font-montserrat, sans-serif;
-    font-weight: 700;
+    font-family: $secondary-font-family;
     padding: 0 40px;
     margin-bottom: 0;
   }
@@ -125,8 +125,7 @@
 
 .learnMore > button {
   @include font(18, 27);
-  font-weight: 600;
-  font-family: var(--font-open_sans), sans-serif;
+  font-family: $primary-font-family;
   width: 370px;
 
   @include media(tablet) {

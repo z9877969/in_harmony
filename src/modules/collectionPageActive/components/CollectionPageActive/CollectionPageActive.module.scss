@@ -1,0 +1,22 @@
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.list {
+  flex-wrap: wrap;
+
+  @include media(tablet) {
+    row-gap: 32px;
+    flex-direction: row;
+    column-gap: 24px;
+  }
+}
+
+.button {
+  @include media(tablet) {
+    margin: 0 auto;
+    width: 416px;
+  }
+}

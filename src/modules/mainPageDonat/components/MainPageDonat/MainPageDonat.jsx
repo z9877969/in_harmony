@@ -1,4 +1,5 @@
 import { FormWithSumButtons, SectionTitle } from '@/shared/components';
+
 // import s from './MainPageDonat.module.scss';
 
 const MainPageDonat = () => {

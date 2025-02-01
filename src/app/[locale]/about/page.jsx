@@ -9,8 +9,8 @@ const AboutPage = () => {
       <AboutPageHero />
       <h2>AboutPageMission</h2>
       <AboutPageTogether />
-      <h2>AboutPagePartners</h2>
-      <h2>AboutPageMakeDonation</h2>
+      <AboutPagePartners />
+      <AboutPageMakeDonation />
     </>
   );
 };

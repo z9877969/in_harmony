@@ -20,7 +20,7 @@ import data from './data/sectionContent.json';
 const Footer = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleModal = () => {
-    setIsOpen((prev) => !isOpen);
+    setIsOpen((prev) => !prev);
   };
 
   return (
@@ -39,7 +39,8 @@ const Footer = () => {
             <Contacts />
             <SocialMediaLinks
               data={data && data.company.social}
-              className={'footerSocialMediaIcon'}
+              itemClassName={s.footerSocialMediaItem}
+              iconClassName={s.footerSocialMediaIcon}
             />
           </div>
 
@@ -63,13 +64,7 @@ const Footer = () => {
         </div>
       </Container>
       <Modal className={'teamModal'} open={isOpen} onClose={toggleModal}>
-        <ModalContent
-          title="Знайомтесь з нашою командою"
-          text="Цей сайт був створений завдяки зусиллям студентів GoIT, які працювали
-          над його розробкою. Кожен учасник команди вніс важливий внесок,
-          застосовуючи знання, навички та креативність для досягнення спільної
-          мети. Познайомтеся з людьми, які стоять за створенням цього проєкту:"
-        >
+        <ModalContent title={data.teamModal.title} text={data.teamModal.text}>
           <TeamList data={data.team.members} />
         </ModalContent>
       </Modal>

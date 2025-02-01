@@ -2,6 +2,7 @@ import s from './SocialMediaItem.module.scss';
 
 const SocialMediaItem = ({ socialItem, children, className = '' }) => {
   const itemClass = `${s.socialIconsItem} ${className}`;
+
   return (
     <li className={itemClass}>
       <a

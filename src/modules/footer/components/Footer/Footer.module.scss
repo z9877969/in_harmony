@@ -109,3 +109,19 @@
     border-bottom: 1px solid $primary-text-color;
   }
 }
+
+.footerSocialMediaItem {
+  background-color: $social-icons-color;
+
+  @include media(tablet) {
+    background-color: $social-icons-dark-grey-color;
+  }
+}
+
+.footerSocialMediaIcon {
+  fill: $footer-social-media-icon-violet-color;
+
+  @include media(tablet) {
+    fill: $wite-text-color;
+  }
+}

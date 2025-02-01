@@ -14,7 +14,8 @@ const TeamList = ({ data }) => {
               <TeamInfo data={member} />
               <SocialMediaLinks
                 data={member.social}
-                className={'socialIconsItemTeam'}
+                itemClassName={s.teamSocialMediaItem}
+                iconClassName={s.teamSocialMediaIcon}
               />
             </li>
           );

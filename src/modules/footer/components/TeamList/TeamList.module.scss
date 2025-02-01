@@ -31,6 +31,10 @@
   }
 }
 
-.socialIconsItemTeam {
-  fill: $wite-text-color;
+.teamSocialMediaItem {
+  background-color: $social-icons-dark-grey-color;
+}
+
+.teamSocialMediaIcon {
+  fill: white;
 }

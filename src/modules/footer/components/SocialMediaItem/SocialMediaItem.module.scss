@@ -11,18 +11,6 @@
   border-radius: 50%;
 }
 
-.footerSocialMediaIcon {
-  background-color: $social-icons-color;
-
-  @include media(tablet) {
-    background-color: $social-icons-dark-grey-color;
-  }
-}
-
-.socialIconsItemTeam {
-  background-color: $social-icons-dark-grey-color;
-}
-
 .socialIconsLink {
   display: flex;
   align-items: center;

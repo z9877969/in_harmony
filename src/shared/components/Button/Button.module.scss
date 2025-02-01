@@ -14,11 +14,11 @@
 //font size
 
 .eighteen {
-  font-size: 18px;
+  @include font(18, 27);
 }
 
 .twenty {
-  font-size: 20px;
+  @include font(20, 30);
 }
 
 // colors

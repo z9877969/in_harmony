@@ -9,8 +9,7 @@ const content = [
     term: 'Термін реалізаці:',
     days: '10 ',
     period: 'днів',
-    imageUrl:
-      'https://d33wubrfki0l68.cloudfront.net/dd23708ebc4053551bb33e18b7174e73b6e1710b/dea24/static/images/wallpapers/shared-colors@2x.png',
+    imageUrl: '',
   },
   {
     id: 1,
@@ -22,8 +21,7 @@ const content = [
     term: 'Термін реалізаці:',
     days: '10 ',
     period: 'днів',
-    imageUrl:
-      'https://d33wubrfki0l68.cloudfront.net/dd23708ebc4053551bb33e18b7174e73b6e1710b/dea24/static/images/wallpapers/shared-colors@2x.png',
+    imageUrl: '',
   },
   {
     id: 2,
@@ -35,8 +33,7 @@ const content = [
     term: 'Термін реалізаці:',
     days: '10 ',
     period: 'днів',
-    imageUrl:
-      'https://d33wubrfki0l68.cloudfront.net/dd23708ebc4053551bb33e18b7174e73b6e1710b/dea24/static/images/wallpapers/shared-colors@2x.png',
+    imageUrl: '',
   },
 ];
 export { content };

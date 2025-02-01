@@ -1,3 +1,5 @@
+import { AboutPageMakeDonation } from '@/modules/aboutPageMakeDonation';
+import { AboutPagePartners } from '@/modules/aboutPagePartners';
 import { AboutPageHero } from '@/modules/aboutPageHero';
 import { AboutPageTogether } from '@/modules/aboutPageTogether';
 import s from './page.module.scss';

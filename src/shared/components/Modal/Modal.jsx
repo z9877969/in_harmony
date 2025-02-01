@@ -1,36 +1,48 @@
 'use client';
 
 import clsx from 'clsx';
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useMemo, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import s from './Modal.module.scss';
 
 export default function Modal({ open, onClose, children, className }) {
   const dialogRef = useRef(null);
-  const modalRoot = document.getElementById('modal');
-  const modalClass = clsx(s['modal'], className && s[className]);
+
+  const modalRoot = useMemo(
+    () =>
+      typeof document !== 'undefined' ? document.getElementById('modal') : null,
+    []
+  );
 
   useEffect(() => {
     const dialog = dialogRef.current;
+    if (!dialog) return;
+
     if (open) {
-      dialog?.showModal();
+      requestAnimationFrame(() => {
+        dialog.showModal();
+      });
       document.body.style.overflow = 'hidden';
     }
+
     return () => {
-      dialog?.close();
-      document.body.style.overflow = '';
+      if (dialog.open) {
+        dialog.close();
+        document.body.style.overflow = '';
+      }
     };
   }, [open]);
 
-  const handleBackdropClick = (e) => {
-    if (e.target === dialogRef.current) {
-      onClose();
-    }
-  };
+  const handleBackdropClick = useCallback(
+    (e) => {
+      if (e.target === dialogRef.current) onClose();
+    },
+    [onClose]
+  );
 
-  const handleStopPropagation = (e) => {
+  const handleStopPropagation = useCallback((e) => {
     e.stopPropagation();
-  };
+  }, []);
 
   if (!open || !modalRoot) return null;
 
@@ -41,7 +53,7 @@ export default function Modal({ open, onClose, children, className }) {
       onCancel={onClose}
       onClick={handleBackdropClick}
     >
-      <div className={modalClass} onClick={handleStopPropagation}>
+      <div className={clsx(s.modal, className)} onClick={handleStopPropagation}>
         {children}
       </div>
     </dialog>,

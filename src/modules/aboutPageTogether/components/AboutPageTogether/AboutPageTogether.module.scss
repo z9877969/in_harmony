@@ -1,0 +1,69 @@
+.contentContainer {
+  padding: 48px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @include media(tablet) {
+    gap: 40px;
+  }
+  @include media(desktop) {
+    padding: 76px 0;
+  }
+}
+
+.title > h2 {
+  @include font(24, 28);
+  font-family: $secondary-font-family;
+  max-width: 300px;
+
+  @include media(tablet) {
+    @include font(32, 40);
+    max-width: 400px;
+  }
+  @include media(desktop) {
+    @include font(40, 48);
+    max-width: 500px;
+  }
+}
+
+.team > h3 {
+  @include font(20, 28);
+  font-family: $secondary-font-family;
+  margin-bottom: 8px;
+
+  @include media(tablet) {
+    @include font(24, 28);
+  }
+  @include media(desktop) {
+    @include font(32, 40);
+    margin-bottom: 18px;
+  }
+}
+
+.team > p {
+  @include font(16, 24);
+  font-family: $primary-font-family;
+  font-weight: 400;
+
+  @include media(tablet) {
+    @include font(18, 27);
+  }
+  @include media(desktop) {
+    font-weight: 600;
+  }
+}
+
+.cards {
+  display: grid;
+  gap: 24px;
+
+  @include media(tablet) {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: -8px;
+  }
+  @include media(desktop) {
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 0;
+  }
+}

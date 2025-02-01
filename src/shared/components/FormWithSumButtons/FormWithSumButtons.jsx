@@ -1,9 +1,21 @@
 'use client';
 
-import { Field, Form, Formik } from 'formik';
+import { ErrorMessage, Field, Form, Formik } from 'formik';
+import * as yup from 'yup';
+
 import { Button, Container, RadioButton } from '../index.js';
 
+import { arrowFormDonate as FormIcon } from '/public/icons';
+
+import data from './data/sectionContent.json';
+
 import s from './FormWithSumButtons.module.scss';
+import Link from 'next/link.js';
+
+const validationSchemaFormDonate = yup.object().shape({
+  donateTime: yup.string().required(),
+  amount: yup.number().typeError().positive().required(),
+});
 
 const FormWithSumButtons = () => {
   const amounts = [200, 500, 1000];
@@ -21,6 +33,7 @@ const FormWithSumButtons = () => {
               amount: '',
               donateTime: 'oneTime',
             }}
+            validationSchema={validationSchemaFormDonate}
             onSubmit={onSubmit}
           >
             {({ setFieldValue }) => (
@@ -28,18 +41,15 @@ const FormWithSumButtons = () => {
                 <Field name="donateTime">
                   {({ field }) => (
                     <RadioButton
-                      options={[
-                        { value: 'oneTime', label: 'Одноразово' },
-                        { value: 'monthly', label: 'Щомісячно' },
-                      ]}
+                      options={data.donateTimeOptions}
                       name="donateTime"
                       onChange={(value) => setFieldValue(field.name, value)}
                     />
                   )}
                 </Field>
                 <div className={s.textForm}>
-                  <p>Регулярна допомога рятує більше життів!</p>
-                  <div className={s.arrowTest}></div>
+                  <p>{data.text}</p>
+                  <FormIcon className={s.iconForm} />
                 </div>
                 <div className={s.boxBtn}>
                   {amounts.map((amount) => (
@@ -56,22 +66,28 @@ const FormWithSumButtons = () => {
                 </div>
                 <div className={s.boxInput}>
                   <Field
-                    type="string"
+                    type="number"
                     id="amount"
                     name="amount"
                     placeholder="0"
                     className={s.inputDonate}
                   />
                   <span className={s.spanInput}>UAH</span>
+                  <ErrorMessage
+                    className={s.errorText}
+                    name="amount"
+                    component="span"
+                  />
                 </div>
+
                 <Button type="submit" variant="primary" className={s.btnSubmit}>
-                  До сплати
+                  {data.submitButton}
                 </Button>
               </Form>
             )}
           </Formik>
           <div className={s.boxLink}>
-            <a href="#">Інші способи оплати</a>
+            <Link href="/payments">{data.otherPayment}</Link>
           </div>
         </div>
       </Container>

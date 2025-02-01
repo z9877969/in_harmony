@@ -24,22 +24,16 @@
   line-height: 1.5;
   text-align: center;
   color: $footer-bold-text-color;
+  @include media(tablet) {
+    width: 199px;
+  }
+  @include media(desktop) {
+    width: 182px;
+  }
 }
 
 .active {
   font-weight: 600;
   background-color: $radio-active-bg-color;
   color: $primary-bg-color;
-}
-
-@include media(tablet) {
-  .option {
-    width: 199px;
-  }
-}
-
-@include media(desktop) {
-  .option {
-    width: 182px;
-  }
 }

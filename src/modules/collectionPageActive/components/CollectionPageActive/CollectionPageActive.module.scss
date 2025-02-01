@@ -1,3 +1,15 @@
+.section {
+  padding: 8px 0 48px 0;
+
+  @include media(tablet) {
+    padding: 8px 0 95px 0;
+  }
+
+  @include media(desktop) {
+    padding: 16px 0 76px 0;
+  }
+}
+
 .mainContainer {
   display: flex;
   flex-direction: column;

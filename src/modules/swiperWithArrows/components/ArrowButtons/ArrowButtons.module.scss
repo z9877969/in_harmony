@@ -1,5 +1,4 @@
-@import '@/shared/styles/mixins';
-@import '@/shared/styles/colors';
+
 @mixin button {
   touch-action: manipulation;
   display: inline-flex;
@@ -17,6 +16,10 @@
 .btnDisabled {
   @include button;
   border: 1px solid $swiper-inactive-dots-color;
+  .icon {
+    fill: transparent;
+    stroke: $swiper-inactive-dots-color;
+  }
 }
 
 .btnEnabled {
@@ -25,3 +28,7 @@
   border: 1px solid $swiper-active-dots-color;
 }
 
+.icon {
+  fill: transparent;
+  stroke: $swiper-active-dots-color;
+}

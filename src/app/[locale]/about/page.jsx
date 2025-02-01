@@ -1,4 +1,5 @@
 import { AboutPageMakeDonation } from '@/modules/aboutPageMakeDonation';
+import { AboutPagePartners } from '@/modules/aboutPagePartners';
 import { AboutPageHero } from '@/modules/aboutPageHero';
 import s from './page.module.scss';
 
@@ -9,7 +10,7 @@ const AboutPage = () => {
       <AboutPageHero />
       <h2>AboutPageMission</h2>
       <h2>AboutPageTogether</h2>
-      <h2>AboutPagePartners</h2>
+      <AboutPagePartners />
       <AboutPageMakeDonation />
     </>
   );

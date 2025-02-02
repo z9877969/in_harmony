@@ -1,7 +1,7 @@
 .card {
   width: 370px;
   height: 336px;
-  background-color: $swiper-inactive-dots-color;
+  background-color: #faf2e4;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,21 +17,25 @@
   }
 }
 
-.logo {
+.icon {
   width: 140px;
   height: 140px;
   border-radius: 50%;
-  background-color: #d9d9d9;
+  background-color: #f5f0f9;
   border: 10px solid $primary-bg-color;
   position: relative;
   top: -50px;
   margin-bottom: -50px;
 }
 
+.iconDefault {
+  position: relative;
+  fill: #6702a1;
+}
+
 .icon-support {
   width: 105px;
   height: 75px;
-  position: relative;
   top: 30px;
   left: 8px;
 }
@@ -39,7 +43,6 @@
 .icon-hand {
   width: 93px;
   height: 89px;
-  position: relative;
   top: 16px;
   left: 13px;
 }
@@ -47,7 +50,6 @@
 .icon-animal-paw {
   width: 88px;
   height: 84px;
-  position: relative;
   top: 24px;
   left: 16px;
 }
@@ -55,23 +57,25 @@
 .icon-house {
   width: 83px;
   height: 79px;
-  position: relative;
   top: 21px;
   left: 18px;
 }
 
 .card > h3 {
   @include font(18, 27);
-  font-weight: 600;
+  font-family: $primary-font-family;
   max-width: 266px;
   text-align: center;
+  color: $secondary-text-color;
 }
 
 .card > p {
   @include font(16, 24);
+  font-family: $primary-font-family;
   font-weight: 400;
   max-width: 322px;
   text-align: center;
+  color: $secondary-text-color;
 
   @include media(tablet) {
     max-width: 266px;

@@ -24,8 +24,7 @@
   }
 }
 .buttons {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
+  display: flex;
   align-items: center;
 }
 .dots {

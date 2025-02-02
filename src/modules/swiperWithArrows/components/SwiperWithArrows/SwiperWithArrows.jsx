@@ -7,7 +7,8 @@ import { useDotButton } from '../../hooks/useDotButton';
 import s from './SwiperWhithArrows.module.scss';
 
 const SwiperWithArrows = (props) => {
-  const { slides, Component, options } = props;
+  const { slides, Component, options, className, isArrowsShow, classEmbla } =
+    props;
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
 
   const { selectedIndex, scrollSnaps, onDotButtonClick } =
@@ -21,9 +22,9 @@ const SwiperWithArrows = (props) => {
   } = usePrevNextButtons(emblaApi);
 
   return (
-    <section className={s.embla}>
+    <section className={`${s.embla} ${classEmbla}`}>
       <div className={s.embla__viewport} ref={emblaRef}>
-        <div className={s.container}>
+        <div className={`${s.container} ${className}`}>
           {slides.map((slid) => (
             <Component slid={slid} key={slid.id} />
           ))}
@@ -31,7 +32,12 @@ const SwiperWithArrows = (props) => {
       </div>
       <div className={s.controls}>
         <div className={s.buttons}>
-          <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
+          {isArrowsShow && (
+            <PrevButton
+              onClick={onPrevButtonClick}
+              disabled={prevBtnDisabled}
+            />
+          )}
           <div className={s.dots}>
             {scrollSnaps.map((_, index) => (
               <DotButton
@@ -41,7 +47,12 @@ const SwiperWithArrows = (props) => {
               />
             ))}
           </div>
-          <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
+          {isArrowsShow && (
+            <NextButton
+              onClick={onNextButtonClick}
+              disabled={nextBtnDisabled}
+            />
+          )}
         </div>
       </div>
     </section>

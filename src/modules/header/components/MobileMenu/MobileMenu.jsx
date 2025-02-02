@@ -1,14 +1,12 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
-
 import { Icon } from '@/shared/components';
-
 import MobileMenuBtn from '../MobileMenuBtn/MobileMenuBtn';
-
+import { ROUTES } from '@/shared/constants';
 import s from './MobileMenu.module.scss';
 
 const MobileMenu = () => {
@@ -50,26 +48,36 @@ const MobileMenu = () => {
               </Link>
             </li>
             <li
-              className={pathname === `/${locale}/collection` ? s.active : ''}
+              className={
+                pathname === `/${locale}/${ROUTES.COLLECTION}` ? s.active : ''
+              }
             >
               <Link
-                href={`/${locale}/collection`}
+                href={`/${locale}/${ROUTES.COLLECTION}`}
                 onClick={() => setVisible(!visible)}
               >
                 Поточні збори
               </Link>
             </li>
-            <li className={pathname === `/${locale}/reporting` ? s.active : ''}>
+            <li
+              className={
+                pathname === `/${locale}/${ROUTES.REPORTING}` ? s.active : ''
+              }
+            >
               <Link
-                href={`/${locale}/reporting`}
+                href={`/${locale}/${ROUTES.REPORTING}`}
                 onClick={() => setVisible(!visible)}
               >
                 Звітність
               </Link>
             </li>
-            <li className={pathname === `/${locale}/about` ? s.active : ''}>
+            <li
+              className={
+                pathname === `/${locale}/${ROUTES.ABOUT}` ? s.active : ''
+              }
+            >
               <Link
-                href={`/${locale}/about`}
+                href={`/${locale}/${ROUTES.ABOUT}`}
                 onClick={() => setVisible(!visible)}
               >
                 Про нас

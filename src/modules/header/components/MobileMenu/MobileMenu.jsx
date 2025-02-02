@@ -5,9 +5,7 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Icon } from '@/shared/components';
-
 import MobileMenuBtn from '../MobileMenuBtn/MobileMenuBtn';
-
 import { ROUTES } from '@/shared/constants';
 import s from './MobileMenu.module.scss';
 

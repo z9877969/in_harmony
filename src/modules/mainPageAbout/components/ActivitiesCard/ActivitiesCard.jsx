@@ -1,12 +1,12 @@
-import s from './ActivitiesCard.module.scss';
 import { Icon } from '@/shared/components';
+import s from './ActivitiesCard.module.scss';
 
-const ActivitiesCard = ({ logo, title, description }) => {
+const ActivitiesCard = ({ icon, title, description }) => {
   return (
     <div className={s.card}>
-      <section className={s.logo}>
-        <Icon className={s[logo]} iconName={logo} />
-      </section>
+      <div className={s.icon}>
+        <Icon className={`${s.iconDefault} ${s[icon]}`} iconName={icon} />
+      </div>
       <h3>{title}</h3>
       <p>{description}</p>
     </div>

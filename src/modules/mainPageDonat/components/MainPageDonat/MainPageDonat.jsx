@@ -6,7 +6,7 @@ import {
   SectionTitle,
 } from '@/shared/components';
 
-import data from '../../data/sectionContant.json';
+import data from '../../data/sectionContent.json';
 
 import s from './MainPageDonat.module.scss';
 

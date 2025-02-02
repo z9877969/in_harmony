@@ -2,6 +2,8 @@
 
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as yup from 'yup';
+import clsx from 'clsx';
+import Link from 'next/link.js';
 
 import { Button, RadioButton } from '../index.js';
 
@@ -10,14 +12,13 @@ import { arrowFormDonate as FormIcon } from '/public/icons';
 import data from './data/sectionContent.json';
 
 import s from './FormWithSumButtons.module.scss';
-import Link from 'next/link.js';
 
 const validationSchemaFormDonate = yup.object().shape({
   donateTime: yup.string().required(),
   amount: yup.number().typeError().positive().required(),
 });
 
-const FormWithSumButtons = () => {
+const FormWithSumButtons = ({ className = '' }) => {
   const amounts = [200, 500, 1000];
 
   const onSubmit = (values, { resetForm }) => {
@@ -26,7 +27,7 @@ const FormWithSumButtons = () => {
     resetForm();
   };
   return (
-    <div className={s.boxForm}>
+    <div className={clsx(s.boxForm, `${className}`)}>
       <Formik
         initialValues={{
           amount: '',

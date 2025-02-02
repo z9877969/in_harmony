@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation.js';
+import { ROUTES } from '@/shared/constants';
 import s from './SiteNavigation.module.scss';
 
 const SiteNavigation = () => {
@@ -17,15 +18,15 @@ const SiteNavigation = () => {
           </Link>
         </li>
         <li className={s.navItem}>
-          <Link href={`/${locale}/collection`}>Поточні збори</Link>
+          <Link href={`/${locale}/${ROUTES.COLLECTION}`}>Поточні збори</Link>
         </li>
         <li className={s.navItem}>
-          <Link href={`/${locale}/reporting`} className={s.navLink}>
+          <Link href={`/${locale}/${ROUTES.REPORTING}`} className={s.navLink}>
             Звітність
           </Link>
         </li>
         <li className={s.navItem}>
-          <Link href={`/${locale}/about`} className={s.navLink}>
+          <Link href={`/${locale}/${ROUTES.ABOUT}`} className={s.navLink}>
             Про нас
           </Link>
         </li>

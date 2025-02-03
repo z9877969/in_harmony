@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { SwiperSlide } from 'swiper/react';
 import { Button, Container, DotsSwiper } from '@/shared/components';
+import { ROUTES } from '@/shared/constants';
 import { ActiveCollectionList } from '@/modules/mainPageCollection';
 import collections from '../../data/section-content.json';
 import { ActiveCollectionsCard } from '@/modules/mainPageCollection';
@@ -60,7 +61,7 @@ const MainPageCollection = () => {
             )}
           </div>
           <Button
-            onClick={() => router.push('/all-collections')}
+            onClick={() => router.push(`/${ROUTES.COLLECTION}`)}
             border="true"
             className={s.desktopButton}
             size="large"

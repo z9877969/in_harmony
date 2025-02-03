@@ -12,10 +12,9 @@ import {
   lightDesktop2x,
 } from '@/shared/images/active-collection';
 import { CollectionProgress } from '@/modules/mainPageCollection';
-import collections from '../../data/section-content.json';
 import s from './ActiveCollectionsCard.module.scss';
 
-function ActiveCollectionsCard({ collection }) {
+function ActiveCollectionsCard({ collection, buttonDetails, buttonDonas }) {
   const router = useRouter();
 
   return (
@@ -66,7 +65,7 @@ function ActiveCollectionsCard({ collection }) {
               router.push(`/${ROUTES.COLLECTION}/${collection._id}`)
             }
           >
-            {collections.button_details}
+            {buttonDetails}
           </Button>
           <Button
             onClick={() => router.push('')}
@@ -74,7 +73,7 @@ function ActiveCollectionsCard({ collection }) {
             className={s.heartButton}
           >
             <Icon iconName="icon-heart" className={s.heartIcon} />
-            {collections.button_donas}
+            {buttonDonas}
           </Button>
         </div>
       </div>

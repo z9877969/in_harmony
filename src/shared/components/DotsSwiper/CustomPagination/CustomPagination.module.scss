@@ -1,0 +1,22 @@
+.customPagination {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.paginationDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 100%;
+  background-color: $swiper-inactive-dots-color;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.activeDot {
+  background-color: $swiper-active-dots-color;
+}

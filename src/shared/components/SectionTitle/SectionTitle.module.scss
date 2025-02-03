@@ -1,0 +1,20 @@
+@import '@/shared/styles/mixins';
+@import '@/shared/styles/variables';
+
+.title {
+  font-family: $secondary-font-family;
+  font-weight: 700;
+  text-align: left;
+
+  @include media(mobile) {
+    @include font(24, 28);
+  }
+
+  @include media(tablet) {
+    @include font(32, 40);
+  }
+
+  @include media(desktop) {
+    @include font(40, 48);
+  }
+}

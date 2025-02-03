@@ -11,13 +11,18 @@
   },
   "dependencies": {
     "clsx": "^2.1.1",
+    "embla-carousel-react": "^8.5.2",
+    "formik": "^2.4.6",
     "next": "14.2.22",
     "normalize-scss": "^8.0.0",
     "react": "^18",
     "react-dom": "^18",
-    "sass": "^1.83.4"
+    "sass": "^1.83.4",
+    "swiper": "^11.2.1",
+    "yup": "^1.6.1"
   },
   "devDependencies": {
+    "@svgr/webpack": "^8.1.0",
     "eslint": "^8.57.1",
     "eslint-config-next": "^14.2.22",
     "eslint-plugin-react-refresh": "^0.4.18",

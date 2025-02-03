@@ -13,17 +13,17 @@ const ContactUs = ({ data }) => {
 
         <form className={s.form}>
           <Input
-            className="inputFooter"
+            className={s.inputFooter}
             type="text"
             placeholder={data.placeholderName}
           />
           <Input
-            className="inputFooter"
+            className={s.inputFooter}
             type="text"
             placeholder={data.placeholderEmail}
           />
           <InputArea
-            className="textAreaFooter"
+            className={s.textAreaFooter}
             placeholder={data.placeholderMessage}
           />
           <button

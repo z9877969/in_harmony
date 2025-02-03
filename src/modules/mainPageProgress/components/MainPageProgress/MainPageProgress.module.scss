@@ -1,4 +1,15 @@
+.container {
+  padding: 46px 0;
+  @include media(desktop) {
+    padding: 76px 0;
+  }
+}
 .title {
-  max-width: 300px;
-  margin: 0 auto;
+  margin-bottom: 32px;
+  @include media(tablet) {
+    margin-bottom: 40px;
+  }
+  @include media(desktop) {
+    margin-bottom: 48px;
+  }
 }

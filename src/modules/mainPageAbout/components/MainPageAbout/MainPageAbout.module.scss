@@ -1,4 +1,143 @@
-.title {
-    max-width: 300px;
-    margin: 0 auto;
+.wrapper {
+  padding: 48px 0;
+
+  @include media(desktop) {
+    padding: 76px 0;
+  }
+}
+
+.contentContainer {
+  display: grid;
+  row-gap: 40px;
+  justify-items: center;
+
+  @include media(tablet) {
+    gap: 48px;
+  }
+  @include media(desktop) {
+    grid-template-areas:
+      'about image'
+      'activities activities'
+      'motivation motivation'
+      'learnMore learnMore';
+
+    .about {
+      grid-area: about;
+    }
+    .image {
+      grid-area: image;
+    }
+    .activities {
+      grid-area: activities;
+    }
+    .motivation {
+      grid-area: motivation;
+    }
+    .learnMore {
+      grid-area: learnMore;
+    }
+  }
+}
+
+.about > h2 {
+  @include font(24, 28);
+  font-family: $secondary-font-family;
+  margin-bottom: 24px;
+
+  @include media(tablet) {
+    @include font(32, 40);
+  }
+  @include media(desktop) {
+    @include font(40, 48);
+  }
+}
+
+.about > p {
+  @include font(16, 24);
+  font-family: $primary-font-family;
+  font-weight: 400;
+
+  @include media(desktop) {
+    @include font(18, 27);
+  }
+}
+
+.activities > h3 {
+  @include font(24, 28);
+  font-family: $secondary-font-family;
+  margin-bottom: 72px;
+  max-width: 300px;
+
+  @include media(tablet) {
+    @include font(32, 40);
+    max-width: none;
+    margin-bottom: 56px;
+  }
+  @include media(desktop) {
+    margin-bottom: 68px;
+  }
+}
+
+.cards {
+  display: grid;
+  row-gap: 84px;
+  justify-items: center;
+
+  @include media(tablet) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 64px 24px;
+  }
+  @include media(desktop) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.motivation {
+  @include font(18, 27);
+  font-family: $primary-font-family;
+  text-align: center;
+  margin-bottom: -16px;
+
+  @include media(tablet) {
+    grid-row: 4 / 5;
+    @include font(20, 28);
+    font-family: $secondary-font-family;
+    padding: 0 40px;
+    margin-bottom: 0;
+  }
+  @include media(desktop) {
+    @include font(24, 28);
+    width: 650px;
+  }
+}
+
+.image {
+  width: 370px;
+  height: 220px;
+  background-color: $img-backdrop-color;
+  border-radius: 32px;
+  margin-bottom: -8px;
+
+  @include media(tablet) {
+    width: 688px;
+    height: 409px;
+    margin-bottom: 0;
+  }
+  @include media(desktop) {
+    width: 636px;
+    height: 424px;
+  }
+}
+
+.learnMore > button {
+  @include font(18, 27);
+  font-family: $primary-font-family;
+  width: 370px;
+
+  @include media(tablet) {
+    width: 450px;
+  }
+  @include media(desktop) {
+    width: fit-content;
+  }
 }

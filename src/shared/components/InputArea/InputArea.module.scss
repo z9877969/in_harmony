@@ -13,8 +13,8 @@
   gap: 10px;
   align-self: stretch;
   border-radius: 24px;
-  border: none;
-  background-color: $footer-input-bg-color;
+  // border: none;
+  // background-color: $footer-input-bg-color;
   resize: none;
   overflow: hidden;
 
@@ -22,16 +22,5 @@
     color: $secondary-text-color;
     @include font(16, 24);
     font-weight: 400;
-  }
-}
-
-.textAreaFooter {
-  @include media(tablet) {
-    background-color: transparent;
-    border: 1px solid $border-gray-color;
-
-    &::placeholder {
-      color: $primary-text-color;
-    }
   }
 }

@@ -73,3 +73,35 @@
     color: $violet-ui-text-color;
   }
 }
+
+.inputFooter {
+  @include media(to-tablet) {
+    border: none;
+    background-color: $footer-input-bg-color;
+  }
+
+  @include media(tablet) {
+    background-color: transparent;
+    border: 1px solid $border-gray-color;
+
+    &::placeholder {
+      color: $primary-text-color;
+    }
+  }
+}
+
+.textAreaFooter {
+  @include media(to-tablet) {
+    border: none;
+    background-color: $footer-input-bg-color;
+  }
+
+  @include media(tablet) {
+    background-color: transparent;
+    border: 1px solid $border-gray-color;
+
+    &::placeholder {
+      color: $primary-text-color;
+    }
+  }
+}

@@ -1,22 +1,37 @@
 import { Input, InputArea } from '@/shared/components/index.js';
 import s from './ContactUs.module.scss';
 
-const ContactUs = () => {
+const ContactUs = ({ data }) => {
+  if (!data) {
+    return null;
+  }
+
   return (
     <section className={s.contactUsSection}>
       <div className={s.formWrapper}>
-        <h2 className={s.title}>{"Зв'язатися з нами"}</h2>
+        <h2 className={s.title}>{data.title}</h2>
 
         <form className={s.form}>
-          <Input className="inputFooter" type="text" placeholder="Ваше ім'я" />
-          <Input className="inputFooter" type="text" placeholder="Ваш email" />
-          <InputArea className="textAreaFooter" placeholder="Ваше повідомлення" />
+          <Input
+            className="inputFooter"
+            type="text"
+            placeholder={data.placeholderName}
+          />
+          <Input
+            className="inputFooter"
+            type="text"
+            placeholder={data.placeholderEmail}
+          />
+          <InputArea
+            className="textAreaFooter"
+            placeholder={data.placeholderMessage}
+          />
           <button
             type="submit"
             className={s.submitBtn}
-            aria-label="Відправити форму з контактними даними"
+            aria-label={data.buttonAriaLabel}
           >
-            Надіслати
+            {data.buttonText}
           </button>
         </form>
       </div>

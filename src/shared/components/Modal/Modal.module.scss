@@ -1,6 +1,3 @@
-@import '@/shared/styles/mixins.scss';
-@import '@/shared/styles/colors.scss';
-
 .modalDialog {
   padding: 0;
   width: 80%;
@@ -8,7 +5,7 @@
   border: none;
   border-radius: 32px;
   background-color: $img-backdrop-color;
-  animation: fade-slide-up 0.3s ease-in-out forwards;
+  animation: fade-slide-up 0.3s ease forwards;
 
   @include media(tablet) {
     max-width: 576px;

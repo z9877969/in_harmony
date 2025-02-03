@@ -1,5 +1,10 @@
-@import '@/shared/styles/mixins.scss';
-@import '@/shared/styles/colors.scss';
+.modalContent {
+  margin-bottom: 32px;
+
+  @include media(desktop) {
+    margin-bottom: 48px;
+  }
+}
 
 .modalTitle {
   width: 209px;

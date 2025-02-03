@@ -4,16 +4,14 @@ import { Container, Modal } from '@/shared/components';
 import Image from 'next/image.js';
 import { useState } from 'react';
 
-import {
-  Contacts,
-  ContactUs,
-  LegalInfo,
-  ModalContent,
-  SiteNavigation,
-  SocialMediaLinks,
-} from '../../index.js';
 import s from './Footer.module.scss';
 
+import Contacts from '../Contacts/Contacts.jsx';
+import ContactUs from '../ContactUs/ContactUs.jsx';
+import LegalInfo from '../LegalInfo/LegalInfo.jsx';
+import ModalContent from '../ModalContent/ModalContent.jsx';
+import SiteNavigation from '../SiteNavigation/SiteNavigation.jsx';
+import SocialMediaLinks from '../SocialMediaLinks/SocialMediaLinks.jsx';
 import TeamList from '../TeamList/TeamList.jsx';
 import data from './data/sectionContent.json';
 
@@ -36,7 +34,7 @@ const Footer = () => {
                 alt="logo"
               />
             </div>
-            <Contacts />
+            <Contacts data={data.company.contacts} />
             <SocialMediaLinks
               data={data && data.company.social}
               itemClassName={s.footerSocialMediaItem}
@@ -45,26 +43,29 @@ const Footer = () => {
           </div>
 
           <div className={s.navigationSection}>
-            <SiteNavigation />
-            <LegalInfo />
+            <SiteNavigation data={data.siteNavigation} />
+            <LegalInfo data={data.company.legalInfo} />
           </div>
 
-          <ContactUs />
+          <ContactUs data={data.company.contactUs} />
         </div>
         <div className={s.teamSection}>
           <button
             onClick={toggleModal}
             className={s.linkBtn}
             type="button"
-            ariaaria-label="Переглянути команду дизайнерів та розробників сайту InHarmony"
+            ariaaria-label={data.team.openModalButtonAriaLabelText}
           >
-            Команда дизайнерів та розробників сайту InHarmony
+            {data.team.openModalButtonText}
           </button>
           <small className={s.copyright}>© 2024 InHarmony</small>
         </div>
       </Container>
       <Modal className={'teamModal'} open={isOpen} onClose={toggleModal}>
-        <ModalContent title={data.teamModal.title} text={data.teamModal.text}>
+        <ModalContent
+          title={data.team.teamModalContent.title}
+          text={data.team.teamModalContent.text}
+        >
           <TeamList data={data.team.members} />
         </ModalContent>
       </Modal>

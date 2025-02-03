@@ -1,18 +1,17 @@
 'use client';
 
-import clsx from 'clsx';
 import { useId } from 'react';
 import s from './InputArea.module.scss';
 
 const InputArea = ({
   label,
-  className,
+  className = '',
   rows = 4,
   name = 'message',
   ...props
 }) => {
   const id = useId();
-  const textAreaClass = clsx(s['textArea'], s[className]);
+  const textAreaClass = `${s.textArea} ${className}`;
 
   return (
     <div>

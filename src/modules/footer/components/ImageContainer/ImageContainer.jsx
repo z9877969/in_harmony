@@ -1,9 +1,10 @@
 import s from './ImageContainer.module.scss';
 
-const ImageContainer = ({ src, className, children, ...props }) => {
+const ImageContainer = ({ className = '', children, ...props }) => {
+  const imgContClass = `${s.imageContainer} ${className}`;
   return (
-    <div className={s.ImageContainer} {...props}>
-      {}
+    <div className={imgContClass} {...props}>
+      {children}
     </div>
   );
 };

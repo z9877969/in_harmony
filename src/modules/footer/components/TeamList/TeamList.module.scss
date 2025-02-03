@@ -1,6 +1,3 @@
-@import '@/shared/styles/colors.scss';
-@import '@/shared/styles/mixins.scss';
-
 .teamList {
   width: 100%;
   display: flex;
@@ -37,4 +34,18 @@
 
 .teamSocialMediaIcon {
   fill: white;
+}
+
+.image {
+  text-align: center;
+  border: none;
+  border-radius: 22px;
+  background-color: $social-icons-dark-grey-color;
+  flex-shrink: 0;
+
+  @include media(tablet) {
+    border-radius: 32px;
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+  }
 }

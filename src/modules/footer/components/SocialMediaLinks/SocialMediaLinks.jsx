@@ -4,6 +4,7 @@ import s from './SocialMediaLinks.module.scss';
 
 const SocialMediaLinks = ({
   data,
+  title = 'Cоціальні мережі',
   listClassName = '',
   itemClassName = '',
   iconClassName = '',
@@ -12,7 +13,7 @@ const SocialMediaLinks = ({
   return (
     <section className={s.socialMediaSection} aria-labelledby="social-media">
       <h2 id="social-media" className="visuallyHidden">
-        Cоціальні мережі
+        {title}
       </h2>
       <ul className={listClass}>
         {data &&

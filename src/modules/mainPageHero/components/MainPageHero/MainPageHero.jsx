@@ -13,7 +13,7 @@ const MainPageHero = () => {
               <h1 className={s.heroTitle}>{sectionContent.heroTitle}</h1>
               <FormWithSumButtons className={s.form} />
             </div>
-            <InfoCardsList />
+            <InfoCardsList infoCards={sectionContent.infoCards} />
           </div>
         </div>
       </Container>

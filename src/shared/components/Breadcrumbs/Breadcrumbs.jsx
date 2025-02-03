@@ -12,7 +12,10 @@ const BreadCrumbs = () => {
 
   if (pathname === `/${locale}`) return null;
 
-  const pathSegments = pathname.split('/').filter((segment) => segment);
+  const pathSegments = pathname
+    .split('/')
+    .filter((segment) => segment)
+    .slice(1);
 
   return (
     <Container>

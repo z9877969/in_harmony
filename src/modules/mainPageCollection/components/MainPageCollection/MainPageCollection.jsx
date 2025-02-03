@@ -53,7 +53,11 @@ const MainPageCollection = () => {
               >
                 {allCollections.slice(0, visibleItems).map((collection) => (
                   <SwiperSlide key={collection._id}>
-                    <ActiveCollectionsCard collection={collection} />
+                    <ActiveCollectionsCard
+                      collection={collection}
+                      buttonDetails={collections.button_details}
+                      buttonDonas={collections.button_donas}
+                    />
                   </SwiperSlide>
                 ))}
               </DotsSwiper>

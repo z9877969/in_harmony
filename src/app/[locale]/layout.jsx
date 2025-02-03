@@ -1,8 +1,9 @@
+import { Footer } from '@/modules/footer';
+import { Header } from '@/modules/header';
+import { BreadCrumbs } from '@/shared/components';
+import clsx from 'clsx';
 import { Montserrat, Open_Sans } from 'next/font/google';
 import '../globals.scss';
-import clsx from 'clsx';
-import { Header } from '@/modules/header';
-import { Footer } from '@/modules/footer';
 
 export const metadata = {
   title: 'In Harmony',
@@ -26,8 +27,10 @@ export default function RootLayout({ children }) {
     <html lang="uk">
       <body className={clsx(montserrat.className, open_sans.className)}>
         <Header />
+        <BreadCrumbs />
         <main>{children}</main>
         <Footer />
+        <div id="modal"></div>
       </body>
     </html>
   );

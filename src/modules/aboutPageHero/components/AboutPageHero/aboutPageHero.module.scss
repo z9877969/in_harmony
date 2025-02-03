@@ -1,0 +1,86 @@
+@import '@/shared/styles/mixins';
+
+.title {
+  font-family: $secondary-font-family;
+  font-weight: 700;
+  @include font(32, 40);
+  color: $primary-text-color;
+  margin-bottom: 24px;
+
+  @include media(tablet) {
+    @include font(48, 56.16);
+    margin-bottom: 40px;
+  }
+
+  @include media(desktop) {
+    @include font(48, 56.16);
+  }
+}
+
+.ulList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 40px;
+
+  @include media(desktop) {
+    gap: 18px;
+  }
+}
+
+.descriptionBlack {
+  font-family: $primary-font-family;
+  font-weight: 600;
+  @include font(18, 27);
+  color: $primary-text-color;
+}
+
+.description {
+  font-family: $primary-font-family;
+  font-weight: 400;
+  @include font(18, 27);
+  color: $primary-text-color;
+}
+
+.titleInfo {
+  font-family: $secondary-font-family;
+  font-weight: 700;
+  @include font(40, 48);
+  color: $primary-text-color;
+  margin-bottom: 18px;
+  display: none;
+
+  @include media(tablet) {
+    display: none;
+  }
+
+  @include media(desktop) {
+    display: block;
+  }
+}
+
+.image {
+  border-radius: 32px;
+  width: 416px;
+  height: 306px;
+  background-color: $img-backdrop-color;
+  display: none;
+
+  @include media(tablet) {
+    display: none;
+  }
+
+  @include media(desktop) {
+    display: block;
+  }
+}
+
+.containerListImg {
+  display: flex;
+  gap: 48px;
+  margin-bottom: 40px;
+
+  @include media(desktop) {
+    margin-bottom: 48px;
+  }
+}

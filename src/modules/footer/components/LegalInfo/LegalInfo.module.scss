@@ -1,6 +1,3 @@
-@import '@/shared/styles/mixins.scss';
-@import '@/shared/styles/colors.scss';
-
 .legalInfoSection {
   display: flex;
   flex-direction: column;
@@ -19,15 +16,20 @@
 }
 
 .text {
-  color: $footer-text-color;
   @include font(16, 24);
   font-style: normal;
   font-weight: 400;
+  color: $footer-text-color;
+
+  @include media(tablet) {
+    color: $footer-secondary-text-color;
+  }
 }
 
 .toLine {
   display: flex;
-  gap: 4px;
+  column-gap: 4px;
+  flex-wrap: wrap;
 }
 
 .key {
@@ -36,4 +38,5 @@
 
 .value {
   flex-shrink: 0;
+  letter-spacing: 0.02em;
 }

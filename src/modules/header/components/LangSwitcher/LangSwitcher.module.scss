@@ -1,0 +1,31 @@
+.langBlock {
+  display: none;
+  @include media(mobile) {
+  }
+
+  @include media(to-tablet) {
+  }
+
+  @include media(tablet) {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .langIcon {
+      width: 32px;
+      height: 32px;
+    }
+    .langBtn {
+      display: flex;
+      padding: 0px;
+      background-color: transparent;
+      border: none;
+    }
+    .langBtnIcon {
+      width: 16px;
+      height: 16px;
+      stroke: $secondary-text-color;
+      fill: none;
+    }
+  }
+}

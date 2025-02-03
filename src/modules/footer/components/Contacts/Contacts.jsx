@@ -1,23 +1,24 @@
-import clsx from 'clsx';
 import s from './Contacts.module.scss';
 
-const Contacts = () => {
+const Contacts = ({ data }) => {
+  if (!data) {
+    return null;
+  }
   return (
-    <section className={s['mb-24']}>
-      <h2 className={s.title}>Контакти:</h2>
-      <address>
-        <p className={clsx(s.text, s['mb-16'])}>
-          <span className={s.textDecoration}>Адреса: </span>
-          Україна, 24000, Вінницька обл., місто Могилів-Подільський, вул. Верхня
-          Вокзальна, будинок 1
+    <section>
+      <h2 className={s.title}>{data.title}</h2>
+      <address className={s.contactsWrapper}>
+        <p className={s.text}>
+          <span className={s.textDecoration}>{data.addressTitle}</span>
+          {data.address}
         </p>
         <p className={s.text}>
-          <span className={s.textDecoration}>Email: </span>
-          <a href="mailto:info@inharmony.ua">info@inharmony.ua</a>
+          <span className={s.textDecoration}>{data.emailTitle}</span>
+          <a href="mailto:info@inharmony.ua">{data.email}</a>
         </p>
         <p className={s.text}>
-          <span className={s.textDecoration}>Телефон: </span>
-          <a href="tel:+380963390845">+38 (096) 339-08-45</a>
+          <span className={s.textDecoration}>{data.phoneTitle}</span>
+          <a href="tel:+380963390845">{data.phone}</a>
         </p>
       </address>
     </section>

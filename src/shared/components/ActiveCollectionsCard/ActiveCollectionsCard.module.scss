@@ -1,0 +1,127 @@
+.ContentContainer {
+  padding: 16px 16px 24px 16px;
+  border-radius: 32px;
+  max-width: 370px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 0 20px 0 rgba(71, 0, 123, 0.1);
+
+  @include media(tablet) {
+    max-width: 332px;
+    padding: 20px 20px 28px 20px;
+    gap: 16px;
+  }
+
+  @include media(desktop) {
+    max-width: 416px;
+  }
+}
+
+.collectionImg {
+  position: relative;
+  border-radius: 22px;
+  background: #ddd;
+  max-width: 338px;
+
+  @include media(tablet) {
+    max-width: 292px;
+  }
+
+  @include media(desktop) {
+    max-width: 376px;
+  }
+}
+
+.importance {
+  background-color: $collection-importance;
+  border-radius: 24px;
+  padding: 4px 12px;
+  width: max-content;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-weight: 600;
+  @include font(16, 24);
+
+  color: $collection-importance-text;
+
+  &::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background-color: $collection-importance-text;
+    display: block;
+    border-radius: 100%;
+  }
+}
+
+.mainContentContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @include media(tablet) {
+    gap: 28px;
+  }
+
+  .contentContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include media(tablet) {
+      gap: 32px;
+    }
+  }
+}
+
+.title {
+  font-weight: 700;
+  @include font(20, 28);
+  font-family: $secondary-font-family;
+  padding-top: 16px;
+
+  @include media(tablet) {
+    padding-top: 20px;
+  }
+
+  @include media(desktop) {
+    @include font(24, 28);
+  }
+}
+
+.desc,
+.peopleDonate {
+  font-weight: 400;
+  @include font(16, 24);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+//icon style
+.collectionIcon {
+  width: 24px;
+  height: 24px;
+  fill: $radio-active-bg-color;
+}
+
+.heartIcon {
+  width: 24px;
+  height: 24px;
+  fill: $wite-text-color;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.heartButton {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+}

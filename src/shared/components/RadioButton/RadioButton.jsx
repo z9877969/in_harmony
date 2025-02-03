@@ -2,7 +2,7 @@
 
 import clsx from 'clsx';
 
-import useSelectedOption from './hooks/selectedOption.js';
+import useSelectedOption from './hooks/useSelectedOption.js';
 
 import s from './RadioButton.module.scss';
 

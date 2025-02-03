@@ -1,10 +1,11 @@
 'use client';
-import s from './MainPageProgress.module.scss';
+import { Container } from '@/shared/components';
 import { SectionTitle } from '@/shared/components';
-import { content } from '../../data';
-import { SwiperWithArrows } from '@/modules/swiperWithArrows';
 import { CardForSwiperWhithArrow } from '@/shared/components';
-import Container from '@/shared/components/Container/Container';
+import { SwiperWithArrows } from '@/modules/swiperWithArrows';
+import { content } from '../../data/sectionContent';
+import s from './MainPageProgress.module.scss';
+
 const MainPageProgress = () => {
   return (
     <section className={s.container}>

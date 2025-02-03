@@ -1,4 +1,74 @@
+@import '../../../../shared/styles/colors';
+
+.section {
+  padding-top: 48px;
+  padding-bottom: 48px;
+  @include media(desktop) {
+    padding-top: 76px;
+    padding-bottom: 76px;
+  }
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  @include media(tablet) {
+    gap: 32px;
+  }
+  @include media(desktop) {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 24px;
+  }
+}
+
+.img {
+  border-radius: 32px;
+  background-color: $img-backdrop-color;
+  @include media(tablet) {
+    width: 688px;
+    height: 444px;
+  }
+  @include media(desktop) {
+    order: 2;
+    width: 855px;
+    height: 406px;
+    grid-column: 1;
+  }
+}
+
+.boxText {
+  @include media(desktop) {
+    order: 1;
+    grid-column: 1 / -1;
+    width: 855px;
+  }
+}
+
 .title {
-    max-width: 300px;
-    margin: 0 auto;
+  margin-bottom: 24px;
+  @include media(tablet) {
+    margin-bottom: 8px;
+  }
+  @include media(desktop) {
+    margin-bottom: 28px;
+  }
+}
+
+.text {
+  font-weight: 400;
+  line-height: 1.5;
+  @include media(desktop) {
+    font-size: 18px;
+    width: 613px;
+  }
+}
+
+.form {
+  @include media(desktop) {
+    order: 3;
+    grid-column: 2;
+  }
 }

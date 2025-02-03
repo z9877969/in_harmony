@@ -7,6 +7,15 @@
   background-color: $form-donate-bg-color;
   backdrop-filter: blur(10px);
   box-shadow: 0 0 12px 0 rgba(47, 0, 82, 0.1);
+
+  @include media(tablet) {
+    padding: 28px 20px;
+    width: 450px;
+  }
+
+  @include media(desktop) {
+    width: 416px;
+  }
 }
 
 .textForm {
@@ -16,6 +25,20 @@
   font-size: 14px;
   line-height: 1.57143;
   color: $footer-bold-text-color;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include media(tablet) {
+    padding-right: 80px;
+  }
+  @include media(desktop) {
+    padding-right: 46px;
+  }
+}
+
+.iconForm {
+  width: 33px;
+  height: 25px;
 }
 
 .boxBtn {
@@ -26,9 +49,15 @@
 }
 
 .btnDonate {
-  padding: 0;
+  padding: 0 10px;
   line-height: 1.5;
   color: $footer-bold-text-color;
+  @include media(tablet) {
+    padding: 0 22px;
+  }
+  @include media(desktop) {
+    padding: 0 16px;
+  }
 }
 
 .boxInput {
@@ -56,10 +85,16 @@
   font-weight: 400;
   appearance: none;
   -webkit-appearance: none;
-  -moz-appearance: none;
+  -moz-appearance: textfield;
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 }
 
 .btnSubmit {
+  width: 100%;
   margin-bottom: 24px;
 }
 
@@ -72,15 +107,6 @@
   padding: 10px;
 }
 
-@include media(tablet) {
-  .boxForm {
-    padding: 28px 20px;
-    width: 450px;
-  }
-}
-
-@include media(desktop) {
-  .boxForm {
-    width: 416px;
-  }
+.errorText {
+  color: $form-donate-error-color;
 }

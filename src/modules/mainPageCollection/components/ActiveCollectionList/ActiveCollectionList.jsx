@@ -1,13 +1,18 @@
 import React from 'react';
-import { ActiveCollectionsCard } from '@/modules/mainPageCollection';
+import clsx from 'clsx';
+import { ActiveCollectionsCard } from '@/shared/components';
 import s from './ActiveCollectionList.module.scss';
 
-const ActiveCollectionList = ({ visibleItems, collection }) => {
+const ActiveCollectionList = ({ visibleItems, allCollection, className }) => {
   return (
-    <ul className={s.collectionList}>
-      {collection.slice(0, visibleItems).map((collection) => (
+    <ul className={clsx(s.collectionList, className)}>
+      {allCollection?.collections?.slice(0, visibleItems).map((collection) => (
         <li key={collection._id}>
-          <ActiveCollectionsCard collection={collection} />
+          <ActiveCollectionsCard
+            collection={collection}
+            buttonDetails={allCollection.button_details}
+            buttonDonas={allCollection.button_donas}
+          />
         </li>
       ))}
     </ul>

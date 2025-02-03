@@ -1,8 +1,8 @@
 'use client';
 import useEmblaCarousel from 'embla-carousel-react';
 import { NextButton, PrevButton } from '../ArrowButtons/ArrowButtons';
-import { usePrevNextButtons } from '../../hooks/usePrevNextButtons';
 import { DotButton } from '../DotButton/DotButton';
+import { usePrevNextButtons } from '../../hooks/usePrevNextButtons';
 import { useDotButton } from '../../hooks/useDotButton';
 import s from './SwiperWhithArrows.module.scss';
 

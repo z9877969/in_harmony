@@ -1,5 +1,3 @@
-'use client';
-
 import s from './Contacts.module.scss';
 
 const Contacts = ({ data }) => {

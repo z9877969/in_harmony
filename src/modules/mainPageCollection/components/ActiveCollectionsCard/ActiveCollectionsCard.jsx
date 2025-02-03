@@ -1,8 +1,16 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import Image from 'next/image';
 import { Button, Icon } from '@/shared/components';
+import { ROUTES } from '@/shared/constants';
+import {
+  lightMobil,
+  lightMobil2x,
+  lightTablet,
+  lightTablet2x,
+  lightDesktop,
+  lightDesktop2x,
+} from '@/shared/images/active-collection';
 import { CollectionProgress } from '@/modules/mainPageCollection';
 import collections from '../../data/section-content.json';
 import s from './ActiveCollectionsCard.module.scss';
@@ -13,14 +21,26 @@ function ActiveCollectionsCard({ collection }) {
   return (
     <div className={s.ContentContainer}>
       <div className={s.collectionImg}>
-        {collection.image && (
-          <Image
-            fill
-            sizes="(max-width: 768px) 338px, (min-width: 768px) 292px, 376px"
-            src={collection.image}
-            alt={collection.alt}
+        <picture>
+          <source
+            srcSet={`${lightMobil.src} 1x, ${lightMobil2x.src} 2x`}
+            media="(max-width: 767px)"
           />
-        )}
+          <source
+            srcSet={`${lightTablet.src} 1x, ${lightTablet2x.src} 2x`}
+            media="(max-width: 1023px)"
+          />
+          <source
+            srcSet={`${lightDesktop.src} 1x, ${lightDesktop2x.src} 2x`}
+            media="(min-width: 1024px)"
+          />
+          <img
+            src={lightMobil.src}
+            alt={collection.title}
+            className={s.image}
+            loading="lazy"
+          />
+        </picture>
       </div>
 
       <p className={s.importance}>{collection.importance}</p>
@@ -42,11 +62,18 @@ function ActiveCollectionsCard({ collection }) {
           <Button
             border="true"
             size="large"
-            onClick={() => router.push(`/collection/${collection._id}`)}
+            onClick={() =>
+              router.push(`/${ROUTES.COLLECTION}/${collection._id}`)
+            }
           >
             {collections.button_details}
           </Button>
-          <Button onClick={() => router.push('')} size="large">
+          <Button
+            onClick={() => router.push('')}
+            size="large"
+            className={s.heartButton}
+          >
+            <Icon iconName="icon-heart" className={s.heartIcon} />
             {collections.button_donas}
           </Button>
         </div>

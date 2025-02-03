@@ -1,9 +1,9 @@
 import React from 'react';
 
-import s from './ReportingCard.module.scss';
+import s from './CardProjectReporting.module.scss';
 import { Button } from '@/shared/components';
 
-export default function ReportingCard({ slid }) {
+export default function CardProjectReporting({ slid }) {
   const {
     title,
     item,
@@ -41,14 +41,16 @@ export default function ReportingCard({ slid }) {
             <span>{quantity}</span>
           </p>
         </div>
-        <Button
-          border="true"
-          variant="secondary"
-          className={s.button}
-          size="large"
-        >
-          Детальніше
-        </Button>
+        <div className={s.btnWrapper}>
+          <Button
+            border="true"
+            variant="secondary"
+            className={s.button}
+            size="large"
+          >
+            Детальніше
+          </Button>
+        </div>
       </div>
     </div>
   );

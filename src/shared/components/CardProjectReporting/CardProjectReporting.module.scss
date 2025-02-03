@@ -68,13 +68,12 @@ $slide-spacing-lg: 2rem;
   background: #dddddd;
   margin-bottom: 50px;
 }
-.button {
+
+.btnWrapper {
+  display: flex;
+  justify-content: center;
   margin: 12px 0;
-  padding: 10px 120px;
-  @include media(tablet) {
-    padding: 10px 91px;
-  }
-  @include media(desktop) {
-    padding: 10px 133px;
-  }
+}
+.button {
+  width: 100%;
 }

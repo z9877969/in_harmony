@@ -11,17 +11,50 @@
       font-weight: 700;
       font-size: 18px;
       line-height: 1.5;
-      color: $secondary-text-color;
       margin-right: 32px;
     }
-    .active {
+    .navLink {
+      color: $secondary-text-color;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 1.5;
+      transition: color 0.3s ease-in-out;
+      &::after {
+        content: '';
+        display: block;
+        width: 0px;
+        height: 2px;
+        border-radius: 1px;
+        margin: 0px auto;
+        background-color: $violet-ui-text-color;
+        transition: width 0.3s ease-in-out;
+      }
+    }
+    .navLink:hover,
+    .navLink:focus {
       color: $violet-ui-text-color;
-      ::after {
+      display: inline-block;
+
+      &::after {
         content: '';
         display: block;
         width: 40px;
         height: 2px;
-        border: radius 50%;
+        border-radius: 1px;
+        margin: 0px auto;
+        background-color: $violet-ui-text-color;
+      }
+    }
+
+    .active {
+      display: inline-block;
+      color: $violet-ui-text-color;
+      &::after {
+        content: '';
+        display: block;
+        width: 40px;
+        height: 2px;
+        border-radius: 60px;
         margin: 0px auto;
         background-color: $violet-ui-text-color;
       }

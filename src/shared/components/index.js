@@ -1,4 +1,3 @@
-export { default as BreadCrumbs } from './Breadcrumbs/Breadcrumbs';
 export { default as Button } from './Button/Button';
 export { default as CardForSwiperWhithArrow } from './CardForSwiperWhithArrow/CardForSwiperWhithArrow';
 export { default as Container } from './Container/Container';
@@ -12,6 +11,8 @@ export { default as InputArea } from './InputArea/InputArea';
 export { default as Logo } from './Logo/Logo';
 export { default as Modal } from './Modal/Modal';
 export { default as ProgressBar } from './ProgressBar/ProgressBar';
+export { default as BreadCrumbs } from './Breadcrumbs/Breadcrumbs.jsx';
+export { default as ActiveCollectionsCard } from './ActiveCollectionsCard/ActiveCollectionsCard.jsx';
 export { default as PublicPrivateForm } from './PublicPrivateForm/PublicPrivateForm';
 export { default as RadioButton } from './RadioButton/RadioButton.jsx';
 export { default as SectionTitle } from './SectionTitle/SectionTitle';

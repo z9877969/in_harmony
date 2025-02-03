@@ -1,6 +1,8 @@
-import s from './MainPageHero.module.scss';
-import { Container } from '@/shared/components';
+import { Container, FormWithSumButtons } from '@/shared/components';
 import InfoCardsList from '../InfoCardsList/InfoCardsList';
+import sectionContent from '../../data/sectionContent.json';
+import s from './MainPageHero.module.scss';
+
 const MainPageHero = () => {
   return (
     <section>
@@ -8,12 +10,8 @@ const MainPageHero = () => {
         <div className={s.contentContainer}>
           <div className={s.imagePlaceholder}>
             <div className={s.containerTitleForm}>
-              <h1 className={s.heroTitle}>
-                Допомагаємо тим, хто опинився в важких життєвих умовах
-              </h1>
-              <div className={s.formPlaceholder}>
-                <h2>Тут буде форма</h2>
-              </div>
+              <h1 className={s.heroTitle}>{sectionContent.heroTitle}</h1>
+              <FormWithSumButtons className={s.form} />
             </div>
             <InfoCardsList />
           </div>

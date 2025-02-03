@@ -26,7 +26,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 4px;
+    gap: 8px;
     background-color: $orange-color;
     border: none;
     border-radius: 60px;
@@ -38,23 +38,35 @@
     line-height: 1.5;
     text-align: center;
     color: $wite-text-color;
-    @include colored-button-effects-styles($orange-color, $wite-text-color);
+    transition: background-color 0.3s ease-in-out;
+    &:hover,
+    &:focus {
+      background-color: #ff7b00;
+    }
 
     .heartIcon {
-      width: 24px;
-      height: 24px;
+      width: 16px;
+      height: 16px;
       fill: $primary-bg-color;
     }
   }
 
   @include media(tablet) {
+    padding: 14px 0px;
+
     .rightSide {
       display: flex;
       gap: 16px;
     }
+    .iconLogo {
+      width: 64px;
+      height: 64px;
+    }
   }
 
   @include media(desktop) {
+    padding: 10px 0px;
+
     .mobileMenuBtn {
       display: none;
     }

@@ -42,7 +42,7 @@ function ActiveCollectionsCard({ collection }) {
           <Button
             border="true"
             size="large"
-            onClick={() => router.push(`/collection/${collection._id}`)}
+            onClick={() => router.push(`/uk/collection/${collection._id}`)}
           >
             {collections.button_details}
           </Button>

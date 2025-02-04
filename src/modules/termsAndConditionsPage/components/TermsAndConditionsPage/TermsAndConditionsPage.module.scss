@@ -24,40 +24,7 @@
     line-height: 117%;
   }
 }
-.list {
-  display: flex;
-  gap: 24px;
-  flex-direction: column;
-  color: $secondary-text-color;
-}
-.item {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
-.subTitle {
-  font-family: $secondary-font-family;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 1.4;
-  @include media(tablet) {
-    font-size: 24px;
-    line-height: 1.17;
-  }
-  @include media(desktop) {
-    font-size: 32px;
-    line-height: 1.25;
-  }
-}
-.text {
-  font-family: $secondary-font-family;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.5;
-  @include media(tablet) {
-    font-size: 18px;
-  }
-}
+
 .link {
   text-decoration: underline;
 }

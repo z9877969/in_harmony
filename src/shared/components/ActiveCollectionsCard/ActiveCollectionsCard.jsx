@@ -1,6 +1,6 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { Button, Icon } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import {
@@ -16,6 +16,8 @@ import s from './ActiveCollectionsCard.module.scss';
 
 function ActiveCollectionsCard({ collection, buttonDetails, buttonDonas }) {
   const router = useRouter();
+  const pathname = usePathname();
+  const locale = pathname.split('/')[1];
 
   return (
     <div className={s.ContentContainer}>
@@ -62,7 +64,7 @@ function ActiveCollectionsCard({ collection, buttonDetails, buttonDonas }) {
             border="true"
             size="large"
             onClick={() =>
-              router.push(`/${ROUTES.COLLECTION}/${collection._id}`)
+              router.push(`/${locale}/${ROUTES.COLLECTION}/${collection._id}`)
             }
           >
             {buttonDetails}

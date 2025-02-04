@@ -4,7 +4,15 @@
   justify-content: center;
   align-items: center;
   gap: 12px;
-  margin-top: 32px;
+  padding-top: 24px;
+
+  @include media(tablet) {
+    padding-top: 32px;
+  }
+
+  @include media(desktop) {
+    padding-top: 48px;
+  }
 }
 
 .paginationDot {

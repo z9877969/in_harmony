@@ -1,9 +1,12 @@
 .wrapper {
-  padding: 48px 0;
-  min-width: 360px;
+  padding-top: 8px;
+  padding-bottom: 48px;
 
+  @include media(tablet) {
+    padding-top: 16px;
+  }
   @include media(desktop) {
-    padding: 76px 0;
+    padding-bottom: 76px;
   }
 }
 

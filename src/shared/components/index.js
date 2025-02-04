@@ -17,8 +17,8 @@ export { default as PublicPrivateForm } from './PublicPrivateForm/PublicPrivateF
 export { default as RadioButton } from './RadioButton/RadioButton.jsx';
 export { default as SectionTitle } from './SectionTitle/SectionTitle';
 export { default as Section } from './Section/Section.jsx';
-export { default as DotsSwiper } from './DotsSwiper/DotsSwiper.jsx';
-export { default as CustomPagination } from './DotsSwiper/CustomPagination/CustomPagination';
-export { default as ProgressBar } from './ProgressBar/ProgressBar';
+// export { default as DotsSwiper } from './DotsSwiper/DotsSwiper.jsx';
+// export { default as CustomPagination } from './DotsSwiper/CustomPagination/CustomPagination';
+// export { default as ProgressBar } from './ProgressBar/ProgressBar';
 export { default as CardProjectReporting } from './CardProjectReporting/CardProjectReporting';
 

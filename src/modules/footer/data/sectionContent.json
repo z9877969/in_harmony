@@ -64,10 +64,13 @@
       "phone": "+38 (096) 339-08-45"
     },
     "social": [
-      { "name": "instagram", "url": "https://www.instagram.com" },
-      { "name": "telegram", "url": "https://www.telegram.com" },
-      { "name": "tiktok", "url": "https://www.tiktok.com" },
-      { "name": "facebook", "url": "https://www.facebook.com" }
+      { "name": "instagram", "url": "https://www.instagram.com/inharmony.ua" },
+      { "name": "telegram", "url": "https://t.me/inharmonyua" },
+      {
+        "name": "tiktok",
+        "url": "https://www.tiktok.com/@inharmony.ua?_t=8pfFP3VEltN&_r=1"
+      },
+      { "name": "facebook", "url": "https://www.facebook.com/inharmony.com.ua" }
     ],
     "legalInfo": {
       "title": "Юридична інформація",

@@ -1,15 +1,13 @@
 import s from './infoCardHelp.module.scss';
-import helpData from '../data/helpData.json';
-import Icon from '@/shared/components/Icon/Icon.jsx';
 
-const InfoCardHelp = () => {
+const InfoCardHelp = ({ statsTitle, stats, IconComponent }) => {
   return (
     <div className={s.containerCards}>
-      <h2 className={s.title}>Те, що ми вже зробили разом</h2>
+      <h2 className={s.title}>{statsTitle}</h2>
       <ul className={s.infoCards}>
-        {helpData.stats.map(({ amount, description, iconName }, index) => (
-          <li key={index} className={s.card}>
-            <Icon
+        {stats.map(({ id, amount, description, iconName }) => (
+          <li key={id} className={s.card}>
+            <IconComponent
               iconName={iconName}
               width="40"
               height="40"

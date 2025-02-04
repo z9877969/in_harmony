@@ -1,12 +1,10 @@
 .progressBarContainer {
   border-radius: 32px;
-  background-color: #e0e0e0;
   overflow: hidden;
 }
 
 .progressBar {
   height: 100%;
-  background-color: $swiper-active-dots-color;
   border-radius: 32px;
   transition: width 0.3s ease-in-out;
 }

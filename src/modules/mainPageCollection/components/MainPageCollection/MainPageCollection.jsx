@@ -3,10 +3,15 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { SwiperSlide } from 'swiper/react';
-import { Button, Container, DotsSwiper } from '@/shared/components';
+import {
+  ActiveCollectionsCard,
+  Button,
+  Container,
+  DotsSwiper,
+} from '@/shared/components';
+import { ROUTES } from '@/shared/constants';
 import { ActiveCollectionList } from '@/modules/mainPageCollection';
 import collections from '../../data/section-content.json';
-import { ActiveCollectionsCard } from '@/modules/mainPageCollection';
 import s from './MainPageCollection.module.scss';
 
 const MainPageCollection = () => {
@@ -48,19 +53,23 @@ const MainPageCollection = () => {
               >
                 {allCollections.slice(0, visibleItems).map((collection) => (
                   <SwiperSlide key={collection._id}>
-                    <ActiveCollectionsCard collection={collection} />
+                    <ActiveCollectionsCard
+                      collection={collection}
+                      buttonDetails={collections.button_details}
+                      buttonDonas={collections.button_donas}
+                    />
                   </SwiperSlide>
                 ))}
               </DotsSwiper>
             ) : (
               <ActiveCollectionList
                 visibleItems={visibleItems}
-                collection={collections}
+                allCollection={collections}
               />
             )}
           </div>
           <Button
-            onClick={() => router.push('/all-collections')}
+            onClick={() => router.push(`/${ROUTES.COLLECTION}`)}
             border="true"
             className={s.desktopButton}
             size="large"

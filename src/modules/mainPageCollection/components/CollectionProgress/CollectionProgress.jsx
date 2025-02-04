@@ -20,7 +20,11 @@ const CollectionProgress = ({ collected, target }) => {
         </div>
       )}
       <div className={s.progressContainer}>
-        <ProgressBar progress={progress} className={s.bar} />
+        <ProgressBar
+          progress={progress}
+          className={s.bar}
+          progressLine={s.progressLine}
+        />
         <p className={s.rate}>{formattedProgress}%</p>
       </div>
     </div>

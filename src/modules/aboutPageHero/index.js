@@ -1,1 +1,1 @@
-export { default as AboutPageHero } from './components/aboutPageHero';
+export { default as AboutPageHero } from './components/AboutPageHero/AboutPageHero';

@@ -2,6 +2,7 @@ import Image from 'next/image.js';
 import ImageContainer from '../ImageContainer/ImageContainer.jsx';
 import SocialMediaLinks from '../SocialMediaLinks/SocialMediaLinks.jsx';
 import TeamInfo from '../TeamInfo/TeamInfo.jsx';
+
 import s from './TeamList.module.scss';
 
 const TeamList = ({ data }) => {
@@ -16,7 +17,7 @@ const TeamList = ({ data }) => {
           <li className={s.teamItem} key={member.id}>
             <ImageContainer>
               <Image
-                src={member.url}
+                src={member.url ? member.url : '/images/default_image.webp'}
                 alt={`${member.firstName} ${member.lastName}`}
                 width={0}
                 height={0}

@@ -1,6 +1,6 @@
 import { Footer } from '@/modules/footer';
 import { Header } from '@/modules/header';
-import { BreadCrumbs } from '@/shared/components';
+import { Breadcrumbs } from '@/shared/components';
 import clsx from 'clsx';
 import { Montserrat, Open_Sans } from 'next/font/google';
 import '../globals.scss';
@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
     <html lang="uk">
       <body className={clsx(montserrat.className, open_sans.className)}>
         <Header />
-        <BreadCrumbs />
+        <Breadcrumbs />
         <main>{children}</main>
         <Footer />
         <div id="modal"></div>

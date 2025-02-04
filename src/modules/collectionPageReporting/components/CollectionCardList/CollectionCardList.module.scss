@@ -1,0 +1,35 @@
+$slide-size: 38rem;
+$slide-spacing: 1rem;
+$slide-spacing-sm: 1.6rem;
+$slide-spacing-lg: 2rem;
+$spacing: calc(var(--slide-spacing) * -1);
+$spacing-sm: calc(var(--slide-spacing-sm) * -1);
+$spacing-lg: calc(var(--slide-spacing-lg) * -1);
+
+.main {
+  width: 100%;
+  margin: auto;
+  --slide-size: 100%;
+  --slide-hight: 36rem;
+  @include media(tablet) {
+    --slide-size-sm: 50%;
+    --slide-spacing-sm: 1.6rem;
+  }
+  @include media(desktop) {
+    --slide-spacing-lg: 2rem;
+    --slide-size-lg: calc(100% / 3);
+  }
+}
+.container {
+  backface-visibility: hidden;
+  margin-left: $spacing;
+
+  @include media(tablet) {
+    margin-left: $spacing-sm;
+    display: flex;
+  }
+  @include media(desktop) {
+    display: flex;
+    margin-left: $spacing-lg;
+  }
+}

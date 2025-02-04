@@ -8,26 +8,26 @@ import s from './Breadcrumbs.module.scss';
 
 const BreadCrumbs = () => {
   const pathname = usePathname();
+  const locale = pathname.split('/')[1];
 
-  if (pathname === '/ua') return null;
+  if (pathname === `/${locale}`) return null;
 
-  const pathSegments = pathname.split('/').filter((segment) => segment);
-
-  if (pathSegments[0] === 'ua') {
-    pathSegments.shift();
-  }
+  const pathSegments = pathname
+    .split('/')
+    .filter((segment) => segment)
+    .slice(1);
 
   return (
     <Container>
       <nav aria-label="breadcrumb" className={s.breadcrumbs}>
         <ul className={s.list}>
           <li className={s.item}>
-            <Link href="/ua" className={s.link}>
+            <Link href={`/${locale}`} className={s.link}>
               Головна
             </Link>
           </li>
           {pathSegments.map((segment, index) => {
-            const href = `/ua/${pathSegments.slice(0, index + 1).join('/')}`;
+            const href = `/${locale}/${pathSegments.slice(0, index + 1).join('/')}`;
             const isLast = index === pathSegments.length - 1;
             const segmentName = nameMap[segment] || decodeURIComponent(segment);
 

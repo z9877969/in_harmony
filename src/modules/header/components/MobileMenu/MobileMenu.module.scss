@@ -1,16 +1,45 @@
 .mobileMenu {
-  position: fixed;
+  position: absolute;
   display: flex;
-  top: 80px;
+  top: 85px;
+  left: 0;
+  padding: 16px;
   flex-direction: column;
   gap: 32px;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: calc(100% - 85px);
   background-color: $primary-bg-color;
   z-index: 9999;
   overflow: hidden;
   transform: translateX(-150%);
   transition: all 0.3s;
+  @include media(tablet) {
+    padding: 48px 40px;
+  }
+
+  .langBlock {
+    display: flex;
+    gap: 16px;
+    @include media(tablet) {
+      display: none;
+    }
+  }
+  .langIcon {
+    width: 40px;
+    height: 40px;
+  }
+  .langBtn {
+    display: flex;
+    padding: 0px;
+    background-color: transparent;
+    border: none;
+  }
+  .langBtnIcon {
+    width: 16px;
+    height: 16px;
+    stroke: $secondary-text-color;
+    fill: none;
+  }
 
   .nav {
     display: flex;
@@ -19,11 +48,20 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
-    font-weight: 700;
+  }
+  .navLink {
+    font-weight: 600;
     font-size: 18px;
     line-height: 1.5;
     color: $secondary-text-color;
+    transition: color 0.3s ease-in-out;
   }
+
+  .navLink:hover,
+  .navLink:focus {
+    color: $violet-ui-text-color;
+  }
+
   .active {
     color: $violet-ui-text-color;
   }
@@ -37,7 +75,7 @@
     justify-content: center;
     margin: 0 auto;
     border-radius: 100%;
-    padding: 6px;
+    padding: 8px;
     background-color: $footer-input-bg-color;
   }
   .socialsIcon {
@@ -48,6 +86,6 @@
 }
 
 .visible {
-  transform: translateX(0);
+  transform: translateX(0px);
   transition: all 0.3s;
 }

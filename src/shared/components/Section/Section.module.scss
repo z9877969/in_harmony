@@ -1,0 +1,7 @@
+.section {
+  padding: 48px 0;
+
+  @include media(desktop) {
+    padding: 76px 0;
+  }
+}

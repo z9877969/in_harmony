@@ -2,7 +2,7 @@ import { Container } from '@/shared/components';
 import s from './TermsAndConditionsPage.module.scss';
 
 import termsData from '../../data/sectionContent';
-import TermsAndConditionList from '../TermsAndConditionsList/TermsAndConditionList';
+import TermsAndConditionList from '../TermsAndConditionsList/TermsAndConditionsList';
 
 const TermsAndConditionsPage = () => {
   return (

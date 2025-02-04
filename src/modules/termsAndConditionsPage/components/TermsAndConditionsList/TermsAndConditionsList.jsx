@@ -1,4 +1,4 @@
-import s from './TermsAndConditionList.module.scss';
+import s from './TermsAndConditionsList.module.scss';
 
 const TermsAndConditionList = ({ termsData }) => {
   return (

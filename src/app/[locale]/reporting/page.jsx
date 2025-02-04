@@ -1,5 +1,4 @@
 import { ReportingPageFilters } from '@/modules/reportingPageFilters/index.js';
-
 import { ReportingPageDonate } from '@/modules/reportingPageDonate';
 
 import s from './page.module.scss';

@@ -16,3 +16,7 @@ export { default as ActiveCollectionsCard } from './ActiveCollectionsCard/Active
 export { default as PublicPrivateForm } from './PublicPrivateForm/PublicPrivateForm';
 export { default as RadioButton } from './RadioButton/RadioButton.jsx';
 export { default as SectionTitle } from './SectionTitle/SectionTitle';
+export { default as DotsSwiper } from './DotsSwiper/DotsSwiper.jsx';
+export { default as CustomPagination } from './DotsSwiper/CustomPagination/CustomPagination';
+export { default as ProgressBar } from './ProgressBar/ProgressBar';
+export { default as CardProjectReporting } from './CardProjectReporting/CardProjectReporting';

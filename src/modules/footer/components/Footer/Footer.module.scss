@@ -1,16 +1,20 @@
-@import '@/shared/styles/mixins.scss';
-@import '@/shared/styles/colors.scss';
-
 .footer {
-  background-color: $footer-bg-color;
   padding-top: 24px;
   padding-bottom: 32px;
+  background-color: $footer-bg-color;
   color: $footer-bold-text-color;
-}
-.footerContentWrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
+
+  @include media(tablet) {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: $img-backdrop-color;
+    color: $primary-text-color;
+  }
+
+  @include media(desktop) {
+    padding-top: 48px;
+    padding-bottom: 29px;
+  }
 }
 
 .contactSection {
@@ -18,18 +22,39 @@
   flex-direction: column;
   gap: 24px;
   align-items: flex-start;
+
+  @include media(desktop) {
+    gap: 32px;
+  }
 }
 
 .navigationSection {
   display: flex;
   flex-direction: column;
   gap: 32px;
+
+  @include media(tablet) {
+    gap: 40px;
+  }
+
+  @include media(desktop) {
+    gap: 48px;
+  }
 }
 
 .teamSection {
   display: flex;
   flex-direction: column;
   gap: 32px;
+
+  @include media(tablet) {
+    gap: 40px;
+  }
+
+  @include media(desktop) {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
 }
 
 .linkBtn {
@@ -46,6 +71,10 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
+
+  @include media(tablet) {
+    font-weight: 400;
+  }
 }
 
 .copyright {
@@ -54,4 +83,42 @@
   text-align: center;
   @include font(16, 24);
   font-weight: 400;
+}
+
+.gridContainer {
+  display: grid;
+  row-gap: 32px;
+  margin-bottom: 26px;
+
+  @include media(tablet) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(auto-fit, minmax(150px, 1fr));
+    row-gap: 40px;
+    margin-bottom: 34px;
+  }
+
+  @include media(desktop) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    column-gap: 70px;
+    margin-bottom: 32px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid $primary-text-color;
+  }
+}
+
+.footerSocialMediaItem {
+  background-color: $social-icons-color;
+
+  @include media(tablet) {
+    background-color: $social-icons-dark-grey-color;
+  }
+}
+
+.footerSocialMediaIcon {
+  fill: $footer-social-media-icon-violet-color;
+
+  @include media(tablet) {
+    fill: $wite-text-color;
+  }
 }

@@ -1,6 +1,7 @@
 import { Container } from '@/shared/components';
-import sectionContent from '../../data/sectionContent.json';
+import Icon from '@/shared/components/Icon/Icon.jsx';
 import InfoCardHelp from '../infoCardHelp/infoCardHelp';
+import sectionContent from '../../data/sectionContent.json';
 import s from './aboutPageHero.module.scss';
 
 const AboutPageHero = () => {
@@ -8,7 +9,7 @@ const AboutPageHero = () => {
     <section className={s.sectionAboutHero}>
       <Container>
         <div className={s.containerContent}>
-          <h1 className={s.title}>{sectionContent.heroTitle}</h1>{' '}
+          <h1 className={s.title}>{sectionContent.heroTitle}</h1>
           <div className={s.containerListImg}>
             <div className={s.image}></div>
             <ul className={s.ulList}>
@@ -32,7 +33,11 @@ const AboutPageHero = () => {
               </li>
             </ul>
           </div>
-          <InfoCardHelp />
+          <InfoCardHelp
+            statsTitle={sectionContent.statsTitle}
+            stats={sectionContent.stats}
+            IconComponent={Icon}
+          />
         </div>
       </Container>
     </section>

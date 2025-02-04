@@ -1,4 +1,4 @@
-import { Input, InputArea } from '@/shared/components/index.js';
+import { Button, Input, InputArea } from '@/shared/components/index.js';
 import s from './ContactUs.module.scss';
 
 const ContactUs = ({ data }) => {
@@ -26,13 +26,9 @@ const ContactUs = ({ data }) => {
             className={s.textAreaFooter}
             placeholder={data.placeholderMessage}
           />
-          <button
-            type="submit"
-            className={s.submitBtn}
-            aria-label={data.buttonAriaLabel}
-          >
+          <Button type="submit" variant="primary" fontSize="twenty">
             {data.buttonText}
-          </button>
+          </Button>
         </form>
       </div>
     </section>

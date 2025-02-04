@@ -35,11 +35,11 @@
   padding: 24px 16px;
 
   @include media(tablet) {
-    padding: 44px;
+    padding: 32px;
   }
 
   @include media(desktop) {
-    padding: 72px;
+    padding: 32px 72px;
   }
 }
 

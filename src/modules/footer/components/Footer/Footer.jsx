@@ -14,8 +14,6 @@ import s from './Footer.module.scss';
 
 const Footer = () => {
   const [isOpen, setIsOpen] = useState(false);
-  // const pathname = usePathname();
-  // const locale = pathname.split('/')[1];
   const toggleModal = () => {
     setIsOpen((prev) => !prev);
   };
@@ -25,21 +23,15 @@ const Footer = () => {
       <Container>
         <div className={s.gridContainer}>
           <div className={s.contactSection}>
-            {/* <Link href={`/${locale}/`} className={s.logo}>
-              <Image
-                width={75}
-                height={75}
-                src="/icons/logo-inHarmony.svg"
-                alt="logo"
-              />
-            </Link> */}
             <Logo />
-            <Contacts data={data.company.contacts} />
-            <SocialMediaLinks
-              data={data && data.company.social}
-              itemClassName={s.footerSocialMediaItem}
-              iconClassName={s.footerSocialMediaIcon}
-            />
+            <div className={s.contactsSocialWrapper}>
+              <Contacts data={data.company.contacts} />
+              <SocialMediaLinks
+                data={data && data.company.social}
+                itemClassName={s.footerSocialMediaItem}
+                iconClassName={s.footerSocialMediaIcon}
+              />
+            </div>
           </div>
 
           <div className={s.navigationSection}>

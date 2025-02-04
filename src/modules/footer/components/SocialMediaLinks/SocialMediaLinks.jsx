@@ -25,8 +25,8 @@ const SocialMediaLinks = ({
             >
               <Icon
                 iconName={`icon-${socialItem.name}`}
-                width="24"
-                height="24"
+                width="25"
+                height="25"
                 className={iconClassName}
               />
             </SocialMediaItem>

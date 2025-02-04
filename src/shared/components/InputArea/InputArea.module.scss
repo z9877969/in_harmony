@@ -8,13 +8,11 @@
 .textArea {
   width: 100%;
   display: flex;
-  padding: 8px;
+  padding: 16px;
   align-items: flex-start;
   gap: 10px;
   align-self: stretch;
   border-radius: 24px;
-  // border: none;
-  // background-color: $footer-input-bg-color;
   resize: none;
   overflow: hidden;
 

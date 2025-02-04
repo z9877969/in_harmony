@@ -9,7 +9,7 @@ import { useEffect, useMemo, useState } from 'react';
 import collections from '../../../modules/collectionPageActive/data/section-content.json';
 const isId = (segment) => /^[a-f0-9]{24}$/i.test(segment);
 
-const BreadCrumbs = () => {
+const Breadcrumbs = () => {
   const pathname = usePathname();
   const locale = pathname.split('/')[1];
   const [titles, setTitles] = useState({});
@@ -78,4 +78,4 @@ const BreadCrumbs = () => {
   );
 };
 
-export default BreadCrumbs;
+export default Breadcrumbs;

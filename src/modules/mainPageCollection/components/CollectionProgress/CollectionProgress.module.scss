@@ -1,0 +1,70 @@
+@import '../../../../shared/styles/_mixins';
+
+.mainProgressContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.targetContainer {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+
+  .targetText {
+    font-weight: 400;
+    @include font(16, 24);
+    display: flex;
+    flex-direction: column;
+
+    .counts {
+      font-weight: 700;
+      @include font(20, 28);
+      font-family: $secondary-font-family;
+      line-height: 1.4;
+      color: $progress-bar-numbers;
+    }
+  }
+}
+
+.progressContainer {
+  display: flex;
+  width: 100%;
+  gap: 16px;
+  align-items: center;
+
+  @include media(mobile) {
+    gap: 24px;
+  }
+}
+
+.bar {
+  max-width: 282px;
+  min-width: 210px;
+  height: 12px;
+  background-color: $progress-bar-bg;
+
+  @include media(mobile) {
+    min-width: 282px;
+  }
+
+  @include media(tablet) {
+    min-width: 236px;
+    max-width: 236px;
+  }
+
+  @include media(desktop) {
+    min-width: 320px;
+    max-width: 320px;
+  }
+}
+
+.rate {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.progressLine {
+  background-color: $progress-bar-line;
+}

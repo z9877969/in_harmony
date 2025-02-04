@@ -1,9 +1,26 @@
+'use client';
+import { Container } from '@/shared/components';
+import { SectionTitle } from '@/shared/components';
+import { CardForSwiperWhithArrow } from '@/shared/components';
+import { SwiperWithArrows } from '@/modules/swiperWithArrows';
+import { content } from '../../data/sectionContent';
 import s from './MainPageProgress.module.scss';
 
 const MainPageProgress = () => {
   return (
-    <section>
-      <h2 className={s.title}>MainPageProgress</h2>
+    <section className={s.container}>
+      <Container>
+        <SectionTitle className={s.title} title="Останні досягнення" />
+        <SwiperWithArrows
+          options={{
+            dragFree: false,
+            loop: false,
+            containScroll: 'trimSnaps',
+          }}
+          slides={content}
+          Component={CardForSwiperWhithArrow}
+        />
+      </Container>
     </section>
   );
 };

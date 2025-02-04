@@ -1,0 +1,34 @@
+.section {
+  padding: 8px 0 48px 0;
+
+  @include media(tablet) {
+    padding: 8px 0 95px 0;
+  }
+
+  @include media(desktop) {
+    padding: 16px 0 76px 0;
+  }
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.list {
+  flex-wrap: wrap;
+
+  @include media(tablet) {
+    row-gap: 32px;
+    flex-direction: row;
+    column-gap: 24px;
+  }
+}
+
+.button {
+  @include media(tablet) {
+    margin: 0 auto;
+    width: 416px;
+  }
+}

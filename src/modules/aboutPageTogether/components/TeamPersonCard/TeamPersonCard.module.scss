@@ -1,0 +1,100 @@
+.card {
+  width: 370px;
+  background-color: #f4f4f4;
+  padding: 16px;
+  border-radius: 22px;
+
+  @include media(tablet) {
+    width: 332px;
+    height: 361px;
+    padding: 20px;
+  }
+  @include media(desktop) {
+    width: 306px;
+    height: 422px;
+  }
+}
+
+.info {
+  display: flex;
+  gap: 12px;
+
+  @include media(tablet) {
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+}
+
+.icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background-color: #d9d9d9;
+
+  @include media(tablet) {
+    width: 96px;
+    height: 96px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  @include media(desktop) {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+.icon-non-image {
+  display: none;
+
+  @include media(tablet) {
+    display: block;
+    width: 29px;
+    height: 29px;
+    fill: #444444;
+  }
+  @include media(desktop) {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+.title {
+  text-align: left;
+
+  @include media(tablet) {
+    text-align: center;
+  }
+}
+
+.title > p {
+  @include font(20, 30);
+  font-family: $primary-font-family;
+  margin-bottom: 8px;
+}
+
+.title > span {
+  @include font(14, 22);
+  font-family: $primary-font-family;
+  font-weight: 400;
+
+  @include media(tablet) {
+    @include font(16, 24);
+  }
+}
+
+.description {
+  @include font(14, 22);
+  font-family: $primary-font-family;
+  font-weight: 400;
+  font-style: italic;
+  margin-top: 12px;
+
+  @include media(tablet) {
+    @include font(16, 24);
+  }
+  @include media(desktop) {
+    @include font(18, 27);
+  }
+}

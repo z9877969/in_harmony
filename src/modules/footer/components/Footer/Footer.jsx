@@ -9,7 +9,7 @@ import ModalContent from '../ModalContent/ModalContent.jsx';
 import SiteNavigation from '../SiteNavigation/SiteNavigation.jsx';
 import SocialMediaLinks from '../SocialMediaLinks/SocialMediaLinks.jsx';
 import TeamList from '../TeamList/TeamList.jsx';
-import data from './data/sectionContent.json';
+import data from '../../data/sectionContent.json';
 import s from './Footer.module.scss';
 
 const Footer = () => {

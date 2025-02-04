@@ -5,6 +5,7 @@ import s from './InputArea.module.scss';
 
 const InputArea = ({
   label,
+  error,
   className = '',
   rows = 4,
   name = 'message',
@@ -27,6 +28,7 @@ const InputArea = ({
         name={name}
         {...props}
       />
+      {error && <p className={s.error}>{error} </p>}
     </div>
   );
 };

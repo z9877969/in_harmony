@@ -3,6 +3,7 @@ import Image from 'next/image.js';
 import ImageContainer from '../ImageContainer/ImageContainer.jsx';
 import SocialMediaLinks from '../SocialMediaLinks/SocialMediaLinks.jsx';
 import TeamInfo from '../TeamInfo/TeamInfo.jsx';
+
 import s from './TeamList.module.scss';
 
 const TeamList = ({ data }) => {

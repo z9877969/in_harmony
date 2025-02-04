@@ -1,10 +1,11 @@
+import { Icon } from '@/shared/components/index.js';
 import s from './Feedbacks.module.scss';
-import { Button, Icon } from '../index.js';
+import Link from 'next/link.js';
 
-const Feedbacks = ({ children }) => {
+const Feedbacks = ({ children, href }) => {
   return (
     <>
-      <Button className={s.btnFeedbacks} size="withArrowSmall">
+      <Link href={href} className={s.linkFeedbacks}>
         <p>{children}</p>
         <Icon
           iconName="icon-arrow-right-circle"
@@ -12,7 +13,7 @@ const Feedbacks = ({ children }) => {
           height="24"
           className={s.iconFeedbacks}
         />
-      </Button>
+      </Link>
     </>
   );
 };

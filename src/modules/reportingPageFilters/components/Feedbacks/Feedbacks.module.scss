@@ -1,12 +1,18 @@
-@import '../../styles/colors';
+@import '../../../../shared/styles/_colors';
 
-.btnFeedbacks {
+.linkFeedbacks {
   width: 100%;
   height: 48px;
   font-weight: 600;
   font-size: 18px;
   line-height: 1.5;
   color: $wite-text-color;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $violet-ui-text-color;
+  border-radius: 60px;
 
   @include media(desktop) {
     height: 64px;

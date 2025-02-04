@@ -13,4 +13,3 @@ export { default as DotsSwiper } from './DotsSwiper/DotsSwiper.jsx';
 export { default as CustomPagination } from './DotsSwiper/CustomPagination/CustomPagination';
 export { default as ProgressBar } from './ProgressBar/ProgressBar';
 export { default as BreadCrumbs } from './Breadcrumbs/Breadcrumbs.jsx';
-export { default as Feedbacks } from './Feedbacks/Feedbacks.jsx';

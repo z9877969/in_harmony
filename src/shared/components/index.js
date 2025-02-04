@@ -11,12 +11,14 @@ export { default as InputArea } from './InputArea/InputArea';
 export { default as Logo } from './Logo/Logo';
 export { default as Modal } from './Modal/Modal';
 export { default as ProgressBar } from './ProgressBar/ProgressBar';
-export { default as BreadCrumbs } from './Breadcrumbs/Breadcrumbs.jsx';
+export { default as Breadcrumbs } from './Breadcrumbs/Breadcrumbs.jsx';
 export { default as ActiveCollectionsCard } from './ActiveCollectionsCard/ActiveCollectionsCard.jsx';
 export { default as PublicPrivateForm } from './PublicPrivateForm/PublicPrivateForm';
 export { default as RadioButton } from './RadioButton/RadioButton.jsx';
 export { default as SectionTitle } from './SectionTitle/SectionTitle';
+export { default as Section } from './Section/Section.jsx';
 export { default as DotsSwiper } from './DotsSwiper/DotsSwiper.jsx';
 export { default as CustomPagination } from './DotsSwiper/CustomPagination/CustomPagination';
 export { default as ProgressBar } from './ProgressBar/ProgressBar';
 export { default as CardProjectReporting } from './CardProjectReporting/CardProjectReporting';
+

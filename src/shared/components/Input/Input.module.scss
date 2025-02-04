@@ -1,6 +1,3 @@
-@import '@/shared/styles/mixins.scss';
-@import '@/shared/styles/colors.scss';
-
 .label {
   align-self: stretch;
   color: $secondary-text-color;
@@ -17,12 +14,16 @@
   gap: 10px;
   align-self: stretch;
   border-radius: 60px;
-  // border: none;
-  // background-color: $footer-input-bg-color;
 
   &::placeholder {
     color: $secondary-text-color;
     @include font(16, 24);
     font-weight: 400;
   }
+}
+
+.error {
+  color: $form-donate-error-color;
+  font-weight: 400;
+  @include font(16, 24);
 }

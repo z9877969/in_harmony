@@ -16,3 +16,4 @@ export { default as ActiveCollectionsCard } from './ActiveCollectionsCard/Active
 export { default as PublicPrivateForm } from './PublicPrivateForm/PublicPrivateForm';
 export { default as RadioButton } from './RadioButton/RadioButton.jsx';
 export { default as SectionTitle } from './SectionTitle/SectionTitle';
+export { default as Section } from './Section/Section.jsx';

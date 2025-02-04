@@ -2,8 +2,13 @@
 
 import { useEffect, useState } from 'react';
 import { SwiperSlide } from 'swiper/react';
-import { Container, DotsSwiper, SectionTitle } from '@/shared/components';
-import { ActiveCollectionsCard } from '@/modules/mainPageCollection';
+import {
+  ActiveCollectionsCard,
+  Container,
+  DotsSwiper,
+  Section,
+  SectionTitle,
+} from '@/shared/components';
 import other_collection from '../../data/section-content.json';
 import s from './OpenCollectionOther.module.scss';
 
@@ -40,7 +45,7 @@ const OpenCollectionOther = () => {
   }, [collections.length]);
 
   return (
-    <section>
+    <Section className={s.section}>
       <Container>
         <SectionTitle title={other_collection.title} className={s.title} />
         <div>
@@ -52,13 +57,17 @@ const OpenCollectionOther = () => {
           >
             {collections.map((collection) => (
               <SwiperSlide key={collection._id}>
-                <ActiveCollectionsCard collection={collection} />
+                <ActiveCollectionsCard
+                  collection={collection}
+                  buttonDetails={other_collection.button_details}
+                  buttonDonas={other_collection.button_donas}
+                />
               </SwiperSlide>
             ))}
           </DotsSwiper>
         </div>
       </Container>
-    </section>
+    </Section>
   );
 };
 

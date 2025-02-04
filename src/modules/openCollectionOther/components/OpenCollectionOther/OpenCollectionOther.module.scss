@@ -1,3 +1,11 @@
+.section {
+  padding-bottom: 96px;
+
+  @include media(desktop) {
+    padding-bottom: 152px;
+  }
+}
+
 .title {
   padding-bottom: 24px;
 

@@ -9,7 +9,9 @@ import { content } from '../../data/sectionContent';
 
 export default function CollectionPageReporting() {
    const [isTablet, setIsTablet] = useState(false);
-let visibleItems=3;
+   
+   const visibleItems = isTablet ? 2 : 3;
+   
    useEffect(() => {
      const handleResize = () => {
        const width = window.innerWidth;
@@ -24,7 +26,6 @@ let visibleItems=3;
      };
    }, []);
 
-visibleItems = isTablet ? 2 : 3;
   return (
     <section>
       <Container>

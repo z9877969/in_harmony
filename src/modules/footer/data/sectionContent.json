@@ -13,7 +13,7 @@
         "firstName": "Ілона",
         "lastName": "Морараш",
         "position": "UI/UX Designer",
-        "url": "",
+        "url": "/images/default_image.webp",
         "social": [
           { "name": "instagram", "url": "https://www.instagram.com" },
           { "name": "telegram", "url": "https://www.telegram.com" },
@@ -27,7 +27,7 @@
         "firstName": "Ганна",
         "lastName": "Желдак",
         "position": "UI/UX Designer",
-        "url": "",
+        "url": "/images/default_image.webp",
         "social": [
           { "name": "instagram", "url": "https://www.instagram.com" },
           { "name": "telegram", "url": "https://www.telegram.com" },
@@ -41,7 +41,7 @@
         "firstName": "Наталія",
         "lastName": "Медведєва",
         "position": "UI/UX Designer",
-        "url": "",
+        "url": "/images/default_image.webp",
         "social": [
           { "name": "instagram", "url": "https://www.instagram.com" },
           { "name": "telegram", "url": "https://www.telegram.com" },

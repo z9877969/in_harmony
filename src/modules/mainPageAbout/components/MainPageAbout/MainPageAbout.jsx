@@ -1,5 +1,9 @@
+'use client';
 
-import { Container } from '@/shared/components';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { ROUTES } from '@/shared/constants';
+import { Container, Section } from '@/shared/components';
 import Button from '@/shared/components/Button/Button';
 import ActivitiesCard from '../ActivitiesCard/ActivitiesCard';
 import data from '../../data/sectionContent.json';
@@ -7,8 +11,10 @@ import data from '../../data/sectionContent.json';
 import s from './MainPageAbout.module.scss';
 
 const MainPageAbout = () => {
+  const pathname = usePathname();
+  const locale = pathname.split('/')[1];
   return (
-    <section className={s.wrapper}>
+    <Section>
       <Container>
         <div className={s.contentContainer}>
           <div className={s.about}>
@@ -32,13 +38,15 @@ const MainPageAbout = () => {
           <p className={s.motivation}>{data.motivation}</p>
           <div className={s.image}></div>
           <div className={s.learnMore}>
-            <Button variant="secondary" border={true}>
-              {data.learnMore}
-            </Button>
+            <Link href={`/${locale}/${ROUTES.ABOUT}`}>
+              <Button variant="secondary" border={true}>
+                {data.learnMore}
+              </Button>
+            </Link>
           </div>
         </div>
       </Container>
-    </section>
+    </Section>
   );
 };
 

@@ -11,6 +11,7 @@ const SocialMediaItem = ({ socialItem, children, className = '' }) => {
         target="_blank"
         rel="noopener noreferrer"
         aria-label={socialItem.name}
+        title={socialItem.name}
       >
         {children}
       </a>

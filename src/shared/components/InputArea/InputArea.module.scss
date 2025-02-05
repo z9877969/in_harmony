@@ -13,8 +13,6 @@
   gap: 10px;
   align-self: stretch;
   border-radius: 24px;
-  // border: none;
-  // background-color: $footer-input-bg-color;
   resize: none;
   overflow: hidden;
 
@@ -23,4 +21,10 @@
     @include font(16, 24);
     font-weight: 400;
   }
+}
+
+.error {
+  color: $form-donate-error-color;
+  font-weight: 400;
+  @include font(16, 24);
 }

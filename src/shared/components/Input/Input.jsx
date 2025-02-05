@@ -1,8 +1,8 @@
 'use client';
 
-import { clsx } from 'clsx';
-import { useId } from 'react';
-import s from './Input.module.scss';
+import { clsx } from 'clsx'
+import { useId } from 'react'
+import s from './Input.module.scss'
 
 const Input = ({ type, label, error, className, ...rest }) => {
   const id = useId();

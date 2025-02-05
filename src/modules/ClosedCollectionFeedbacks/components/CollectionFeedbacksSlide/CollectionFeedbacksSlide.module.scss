@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+}
+
+.listItem {
+  background-color: $feedback_bg_color;
+  border-radius: 22px;
+  padding: 16px;
+  width: 100%;
+  min-height: 230px;
+
+  @include media(tablet) {
+    padding: 20px 20px 28px 20px;
+    width: 451px;
+  }
+
+  @include media(display) {
+    padding: 20px 20px 28px 20px;
+    width: 416px;
+  }
+
+  box-sizing: border-box;
+}
+
+

@@ -1,0 +1,48 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  min-height: 182px;
+}
+.personContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.commentText {
+  font-style: italic;
+  font-weight: 300;
+  @include font(16, 24);
+
+  @include media(tablet) {
+    @include font(18, 27);
+  }
+}
+
+.name {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 400;
+  @include font(16, 24);
+
+  &::before {
+    content: '';
+    display: block;
+    height: 1.5px;
+    width: 14px;
+    background-color: $primary-text-color;
+    margin-top: 4px;
+  }
+}
+
+.role {
+  font-weight: 400;
+  @include font(12, 18);
+
+  @include media(tablet) {
+    @include font(14, 18);
+  }
+}

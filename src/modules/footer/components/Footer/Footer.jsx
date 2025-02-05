@@ -24,12 +24,14 @@ const Footer = () => {
         <div className={s.gridContainer}>
           <div className={s.contactSection}>
             <Logo />
-            <Contacts data={data.company.contacts} />
-            <SocialMediaLinks
-              data={data && data.company.social}
-              itemClassName={s.footerSocialMediaItem}
-              iconClassName={s.footerSocialMediaIcon}
-            />
+            <div className={s.contactsSocialWrapper}>
+              <Contacts data={data.company.contacts} />
+              <SocialMediaLinks
+                data={data && data.company.social}
+                itemClassName={s.footerSocialMediaItem}
+                iconClassName={s.footerSocialMediaIcon}
+              />
+            </div>
           </div>
 
           <div className={s.navigationSection}>

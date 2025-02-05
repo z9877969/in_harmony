@@ -24,6 +24,8 @@
   line-height: 1.5;
   text-align: center;
   color: $footer-bold-text-color;
+  font-family: inherit;
+  font-size: 16px;
   @include media(tablet) {
     width: 199px;
   }

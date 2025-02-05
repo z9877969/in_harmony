@@ -12,6 +12,7 @@ const MainPageProgress = () => {
       <Container>
         <SectionTitle className={s.title} title="Останні досягнення" />
         <SwiperWithArrows
+          isArrowsShow={true}
           options={{
             dragFree: false,
             loop: false,

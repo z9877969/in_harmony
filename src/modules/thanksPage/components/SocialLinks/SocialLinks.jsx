@@ -1,13 +1,14 @@
 import { Icon } from '@/shared/components';
 
 import s from './SocialLinks.module.scss';
+import { SOCIALROUTES } from '@/shared/constants';
 
 const SocialLinks = () => {
   return (
     <ul className={s.socials}>
       <li>
         <a
-          href="https://www.instagram.com/inharmony.ua"
+          href={SOCIALROUTES.INSTAGRAM}
           className={s.socialLink}
           target="_blank"
           rel="noopener noreferrer"
@@ -17,7 +18,7 @@ const SocialLinks = () => {
       </li>
       <li>
         <a
-          href="https://t.me/inharmonyua"
+          href={SOCIALROUTES.TELEGRAM}
           className={s.socialLink}
           target="_blank"
           rel="noopener noreferrer"
@@ -27,7 +28,7 @@ const SocialLinks = () => {
       </li>
       <li>
         <a
-          href="https://www.tiktok.com/@inharmony.ua?_t=8pfFP3VEltN&_r=1"
+          href={SOCIALROUTES.TIKTOK}
           className={s.socialLink}
           target="_blank"
           rel="noopener noreferrer"
@@ -37,7 +38,7 @@ const SocialLinks = () => {
       </li>
       <li>
         <a
-          href="https://www.facebook.com/inharmony.com.ua"
+          href={SOCIALROUTES.FACEBOOK}
           className={s.socialLink}
           target="_blank"
           rel="noopener noreferrer"

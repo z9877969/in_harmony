@@ -1,7 +1,9 @@
+
 import { Container } from '@/shared/components';
 import Button from '@/shared/components/Button/Button';
 import ActivitiesCard from '../ActivitiesCard/ActivitiesCard';
 import data from '../../data/sectionContent.json';
+
 import s from './MainPageAbout.module.scss';
 
 const MainPageAbout = () => {

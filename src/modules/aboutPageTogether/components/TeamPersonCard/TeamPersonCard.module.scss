@@ -1,9 +1,12 @@
 .card {
-  width: 370px;
+  width: 100%;
   background-color: #f4f4f4;
   padding: 16px;
   border-radius: 22px;
 
+  @include media(mobile) {
+    width: 370px;
+  }
   @include media(tablet) {
     width: 332px;
     height: 361px;
@@ -31,6 +34,7 @@
   height: 46px;
   border-radius: 50%;
   background-color: #d9d9d9;
+  flex-shrink: 0;
 
   @include media(tablet) {
     width: 96px;

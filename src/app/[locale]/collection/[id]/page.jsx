@@ -1,10 +1,11 @@
 import { OpenCollectionOther } from '@/modules/openCollectionOther';
-import s from './page.module.scss';
+import { OpenCollectionPageHero } from '@/modules/openCollectionPageHero';
+// import s from './page.module.scss';
 
 const CollectionPage = () => {
   return (
     <>
-      <h1 className={s.title}>Collection details</h1>
+      <OpenCollectionPageHero />
       <OpenCollectionOther />
     </>
   );

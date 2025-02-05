@@ -5,7 +5,7 @@ import Link from 'next/link.js';
 const Feedbacks = ({ children, href }) => {
   return (
     <>
-      <Link href={href} className={s.linkFeedbacks}>
+      <Link href={href} className={s.linkFeedbacks} target="_blank">
         <p>{children}</p>
         <Icon
           iconName="icon-arrow-right-circle"

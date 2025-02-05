@@ -10,19 +10,24 @@ import CollectionFeedbacksCard from '../CollectionFeedbacksCard/CollectionFeedba
 
 const ClosedCollectionFeedbacks = () => {
   const [visibleItems, setVisibleItems] = useState(1);
+  const [totalSlides, setTotalSlides] = useState(0);
 
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
       let itemsPerPage = 1;
+      let slidesCount = comments.length;
 
       if (width >= 1440) {
         itemsPerPage = 3;
+        slidesCount = Math.ceil(comments.length) - 2;
       } else if (width > 767) {
-        itemsPerPage = 1.5;
+        itemsPerPage = 2;
+        slidesCount = Math.ceil(comments.length) - 1;
       }
 
       setVisibleItems(itemsPerPage);
+      setTotalSlides(slidesCount > 0 ? slidesCount : 1);
     };
 
     handleResize();
@@ -32,8 +37,6 @@ const ClosedCollectionFeedbacks = () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-
-  const totalSlides = comments.length;
 
   return (
     <Section>

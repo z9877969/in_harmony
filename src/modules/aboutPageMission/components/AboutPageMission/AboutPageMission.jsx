@@ -17,8 +17,8 @@ const AboutPageMission = () => {
           <div className={s.imageWrapper}>
             <Image
               className={s.image}
-              src="/images/placeholder.jpeg"
-              alt="Placeholder"
+              src="/images/teamPhoto.jpg"
+              alt="Team Photo"
               width={416}
               height={306}
             />

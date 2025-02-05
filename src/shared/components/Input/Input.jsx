@@ -1,21 +1,31 @@
 'use client';
 
-import { clsx } from 'clsx';
 import { useId } from 'react';
 import s from './Input.module.scss';
 
-const Input = ({ type, label, className, ...rest }) => {
+const Input = ({
+  data,
+  type,
+  label,
+  className,
+  labelClass = '',
+  currency = '',
+  ...rest
+}) => {
   const id = useId();
-  const inputClass = clsx(s['input'], className && className);
+
+  const inputClasses = `${s.input} ${className}`;
+  const labelClasses = `${s.label} ${labelClass}`;
 
   return (
-    <div>
+    <div className={s.inputContainer}>
       {label && (
-        <label className={s.label} htmlFor={id}>
+        <label className={labelClasses} htmlFor={id}>
           {label}
         </label>
       )}
-      <input className={inputClass} id={id} type={type} {...rest} />
+      <input className={inputClasses} id={id} type={type} {...rest} />
+      {currency && <span className={s.currency}>{currency}</span>}
     </div>
   );
 };

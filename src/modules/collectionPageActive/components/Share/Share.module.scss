@@ -1,0 +1,26 @@
+.title {
+  font-family: Montserrat, sans-serif;
+  @include font(20, 28);
+  font-weight: 700;
+  margin-bottom: 12px;
+
+  @include media(tablet) {
+    @include font(24, 28);
+  }
+
+  @include media(desktop) {
+    @include font(32, 40);
+    margin-bottom: 18px;
+  }
+}
+
+.text {
+  @include font(16, 24);
+  font-weight: 400;
+  margin-bottom: 12px;
+
+  @include media(tablet) {
+    @include font(18, 27);
+    margin-bottom: 18px;
+  }
+}

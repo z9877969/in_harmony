@@ -1,0 +1,107 @@
+.sectionClass {
+  color: $footer-bold-text-color;
+  padding: 24px 16px;
+  background-color: $form-donate-bg-color;
+  border-radius: 32px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  width: 100%;
+  height: max-content;
+}
+
+.title {
+  text-align: center;
+  @include font(18, 27);
+  font-weight: 600;
+  width: 338px;
+
+  @include media(tablet) {
+    align-self: center;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+  width: 100%;
+}
+
+.fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+
+  align-self: stretch;
+}
+
+.inputRadioLabel {
+  color: $footer-bold-text-color;
+  @include font(16, 24);
+  font-weight: 600;
+  display: flex;
+  padding: 10px 6px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 60px;
+  background-color: $primary-bg-color;
+  min-width: 99px;
+  width: 100%;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+
+  @include media(tablet) {
+    padding: 10px 32px;
+    min-width: 202px;
+  }
+
+  @include media(desktop) {
+    padding: 10px 10px;
+    min-width: 112px;
+  }
+}
+
+.inputRadio {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.input {
+  position: relative;
+  display: flex;
+  height: 48px;
+  padding: 8px 16px;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+  border: none;
+
+  &::placeholder {
+    @include font(16, 24);
+    font-weight: 400;
+  }
+}
+
+.link {
+  padding: 10px;
+  text-align: center;
+  @include font(16, 24);
+  font-weight: 600;
+}

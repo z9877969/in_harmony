@@ -20,7 +20,7 @@
   grid-template-columns: 100px max-content;
   grid-template-rows: repeat(2, auto);
   row-gap: 16px;
-  column-gap: 8px;
+  column-gap: 12px;
 
   @include media(tablet) {
     grid-template-columns: 200px max-content;
@@ -28,12 +28,16 @@
   }
 }
 
+.teamSocialMediaList {
+  gap: 8px;
+}
+
 .teamSocialMediaItem {
   background-color: $social-icons-dark-grey-color;
 }
 
 .teamSocialMediaIcon {
-  fill: white;
+  fill: $wite-text-color;
 }
 
 .image {

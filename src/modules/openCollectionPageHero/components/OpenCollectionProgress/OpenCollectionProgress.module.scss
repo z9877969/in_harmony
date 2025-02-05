@@ -1,0 +1,89 @@
+.title,
+.amount {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title > p {
+  @include font(16, 24);
+  font-family: $primary-font-family;
+  font-weight: 400;
+  margin-bottom: 8px;
+
+  @include media(desktop) {
+    @include font(18, 27);
+  }
+}
+
+.amount > p {
+  @include font(20, 28);
+  font-family: $secondary-font-family;
+  margin-bottom: 12px;
+
+  @include media(tablet) {
+    @include font(32, 40);
+  }
+  @include media(desktop) {
+    @include font(48, 56);
+  }
+}
+
+.progressContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bar {
+  width: 281px;
+  height: 12px;
+  background-color: #d9d9d9;
+
+  @include media(tablet) {
+    width: 569px;
+    height: 14px;
+  }
+  @include media(desktop) {
+    width: 1186px;
+  }
+}
+
+.progressLine {
+  background-color: $primary-text-color;
+}
+
+.progressContainer > p {
+  @include font(16, 24);
+  font-family: $primary-font-family;
+  font-weight: 400;
+
+  @include media(tablet) {
+    @include font(20, 30);
+  }
+  @include media(desktop) {
+    font-weight: 600;
+    @include font(22, 34);
+  }
+}
+
+.donors {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 16px;
+
+  @include media(tablet) {
+    margin-top: 32px;
+  }
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+.donors > p {
+  @include font(16, 24);
+  font-family: $primary-font-family;
+  font-weight: 400;
+}

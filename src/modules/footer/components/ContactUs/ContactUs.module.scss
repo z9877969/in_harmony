@@ -8,7 +8,6 @@
   }
 
   @include media(desktop) {
-    align-self: center;
     grid-column: 3 / 4;
     grid-row: 1 / 2;
   }
@@ -24,22 +23,12 @@
   gap: 24px;
   border-radius: 32px;
   background-color: $footer-form-bg-color;
-
-  @include media(tablet) {
-    background-color: $swiper-inactive-dots-color;
-  }
-
-  @include media(desktop) {
-    display: flex;
-    align-items: center;
-  }
 }
 
 .title {
   align-self: stretch;
   color: inherit;
   font-family: Montserrat, sans-serif;
-  @include font(20, 30);
   font-style: normal;
   font-weight: 700;
 }
@@ -75,33 +64,21 @@
 }
 
 .inputFooter {
-  @include media(to-tablet) {
-    border: none;
-    background-color: $footer-input-bg-color;
-  }
+  border: none;
+  background-color: $wite-text-color;
+  padding: 8px 16px;
 
-  @include media(tablet) {
-    background-color: transparent;
-    border: 1px solid $border-gray-color;
-
-    &::placeholder {
-      color: $primary-text-color;
-    }
+  &::placeholder {
+    color: $secondary-text-color;
   }
 }
 
 .textAreaFooter {
-  @include media(to-tablet) {
-    border: none;
-    background-color: $footer-input-bg-color;
-  }
+  border: none;
+  background-color: $wite-text-color;
+  padding: 16px 16px;
 
-  @include media(tablet) {
-    background-color: transparent;
-    border: 1px solid $border-gray-color;
-
-    &::placeholder {
-      color: $primary-text-color;
-    }
+  &::placeholder {
+    color: $secondary-text-color;
   }
 }

@@ -8,6 +8,8 @@
   @include font(18, 27);
   font-weight: 600;
   align-self: stretch;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .title {
@@ -20,10 +22,6 @@
   font-style: normal;
   font-weight: 400;
   color: $footer-text-color;
-
-  @include media(tablet) {
-    color: $footer-secondary-text-color;
-  }
 }
 
 .toLine {

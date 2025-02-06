@@ -1,8 +1,6 @@
-@import '@/shared/styles/mixins.scss';
-
 .label {
   align-self: stretch;
-  color: var(--Final-UI-dark-grey, #222); //TODO!!!
+  color: $secondary-text-color;
   font-family: 'Open Sans';
   @include font(16, 24);
   font-weight: 700;
@@ -11,17 +9,21 @@
 .input {
   width: 100%;
   display: flex;
-  padding: 8px;
+  padding: 8px 16px;
   align-items: flex-start;
   gap: 10px;
   align-self: stretch;
   border-radius: 60px;
-  border: none;
-  background: var(--Final-UI-light, #f5f0f9);
 
   &::placeholder {
-    color: var(--Final-UI-dark-grey, #222); //TODO!!!
+    color: $secondary-text-color;
     @include font(16, 24);
     font-weight: 400;
   }
+}
+
+.error {
+  color: $form-donate-error-color;
+  font-weight: 400;
+  @include font(16, 24);
 }

@@ -1,8 +1,9 @@
-import { Montserrat, Open_Sans, Pacifico } from 'next/font/google';
+import { Montserrat, Open_Sans } from 'next/font/google';
 import clsx from 'clsx';
 import { Header } from '@/modules/header';
 import { Footer } from '@/modules/footer';
-import { BreadCrumbs } from '@/shared/components';
+import { Breadcrumbs } from '@/shared/components';
+
 import '../globals.scss';
 
 export const metadata = {
@@ -24,27 +25,15 @@ const open_sans = Open_Sans({
   variable: '--font-open_sans',
 });
 
-const pacifico = Pacifico({
-  subsets: ['latin', 'cyrillic'],
-  weight: ['400'],
-  display: 'swap',
-  variable: '--font-pacifico',
-});
-
 export default function RootLayout({ children }) {
   return (
     <html lang="uk">
-      <body
-        className={clsx(
-          open_sans.variable,
-          pacifico.variable,
-          montserrat.variable
-        )}
-      >
+      <body className={clsx(open_sans.variable, montserrat.variable)}>
         <Header />
-        <BreadCrumbs />
+        <Breadcrumbs />
         <main>{children}</main>
         <Footer />
+        <div id="modal"></div>
       </body>
     </html>
   );

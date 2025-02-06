@@ -1,0 +1,64 @@
+.modalDialog {
+  padding: 0;
+  width: 80%;
+  max-width: 322px;
+  border: none;
+  border-radius: 32px;
+  background-color: $img-backdrop-color;
+  animation: fade-slide-up 0.3s ease forwards;
+
+  @include media(tablet) {
+    max-width: 576px;
+    border-radius: 48px;
+  }
+
+  @include media(desktop) {
+    max-width: 1144px;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.modalDialog::backdrop {
+  background-color: $modal-backdrop-color;
+  backdrop-filter: blur(4px);
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 24px 16px;
+
+  @include media(tablet) {
+    padding: 32px;
+  }
+
+  @include media(desktop) {
+    padding: 32px 72px;
+  }
+}
+
+.teamModal {
+  gap: 32px;
+
+  @include media(desktop) {
+    gap: 48px;
+  }
+}
+
+@keyframes fade-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(4rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

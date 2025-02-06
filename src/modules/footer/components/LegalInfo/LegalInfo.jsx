@@ -1,40 +1,44 @@
 'use client';
 
-import Link from 'next/link.js'
-import { usePathname } from 'next/navigation.js'
-import s from './LegalInfo.module.scss'
+import Link from 'next/link.js';
+import { usePathname } from 'next/navigation.js';
+import s from './LegalInfo.module.scss';
 
-function LegalInfo() {
+function LegalInfo({ data }) {
   const pathname = usePathname();
   const locale = pathname.split('/')[1];
 
+  if (!data) {
+    return null;
+  }
+
   return (
     <section className={s.legalInfoSection}>
-      <h1 className="visuallyHidden">Юридична інформація</h1>
+      <h1 className="visuallyHidden">{data.title}</h1>
       <Link href={`/${locale}/policy`} className={s.navLink}>
-        Політика конфіденційності
+        {data.linkPolicyText}
       </Link>
 
       <section>
-        <h2 className={s.title}>Реквізити:</h2>
+        <h2 className={s.title}>{data.paymentDetails.title}</h2>
         <dl className={s.text}>
           <div className={s.toLine}>
-            <dt className={s.key}>Company name:</dt>
-            <dd className={s.value}>ГО ІНХАРМОНІ.ЮА</dd>
+            <dt className={s.key}>{data.paymentDetails.companyNameTitle}</dt>
+            <dd className={s.value}>{data.paymentDetails.companyName}</dd>
           </div>
           <div className={s.toLine}>
-            <dt className={s.key}>Code: </dt>
-            <dd className={s.value}>44849411</dd>
+            <dt className={s.key}>{data.paymentDetails.companyCodeTitle}</dt>
+            <dd className={s.value}>{data.paymentDetails.companyCode}</dd>
           </div>
           <div className={s.toLine}>
-            <dt className={s.key}>IBAN Code: </dt>
-            <dd className={s.value}>UA503052990000026005026109109</dd>
+            <dt className={s.key}>{data.paymentDetails.companyIBANTitle}</dt>
+            <dd className={s.value}>{data.paymentDetails.companyIBAN}</dd>
           </div>
         </dl>
       </section>
 
       <Link href={`/${locale}/unsubscribe`} className={s.navLink}>
-        Скасувати підписку
+        {data.linkUnsubscribeText}
       </Link>
     </section>
   );

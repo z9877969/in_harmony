@@ -1,16 +1,18 @@
-@import '@/shared/styles/mixins.scss';
-@import '@/shared/styles/colors.scss';
-
 .footer {
-  background-color: $footer-bg-color;
   padding-top: 24px;
-  padding-bottom: 32px;
+  padding-bottom: 24px;
+  background-color: $footer-bg-color;
   color: $footer-bold-text-color;
-}
-.footerContentWrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
+
+  @include media(tablet) {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  @include media(desktop) {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
 }
 
 .contactSection {
@@ -18,40 +20,98 @@
   flex-direction: column;
   gap: 24px;
   align-items: flex-start;
+
+  @include media(desktop) {
+    gap: 48px;
+  }
+}
+
+.contactsSocialWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: flex-start;
 }
 
 .navigationSection {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 48px;
 }
 
 .teamSection {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 26px;
+
+  @include media(tablet) {
+    gap: 16px;
+  }
+
+  @include media(desktop) {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
 }
 
 .linkBtn {
   color: inherit;
   text-align: center;
+  font-family: $primary-font-family;
   @include font(16, 24);
   font-weight: 600;
-  text-decoration-line: underline;
-  text-decoration-style: solid;
-  text-decoration-skip-ink: auto;
-  text-decoration-thickness: auto;
-  text-underline-offset: auto;
-  text-underline-position: from-font;
   border: none;
   background-color: transparent;
   cursor: pointer;
+
+  @include media(desktop) {
+    @include font(18, 27);
+  }
 }
 
 .copyright {
   display: block;
   color: inherit;
   text-align: center;
-  @include font(16, 24);
+  @include font(14, 22);
   font-weight: 400;
+
+  @include media(tablet) {
+    @include font(16, 24);
+  }
+
+  @include media(desktop) {
+    font-weight: 600;
+  }
+}
+
+.gridContainer {
+  display: grid;
+  row-gap: 26px;
+  margin-bottom: 26px;
+
+  @include media(tablet) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(auto-fit, minmax(150px, 1fr));
+    row-gap: 40px;
+    column-gap: 24px;
+    margin-bottom: 16px;
+  }
+
+  @include media(desktop) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    column-gap: 70px;
+    margin-bottom: 32px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid $primary-text-color;
+  }
+}
+
+.footerSocialMediaItem {
+  background-color: $footer-input-bg-color;
+}
+
+.footerSocialMediaIcon {
+  fill: $radio-active-bg-color;
 }

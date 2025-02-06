@@ -1,9 +1,12 @@
-@import '@/shared/styles/mixins.scss';
-
 .navList {
   display: flex;
   flex-direction: column;
-  gap: 24px;
   @include font(18, 27);
   font-weight: 600;
+}
+
+.navLink {
+  display: block;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }

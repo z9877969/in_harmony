@@ -1,0 +1,21 @@
+.teamWrapper {
+  align-self: center;
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+
+  @include media(tablet) {
+    align-self: self-end;
+  }
+}
+
+.teamInfoName {
+  font-family: Montserrat, sans-serif;
+  @include font(20, 28);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.teamInfoPosition {
+  @include font(16, 24);
+  font-weight: 400;
+}

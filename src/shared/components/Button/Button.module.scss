@@ -3,6 +3,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  font-family: inherit;
   @include animation-rules();
   border: none;
   outline: transparent;

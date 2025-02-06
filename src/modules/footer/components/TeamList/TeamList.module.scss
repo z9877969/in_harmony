@@ -1,0 +1,55 @@
+.teamList {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+
+  @include media(tablet) {
+    gap: 32px;
+  }
+
+  @include media(desktop) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+}
+
+.teamItem {
+  display: grid;
+  grid-template-columns: 100px max-content;
+  grid-template-rows: repeat(2, auto);
+  row-gap: 16px;
+  column-gap: 12px;
+
+  @include media(tablet) {
+    grid-template-columns: 200px max-content;
+    gap: 24px;
+  }
+}
+
+.teamSocialMediaList {
+  gap: 8px;
+}
+
+.teamSocialMediaItem {
+  background-color: $social-icons-dark-grey-color;
+}
+
+.teamSocialMediaIcon {
+  fill: $wite-text-color;
+}
+
+.image {
+  text-align: center;
+  border: none;
+  border-radius: 22px;
+  background-color: $social-icons-dark-grey-color;
+  flex-shrink: 0;
+
+  @include media(tablet) {
+    border-radius: 32px;
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+  }
+}

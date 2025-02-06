@@ -33,7 +33,7 @@ const CollectionPageActive = () => {
           <SectionTitle title={collection.title} />
           <ActiveCollectionList
             visibleItems={visibleItems}
-            collection={collection}
+            allCollection={collection}
             className={s.list}
           />
           <Button

@@ -1,25 +1,14 @@
-@import '@/shared/styles/colors.scss';
+.socialMediaSection {
+  grid-column: 1 / 3;
+  grid-row: 2 / 3;
+
+  @include media(tablet) {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+  }
+}
 
 .socialIconsList {
   display: flex;
-  gap: 8px;
-}
-
-.socialIconsItem {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: $social-icons-color;
-  width: 40px;
-  height: 40px;
-  flex-shrink: 0;
-  border-radius: 50%;
-}
-
-.socialIconsLink {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  margin: 0;
+  gap: 10px;
 }

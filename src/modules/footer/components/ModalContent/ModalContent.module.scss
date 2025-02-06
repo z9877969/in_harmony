@@ -1,0 +1,38 @@
+.modalContent {
+  margin-bottom: 24px;
+
+  @include media(tablet) {
+    margin-bottom: 32px;
+  }
+
+  @include media(desktop) {
+    margin-bottom: 48px;
+  }
+}
+
+.modalTitle {
+  width: 262px;
+  font-family: Montserrat, sans-serif;
+  @include font(24, 28);
+  font-weight: 700;
+  margin-bottom: 24px;
+
+  @include media(tablet) {
+    width: auto;
+    margin-bottom: 16px;
+  }
+
+  @include media(desktop) {
+    @include font(32, 40);
+    margin-bottom: 24px;
+  }
+}
+
+.modalText {
+  @include font(16, 24);
+  font-weight: 400;
+
+  @include media(tablet) {
+    @include font(18, 27);
+  }
+}

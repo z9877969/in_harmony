@@ -1,11 +1,11 @@
-import { Container } from '@/shared/components';
+import { Container, Section } from '@/shared/components';
 import TeamPersonCard from '../TeamPersonCard/TeamPersonCard';
 import data from '../../data/sectionContent.json';
 import s from './AboutPageTogether.module.scss';
 
 const AboutPageTogether = () => {
   return (
-    <section className={s.wrapper}>
+    <Section>
       <Container>
         <div className={s.contentContainer}>
           <h2 className={s.title}>{data.title}</h2>
@@ -27,7 +27,7 @@ const AboutPageTogether = () => {
           </ul>
         </div>
       </Container>
-    </section>
+    </Section>
   );
 };
 

@@ -1,10 +1,7 @@
-@import '../../styles/variables';
-@import '../../styles/_colors';
-
 .label {
   align-self: stretch;
-  color: $primary-text-color;
-  font-family: $primary-font-family;
+  color: $secondary-text-color;
+  font-family: 'Open Sans';
   @include font(16, 24);
   font-weight: 700;
 }
@@ -12,7 +9,7 @@
 .input {
   width: 100%;
   display: flex;
-  padding: 12px 24px;
+  padding: 8px 16px;
   align-items: flex-start;
   gap: 10px;
   align-self: stretch;

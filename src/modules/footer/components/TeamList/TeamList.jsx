@@ -1,3 +1,4 @@
+import { Icon } from '@/shared/components/index.js';
 import Image from 'next/image.js';
 import ImageContainer from '../ImageContainer/ImageContainer.jsx';
 import SocialMediaLinks from '../SocialMediaLinks/SocialMediaLinks.jsx';
@@ -16,19 +17,24 @@ const TeamList = ({ data }) => {
         return (
           <li className={s.teamItem} key={member.id}>
             <ImageContainer>
-              <Image
-                src={member.url ? member.url : '/images/default_image.webp'}
-                alt={`${member.firstName} ${member.lastName}`}
-                width={0}
-                height={0}
-                sizes="100vw"
-                style={{ width: '100%', height: 'auto' }}
-                className={s.image}
-              />
+              {member.url ? (
+                <Image
+                  src={member.url}
+                  alt={`${member.firstName} ${member.lastName}`}
+                  width={0}
+                  height={0}
+                  sizes="100vw"
+                  style={{ width: '100%', height: 'auto' }}
+                  className={s.image}
+                />
+              ) : (
+                <Icon iconName="icon-non-image" />
+              )}
             </ImageContainer>
             <TeamInfo data={member} />
             <SocialMediaLinks
               data={member.social}
+              listClassName={s.teamSocialMediaList}
               itemClassName={s.teamSocialMediaItem}
               iconClassName={s.teamSocialMediaIcon}
             />

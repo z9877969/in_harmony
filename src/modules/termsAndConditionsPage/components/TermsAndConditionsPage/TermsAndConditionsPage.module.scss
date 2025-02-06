@@ -1,0 +1,30 @@
+.section {
+  padding-top: 8px;
+  padding-bottom: 96px;
+  @include media(desktop) {
+    padding-top: 16px;
+    padding-bottom: 156px;
+  }
+}
+.title {
+  font-family: $secondary-font-family;
+  margin-bottom: 32px;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.17;
+  color: $secondary-text-color;
+  @include media(tablet) {
+    margin-bottom: 40px;
+    font-size: 32px;
+    line-height: 1.25;
+  }
+  @include media(desktop) {
+    margin-bottom: 48px;
+    font-size: 48px;
+    line-height: 117%;
+  }
+}
+
+.link {
+  text-decoration: underline;
+}

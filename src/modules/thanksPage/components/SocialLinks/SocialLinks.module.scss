@@ -1,0 +1,27 @@
+.socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  @include media(desktop) {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .socialLink {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    border-radius: 100%;
+    padding: 8px;
+    background-color: $footer-input-bg-color;
+  }
+  .socialsIcon {
+    width: 24px;
+    height: 24px;
+    fill: #9d40e0;
+    @include media(tablet) {
+      width: 40px;
+      height: 40px;
+    }
+  }
+}

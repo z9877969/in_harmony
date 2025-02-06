@@ -1,0 +1,339 @@
+@import '@/shared/styles/mixins';
+@import '@/shared/styles/breakpoints';
+@import '@/shared/styles/variables';
+@import '@/shared/styles/colors';
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 100%;
+  height: auto;
+  justify-content: center;
+  padding: 48px 0;
+
+  @include media(mobile) {
+    width: 402px;
+  }
+
+  @include media(tablet) {
+    gap: 40px;
+    width: 768px;
+  }
+
+  @include media(desktop) {
+    gap: 48px;
+    width: 1440px;
+    padding: 76px 0;
+  }
+}
+
+.title {
+  @include font(24, 28);
+  font-weight: 700;
+  font-family: var(--font-montserrat), sans-serif;
+
+  @include media(tablet) {
+    @include font(32, 40);
+  }
+
+  @include media(desktop) {
+    @include font(40, 48);
+  }
+}
+
+.infoBlock {
+  @include media(desktop) {
+    display: flex;
+    gap: 48px;
+    width: 100%;
+  }
+}
+
+.imageWrapper {
+  @include media(desktop) {
+    width: 416px;
+    height: 306px;
+    border-radius: 32px;
+    background-color: #dddddd;
+  }
+}
+.image {
+  display: none;
+  @include media(desktop) {
+    display: block;
+    width: 416px;
+    height: 306px;
+    border-radius: 32px;
+  }
+}
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  @include media(tablet) {
+    gap: 12px;
+  }
+
+  @include media(desktop) {
+    gap: 18px;
+  }
+}
+.subtitle {
+  @include font(20, 28);
+  font-weight: 700;
+  font-family: var(--font-montserrat), sans-serif;
+
+  @include media(tablet) {
+    @include font(24, 28);
+  }
+
+  @include media(desktop) {
+    @include font(32, 40);
+  }
+}
+
+.descriptionMain {
+  @include font(16, 24);
+  font-weight: 600;
+  font-family: var(--font-open_sans), sans-serif;
+
+  @include media(tablet) {
+    @include font(18, 27);
+  }
+}
+
+.descriptionExtra {
+  @include font(16, 24);
+  font-weight: 400;
+  font-family: var(--font-open_sans), sans-serif;
+
+  @include media(tablet) {
+    @include font(18, 27);
+  }
+}
+
+.inspirationTitle {
+  margin-bottom: 24px;
+
+  @include font(20, 28);
+  font-weight: 700;
+  font-family: var(--font-montserrat), sans-serif;
+
+  @include media(tablet) {
+    margin-bottom: 32px;
+
+    @include font(24, 28);
+  }
+
+  @include media(desktop) {
+    margin-bottom: 18px;
+
+    @include font(32, 40);
+  }
+}
+
+.icon {
+  display: none;
+}
+
+.inspirationList {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  @include media(tablet) {
+    gap: 56px;
+  }
+
+  @include media(desktop) {
+    display: grid;
+
+    grid-template-areas:
+      'item1 item1 item1'
+      'item2 item3 item3'
+      'item4 icon item5'
+      'item6 item7 item7';
+
+    .inspirationItem:nth-child(1) {
+      grid-area: item1;
+      justify-self: center;
+      margin-bottom: 64px;
+    }
+
+    .inspirationItem:nth-child(2) {
+      grid-area: item2;
+      justify-self: start;
+      margin-left: 110px;
+      margin-bottom: 88px;
+    }
+
+    .inspirationItem:nth-child(3) {
+      grid-area: item3;
+      justify-self: end;
+      margin-right: 110px;
+      margin-bottom: 88px;
+    }
+
+    .inspirationItem:nth-child(4) {
+      grid-area: item4;
+      justify-self: start;
+      margin-bottom: 140px;
+    }
+
+    .inspirationItem:nth-child(5) {
+      grid-area: item5;
+      justify-self: end;
+      margin-bottom: 140px;
+    }
+
+    .inspirationItem:nth-child(6) {
+      grid-area: item6;
+      justify-self: start;
+      margin-left: 110px;
+    }
+
+    .inspirationItem:nth-child(7) {
+      grid-area: item7;
+      justify-self: end;
+      margin-right: 110px;
+    }
+
+    .icon {
+      display: block;
+      grid-area: icon;
+      grid-column: 1/4;
+      grid-row: 3;
+      justify-self: center;
+      position: relative;
+      top: -75px;
+    }
+    .icon img {
+      width: 196px;
+      height: 207px;
+    }
+  }
+}
+
+.inspirationItem {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  @include media(tablet) {
+    gap: 16px;
+  }
+
+  @include media(desktop) {
+    width: 416px;
+    height: auto;
+    align-items: center;
+    gap: 8px;
+
+    .circleWrapper {
+      gap: 16px;
+    }
+
+    &:nth-child(1) .circleWrapper {
+      gap: 24px;
+    }
+
+    &:nth-child(6) .circleWrapper,
+    &:nth-child(7) .circleWrapper {
+      gap: 24px;
+    }
+  }
+}
+
+.circleWrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  @include media(desktop) {
+    flex-direction: column;
+  }
+}
+
+.circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  color: currentColor;
+
+  @include media(desktop) {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+.inspirationItemTitle {
+  @include font(20, 28);
+  font-weight: 700;
+  font-family: var(--font-montserrat), sans-serif;
+
+  @include media(desktop) {
+    @include font(24, 28);
+  }
+}
+
+.inspirationItemText {
+  @include font(14, 22);
+  font-weight: 400;
+  font-family: var(--font-open_sans), sans-serif;
+  font-style: italic;
+
+  @include media(tablet) {
+    @include font(18, 27);
+  }
+
+  @include media(desktop) {
+    @include font(16, 24);
+  }
+}
+
+.bgGreen {
+  background-color: $green-color;
+}
+.bgYellow {
+  background-color: $yellow-color;
+}
+.bgLightBlue {
+  background-color: $light-blue-color;
+}
+.bgOrange {
+  background-color: $orange-color;
+}
+.bgDarkBlue {
+  background-color: $dark-blue-color;
+}
+.bgPink {
+  background-color: $pink-color;
+}
+.bgViolet {
+  background-color: $violet-color;
+}
+
+.textGreen {
+  color: $green-color;
+}
+.textYellow {
+  color: $yellow-color;
+}
+.textLightBlue {
+  color: $light-blue-color;
+}
+.textOrange {
+  color: $orange-color;
+}
+.textDarkBlue {
+  color: $dark-blue-color;
+}
+.textPink {
+  color: $pink-color;
+}
+.textViolet {
+  color: $violet-color;
+}

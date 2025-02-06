@@ -1,10 +1,10 @@
 'use client';
 
+import clsx from 'clsx';
 import { useId } from 'react';
 import s from './Input.module.scss';
 
 const Input = ({
-  data,
   type,
   label,
   error,
@@ -15,8 +15,8 @@ const Input = ({
 }) => {
   const id = useId();
 
-  const inputClasses = `${s.input} ${className}`;
-  const labelClasses = `${s.label} ${labelClass}`;
+  const inputClasses = clsx(s.input, className && className);
+  const labelClasses = clsx(s.label, labelClass && labelClass);
 
   return (
     <div className={s.inputContainer}>

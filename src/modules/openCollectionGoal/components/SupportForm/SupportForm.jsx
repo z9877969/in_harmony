@@ -1,16 +1,16 @@
 'use client';
 import { Button, Input } from '@/shared/components/index.js';
+import clsx from 'clsx';
 import Link from 'next/link.js';
 import { useState } from 'react';
 import s from './SupportForm.module.scss';
 
 const SupportForm = ({ data, className = '' }) => {
-  const [enteredPrice, setEnteredPrice] = useState(0);
-  const sectionClasses = `${s.sectionClass} ${className}`;
+  const [amount, setAmount] = useState(0);
+  const sectionClasses = clsx(s.sectionClass, className && className);
 
   const handleChangePrice = (e) => {
-    setEnteredPrice(e.target.value);
-    console.log(e.target.value);
+    setAmount(e.target.value);
   };
 
   return (
@@ -36,7 +36,7 @@ const SupportForm = ({ data, className = '' }) => {
           className={s.input}
           type="number"
           name="manualPrice"
-          value={enteredPrice}
+          value={amount}
           placeholder="0"
           currency={data.currency}
           onChange={handleChangePrice}

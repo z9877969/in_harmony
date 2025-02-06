@@ -1,9 +1,9 @@
-import { Montserrat, Open_Sans } from 'next/font/google';
-import '../globals.scss';
+import { Montserrat, Open_Sans, Pacifico } from 'next/font/google';
 import clsx from 'clsx';
 import { Header } from '@/modules/header';
 import { Footer } from '@/modules/footer';
 import { BreadCrumbs } from '@/shared/components';
+import '../globals.scss';
 
 export const metadata = {
   title: 'In Harmony',
@@ -11,21 +11,36 @@ export const metadata = {
 };
 
 const montserrat = Montserrat({
-  subsets: ['latin', 'cyrillic'], // Вкажіть підмножини
-  weight: ['700'], // Налаштуйте товщину шрифтів
-  display: 'swap', // Рекомендований формат
+  subsets: ['latin', 'cyrillic'],
+  weight: ['700'],
+  display: 'swap',
+  variable: '--font-montserrat',
 });
 
 const open_sans = Open_Sans({
-  subsets: ['latin', 'cyrillic'], // Вкажіть підмножини
-  weight: ['400', '600'], // Налаштуйте товщину шрифтів
-  display: 'swap', // Рекомендований формат
+  subsets: ['latin', 'cyrillic'],
+  weight: ['400', '600'],
+  display: 'swap',
+  variable: '--font-open_sans',
+});
+
+const pacifico = Pacifico({
+  subsets: ['latin', 'cyrillic'],
+  weight: ['400'],
+  display: 'swap',
+  variable: '--font-pacifico',
 });
 
 export default function RootLayout({ children }) {
   return (
     <html lang="uk">
-      <body className={clsx(montserrat.className, open_sans.className)}>
+      <body
+        className={clsx(
+          open_sans.variable,
+          pacifico.variable,
+          montserrat.variable
+        )}
+      >
         <Header />
         <BreadCrumbs />
         <main>{children}</main>

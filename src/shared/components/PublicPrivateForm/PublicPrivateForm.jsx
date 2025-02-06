@@ -1,69 +1,115 @@
 'use client';
+
 import { useState } from 'react';
-import { Button, Dropdown, Input, InputArea, RadioButton } from '..';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
+import {
+  Button,
+  Dropdown,
+  Input,
+  InputArea,
+  RadioButton,
+  SectionTitle,
+} from '..';
 import s from './PublicPrivateForm.module.scss';
 import data from './data/PublicPrivateForm.json';
 import Link from 'next/link';
+
 const PublicPrivateForm = () => {
-  const [isChecked, setIseChecked] = useState(false);
   const [isPublic, setIsPublic] = useState(true);
 
-  const haandleChange = () => {
-    setIsPublic((prev) => !prev);
-  };
-  const toggleCheckbox = () => {
-    setIseChecked((prev) => !prev);
-  };
+  const validationSchema = Yup.object().shape({
+    name: Yup.string().required(data.validationMessage.ua.required),
+    email: Yup.string()
+      .email(data.validationMessage.ua.email)
+      .required(data.validationMessage.ua.required),
+    message: Yup.string().required(data.validationMessage.ua.required),
+    isChecked: Yup.boolean(),
+  });
 
   return (
     <div className={s.container}>
-      <h2 className={s.title}>{data.title}</h2>
+      <SectionTitle className={s.title} title={data.title} />
+      <Formik
+        initialValues={{
+          name: '',
+          email: '',
+          message: '',
+          isChecked: false,
+        }}
+        validationSchema={validationSchema}
+        onSubmit={(values, { resetForm }) => {
+          resetForm();
+        }}
+      >
+        {({ values }) => (
+          <Form>
+            <div>
+              <RadioButton
+                options={data.donateOptions}
+                name="donateOptions"
+                onChange={() => setIsPublic((prev) => !prev)}
+              />
 
-      <div>
-        <RadioButton
-          options={data.donateOptions}
-          name="donateOptions"
-          onChange={haandleChange}
-        />
-        {isPublic && (
-          <div className={s.inputContainer}>
-            <Input
-              type="text"
-              placeholder={data.placeholderName}
-              name="name"
-              className={s.input}
-            />
-            <Input
-              type="text"
-              placeholder={data.placeholderEmail}
-              name="email"
-              className={s.input}
-            />
+              {isPublic && (
+                <div className={s.inputContainer}>
+                  <Field
+                    as={Input}
+                    type="text"
+                    placeholder={data.placeholderName}
+                    name="name"
+                    className={s.input}
+                  />
+                  <ErrorMessage name="name" component="p" className={s.error} />
 
-            <InputArea
-              placeholder={data.placeholderMessage}
-              style={{ padding: '16px' }}
-            />
-          </div>
+                  <Field
+                    as={Input}
+                    type="email"
+                    placeholder={data.placeholderEmail}
+                    name="email"
+                    className={s.input}
+                  />
+                  <ErrorMessage
+                    name="email"
+                    component="p"
+                    className={s.error}
+                  />
+
+                  <Field
+                    as={InputArea}
+                    placeholder={data.placeholderMessage}
+                    name="message"
+                    style={{ padding: '16px' }}
+                  />
+                  <ErrorMessage
+                    name="message"
+                    component="p"
+                    className={s.error}
+                  />
+                </div>
+              )}
+            </div>
+
+            <p className={s.destination}>{data.destination}</p>
+            <Dropdown />
+
+            <div className={s.checkboxContainer}>
+              <Field
+                type="checkbox"
+                name="isChecked"
+                className={s.checkbox}
+                checked={values.isChecked}
+              />
+              <p>{data.coverCommission}</p>
+            </div>
+
+            <Button type="submit">{data.btnText}</Button>
+            <Link href="#" className={s.payment}>
+              {data.otherPaymentMethods}
+            </Link>
+          </Form>
         )}
-      </div>
-      <p className={s.destination}>{data.destination}</p>
-      <Dropdown />
-      <div className={s.checkboxContainer}>
-        <input
-          className={s.checkbox}
-          value={isChecked}
-          onClick={toggleCheckbox}
-          type="checkbox"
-        />
-        <p>{data.coverCommission}</p>
-      </div>
-      <Button>
-        <Link href="#">{data.btnText}</Link>
-      </Button>
-      <Link href="#" className={s.payment}>
-        {data.otherPaymentMethods}
-      </Link>
+      </Formik>
     </div>
   );
 };

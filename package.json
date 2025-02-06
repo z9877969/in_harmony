@@ -1,6 +1,7 @@
 {
   "name": "in_harmony",
   "version": "0.1.0",
+  "type": "module",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -10,6 +11,7 @@
     "lint:fix": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0 --fix"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.66.0",
     "cloudinary": "^2.5.1",
     "clsx": "^2.1.1",
     "dotenv": "^16.4.7",

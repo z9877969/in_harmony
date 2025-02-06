@@ -6,7 +6,7 @@ export const getAllCollections = async () => {
 
     const sortedCollections = collections.reduce(
       (acc, collection) => {
-        if (collection.isOpen) {
+        if (collection.status === 'active') {
           acc.activeCollections.push(collection);
         } else {
           acc.closedCollections.push(collection);

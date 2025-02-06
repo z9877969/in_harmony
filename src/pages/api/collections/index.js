@@ -3,7 +3,7 @@ import {
   handleGetCollections,
   handleUpdateCollection,
 } from '@/app/server/controllers/collectionsController';
-import { uploadMiddleware } from '@/app/server/lib';
+import { uploadMiddleware } from '../../../app/server/lib/multer.js';
 import connectToDatabase from '@/app/server/lib/mongodb';
 
 export const config = {
@@ -28,7 +28,6 @@ export default async function handler(req, res) {
 
   if (req.method === 'PATCH') {
     await uploadMiddleware(req, res);
-
     return handleUpdateCollection(req, res);
   }
   res.status(405).json({ message: 'Метод не дозволений' });

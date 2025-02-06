@@ -1,12 +1,11 @@
-import { uploadMiddleware } from '../../../lib/multer.js';
+import connectToDatabase from '@/app/server/lib/mongodb.js';
+import { uploadMiddleware } from '../../../app/server/lib/multer.js';
 import {
   getCollectionByIdController,
   handleUpdateCollection,
-} from '../../../controllers/collectionsController';
-import connectToDatabase from '../../../lib/mongodb.js';
-import isValidId from '@/utils/isValidId.js';
-import validateBody from '@/utils/validateBody.js';
-import CollectionsSchema from '@/models/CollectionSchema.js';
+} from '@/app/server/controllers/collectionsController.js';
+import isValidId from '@/app/server/utils/isValidId.js';
+import validateBody from '@/app/server/utils/validateBody.js';
 export const config = {
   api: {
     bodyParser: false,

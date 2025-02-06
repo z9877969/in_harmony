@@ -1,13 +1,29 @@
 import mongoose from 'mongoose';
-import { createCollection, getAllCollections, getCollectionById, updateCollectionService } from '../services/collectionsService';
+import {
+  createCollection,
+  getAllCollections,
+  getCollectionById,
+  getMainPageUA,
+  updateCollectionService,
+} from '../services/collectionsService';
 import { env } from '../utils';
-import { saveFileToCloudinary, saveFileToUploadDir } from '../lib';
+import { saveFileToCloudinary } from '../lib/saveFileToCloudinary.js';
+import saveFileToUploadDir from '../lib/saveFileToUploadDir.js';
 import createHttpError from 'http-errors';
 
 export const handleGetCollections = async (req, res) => {
   try {
     const collections = await getAllCollections();
     res.status(200).json({ status: 200, data: collections });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+export const handleGetMainPageUA = async (req, res) => {
+  try {
+    const page = await getMainPageUA();
+    res.status(200).json({ status: 200, sections: page });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

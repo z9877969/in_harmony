@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises';
 import cloudinary from 'cloudinary';
-import { env } from 'node:process';
+import  env  from '../utils/evn.js';
 
 cloudinary.v2.config({
   cloud_name: env('CLOUD_NAME'),

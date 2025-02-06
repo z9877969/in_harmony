@@ -10,18 +10,11 @@ const collectionSchema = new mongoose.Schema({
   peopleDonate: { type: Number, default: 0 },
   desc: { type: String },
   long_desc: { type: String, default: '' },
-  isOpen: { type: Boolean, default: false },
+  status: { type: String, enum: ['active', 'closed'], default: 'active' },
   createdAt: { type: Date, default: Date.now },
   closedAt: { type: Date, default: null },
+  type: { type: String, required: true },
 });
-
-// const collectionsSchema = new mongoose.Schema({
-//   collections: [collectionSchema],
-// });
-
-// const CollectionsSchema =
-//   mongoose.models.Collections ||
-//   mongoose.model('Collections', collectionsSchema);
 
 export const CollectionSchema =
   mongoose.models.Collections ||

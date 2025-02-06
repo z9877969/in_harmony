@@ -2,18 +2,16 @@
 
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-
+import clsx from 'clsx';
 import {
   Button,
   Container,
   Input,
   InputArea,
-} from '@/shared/components/index.js';
-
+} from '@/shared/components';
 import data from '../../data/sectionContent.json';
 
 import s from './DiscardHelpPageForm.module.scss';
-import clsx from 'clsx';
 
 const validationSchema = yup.object().shape({
   name: yup.string().min(3).required(),

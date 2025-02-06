@@ -4,7 +4,6 @@ import s from './page.module.scss';
 const DiscardHelpPage = () => {
   return (
     <>
-      <h1 className={s.title}>Discard Help Page</h1>
       <DiscardHelpPageForm />
     </>
   );

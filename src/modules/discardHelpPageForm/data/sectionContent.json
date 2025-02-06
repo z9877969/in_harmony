@@ -1,0 +1,15 @@
+{
+  "nameLabel": "Ваше Ім'я та Прізвище",
+  "namePlaceholder": "Ім'я та Прізвище",
+  "emailLabel": "Email",
+  "emailPlaceholder": "email@email.com",
+  "amountLabel": "Сума платежу",
+  "amountPlaceholder": "200",
+  "dateLabel": "Дата останнього списання",
+  "datePlaceholder": "29.01.2024",
+  "cardLastDigitsLabel": "Останні 2 цифри банківської карти, на яку оформлена підписка",
+  "cardLastDigitsPlaceholder": "11",
+  "reasonLabel": "Вкажіть, будь ласка, причину скасування щомісячної підписки",
+  "reasonPlaceholder": "Ваше повідомлення",
+  "submitButton": "Скасувати"
+}

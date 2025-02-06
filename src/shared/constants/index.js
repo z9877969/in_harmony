@@ -10,3 +10,8 @@ export const SOCIALROUTES = {
   TIKTOK: 'https://www.tiktok.com/@inharmony.ua?_t=8pfFP3VEltN&_r=1',
   FACEBOOK: 'https://www.facebook.com/inharmony.com.ua',
 };
+
+export const LANGUAGES = {
+  UA: 'ua',
+  EN: 'en',
+}

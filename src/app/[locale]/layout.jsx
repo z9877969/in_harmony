@@ -1,7 +1,11 @@
+import { dir } from 'i18next';
+import clsx from 'clsx';
+
+import i18nConfig from '../../../i18nConfig';
 import { Footer } from '@/modules/footer';
 import { Header } from '@/modules/header';
 import { Breadcrumbs } from '@/shared/components';
-import clsx from 'clsx';
+
 import { Montserrat, Open_Sans } from 'next/font/google';
 import '../globals.scss';
 
@@ -22,9 +26,14 @@ const open_sans = Open_Sans({
   display: 'swap', // Рекомендований формат
 });
 
-export default function RootLayout({ children }) {
+// eslint-disable-next-line react-refresh/only-export-components
+export function generateStaticParams() {
+  return i18nConfig.locales.map((locale) => ({ locale }));
+}
+
+export default function RootLayout({ children, params: { locale } }) {
   return (
-    <html lang="uk">
+    <html lang={locale} dir={dir(locale)}>
       <body className={clsx(montserrat.className, open_sans.className)}>
         <Header />
         <Breadcrumbs />

@@ -7,9 +7,10 @@ const Input = ({
   data,
   type,
   label,
+  error,
+  currency = '',
   className,
   labelClass = '',
-  currency = '',
   ...rest
 }) => {
   const id = useId();
@@ -26,6 +27,7 @@ const Input = ({
       )}
       <input className={inputClasses} id={id} type={type} {...rest} />
       {currency && <span className={s.currency}>{currency}</span>}
+      {error && <p className={s.error}>{error} </p>}
     </div>
   );
 };

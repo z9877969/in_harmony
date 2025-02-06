@@ -35,3 +35,9 @@
   @include font(16, 24);
   font-weight: 400;
 }
+
+.error {
+  color: $form-donate-error-color;
+  font-weight: 400;
+  @include font(16, 24);
+}

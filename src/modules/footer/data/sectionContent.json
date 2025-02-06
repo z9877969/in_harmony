@@ -1,0 +1,108 @@
+{
+  "team": {
+    "socialTitle": "Cоціальні мережі",
+    "openModalButtonText": "Команда дизайнерів та розробників сайту InHarmony",
+    "openModalButtonAriaLabelText": "Переглянути команду дизайнерів та розробників сайту InHarmony",
+    "teamModalContent": {
+      "title": "Знайомтесь з нашою командою",
+      "text": "Цей сайт був створений завдяки зусиллям студентів GoIT, які працювали над його розробкою. Кожен учасник команди вніс важливий внесок, застосовуючи знання, навички та креативність для досягнення спільної мети. Познайомтеся з людьми, які стоять за створенням цього проєкту:"
+    },
+    "members": [
+      {
+        "id": 1,
+        "firstName": "Ілона",
+        "lastName": "Морараш",
+        "position": "UI/UX Designer",
+        "url": "/images/default_image.webp",
+        "social": [
+          { "name": "instagram", "url": "https://www.instagram.com" },
+          { "name": "telegram", "url": "https://www.telegram.com" },
+          { "name": "facebook", "url": "https://www.facebook.com" },
+          { "name": "linkedin", "url": "https://www.linkedin.com" },
+          { "name": "behance", "url": "https://www.behance.net" }
+        ]
+      },
+      {
+        "id": 2,
+        "firstName": "Ганна",
+        "lastName": "Желдак",
+        "position": "UI/UX Designer",
+        "url": "/images/default_image.webp",
+        "social": [
+          { "name": "instagram", "url": "https://www.instagram.com" },
+          { "name": "telegram", "url": "https://www.telegram.com" },
+          { "name": "facebook", "url": "https://www.facebook.com" },
+          { "name": "linkedin", "url": "https://www.linkedin.com" },
+          { "name": "behance", "url": "https://www.behance.net" }
+        ]
+      },
+      {
+        "id": 3,
+        "firstName": "Наталія",
+        "lastName": "Медведєва",
+        "position": "UI/UX Designer",
+        "url": "/images/default_image.webp",
+        "social": [
+          { "name": "instagram", "url": "https://www.instagram.com" },
+          { "name": "telegram", "url": "https://www.telegram.com" },
+          { "name": "facebook", "url": "https://www.facebook.com" },
+          { "name": "linkedin", "url": "https://www.linkedin.com" },
+          { "name": "behance", "url": "https://www.behance.net" }
+        ]
+      }
+    ]
+  },
+
+  "company": {
+    "contacts": {
+      "title": "Контакти:",
+      "addressTitle": "Адреса: ",
+      "address": " Україна, 24000, Вінницька обл., місто Могилів-Подільський, вул. Верхня Вокзальна, будинок 1",
+      "emailTitle": "Email: ",
+      "email": "info@inharmony.ua",
+      "phoneTitle": "Телефон: ",
+      "phone": "+38 (096) 339-08-45"
+    },
+    "social": [
+      { "name": "instagram", "url": "https://www.instagram.com/inharmony.ua" },
+      { "name": "telegram", "url": "https://t.me/inharmonyua" },
+      {
+        "name": "tiktok",
+        "url": "https://www.tiktok.com/@inharmony.ua?_t=8pfFP3VEltN&_r=1"
+      },
+      { "name": "facebook", "url": "https://www.facebook.com/inharmony.com.ua" }
+    ],
+    "legalInfo": {
+      "title": "Юридична інформація",
+      "linkPolicyText": "Політика конфіденційності",
+      "paymentDetails": {
+        "title": "Реквізити:",
+        "companyNameTitle": "Company name:",
+        "companyName": "ГО ІНХАРМОНІ.ЮА",
+        "companyCodeTitle": "Code: ",
+        "companyCode": "44849411",
+        "companyIBANTitle": "IBAN Code: ",
+        "companyIBAN": "UA503052990000026005026109109"
+      },
+      "linkUnsubscribeText": "Скасувати підписку"
+    },
+    "contactUs": {
+      "title": "Зв'язатися з нами",
+      "placeholderName": "Ваше ім'я",
+      "placeholderEmail": "Ваш email",
+      "placeholderMessage": "Ваше повідомлення",
+      "buttonText": "Надіслати",
+      "buttonAriaLabel": "Відправити форму з контактними даними"
+    }
+  },
+
+  "siteNavigation": {
+    "navAriaLabel": "навігація сайту у футері",
+    "linkMain": "Головна",
+    "linkCollection": "Поточні збори",
+    "linkReporting": "Звітність",
+    "linkAbout": "Про нас"
+  },
+
+  "copyright": "© 2024 InHarmony"
+}

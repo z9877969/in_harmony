@@ -1,5 +1,5 @@
 import { CollectionPageActive } from '@/modules/collectionPageActive';
-import OpenCollectionGoal from '@/modules/collectionPageActive/components/OpenCollectionGoal/OpenCollectionGoal.jsx';
+import { CollectionPageReporting } from '@/modules/collectionPageReporting';
 import s from './page.module.scss';
 
 const CollectionPage = () => {
@@ -7,8 +7,8 @@ const CollectionPage = () => {
     <>
       <h1 className={s.title}>CollectionPage</h1>
       <CollectionPageActive />
-      <OpenCollectionGoal />
-      <h2>collectionPageReporting</h2>
+
+      <CollectionPageReporting />
     </>
   );
 };

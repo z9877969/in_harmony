@@ -16,15 +16,21 @@ import s from './DiscardHelpPageForm.module.scss';
 import clsx from 'clsx';
 
 const validationSchema = yup.object().shape({
-  name: yup.string().min(3).required(),
+  name: yup.string().min(3).required(data.nameRequired),
   email: yup
     .string()
-    .email()
-    .matches(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, "Email must contain '@' and '.'")
-    .required('Email is required'),
-  amount: yup.number().positive().required(),
-  date: yup.string().required(),
-  cardLastDigits: yup.number().positive().required(),
+    .email(data.emailInvalid)
+    .matches(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, data.emailInvalid)
+    .required(data.emailRequired),
+  amount: yup
+    .number(data.numberRequired)
+    .positive(data.positiveRequired)
+    .required(data.amountRequired),
+  date: yup.string().required(data.dateRequired),
+  cardLastDigits: yup
+    .number(data.numberRequired)
+    .positive(data.positiveRequired)
+    .required(data.cardLastDigitsRequired),
   reason: yup.string(),
 });
 
@@ -61,6 +67,7 @@ const DiscardHelpPageForm = () => {
               label={data.nameLabel}
               name="name"
               type="text"
+              value={values.name}
               placeholder={data.namePlaceholder}
               onChange={handleChange}
               onBlur={handleBlur}
@@ -72,6 +79,7 @@ const DiscardHelpPageForm = () => {
               label={data.emailLabel}
               name="email"
               type="text"
+              value={values.email}
               placeholder={data.emailPlaceholder}
               onChange={handleChange}
               onBlur={handleBlur}
@@ -83,6 +91,7 @@ const DiscardHelpPageForm = () => {
                 label={data.amountLabel}
                 name="amount"
                 type="text"
+                value={values.amount}
                 placeholder={data.amountPlaceholder}
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -96,6 +105,7 @@ const DiscardHelpPageForm = () => {
               label={data.dateLabel}
               name="date"
               type="text"
+              value={values.date}
               placeholder={data.datePlaceholder}
               onChange={handleChange}
               onBlur={handleBlur}
@@ -107,6 +117,7 @@ const DiscardHelpPageForm = () => {
               label={data.cardLastDigitsLabel}
               name="cardLastDigits"
               type="text"
+              value={values.cardLastDigits}
               placeholder={data.cardLastDigitsPlaceholder}
               onChange={handleChange}
               onBlur={handleBlur}

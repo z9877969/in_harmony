@@ -11,5 +11,13 @@
   "cardLastDigitsPlaceholder": "11",
   "reasonLabel": "Вкажіть, будь ласка, причину скасування щомісячної підписки",
   "reasonPlaceholder": "Ваше повідомлення",
-  "submitButton": "Скасувати"
+  "submitButton": "Скасувати",
+  "nameRequired": "Ім'я є обов'язковим",
+  "emailRequired": "Пошта є обов'язковим",
+  "emailInvalid": "Пошта повинен містити '@' та '.'",
+  "amountRequired": "Сума є обов'язковою",
+  "numberRequired": "Значення має бути числом",
+  "positiveRequired": "Значення має бути позитивним",
+  "dateRequired": "Дата є обов'язковою",
+  "cardLastDigitsRequired": "Останні цифри карти є обов'язковими"
 }

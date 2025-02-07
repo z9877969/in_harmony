@@ -7,21 +7,19 @@ import {
 import AboutMainPageSection from './AboutSectionModel.js';
 import HeroMainPageSection from './HeroSectionModels.js';
 import env from '../../utils/evn.js';
-import {
-  MainPageModelUA,
-  MainPageModelUK,
-} from './MainPageModels.js';
+import { MainPageModelUA, MainPageModelUK } from './MainPageModels.js';
+
+// TO USE THIS RUN : node src/app/server/models/mainPageModels/mainPageSeed.js
 
 const mainPageSeed = async () => {
   try {
     await mongoose.connect(env('MONGODB_URI'));
-    console.log('✅ Connected to MongoDB');
+    // console.log('✅ Connected to MongoDB');
 
     const collections = [
       {
         title: 'Світло в "Сіру Зону"!',
         importance: 'Терміновий збір',
-        image: '',
         collected: 80000,
         target: 100000,
         alt: 'Світло в "Сіру Зону',
@@ -34,7 +32,6 @@ const mainPageSeed = async () => {
       {
         title: 'Світло в "Сіру Зону"!',
         importance: 'Терміновий збір',
-        image: '',
         collected: 5600,
         target: 100000,
         alt: 'Світло в "Сіру Зону',
@@ -47,7 +44,6 @@ const mainPageSeed = async () => {
       {
         title: 'Світло в "Сіру Зону"!',
         importance: 'Терміновий збір',
-        image: '',
         collected: 50000,
         target: 100000,
         alt: 'Світло в "Сіру Зону',
@@ -60,7 +56,6 @@ const mainPageSeed = async () => {
       {
         title: 'Світло в "Сіру Зону"!',
         importance: 'Терміновий збір',
-        image: '',
         collected: 2000,
         target: 100000,
         alt: 'Світло в "Сіру Зону',
@@ -73,7 +68,6 @@ const mainPageSeed = async () => {
       {
         title: 'Світло в "Сіру Зону"!',
         importance: 'Терміновий збір',
-        image: '',
         collected: 2000,
         target: 100000,
         alt: 'Світло в "Сіру Зону',
@@ -86,7 +80,6 @@ const mainPageSeed = async () => {
       {
         title: 'Світло в "Сіру Зону"!',
         importance: 'Терміновий збір',
-        image: '',
         collected: 2000,
         target: 100000,
         alt: 'Світло в "Сіру Зону',
@@ -97,10 +90,10 @@ const mainPageSeed = async () => {
         type: 'collections',
       },
     ];
-    await CollectionModel.insertMany(collections);
-    console.log('📦 Collections inserted');
 
-    // Додання about-карток
+    await CollectionModel.insertMany(collections);
+    // console.log('📦 Collections inserted');
+
     const aboutCards = [
       {
         title: 'Підтримка родин військових та ВПО',
@@ -123,6 +116,7 @@ const mainPageSeed = async () => {
           'Ми створюємо проєкт сучасного та безпечного модульного містечка для мешканців Маріуполя, що втратили свої домівки через війну.',
       },
     ];
+
     const aboutSection = new AboutMainPageSection({
       local: 'ua',
       title: 'Про нас',
@@ -137,7 +131,7 @@ const mainPageSeed = async () => {
     });
 
     await aboutSection.save();
-    console.log('ℹ️ About section with embedded cards inserted');
+    // console.log('ℹ️ About section with embedded cards inserted');
 
     const heroCards = [
       {
@@ -163,7 +157,7 @@ const mainPageSeed = async () => {
     });
 
     await heroSection.save();
-    console.log('ℹ️ About section with embedded cards inserted');
+    // console.log('ℹ️ About section with embedded cards inserted');
 
     const progressSection = [
       {
@@ -175,7 +169,6 @@ const mainPageSeed = async () => {
         term: 'Термін реалізаці:',
         days: '10 ',
         period: 'днів',
-        imageUrl: '',
         type: 'progress',
       },
       {
@@ -187,7 +180,6 @@ const mainPageSeed = async () => {
         term: 'Термін реалізаці:',
         days: '10 ',
         period: 'днів',
-        imageUrl: '',
         type: 'progress',
       },
       {
@@ -199,12 +191,12 @@ const mainPageSeed = async () => {
         term: 'Термін реалізаці:',
         days: '10 ',
         period: 'днів',
-        imageUrl: '',
         type: 'progress',
       },
     ];
+
     await ProgressModel.insertMany(progressSection);
-    console.log('📦 Progress inserted');
+    // console.log('📦 Progress inserted');
 
     const sections = [
       {
@@ -234,32 +226,31 @@ const mainPageSeed = async () => {
         alt: 'Фото з людьми',
       },
     ];
+
     await SectionsSchema.insertMany(sections);
-    console.log('📄 Sections created and saved');
+    // console.log('📄 Sections created and saved');
 
     const mainPageDataUA = new MainPageModelUA({
       local: 'ua',
       route: 'main',
-      type: 'collections', // Вкажіть тип (collections, progress, none)
     });
     await mainPageDataUA.setListByType();
     await mainPageDataUA.save();
-    console.log('📦 Main Page (UA) data inserted');
+    // console.log('📦 Main Page (UA) data inserted');
 
-    // Оновлення секцій на головній сторінці для англійської локалізації
     const mainPageDataUK = new MainPageModelUK({
       local: 'uk',
       route: 'main',
-      type: 'collections', // Вкажіть тип (collections, progress, none)
     });
+
     await mainPageDataUK.setListByType();
     await mainPageDataUK.save();
-    console.log('📦 Main Page (UK) data inserted');
+    // console.log('📦 Main Page (UK) data inserted');
 
     await mongoose.connection.close();
-    console.log('🔒 Database connection closed');
+    // console.log('🔒 Database connection closed');
   } catch (error) {
-    console.error('❌ Error seeding database:', error);
+    // console.error('❌ Error seeding database:', error);
     await mongoose.connection.close();
   }
 };

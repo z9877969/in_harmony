@@ -15,7 +15,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 const uploadMiddleware = (req, res) => {
-  return new Promise((resolve, reject) => {
+  return new Promise(function (resolve, reject) {
     upload.array('image', 5)(req, res, (err) => {
       if (err) {
         return reject(err);

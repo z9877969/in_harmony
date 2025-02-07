@@ -3,7 +3,7 @@ import { env } from '../utils';
 
 const connectToDatabase = async () => {
   if (mongoose.connections[0].readyState) {
-    console.log('Already connected to MongoDB');
+    // console.log('Already connected to MongoDB');
     return;
   }
 
@@ -13,7 +13,7 @@ const connectToDatabase = async () => {
     }
 
     await mongoose.connect(env('MONGODB_URI'));
-    console.log('MongoDB connected');
+    // console.log('MongoDB connected');
   } catch (err) {
     console.error('Error connecting to MongoDB:', err);
     process.exit(1);

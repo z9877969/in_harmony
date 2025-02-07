@@ -1,4 +1,4 @@
-import { CollectionModel } from "../models";
+import CollectionModel from '../models/CollectionsModel';
 
 export const getAllCollections = async () => {
   try {
@@ -37,8 +37,6 @@ export const createCollection = async (payload) => {
   return newCollection;
 };
 
-//UPDATE
-
 export const updateCollectionService = async (id, payload, options = {}) => {
   if (!id) {
     console.error('Collection not found');
@@ -55,24 +53,12 @@ export const updateCollectionService = async (id, payload, options = {}) => {
         ...options,
       }
     );
-    // console.log('ID', id);
-
-    // console.log('updatedCollection', updatedCollection);
-
-    // if (updatedCollection) {
-    //   // Find the actual collection within the array
-    //   const foundCollection = collection.collections.updateOne(
-    //     (col) => col._id.toString() === id
-    //   );
-    //   return foundCollection || null;
-    // }
 
     if (!updatedCollection) {
       console.error('Update failed, collection not found or unchanged');
       return null; // Handle this case according to your requirements
     }
 
-    // console.log('Updated Collection:', updatedCollection);
     return updatedCollection.value; // Return the updated document
   } catch (error) {
     console.error('Error updating collection:', error);

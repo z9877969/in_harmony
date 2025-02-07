@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import createHttpError from 'http-errors';
 import {
   createCollection,
   getAllCollections,
@@ -8,8 +9,8 @@ import {
 import { env } from '../utils';
 import { saveFileToCloudinary } from '../lib/saveFileToCloudinary.js';
 import saveFileToUploadDir from '../lib/saveFileToUploadDir.js';
-import createHttpError from 'http-errors';
 
+//get all collections
 export const handleGetCollections = async (req, res) => {
   try {
     const collections = await getAllCollections();
@@ -19,6 +20,7 @@ export const handleGetCollections = async (req, res) => {
   }
 };
 
+//get collection by id
 
 export const getCollectionByIdController = async (req, res) => {
   try {
@@ -36,6 +38,8 @@ export const getCollectionByIdController = async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch collection' });
   }
 };
+
+//create collection
 
 export const handleCreateCollection = async (req, res) => {
   try {
@@ -65,6 +69,7 @@ export const handleCreateCollection = async (req, res) => {
       long_desc: req.body.long_desc,
       isOpen: req.body.isOpen === 'true',
       closedAt: req.body.closedAt ? new Date(req.body.closedAt) : null,
+      type: req.body.type,
     };
 
     if (
@@ -76,6 +81,7 @@ export const handleCreateCollection = async (req, res) => {
     }
 
     const newCollection = await createCollection(collectionData);
+
     res.status(201).json(newCollection);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -89,6 +95,8 @@ export const config = {
   },
 };
 
+//update collection
+
 export const handleUpdateCollection = async (req, res) => {
   const { id } = req.query;
   const image = req.files;
@@ -99,8 +107,6 @@ export const handleUpdateCollection = async (req, res) => {
 
   const existingCollection = await getCollectionById(id);
 
-  console.log('Query Is', existingCollection);
-
   if (!existingCollection) {
     throw createHttpError(404, 'Product not found');
   }
@@ -108,7 +114,6 @@ export const handleUpdateCollection = async (req, res) => {
   let photoUrls = existingCollection.image || [];
 
   if (image && image.length) {
-    photoUrls = [];
     for (const img of image) {
       let photoUrl;
       if (env('ENABLE_CLOUDINARY') === 'true') {
@@ -125,24 +130,20 @@ export const handleUpdateCollection = async (req, res) => {
     peopleDonate: Number(req.body.peopleDonate) || 0,
     isOpen: req.body.isOpen === 'true',
     closedAt: req.body.closedAt ? new Date(req.body.closedAt) : null,
-    image: photoUrls || [],
+    image: photoUrls,
     title: req.body.title || '',
     importance: req.body.importance || '',
     target: Number(req.body.target) || 0 || '',
     alt: req.body.alt || '',
     desc: req.body.desc || '',
     long_desc: req.body.long_desc || '',
+    type: req.body.type,
   };
-  console.log('updateData', updateData);
 
-  const result = await updateCollectionService(
-    id,
-    { ...req.body },
-    {
-      image: photoUrls,
-    }
-  );
-  console.log('Result', result);
+  const result = await updateCollectionService(id, {
+    ...req.body,
+    image: photoUrls,
+  });
 
   // if (!result) {
   //   throw createHttpError(404, 'Product not found');

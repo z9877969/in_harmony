@@ -6,7 +6,7 @@ const infoCardSchema = new mongoose.Schema({
   type: { type: String, required: true },
 });
 
-export const InfoCardModel = mongoose.model('InfoCard', infoCardSchema);
+export const InfoCardModel = mongoose.model('InfoCards', infoCardSchema);
 
 const heroMainPageSection = new mongoose.Schema({
   local: { type: String, required: true },

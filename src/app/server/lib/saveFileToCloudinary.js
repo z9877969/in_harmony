@@ -14,19 +14,10 @@ export const saveFileToCloudinary = async (file) => {
     const response = await cloudinary.uploader.upload(file.path, {
       folder: 'in_harmony_uploads',
     });
-    console.log(response);
     await fs.unlink(file.path);
     return response.secure_url;
   } catch (error) {
-    console.error('Помилка завантаження файлу:', error);
     throw new Error('Не вдалося завантажити файл');
   }
 };
 
-// cloudinary.uploader.upload(
-//   '../../temp/light-desktop@2x.png',
-//   (error, result) => {
-//     if (error) console.error('Помилка:', error);
-//     else console.log('Результат:', result);
-//   }
-// );

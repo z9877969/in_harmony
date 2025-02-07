@@ -7,13 +7,14 @@ import { usePathname } from 'next/navigation';
 import { Icon } from '@/shared/components';
 import { uaFlag as LangIcon } from '/public/icons';
 import MobileMenuBtn from '../MobileMenuBtn/MobileMenuBtn';
-import { ROUTES } from '@/shared/constants';
+import { ROUTES, SOCIALROUTES } from '@/shared/constants';
 import s from './MobileMenu.module.scss';
 
 const MobileMenu = () => {
   const pathname = usePathname();
   const locale = pathname.split('/')[1];
   const [visible, setVisible] = useState(false);
+  const [activeLang, setActiveLang] = useState('uk');
 
   useEffect(() => {
     const handleResize = () => {
@@ -37,13 +38,25 @@ const MobileMenu = () => {
     };
   }, [visible]);
 
+  const handleLangChange = (lang) => {
+    setActiveLang(lang);
+  };
+
   return (
     <>
       <MobileMenuBtn onClick={() => setVisible(!visible)} visible={visible} />
       <div className={clsx(s.mobileMenu, visible && s.visible)}>
         <div className={s.langBlock}>
-          <LangIcon className={s.langIcon} />
-          <LangIcon className={s.langIcon} />
+          <button className={s.langBtn} onClick={() => handleLangChange('uk')}>
+            <LangIcon
+              className={clsx(s.langIcon, activeLang !== 'uk' && s.notActive)}
+            />
+          </button>
+          <button className={s.langBtn} onClick={() => handleLangChange('en')}>
+            <LangIcon
+              className={clsx(s.langIcon, activeLang !== 'en' && s.notActive)}
+            />
+          </button>
         </div>
         <nav className={s.nav}>
           <ul className={s.navList}>
@@ -101,22 +114,42 @@ const MobileMenu = () => {
         </nav>
         <ul className={s.socials}>
           <li>
-            <a href="https://www.instagram.com" className={s.socialLink}>
+            <a
+              href={SOCIALROUTES.INSTAGRAM}
+              className={s.socialLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Icon iconName="icon-instagram" className={s.socialsIcon} />
             </a>
           </li>
           <li>
-            <a href="/" className={s.socialLink}>
+            <a
+              href={SOCIALROUTES.TELEGRAM}
+              className={s.socialLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Icon iconName="icon-telegram" className={s.socialsIcon} />
             </a>
           </li>
           <li>
-            <a href="https://www.tiktok.com/" className={s.socialLink}>
+            <a
+              href={SOCIALROUTES.TIKTOK}
+              className={s.socialLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Icon iconName="icon-tiktok" className={s.socialsIcon} />
             </a>
           </li>
           <li>
-            <a href="https://www.facebook.com" className={s.socialLink}>
+            <a
+              href={SOCIALROUTES.FACEBOOK}
+              className={s.socialLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Icon iconName="icon-facebook" className={s.socialsIcon} />
             </a>
           </li>

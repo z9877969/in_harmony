@@ -16,8 +16,9 @@ const collectionSchema = new mongoose.Schema({
   type: {
     type: String,
     required: true,
-    enum: ['collections', 'progress', 'hero', 'about', 'none'],
+    enum: ['collections'],
   },
+  language: { type: String },
 });
 
 export const CollectionModel = mongoose.model('Collections', collectionSchema);

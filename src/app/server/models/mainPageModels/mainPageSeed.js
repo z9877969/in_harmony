@@ -1,258 +1,462 @@
-import mongoose from 'mongoose';
-import {
-  CollectionModel,
-  ProgressModel,
-  SectionsSchema,
-} from '../SectionSchema.js';
-import AboutMainPageSection from './AboutSectionModel.js';
-import HeroMainPageSection from './HeroSectionModels.js';
-import env from '../../utils/evn.js';
-import { MainPageModelUA, MainPageModelUK } from './MainPageModels.js';
+// import mongoose from 'mongoose';
+// import env from '../../utils/evn.js';
+// import { MainPageModelUA, MainPageModelUK } from './MainPageModels.js';
+// import CollectionModel from '../CollectionsModel.js';
 
 // TO USE THIS RUN : node src/app/server/models/mainPageModels/mainPageSeed.js
 
-const mainPageSeed = async () => {
-  try {
-    await mongoose.connect(env('MONGODB_URI'));
-    // console.log('✅ Connected to MongoDB');
+// const mainPageSeed = async () => {
+//   try {
+//     await mongoose.connect(env('MONGODB_URI'));
+//     console.log('✅ Connected to MongoDB');
 
-    const collections = [
-      {
-        title: 'Світло в "Сіру Зону"!',
-        importance: 'Терміновий збір',
-        collected: 80000,
-        target: 100000,
-        alt: 'Світло в "Сіру Зону',
-        peopleDonate: 100,
-        desc: 'Збираємо на енергетичні батончики, їжа швидкого приготування, вітаміни- все це необхідно щодня. Долучайтеся до збору, підтримаємо наших воїнів разом!',
-        long_desc: '',
-        status: 'active',
-        type: 'collections',
-      },
-      {
-        title: 'Світло в "Сіру Зону"!',
-        importance: 'Терміновий збір',
-        collected: 5600,
-        target: 100000,
-        alt: 'Світло в "Сіру Зону',
-        peopleDonate: 100,
-        desc: 'Збираємо на енергетичні батончики, їжа швидкого приготування, вітаміни - все це необхідно щодня. Долучайтеся до збору, підтримаємо наших воїнів разом!',
-        long_desc: '',
-        status: 'active',
-        type: 'collections',
-      },
-      {
-        title: 'Світло в "Сіру Зону"!',
-        importance: 'Терміновий збір',
-        collected: 50000,
-        target: 100000,
-        alt: 'Світло в "Сіру Зону',
-        peopleDonate: 100,
-        desc: 'Збираємо на енергетичні батончики, їжа швидкого приготування, вітаміни - все це необхідно щодня. Долучайтеся до збору, підтримаємо наших воїнів разом!',
-        long_desc: '',
-        status: 'active',
-        type: 'collections',
-      },
-      {
-        title: 'Світло в "Сіру Зону"!',
-        importance: 'Терміновий збір',
-        collected: 2000,
-        target: 100000,
-        alt: 'Світло в "Сіру Зону',
-        peopleDonate: 100,
-        desc: 'Немає електроенергії, води, газу, щоденні обстріли, 54 особи пенсійного віку.Села Плавні і Кам‘янське (Запорізька лінія фронту).',
-        long_desc: '',
-        status: 'active',
-        type: 'collections',
-      },
-      {
-        title: 'Світло в "Сіру Зону"!',
-        importance: 'Терміновий збір',
-        collected: 2000,
-        target: 100000,
-        alt: 'Світло в "Сіру Зону',
-        peopleDonate: 100,
-        desc: 'Немає електроенергії, води, газу, щоденні обстріли, 54 особи пенсійного віку.Села Плавні і Кам‘янське (Запорізька лінія фронту).',
-        long_desc: '',
-        status: 'active',
-        type: 'collections',
-      },
-      {
-        title: 'Світло в "Сіру Зону"!',
-        importance: 'Терміновий збір',
-        collected: 2000,
-        target: 100000,
-        alt: 'Світло в "Сіру Зону',
-        peopleDonate: 100,
-        desc: 'Немає електроенергії, води, газу, щоденні обстріли, 54 особи пенсійного віку.Села Плавні і Кам‘янське (Запорізька лінія фронту).',
-        long_desc: '',
-        status: 'active',
-        type: 'collections',
-      },
-    ];
+//     const collections = [
+//       {
+//         title: 'Світло в "Сіру Зону"!',
+//         importance: 'Терміновий збір',
+//         collected: 80000,
+//         target: 100000,
+//         alt: 'Світло в "Сіру Зону',
+//         peopleDonate: 100,
+//         desc: 'Збираємо на енергетичні батончики, їжа швидкого приготування, вітаміни- все це необхідно щодня. Долучайтеся до збору, підтримаємо наших воїнів разом!',
+//         long_desc: '',
+//         status: 'active',
+//         type: 'collections',
+//         language: 'ua',
+//       },
+//       {
+//         title: 'Світло в "Сіру Зону"!',
+//         importance: 'Терміновий збір',
+//         collected: 5600,
+//         target: 100000,
+//         alt: 'Світло в "Сіру Зону',
+//         peopleDonate: 100,
+//         desc: 'Збираємо на енергетичні батончики, їжа швидкого приготування, вітаміни - все це необхідно щодня. Долучайтеся до збору, підтримаємо наших воїнів разом!',
+//         long_desc: '',
+//         status: 'active',
+//         type: 'collections',
+//         language: 'ua',
+//       },
+//       {
+//         title: 'Світло в "Сіру Зону"!',
+//         importance: 'Терміновий збір',
+//         collected: 50000,
+//         target: 100000,
+//         alt: 'Світло в "Сіру Зону',
+//         peopleDonate: 100,
+//         desc: 'Збираємо на енергетичні батончики, їжа швидкого приготування, вітаміни - все це необхідно щодня. Долучайтеся до збору, підтримаємо наших воїнів разом!',
+//         long_desc: '',
+//         status: 'active',
+//         type: 'collections',
+//         language: 'ua',
+//       },
+//       {
+//         title: 'Світло в "Сіру Зону"!',
+//         importance: 'Терміновий збір',
+//         collected: 2000,
+//         target: 100000,
+//         alt: 'Світло в "Сіру Зону',
+//         peopleDonate: 100,
+//         desc: 'Немає електроенергії, води, газу, щоденні обстріли, 54 особи пенсійного віку.Села Плавні і Кам‘янське (Запорізька лінія фронту).',
+//         long_desc: '',
+//         status: 'active',
+//         type: 'collections',
+//         language: 'ua',
+//       },
+//       {
+//         title: 'Світло в "Сіру Зону"!',
+//         importance: 'Терміновий збір',
+//         collected: 2000,
+//         target: 100000,
+//         alt: 'Світло в "Сіру Зону',
+//         peopleDonate: 100,
+//         desc: 'Немає електроенергії, води, газу, щоденні обстріли, 54 особи пенсійного віку.Села Плавні і Кам‘янське (Запорізька лінія фронту).',
+//         long_desc: '',
+//         status: 'active',
+//         type: 'collections',
+//         language: 'ua',
+//       },
+//       {
+//         title: 'Світло в "Сіру Зону"!',
+//         importance: 'Терміновий збір',
+//         collected: 2000,
+//         target: 100000,
+//         alt: 'Світло в "Сіру Зону',
+//         peopleDonate: 100,
+//         desc: 'Немає електроенергії, води, газу, щоденні обстріли, 54 особи пенсійного віку.Села Плавні і Кам‘янське (Запорізька лінія фронту).',
+//         long_desc: '',
+//         status: 'active',
+//         type: 'collections',
+//         language: 'ua',
+//       },
+//     ];
 
-    await CollectionModel.insertMany(collections);
-    // console.log('📦 Collections inserted');
+//     await CollectionModel.insertMany(collections);
+//     console.log('📦 Collections inserted');
 
-    const aboutCards = [
-      {
-        title: 'Підтримка родин військових та ВПО',
-        description:
-          'Ми забезпечуємо необхідною допомогою родини військових і вимушено переміщених осіб, надаючи необхідні речі, харчові продукти та психологічну підтримку.',
-      },
-      {
-        title: 'Допомога прифронтовим територіям',
-        description:
-          'Доправляємо гуманітарну допомогу жителям сіл на лінії фронту. Забезпечуємо продукти, ліки та засоби першої необхідності, підтримуючи їх у важкий час.',
-      },
-      {
-        title: 'Підтримка тварин у кризових регіонах',
-        description:
-          'Годуємо та евакуюємо тварин із небезпечних зон бойових дій, надаємо ветеринарну допомогу та допомагаємо знайти їм новий прихисток.',
-      },
-      {
-        title: 'Розробка модульного містечка для переселенців',
-        description:
-          'Ми створюємо проєкт сучасного та безпечного модульного містечка для мешканців Маріуполя, що втратили свої домівки через війну.',
-      },
-    ];
+//     const sections = [
+//       {
+//         local: 'ua',
+//         section_name: 'hero',
+//         route: 'main',
+//         section_content: {
+//           title: 'Допомагаємо тим, хто опинився в важких життєвих умовах',
+//           cards: [
+//             {
+//               amount: '1 млн грн',
+//               label: 'Загальна сума зборів',
+//             },
+//             {
+//               amount: '8 000+',
+//               label: 'Кількість реалізованих проєктів',
+//             },
+//             {
+//               amount: '35 000+',
+//               label: 'Кількість врятованих життів',
+//             },
+//           ],
+//         },
+//       },
+//       {
+//         local: 'ua',
+//         section_name: 'about',
+//         route: 'main',
+//         section_content: {
+//           title: 'Про нас',
+//           description:
+//             'InHarmony — це благодійна організація, що об’єднує людей, готових створювати зміни для тих, хто цього потребує найбільше.',
+//           cards: [
+//             {
+//               title: 'Підтримка родин військових та ВПО',
+//               description:
+//                 'Ми забезпечуємо необхідною допомогою родини військових і вимушено переміщених осіб, надаючи необхідні речі, харчові продукти та психологічну підтримку.',
+//             },
+//             {
+//               title: 'Допомога прифронтовим територіям',
+//               description:
+//                 'Доправляємо гуманітарну допомогу жителям сіл на лінії фронту. Забезпечуємо продукти, ліки та засоби першої необхідності, підтримуючи їх у важкий час.',
+//             },
+//             {
+//               title: 'Підтримка тварин у кризових регіонах',
+//               description:
+//                 'Годуємо та евакуюємо тварин із небезпечних зон бойових дій, надаємо ветеринарну допомогу та допомагаємо знайти їм новий прихисток.',
+//             },
+//             {
+//               title: 'Розробка модульного містечка для переселенців',
+//               description:
+//                 'Ми створюємо проєкт сучасного та безпечного модульного містечка для мешканців Маріуполя, що втратили свої домівки через війну.',
+//             },
+//           ],
+//           sub_titles: 'Ключові напрямки діяльності:',
+//           motivation:
+//             'Долучайтеся до нашої ініціативи — разом ми можемо врятувати ще більше життів!',
+//         },
+//       },
 
-    const aboutSection = new AboutMainPageSection({
-      local: 'ua',
-      title: 'Про нас',
-      type: 'about',
-      description:
-        'InHarmony — це благодійна організація, що об’єднує людей, готових створювати зміни для тих, хто цього потребує найбільше.',
-      route: 'main',
-      list: aboutCards,
-      sub_titles: 'Ключові напрямки діяльності:',
-      motivation:
-        'Долучайтеся до нашої ініціативи — разом ми можемо врятувати ще більше життів!',
-    });
+//       {
+//         local: 'ua',
+//         route: 'main',
+//         section_name: 'active_collections',
+//         section_content: {
+//           title: 'Активні збори',
+//           cards: await CollectionModel.find({
+//             type: 'collections',
+//             status: 'active',
+//             language: 'ua',
+//           }),
+//         },
+//       },
+//       {
+//         local: 'ua',
+//         route: 'main',
+//         section_name: 'achievements',
+//         section_content: {
+//           titile: 'Останні досягнення',
+//           cards: [
+//             {
+//               title: 'Вода в сіру зону',
+//               text: 'Проект вирішив проблему транспортування та зберігання питної води.Завдяки цьому проекту було доставлено 500 л питної води 54 людям у сірій зоні протягом тижня.',
+//               item: 'Зібрано:',
+//               total: '35768',
+//               currency: 'грн',
+//               term: 'Термін реалізаці:',
+//               days: '10 ',
+//               period: 'днів',
+//               type: 'progress',
+//             },
+//             {
+//               title: 'Вода в сіру зону-2',
+//               text: 'Проект вирішив проблему транспортування та зберігання питної води.Завдяки цьому проекту було доставлено 500 л питної води 54 людям у сірій зоні протягом тижня.',
+//               item: 'Зібрано:',
+//               total: '35768',
+//               currency: 'грн',
+//               term: 'Термін реалізаці:',
+//               days: '10 ',
+//               period: 'днів',
+//               type: 'progress',
+//             },
+//             {
+//               title: 'Вода в сіру зону-3',
+//               text: 'Проект вирішив проблему транспортування та зберігання питної води.Завдяки цьому проекту було доставлено 500 л питної води 54 людям у сірій зоні протягом тижня.',
+//               item: 'Зібрано:',
+//               total: '35768',
+//               currency: 'грн',
+//               term: 'Термін реалізаці:',
+//               days: '10 ',
+//               period: 'днів',
+//               type: 'progress',
+//             },
+//           ],
+//         },
+//       },
+//       {
+//         local: 'ua',
+//         route: 'main',
+//         section_name: 'donats',
+//         section_content: {
+//           title: 'Внесок заради добра',
+//           description:
+//             'Разом ми змінюємо життя тих, хто потребує допомоги найбільше — долучайтесь до нашої місії сьогодні!',
+//           alt: 'Фото з людьми',
+//         },
+//       },
+//     ];
+//     const collectionsUk = [
+//       {
+//         title: 'Light in the "Gray Zone"!',
+//         importance: 'Urgent collection',
+//         collected: 80000,
+//         target: 100000,
+//         alt: 'Light in the "Gray Zone"',
+//         peopleDonate: 100,
+//         desc: 'We are collecting for energy bars, instant food, vitamins—everything necessary for daily survival. Join the collection, let’s support our soldiers together!',
+//         long_desc: '',
+//         status: 'active',
+//         type: 'collections',
+//         language: 'uk',
+//       },
+//       {
+//         title: 'Light in the "Gray Zone"!',
+//         importance: 'Urgent collection',
+//         collected: 5600,
+//         target: 100000,
+//         alt: 'Light in the "Gray Zone"',
+//         peopleDonate: 100,
+//         desc: 'We are collecting for energy bars, instant food, vitamins—everything necessary for daily survival. Join the collection, let’s support our soldiers together!',
+//         long_desc: '',
+//         status: 'active',
+//         type: 'collections',
+//         language: 'uk',
+//       },
+//       {
+//         title: 'Light in the "Gray Zone"!',
+//         importance: 'Urgent collection',
+//         collected: 50000,
+//         target: 100000,
+//         alt: 'Light in the "Gray Zone"',
+//         peopleDonate: 100,
+//         desc: 'We are collecting for energy bars, instant food, vitamins—everything necessary for daily survival. Join the collection, let’s support our soldiers together!',
+//         long_desc: '',
+//         status: 'active',
+//         type: 'collections',
+//         language: 'uk',
+//       },
+//       {
+//         title: 'Light in the "Gray Zone"!',
+//         importance: 'Urgent collection',
+//         collected: 2000,
+//         target: 100000,
+//         alt: 'Light in the "Gray Zone"',
+//         peopleDonate: 100,
+//         desc: 'No electricity, water, or gas, constant shelling, 54 pensioners. Villages Plavni and Kamyanske (Zaporizhzhya frontline).',
+//         long_desc: '',
+//         status: 'active',
+//         type: 'collections',
+//         language: 'uk',
+//       },
+//       {
+//         title: 'Light in the "Gray Zone"!',
+//         importance: 'Urgent collection',
+//         collected: 2000,
+//         target: 100000,
+//         alt: 'Light in the "Gray Zone"',
+//         peopleDonate: 100,
+//         desc: 'No electricity, water, or gas, constant shelling, 54 pensioners. Villages Plavni and Kamyanske (Zaporizhzhya frontline).',
+//         long_desc: '',
+//         status: 'active',
+//         type: 'collections',
+//         language: 'uk',
+//       },
+//       {
+//         title: 'Light in the "Gray Zone"!',
+//         importance: 'Urgent collection',
+//         collected: 2000,
+//         target: 100000,
+//         alt: 'Light in the "Gray Zone"',
+//         peopleDonate: 100,
+//         desc: 'No electricity, water, or gas, constant shelling, 54 pensioners. Villages Plavni and Kamyanske (Zaporizhzhya frontline).',
+//         long_desc: '',
+//         status: 'active',
+//         type: 'collections',
+//         language: 'uk',
+//       },
+//     ];
+//     await CollectionModel.insertMany(collectionsUk);
+//     console.log('📦 Collections inserted');
 
-    await aboutSection.save();
-    // console.log('ℹ️ About section with embedded cards inserted');
+//     const sectionsUk = [
+//       {
+//         local: 'ua',
+//         section_name: 'hero',
+//         route: 'main',
+//         section_contant: {
+//           title: 'Helping those in difficult life situations',
+//           cards: [
+//             {
+//               amount: '1 million UAH',
+//               label: 'Total amount collected',
+//             },
+//             {
+//               amount: '8,000+',
+//               label: 'Number of completed projects',
+//             },
+//             {
+//               amount: '35,000+',
+//               label: 'Number of lives saved',
+//             },
+//           ],
+//         },
+//       },
+//       {
+//         local: 'ua',
+//         section_name: 'about',
+//         route: 'main',
+//         section_contant: {
+//           title: 'About Us',
 
-    const heroCards = [
-      {
-        amount: '1 млн грн',
-        label: 'Загальна сума зборів',
-      },
-      {
-        amount: '8 000+',
-        label: 'Кількість реалізованих проєктів',
-      },
-      {
-        amount: '35 000+',
-        label: 'Кількість врятованих життів',
-      },
-    ];
+//           description:
+//             'InHarmony is a charitable organization that brings together people willing to create change for those who need it the most.',
+//           cards: [
+//             {
+//               title: 'Support for Military Families and IDPs',
+//               description:
+//                 'We provide necessary assistance to military families and internally displaced persons (IDPs), offering essential items, food, and psychological support.',
+//             },
+//             {
+//               title: 'Aid to Frontline Areas',
+//               description:
+//                 'We deliver humanitarian aid to the villages on the front lines, providing food, medicine, and necessities, supporting them in difficult times.',
+//             },
+//             {
+//               title: 'Support for Animals in Crisis Regions',
+//               description:
+//                 'We feed and evacuate animals from combat zones, provide veterinary care, and help find them new shelters.',
+//             },
+//             {
+//               title: 'Development of Modular Settlements for IDPs',
+//               description:
+//                 'We are creating a project for a modern and safe modular settlement for residents of Mariupol who lost their homes due to the war.',
+//             },
+//           ],
+//           sub_titles: 'Key Areas of Activity:',
+//           motivation:
+//             'Join our initiative—together we can save even more lives!',
+//         },
+//       },
 
-    const heroSection = new HeroMainPageSection({
-      local: 'ua',
-      title: 'Допомагаємо тим, хто опинився в важких життєвих умовах',
-      route: 'main',
-      list: heroCards,
-      type: 'hero',
-    });
+//       {
+//         local: 'ua',
+//         route: 'main',
+//         section_name: 'active_acllections',
+//         section_contant: {
+//           title: 'Active Collections',
 
-    await heroSection.save();
-    // console.log('ℹ️ About section with embedded cards inserted');
+//           cards: await CollectionModel.find({
+//             type: 'collections',
+//             status: 'active',
+//             language: 'uk',
+//           }),
+//         },
+//       },
+//       {
+//         local: 'ua',
+//         route: 'main',
+//         section_name: 'achievements',
+//         section_contant: {
+//           title: 'Recent Achievements',
+//           cards: [
+//             {
+//               title: 'Water to the Gray Zone',
+//               text: 'The project solved the problem of transporting and storing drinking water. Thanks to this project, 500 liters of drinking water were delivered to 54 people in the gray zone within a week.',
+//               item: 'Amount Collected:',
+//               total: '35,768',
+//               currency: 'UAH',
+//               term: 'Implementation Time:',
+//               days: '10',
+//               period: 'days',
+//               type: 'progress',
+//             },
+//             {
+//               title: 'Water to the Gray Zone-2',
+//               text: 'The project solved the problem of transporting and storing drinking water. Thanks to this project, 500 liters of drinking water were delivered to 54 people in the gray zone within a week.',
+//               item: 'Amount Collected:',
+//               total: '35,768',
+//               currency: 'UAH',
+//               term: 'Implementation Time:',
+//               days: '10',
+//               period: 'days',
+//               type: 'progress',
+//             },
+//             {
+//               title: 'Water to the Gray Zone-3',
+//               text: 'The project solved the problem of transporting and storing drinking water. Thanks to this project, 500 liters of drinking water were delivered to 54 people in the gray zone within a week.',
+//               item: 'Amount Collected:',
+//               total: '35,768',
+//               currency: 'UAH',
+//               term: 'Implementation Time:',
+//               days: '10',
+//               period: 'days',
+//               type: 'progress',
+//             },
+//           ],
+//         },
+//       },
+//       {
+//         local: 'ua',
+//         route: 'main',
+//         section_name: 'donats',
+//         section_contant: {
+//           title: 'Contribution for the Greater Good',
+//           description:
+//             'Together we are changing the lives of those who need help the most—join our mission today!',
+//           alt: 'Photo with people',
+//         },
+//       },
+//     ];
 
-    const progressSection = [
-      {
-        title: 'Вода в сіру зону',
-        text: 'Проект вирішив проблему транспортування та зберігання питної води.Завдяки цьому проекту було доставлено 500 л питної води 54 людям у сірій зоні протягом тижня.',
-        item: 'Зібрано:',
-        total: '35768',
-        currency: 'грн',
-        term: 'Термін реалізаці:',
-        days: '10 ',
-        period: 'днів',
-        type: 'progress',
-      },
-      {
-        title: 'Вода в сіру зону-2',
-        text: 'Проект вирішив проблему транспортування та зберігання питної води.Завдяки цьому проекту було доставлено 500 л питної води 54 людям у сірій зоні протягом тижня.',
-        item: 'Зібрано:',
-        total: '35768',
-        currency: 'грн',
-        term: 'Термін реалізаці:',
-        days: '10 ',
-        period: 'днів',
-        type: 'progress',
-      },
-      {
-        title: 'Вода в сіру зону-3',
-        text: 'Проект вирішив проблему транспортування та зберігання питної води.Завдяки цьому проекту було доставлено 500 л питної води 54 людям у сірій зоні протягом тижня.',
-        item: 'Зібрано:',
-        total: '35768',
-        currency: 'грн',
-        term: 'Термін реалізаці:',
-        days: '10 ',
-        period: 'днів',
-        type: 'progress',
-      },
-    ];
+//     const mainPageDataUA = new MainPageModelUA({
+//       local: 'ua',
+//       route: 'main',
+//       sections_list: sections,
+//     });
+//     await MainPageModelUA.create(mainPageDataUA);
+//     console.log('📦 Main Page (UA) data inserted');
 
-    await ProgressModel.insertMany(progressSection);
-    // console.log('📦 Progress inserted');
+//     const mainPageDataUK = new MainPageModelUK({
+//       local: 'uk',
+//       route: 'main',
+//       sections_list: sectionsUk,
+//     });
 
-    const sections = [
-      {
-        local: 'ua',
-        route: 'main',
-        title: 'Активні збори',
-        type: 'collections',
-        list: await CollectionModel.find({
-          type: 'collections',
-          status: 'active',
-        }),
-      },
-      {
-        local: 'ua',
-        route: 'main',
-        title: 'Останні досягнення',
-        type: 'progress',
-        list: await ProgressModel.find({ type: 'progress' }),
-      },
-      {
-        local: 'ua',
-        route: 'main',
-        type: 'none',
-        title: 'Внесок заради добра',
-        description:
-          'Разом ми змінюємо життя тих, хто потребує допомоги найбільше — долучайтесь до нашої місії сьогодні!',
-        alt: 'Фото з людьми',
-      },
-    ];
+//     await MainPageModelUK.create(mainPageDataUK);
+//     console.log('📦 Main Page (UK) data inserted');
 
-    await SectionsSchema.insertMany(sections);
-    // console.log('📄 Sections created and saved');
+//     await mongoose.connection.close();
+//     console.log('🔒 Database connection closed');
+//   } catch (error) {
+//     console.error('❌ Error seeding database:', error);
+//     await mongoose.connection.close();
+//   }
+// };
 
-    const mainPageDataUA = new MainPageModelUA({
-      local: 'ua',
-      route: 'main',
-    });
-    await mainPageDataUA.setListByType();
-    await mainPageDataUA.save();
-    // console.log('📦 Main Page (UA) data inserted');
-
-    const mainPageDataUK = new MainPageModelUK({
-      local: 'uk',
-      route: 'main',
-    });
-
-    await mainPageDataUK.setListByType();
-    await mainPageDataUK.save();
-    // console.log('📦 Main Page (UK) data inserted');
-
-    await mongoose.connection.close();
-    // console.log('🔒 Database connection closed');
-  } catch (error) {
-    // console.error('❌ Error seeding database:', error);
-    await mongoose.connection.close();
-  }
-};
-
-mainPageSeed();
+// mainPageSeed();

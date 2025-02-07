@@ -6,7 +6,6 @@ export const getMainPageUA = async () => {
 
     return page;
   } catch (error) {
-    console.error('Error retrieving collections:', error);
     throw new Error('Failed to retrieve collections');
   }
 };
@@ -17,7 +16,6 @@ export const getMainPageUK = async () => {
 
     return page;
   } catch (error) {
-    console.error('Error retrieving collections:', error);
     throw new Error('Failed to retrieve collections');
   }
 };

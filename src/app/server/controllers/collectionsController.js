@@ -34,7 +34,6 @@ export const getCollectionByIdController = async (req, res) => {
 
     res.status(200).json(collection);
   } catch (error) {
-    console.error('Error fetching collection:', error);
     res.status(500).json({ error: 'Failed to fetch collection' });
   }
 };
@@ -77,7 +76,7 @@ export const handleCreateCollection = async (req, res) => {
       !collectionData.collected ||
       !collectionData.target
     ) {
-      return res.status(400).json({ message: 'Неправильні вхідні дані' });
+      return res.status(400).json({ message: 'Invalid input data' });
     }
 
     const newCollection = await createCollection(collectionData);
@@ -125,29 +124,14 @@ export const handleUpdateCollection = async (req, res) => {
     }
   }
 
-  const updateData = {
-    collected: Number(req.body.collected) || 0,
-    peopleDonate: Number(req.body.peopleDonate) || 0,
-    isOpen: req.body.isOpen === 'true',
-    closedAt: req.body.closedAt ? new Date(req.body.closedAt) : null,
-    image: photoUrls,
-    title: req.body.title || '',
-    importance: req.body.importance || '',
-    target: Number(req.body.target) || 0 || '',
-    alt: req.body.alt || '',
-    desc: req.body.desc || '',
-    long_desc: req.body.long_desc || '',
-    type: req.body.type,
-  };
-
   const result = await updateCollectionService(id, {
     ...req.body,
     image: photoUrls,
   });
 
-  // if (!result) {
-  //   throw createHttpError(404, 'Product not found');
-  // }
+  if (!result) {
+    throw createHttpError(404, 'Product not found');
+  }
 
   res.json({
     status: 200,

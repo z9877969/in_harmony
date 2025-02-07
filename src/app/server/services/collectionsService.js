@@ -18,7 +18,6 @@ export const getAllCollections = async () => {
 
     return sortedCollections;
   } catch (error) {
-    console.error('Error retrieving collections:', error);
     throw new Error('Failed to retrieve collections');
   }
 };
@@ -39,7 +38,6 @@ export const createCollection = async (payload) => {
 
 export const updateCollectionService = async (id, payload, options = {}) => {
   if (!id) {
-    console.error('Collection not found');
     return null;
   }
 
@@ -55,13 +53,11 @@ export const updateCollectionService = async (id, payload, options = {}) => {
     );
 
     if (!updatedCollection) {
-      console.error('Update failed, collection not found or unchanged');
       return null; // Handle this case according to your requirements
     }
 
     return updatedCollection.value; // Return the updated document
   } catch (error) {
-    console.error('Error updating collection:', error);
     return null; // Handle this case according to your requirements
   }
 };

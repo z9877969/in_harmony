@@ -1,0 +1,40 @@
+.mainContainer {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	padding: 4px 0px 48px 0px;
+	@include media(desktop) {
+		flex-direction: row;
+		gap: 48px;
+		justify-content: center;
+		align-items: center;
+		padding: 8px 0px 78px 0px;
+	}
+}
+.imageContainer {
+	@include media(desktop) {
+		flex-shrink: 0;
+	}
+}
+.image {
+}
+.paragraph {
+	margin-bottom: 8px;
+}
+.title {
+	font-weight: 700;
+	font-size: 32px;
+	line-height: 1.25;
+	margin-bottom: 24px;
+	@include media(desktop) {
+		font-weight: 700;
+		font-size: 48px;
+		line-height: 1.17;
+	}
+}
+.textBlock {
+	font-weight: 400;
+	@include media(desktop) {
+		font-size: 18px;
+	}
+}

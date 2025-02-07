@@ -1,0 +1,28 @@
+{
+  "title": " Надихайте інших – зробіть свій внесок публічним!",
+  "donateOptions": [
+    { "value": "public", "label": "Публічно" },
+    { "value": "anonymous", "label": "Анонімно" }
+  ],
+  "placeholderName": "Ім'я",
+  "placeholderEmail": "Email",
+  "placeholderMessage": "Повідомлення",
+  "destination": "Призначення",
+  "coverCommission": "Покрити комісію 2%. Без втрат для допомоги.",
+  "btnText": "До сплати",
+  "otherPaymentMethods": "Інші способи оплати",
+  "validationMessage": {
+    "en": {
+      "required": "This field is required",
+      "email": "Invalid email format",
+      "name": "Invalid name format",
+      "message": "Invalid message format"
+    },
+    "ua": {
+      "required": "Це поле обов'язкове",
+      "email": "Невірний формат email",
+      "name": "Невірний формат name",
+      "message": "Невірний формат message"
+    }
+  }
+}

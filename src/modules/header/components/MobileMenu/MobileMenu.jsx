@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useTranslation } from 'react-i18next';
 import { Icon } from '@/shared/components';
 import { uaFlag as LangIcon } from '/public/icons';
 import MobileMenuBtn from '../MobileMenuBtn/MobileMenuBtn';
@@ -14,6 +15,7 @@ const MobileMenu = () => {
   const pathname = usePathname();
   const locale = pathname.split('/')[1];
   const [visible, setVisible] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleResize = () => {
@@ -56,7 +58,7 @@ const MobileMenu = () => {
                 href={`/${locale}`}
                 onClick={() => setVisible(!visible)}
               >
-                Головна
+                {t('navLinks.0')}
               </Link>
             </li>
             <li>
@@ -70,7 +72,7 @@ const MobileMenu = () => {
                 href={`/${locale}/${ROUTES.COLLECTION}`}
                 onClick={() => setVisible(!visible)}
               >
-                Поточні збори
+                {t('navLinks.1')}
               </Link>
             </li>
             <li>
@@ -82,7 +84,7 @@ const MobileMenu = () => {
                 href={`/${locale}/${ROUTES.REPORTING}`}
                 onClick={() => setVisible(!visible)}
               >
-                Звітність
+                {t('navLinks.2')}
               </Link>
             </li>
             <li>
@@ -94,7 +96,7 @@ const MobileMenu = () => {
                 href={`/${locale}/${ROUTES.ABOUT}`}
                 onClick={() => setVisible(!visible)}
               >
-                Про нас
+                {t('navLinks.3')}
               </Link>
             </li>
           </ul>

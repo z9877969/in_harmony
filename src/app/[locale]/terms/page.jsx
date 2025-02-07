@@ -1,13 +1,12 @@
 import { TermsAndConditionsPage } from '@/modules/termsAndConditionsPage';
-import s from './page.module.scss';
+// import s from './page.module.scss';
 
-const page = () => {
+const TermsPage = () => {
   return (
     <>
-      <h1 className={s.title}>Terms page</h1>
       <TermsAndConditionsPage />
     </>
   );
 };
 
-export default page;
+export default TermsPage;

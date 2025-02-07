@@ -2,6 +2,10 @@ export const ROUTES = {
   ABOUT: 'about',
   COLLECTION: 'collection',
   REPORTING: 'reporting',
+  PAYMENTS: 'payments',
+  TERMS: 'terms',
+  POLICY: 'policy',
+  DISCARD: 'discard',
 };
 
 export const SOCIALROUTES = {
@@ -17,3 +21,21 @@ export const LANGUAGES = {
 }
 
 export const NAMESPACES = ['header', 'mainPage']
+
+export const LINKDATA = {
+  PATHHOME: '/',
+  PATHABOUT: '/about',
+  PATHCOLLECTION: '/collection',
+  PATHREPORTING: '/reporting',
+  PATHTERMS: '/terms',
+
+  TEXTDETAILS: 'Детальніше',
+  TEXTHELP: 'Допомогти',
+  TEXTJOIN: 'Приєднатися',
+  TEXTDONATE: 'Задонатити',
+
+  TYPE_LIGHT_BORDER: 'bg-light_border',
+  TYPE_DARK_HEART: 'bg-dark_heart',
+  TYPE_LIGHT_BORDER_BF: 'bg-light_border_biggerFont',
+  TYPE_DARK_BF: 'bg-dark_biggerFont',
+};

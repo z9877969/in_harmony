@@ -29,7 +29,7 @@ const AboutPageMission = () => {
             <p className={s.descriptionExtra}>{data.descriptionExtra}</p>
           </div>
         </div>
-        <div>
+        <div className={s.iconsContainer}>
           <h3 className={s.inspirationTitle}>
             {data.inspiration.inspirationTitle}
           </h3>

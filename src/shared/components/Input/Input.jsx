@@ -25,8 +25,10 @@ const Input = ({
           {label}
         </label>
       )}
-      <input className={inputClasses} id={id} type={type} {...rest} />
-      {currency && <span className={s.currency}>{currency}</span>}
+      <div className={s.inputWrapper}>
+        <input className={inputClasses} id={id} type={type} {...rest} />
+        {currency && <span className={s.currency}>{currency}</span>}
+      </div>
       {error && <p className={s.error}>{error} </p>}
     </div>
   );

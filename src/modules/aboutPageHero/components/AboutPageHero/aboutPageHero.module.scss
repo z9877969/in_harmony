@@ -14,6 +14,7 @@
 
   @include media(desktop) {
     @include font(48, 56.16);
+    margin-bottom: 48px;
   }
 }
 
@@ -82,5 +83,12 @@
 
   @include media(desktop) {
     margin-bottom: 48px;
+  }
+}
+.sectionAboutHero {
+  padding-bottom: 48px;
+
+  @include media(desktop) {
+    padding-bottom: 76px;
   }
 }

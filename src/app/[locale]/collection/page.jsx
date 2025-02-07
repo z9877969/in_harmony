@@ -6,6 +6,7 @@ const CollectionPage = () => {
   return (
     <>
       <CollectionPageActive />
+
       <CollectionPageReporting />
     </>
   );

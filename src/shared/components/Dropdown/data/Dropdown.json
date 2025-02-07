@@ -1,0 +1,14 @@
+{
+  "dropdownOptions": [
+    { "value": "foodCollection", "label": "Збір на їжу військовим" },
+    {
+      "value": "medicineCollection",
+      "label": "Збір на ліки для жителів села Степногірське"
+    },
+    {
+      "value": "clothesCollection",
+      "label": "Збір на теплий одяг для місцевих жителів"
+    },
+    { "value": "waterCollection", "label": "Збір на воду в сіру зону" }
+  ]
+}

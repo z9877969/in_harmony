@@ -5,6 +5,7 @@ export const ROUTES = {
   PAYMENTS: 'payments',
   TERMS: 'terms',
   POLICY: 'policy',
+  DISCARD: 'discard',
 };
 
 export const SOCIALROUTES = {

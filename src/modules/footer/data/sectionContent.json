@@ -98,10 +98,7 @@
 
   "siteNavigation": {
     "navAriaLabel": "навігація сайту у футері",
-    "linkMain": "Головна",
-    "linkCollection": "Поточні збори",
-    "linkReporting": "Звітність",
-    "linkAbout": "Про нас"
+    "navigation": ["Головна", "Поточні збори", "Звітність", "Про нас"]
   },
 
   "copyright": "© 2024 InHarmony"

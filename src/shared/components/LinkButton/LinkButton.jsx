@@ -1,10 +1,11 @@
 import Link from 'next/link';
+import { clsx } from 'clsx'
 
 import { LINKDATA } from '@/shared/constants';
 
 import s from './LinkButton.module.scss';
 
-const LinkButton = ({ path, linkText, type }) => {
+const LinkButton = ({ path, linkText, type, className }) => {
   let linkStyle = '';
   let icon = null;
 
@@ -29,7 +30,7 @@ const LinkButton = ({ path, linkText, type }) => {
   }
 
   return (
-    <Link href={path} className={`${s.defaultLink} ${linkStyle}`}>
+    <Link href={path} className={clsx(s.defaultLink, linkStyle,  className)}>
       {icon && <span className={s.iconWrapper}>{icon}</span>}
       {linkText}
     </Link>

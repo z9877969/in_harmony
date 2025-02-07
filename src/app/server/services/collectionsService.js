@@ -1,8 +1,8 @@
-import { CollectionSchema } from '../models';
+import { CollectionModel } from "../models";
 
 export const getAllCollections = async () => {
   try {
-    const collections = await CollectionSchema.find().lean();
+    const collections = await CollectionModel.find().lean();
 
     const sortedCollections = collections.reduce(
       (acc, collection) => {
@@ -15,6 +15,7 @@ export const getAllCollections = async () => {
       },
       { activeCollections: [], closedCollections: [] }
     );
+
     return sortedCollections;
   } catch (error) {
     console.error('Error retrieving collections:', error);
@@ -23,7 +24,7 @@ export const getAllCollections = async () => {
 };
 
 export const getCollectionById = async (id) => {
-  const collection = await CollectionSchema.findOne({
+  const collection = await CollectionModel.findOne({
     _id: id,
   });
 
@@ -31,7 +32,7 @@ export const getCollectionById = async (id) => {
 };
 
 export const createCollection = async (payload) => {
-  const newCollection = new CollectionSchema(payload);
+  const newCollection = new CollectionModel(payload);
   await newCollection.save();
   return newCollection;
 };
@@ -45,7 +46,7 @@ export const updateCollectionService = async (id, payload, options = {}) => {
   }
 
   try {
-    const updatedCollection = await CollectionSchema.findByIdAndUpdate(
+    const updatedCollection = await CollectionModel.findByIdAndUpdate(
       { _id: id },
       payload,
       {

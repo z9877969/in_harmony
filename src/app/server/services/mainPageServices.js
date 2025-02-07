@@ -1,7 +1,4 @@
-import {
-  MainPageModelUA,
-  MainPageModelUK,
-} from '../models/mainPageModels/MainPageModels';
+import { MainPageModelUA, MainPageModelUK } from '../models/mainPageModels';
 
 export const getMainPageUA = async () => {
   try {

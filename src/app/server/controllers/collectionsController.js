@@ -3,7 +3,6 @@ import {
   createCollection,
   getAllCollections,
   getCollectionById,
-  getMainPageUA,
   updateCollectionService,
 } from '../services/collectionsService';
 import { env } from '../utils';
@@ -20,14 +19,6 @@ export const handleGetCollections = async (req, res) => {
   }
 };
 
-export const handleGetMainPageUA = async (req, res) => {
-  try {
-    const page = await getMainPageUA();
-    res.status(200).json({ status: 200, sections: page });
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-};
 
 export const getCollectionByIdController = async (req, res) => {
   try {

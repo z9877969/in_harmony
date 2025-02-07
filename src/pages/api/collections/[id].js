@@ -6,6 +6,7 @@ import {
 } from '@/app/server/controllers/collectionsController.js';
 import isValidId from '@/app/server/utils/isValidId.js';
 import validateBody from '@/app/server/utils/validateBody.js';
+import { CollectionModel } from '@/app/server/models/SectionSchema.js';
 export const config = {
   api: {
     bodyParser: false,
@@ -22,7 +23,7 @@ export default async function handler(req, res) {
   if (req.method === 'PATCH') {
     isValidId(req, res);
     await uploadMiddleware(req, res);
-    validateBody(CollectionsSchema);
+    validateBody(CollectionModel);
     return handleUpdateCollection(req, res);
   }
 

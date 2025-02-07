@@ -30,5 +30,5 @@ export default async function handler(req, res) {
     await uploadMiddleware(req, res);
     return handleUpdateCollection(req, res);
   }
-  res.status(405).json({ message: 'Метод не дозволений' });
+  res.status(405).json({ message: 'Method Not Allowed' });
 }

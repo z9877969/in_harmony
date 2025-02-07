@@ -1,1 +1,2 @@
-export { default as CollectionSchema } from './CollectionSchema.js';
+export { default as SectionsSchema } from './SectionSchema.js';
+export { CollectionModel } from './SectionSchema.js';

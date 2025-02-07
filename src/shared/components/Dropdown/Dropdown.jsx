@@ -3,12 +3,8 @@
 import { useState } from 'react';
 import { Icon } from '..';
 import s from './Dropdown.module.scss';
-const collections = [
-  'Збір на їжу військовим',
-  'Збір на ліки для жителів села Степногірське',
-  'Збір на теплий одяг для місцевих жителів',
-  'Збір на воду в сіру зону',
-];
+import data from './data/Dropdown.json';
+const collections = data.dropdownOptions;
 
 const Dropdown = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -37,8 +33,11 @@ const Dropdown = () => {
           <ul className={s.list}>
             {collections.map((el, idx) => (
               <li key={idx}>
-                <button className={s.select} onClick={() => handleSelect(el)}>
-                  {el}
+                <button
+                  className={s.select}
+                  onClick={() => handleSelect(el.label)}
+                >
+                  {el.label}
                 </button>
               </li>
             ))}

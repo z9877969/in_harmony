@@ -1,4 +1,3 @@
-
 'use client';
 
 import { Button, Input, InputArea } from '@/shared/components/index.js';
@@ -14,6 +13,7 @@ const ContactUs = ({ data }) => {
     validationSchema,
 
     onSubmit: (values) => {
+      // eslint-disable-next-line
       console.log('Form data:', values);
 
       formik.resetForm();

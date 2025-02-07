@@ -38,7 +38,7 @@ function LegalInfo({ data }) {
         </dl>
       </section>
 
-      <Link href={ROUTES.DISCARD} className={s.navLink}>
+      <Link href={`/${locale}/ROUTES.DISCARD`} className={s.navLink}>
         {data.linkUnsubscribeText}
       </Link>
     </section>

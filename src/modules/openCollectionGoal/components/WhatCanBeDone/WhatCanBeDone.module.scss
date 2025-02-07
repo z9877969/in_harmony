@@ -1,0 +1,67 @@
+.titleContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+
+  @include media(tablet) {
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  @include media(desktop) {
+    margin-bottom: 16px;
+  }
+}
+
+.icon {
+  fill: none;
+  stroke: $primary-text-color;
+  width: 24px;
+  height: 24px;
+
+  @include media(tablet) {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.title {
+  font-family: Montserrat, sans-serif;
+  font-weight: 700;
+  @include font(20, 28);
+
+  @include media(tablet) {
+    @include font(24, 28);
+  }
+
+  @include media(desktop) {
+    @include font(32, 40);
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  list-style-type: disc;
+  list-style-position: inside;
+
+  @include media(tablet) {
+    gap: 12px;
+  }
+}
+
+.item {
+  padding-left: 10px;
+  height: 24px;
+  align-self: stretch;
+  color: $footer-secondary-text-color;
+  font-weight: 400;
+  @include font(16, 24);
+
+  @include media(desktop) {
+    @include font(18, 27);
+  }
+}

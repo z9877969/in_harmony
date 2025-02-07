@@ -7,4 +7,4 @@ const CollectionPage = () => {
   );
 };
 
-export default page;
+export default CollectionPage;

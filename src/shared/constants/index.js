@@ -2,6 +2,9 @@ export const ROUTES = {
   ABOUT: 'about',
   COLLECTION: 'collection',
   REPORTING: 'reporting',
+  PAYMENTS: 'payments',
+  TERMS: 'terms',
+  POLICY: 'policy',
   DISCARD: 'discard',
 };
 

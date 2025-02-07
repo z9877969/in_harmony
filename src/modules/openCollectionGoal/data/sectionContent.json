@@ -1,0 +1,27 @@
+{
+  "sectionTitle": "Разом до мети",
+  "whatCanBeDone": {
+    "title": "Що можна зробити:",
+    "whatCanBeDoneItems": [
+      "Поділитися збором із друзями",
+      "Розказати тим, кого це може зацікавити",
+      "Задонатити комфортну суму"
+    ]
+  },
+  "supportForm": {
+    "title": "Разом ми можемо більше – підтримайте наш фонд!",
+    "radioPriceItems": ["200", "500", "1000"],
+    "currency": "UAH",
+    "submitBtnText": "До сплати",
+    "otherPaymentsLinkText": "Інші способи оплати"
+  },
+  "share": {
+    "title": "Поділитися",
+    "text": "Розкажіть про збір друзям — це теж допомога!",
+    "social": [
+      { "name": "instagram", "url": "https://www.instagram.com" },
+      { "name": "telegram", "url": "https://www.telegram.com" },
+      { "name": "facebook", "url": "https://www.facebook.com" }
+    ]
+  }
+}

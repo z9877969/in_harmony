@@ -13,7 +13,7 @@ const nextConfig = {
       @import "src/shared/styles/_colors.scss";
       @import "src/shared/styles/_mixins.scss";
       @import "src/shared/styles/_variables.scss";
-    `,
+      `,
   },
 };
 

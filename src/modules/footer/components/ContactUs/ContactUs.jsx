@@ -1,6 +1,6 @@
 'use client';
 
-import { Input, InputArea } from '@/shared/components/index.js';
+import { Button, Input, InputArea } from '@/shared/components/index.js';
 import { useFormik } from 'formik';
 import { validationSchema } from '../../validation/validationSchema.js';
 import s from './ContactUs.module.scss';
@@ -13,6 +13,7 @@ const ContactUs = ({ data }) => {
     validationSchema,
 
     onSubmit: (values) => {
+      // eslint-disable-next-line
       console.log('Form data:', values);
 
       formik.resetForm();
@@ -60,14 +61,9 @@ const ContactUs = ({ data }) => {
             onBlur={formik.handleBlur}
             error={formik.touched.message && formik.errors.message}
           />
-
-          <button
-            type="submit"
-            className={s.submitBtn}
-            aria-label={data.buttonAriaLabel}
-          >
+          <Button type="submit" variant="primary" fontSize="twenty">
             {data.buttonText}
-          </button>
+          </Button>
         </form>
       </div>
     </section>

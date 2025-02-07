@@ -24,6 +24,13 @@
   }
 }
 
+.picture {
+  @include media(desktop) {
+    order: 2;
+    grid-column: 1;
+  }
+}
+
 .img {
   border-radius: 32px;
   background-color: $img-backdrop-color;
@@ -32,10 +39,8 @@
     height: 444px;
   }
   @include media(desktop) {
-    order: 2;
     width: 855px;
     height: 406px;
-    grid-column: 1;
   }
 }
 

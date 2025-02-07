@@ -1,3 +1,8 @@
+.inputContainer {
+  position: relative;
+  width: 100%;
+}
+
 .label {
   align-self: stretch;
   color: $secondary-text-color;
@@ -7,9 +12,10 @@
 }
 
 .input {
+  height: 48px;
   width: 100%;
   display: flex;
-  padding: 8px;
+  padding: 8px 16px;
   align-items: flex-start;
   gap: 10px;
   align-self: stretch;
@@ -20,6 +26,14 @@
     @include font(16, 24);
     font-weight: 400;
   }
+}
+
+.currency {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  @include font(16, 24);
+  font-weight: 400;
 }
 
 .error {

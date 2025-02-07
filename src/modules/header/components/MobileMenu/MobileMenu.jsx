@@ -5,8 +5,10 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
+
+import { useLanguageChanger } from '@/i18n/utils/LanguageChanger';
 import { Icon } from '@/shared/components';
-import { uaFlag as LangIcon } from '/public/icons';
+import { uaFlag as UaIcon, googleLogo as EnIcon } from '/public/icons';
 import MobileMenuBtn from '../MobileMenuBtn/MobileMenuBtn';
 import { ROUTES } from '@/shared/constants';
 import s from './MobileMenu.module.scss';
@@ -16,6 +18,11 @@ const MobileMenu = () => {
   const locale = pathname.split('/')[1];
   const [visible, setVisible] = useState(false);
   const { t } = useTranslation();
+  const { handleChangeLanguage } = useLanguageChanger();
+
+  const handleLanguageSelect = (newLocale) => {
+    handleChangeLanguage(newLocale);
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -44,8 +51,14 @@ const MobileMenu = () => {
       <MobileMenuBtn onClick={() => setVisible(!visible)} visible={visible} />
       <div className={clsx(s.mobileMenu, visible && s.visible)}>
         <div className={s.langBlock}>
-          <LangIcon className={s.langIcon} />
-          <LangIcon className={s.langIcon} />
+          <UaIcon
+            className={s.langIcon}
+            onClick={() => handleLanguageSelect('ua')}
+          />
+          <EnIcon
+            className={s.langIcon}
+            onClick={() => handleLanguageSelect('en')}
+          />
         </div>
         <nav className={s.nav}>
           <ul className={s.navList}>

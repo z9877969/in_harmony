@@ -1,0 +1,27 @@
+.switchButton {
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  font-family: $primary-font-family;
+  font-weight: 600;
+  color: $violet-ui-text-color;
+  @include font(14, 22);
+
+  @include media(tablet) {
+    @include font(16, 24);
+  }
+
+  @include media(desktop) {
+    @include font(18, 26);
+  }
+}
+
+.active {
+  text-decoration: underline;
+  animation: fadeIn 0.3s forwards;
+}
+
+.switchButton:hover {
+  text-decoration: none;
+  animation: fadeIn 0.3s forwards;
+}

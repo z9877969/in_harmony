@@ -1,0 +1,94 @@
+@import '@/shared/styles/mixins';
+
+.button {
+  font-family: $primary-font-family;
+  font-weight: 600;
+  color: $violet-ui-text-color;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px;
+  @include font(16, 24);
+  border: none;
+  background: transparent;
+  width: 100%;
+  transition: all 0.3s ease;
+
+  @include media(desktop) {
+    height: 64px;
+    @include font(20, 30);
+  }
+}
+
+.icon {
+  fill: transparent;
+  stroke: #7e00cc;
+  transition:
+    transform 0.3s ease,
+    stroke 0.3s ease;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  animation: fadeIn 0.3s forwards;
+  flex-wrap: wrap;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-bottom: 10px;
+}
+
+.sectionTitle,
+.subsectionContent {
+  word-break: break-word;
+}
+.subsectionContainer {
+  display: flex;
+  align-items: center;
+}
+.sectionTitle {
+  font-family: $primary-font-family;
+  font-weight: 600;
+  color: $violet-ui-text-color;
+  @include font(16, 22);
+
+  @include media(tablet) {
+    @include font(18, 24);
+  }
+
+  @include media(desktop) {
+    @include font(20, 26);
+  }
+}
+
+.subsectionContent {
+  font-family: $primary-font-family;
+  font-weight: 400;
+  color: $violet-ui-text-color;
+  display: flex;
+  align-items: center;
+  @include font(16, 22);
+
+  @include media(tablet) {
+    @include font(18, 24);
+  }
+
+  @include media(desktop) {
+    @include font(20, 26);
+  }
+}

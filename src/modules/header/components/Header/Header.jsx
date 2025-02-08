@@ -29,7 +29,7 @@ const Header = ({ t }) => {
               <SocialLinks />
               {/* Right side header */}
               <div className={s.rightSide}>
-                <Link href={'/donations'} className={s.donateLink}>
+                <Link href={'/'} className={s.donateLink}>
                   <Icon className={s.heartIcon} iconName="icon-heart" />
                   {t('helpButton')}
                 </Link>

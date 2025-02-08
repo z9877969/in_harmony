@@ -10,13 +10,14 @@ import { useLanguageChanger } from '@/i18n/utils/LanguageChanger';
 import { Icon } from '@/shared/components';
 import { uaFlag as UaIcon, googleLogo as EnIcon } from '/public/icons';
 import MobileMenuBtn from '../MobileMenuBtn/MobileMenuBtn';
-import { ROUTES } from '@/shared/constants';
+import { ROUTES, SOCIALROUTES } from '@/shared/constants';
 import s from './MobileMenu.module.scss';
 
 const MobileMenu = () => {
   const pathname = usePathname();
   const locale = pathname.split('/')[1];
   const [visible, setVisible] = useState(false);
+
   const { t } = useTranslation();
   const { handleChangeLanguage } = useLanguageChanger();
 
@@ -116,22 +117,42 @@ const MobileMenu = () => {
         </nav>
         <ul className={s.socials}>
           <li>
-            <a href="https://www.instagram.com" className={s.socialLink}>
+            <a
+              href={SOCIALROUTES.INSTAGRAM}
+              className={s.socialLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Icon iconName="icon-instagram" className={s.socialsIcon} />
             </a>
           </li>
           <li>
-            <a href="/" className={s.socialLink}>
+            <a
+              href={SOCIALROUTES.TELEGRAM}
+              className={s.socialLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Icon iconName="icon-telegram" className={s.socialsIcon} />
             </a>
           </li>
           <li>
-            <a href="https://www.tiktok.com/" className={s.socialLink}>
+            <a
+              href={SOCIALROUTES.TIKTOK}
+              className={s.socialLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Icon iconName="icon-tiktok" className={s.socialsIcon} />
             </a>
           </li>
           <li>
-            <a href="https://www.facebook.com" className={s.socialLink}>
+            <a
+              href={SOCIALROUTES.FACEBOOK}
+              className={s.socialLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Icon iconName="icon-facebook" className={s.socialsIcon} />
             </a>
           </li>

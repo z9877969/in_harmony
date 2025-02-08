@@ -78,3 +78,7 @@
   transform: translateX(0px);
   transition: all 0.3s;
 }
+
+.notActive {
+  filter: grayscale(100%);
+}

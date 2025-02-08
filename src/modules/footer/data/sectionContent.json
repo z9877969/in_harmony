@@ -13,7 +13,7 @@
         "firstName": "Ілона",
         "lastName": "Морараш",
         "position": "UI/UX Designer",
-        "url": "",
+        "url": "/images/default_image.webp",
         "social": [
           { "name": "instagram", "url": "https://www.instagram.com" },
           { "name": "telegram", "url": "https://www.telegram.com" },
@@ -27,7 +27,7 @@
         "firstName": "Ганна",
         "lastName": "Желдак",
         "position": "UI/UX Designer",
-        "url": "",
+        "url": "/images/default_image.webp",
         "social": [
           { "name": "instagram", "url": "https://www.instagram.com" },
           { "name": "telegram", "url": "https://www.telegram.com" },
@@ -41,7 +41,7 @@
         "firstName": "Наталія",
         "lastName": "Медведєва",
         "position": "UI/UX Designer",
-        "url": "",
+        "url": "/images/default_image.webp",
         "social": [
           { "name": "instagram", "url": "https://www.instagram.com" },
           { "name": "telegram", "url": "https://www.telegram.com" },
@@ -64,10 +64,13 @@
       "phone": "+38 (096) 339-08-45"
     },
     "social": [
-      { "name": "instagram", "url": "https://www.instagram.com" },
-      { "name": "telegram", "url": "https://www.telegram.com" },
-      { "name": "tiktok", "url": "https://www.tiktok.com" },
-      { "name": "facebook", "url": "https://www.facebook.com" }
+      { "name": "instagram", "url": "https://www.instagram.com/inharmony.ua" },
+      { "name": "telegram", "url": "https://t.me/inharmonyua" },
+      {
+        "name": "tiktok",
+        "url": "https://www.tiktok.com/@inharmony.ua?_t=8pfFP3VEltN&_r=1"
+      },
+      { "name": "facebook", "url": "https://www.facebook.com/inharmony.com.ua" }
     ],
     "legalInfo": {
       "title": "Юридична інформація",
@@ -95,10 +98,7 @@
 
   "siteNavigation": {
     "navAriaLabel": "навігація сайту у футері",
-    "linkMain": "Головна",
-    "linkCollection": "Поточні збори",
-    "linkReporting": "Звітність",
-    "linkAbout": "Про нас"
+    "navigation": ["Головна", "Поточні збори", "Звітність", "Про нас"]
   },
 
   "copyright": "© 2024 InHarmony"

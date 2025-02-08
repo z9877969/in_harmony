@@ -1,8 +1,9 @@
-import { Footer } from '@/modules/footer';
-import { Header } from '@/modules/header';
-import { BreadCrumbs } from '@/shared/components';
-import clsx from 'clsx';
 import { Montserrat, Open_Sans } from 'next/font/google';
+import clsx from 'clsx';
+import { Header } from '@/modules/header';
+import { Footer } from '@/modules/footer';
+import { Breadcrumbs } from '@/shared/components';
+
 import '../globals.scss';
 
 export const metadata = {
@@ -11,23 +12,25 @@ export const metadata = {
 };
 
 const montserrat = Montserrat({
-  subsets: ['latin', 'cyrillic'], // Вкажіть підмножини
-  weight: ['700'], // Налаштуйте товщину шрифтів
-  display: 'swap', // Рекомендований формат
+  subsets: ['latin', 'cyrillic'],
+  weight: ['700'],
+  display: 'swap',
+  variable: '--font-montserrat',
 });
 
 const open_sans = Open_Sans({
-  subsets: ['latin', 'cyrillic'], // Вкажіть підмножини
-  weight: ['400', '600'], // Налаштуйте товщину шрифтів
-  display: 'swap', // Рекомендований формат
+  subsets: ['latin', 'cyrillic'],
+  weight: ['400', '600'],
+  display: 'swap',
+  variable: '--font-open_sans',
 });
 
 export default function RootLayout({ children }) {
   return (
     <html lang="uk">
-      <body className={clsx(montserrat.className, open_sans.className)}>
+      <body className={clsx(open_sans.variable, montserrat.variable)}>
         <Header />
-        <BreadCrumbs />
+        <Breadcrumbs />
         <main>{children}</main>
         <Footer />
         <div id="modal"></div>

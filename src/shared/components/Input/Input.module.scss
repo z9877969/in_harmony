@@ -1,28 +1,54 @@
-@import '@/shared/styles/mixins.scss';
-@import '@/shared/styles/colors.scss';
+@import '../../styles/variables';
+@import '../../styles/colors';
+
+.inputContainer {
+  position: relative;
+  width: 100%;
+}
 
 .label {
   align-self: stretch;
   color: $secondary-text-color;
-  font-family: 'Open Sans';
+  font-family: $primary-font-family;
   @include font(16, 24);
   font-weight: 700;
 }
 
+.inputWrapper {
+  position: relative;
+
+  align-items: center;
+}
+
 .input {
+  height: 48px;
   width: 100%;
-  display: flex;
-  padding: 8px;
-  align-items: flex-start;
-  gap: 10px;
-  align-self: stretch;
+  padding: 8px 16px;
   border-radius: 60px;
-  // border: none;
-  // background-color: $footer-input-bg-color;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 
   &::placeholder {
+    font-family: $primary-font-family;
     color: $secondary-text-color;
     @include font(16, 24);
     font-weight: 400;
   }
+}
+
+.currency {
+  top: 50%;
+  transform: translateY(-50%);
+  right: 16px;
+  position: absolute;
+  color: $footer-bold-text-color;
+  @include font(16, 24);
+  font-weight: 400;
+}
+
+.error {
+  color: $form-donate-error-color;
+  font-weight: 400;
+  @include font(16, 24);
 }

@@ -1,10 +1,8 @@
-@import '@/shared/styles/mixins.scss';
-@import '@/shared/styles/colors.scss';
-
 .contactsWrapper {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  color: $footer-bold-text-color;
 }
 
 .title {
@@ -16,19 +14,17 @@
 .text {
   font-style: normal;
   color: inherit;
+
   @include font(16, 24);
   font-weight: 400;
   max-width: 370px;
   color: $footer-text-color;
-
-  @include media(tablet) {
-    color: $footer-secondary-text-color;
-  }
 }
 
 .textDecoration {
   font-style: normal;
   font-weight: 600;
+  color: $footer-bold-text-color;
 }
 
 .mb-16 {

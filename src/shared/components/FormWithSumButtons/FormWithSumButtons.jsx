@@ -15,7 +15,11 @@ import s from './FormWithSumButtons.module.scss';
 
 const validationSchemaFormDonate = yup.object().shape({
   donateTime: yup.string().required(),
-  amount: yup.number().typeError().positive().required(),
+  amount: yup
+    .number()
+    .typeError()
+    .positive(data.positiveRequired)
+    .required(data.amountRequired),
 });
 
 const FormWithSumButtons = ({ className = '' }) => {

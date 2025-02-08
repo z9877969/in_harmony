@@ -8,7 +8,7 @@ import {
 } from '@/shared/images/discard-help-page-hero';
 import s from './DiscardHelpPageHero.module.scss';
 import { Container } from '@/shared/components';
-import data from './data/sectionContent.json';
+import data from '../../data/sectionContent.json';
 const DiscardHelpPageHero = () => {
   return (
     <section>

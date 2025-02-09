@@ -21,5 +21,8 @@ const collectionSchema = new mongoose.Schema({
   language: { type: String },
 });
 
-export const CollectionModel = mongoose.model('Collections', collectionSchema);
+export const CollectionModel =
+  mongoose.models['Collections'] ||
+  mongoose.model('Collections', collectionSchema);
+
 export default CollectionModel;

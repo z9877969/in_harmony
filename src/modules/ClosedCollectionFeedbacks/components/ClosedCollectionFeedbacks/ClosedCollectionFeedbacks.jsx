@@ -4,7 +4,6 @@ import { Container, DotsSwiper, Section } from '@/shared/components';
 import s from './ClosedCollectionFeedbacks.module.scss';
 import comments from '../../data/section-content.json';
 import { useEffect, useState } from 'react';
-import CollectionFeedbacksSlide from '../CollectionFeedbacksSlide/CollectionFeedbacksSlide';
 import { SwiperSlide } from 'swiper/react';
 import CollectionFeedbacksCard from '../CollectionFeedbacksCard/CollectionFeedbacksCard';
 

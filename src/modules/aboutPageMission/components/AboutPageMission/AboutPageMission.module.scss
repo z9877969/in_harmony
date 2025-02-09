@@ -13,17 +13,17 @@
   padding: 48px 0;
 
   @include media(mobile) {
-    width: 402px;
+    width: 100%;
   }
 
   @include media(tablet) {
     gap: 40px;
-    width: 768px;
+    width: 100%;
   }
 
   @include media(desktop) {
     gap: 48px;
-    width: 1440px;
+    width: 100%;
     padding: 76px 0;
   }
 }

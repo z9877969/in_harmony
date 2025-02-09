@@ -4,8 +4,11 @@ import { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useTranslation } from 'react-i18next';
+
+import { useLanguageChanger } from '@/i18n/utils/LanguageChanger';
 import { Icon } from '@/shared/components';
-import { uaFlag as LangIcon } from '/public/icons';
+import { uaFlag as UaIcon, googleLogo as EnIcon } from '/public/icons';
 import MobileMenuBtn from '../MobileMenuBtn/MobileMenuBtn';
 import { ROUTES, SOCIALROUTES } from '@/shared/constants';
 import s from './MobileMenu.module.scss';
@@ -14,7 +17,13 @@ const MobileMenu = () => {
   const pathname = usePathname();
   const locale = pathname.split('/')[1];
   const [visible, setVisible] = useState(false);
-  const [activeLang, setActiveLang] = useState('uk');
+
+  const { t } = useTranslation();
+  const { handleChangeLanguage } = useLanguageChanger();
+
+  const handleLanguageSelect = (newLocale) => {
+    handleChangeLanguage(newLocale);
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -38,25 +47,19 @@ const MobileMenu = () => {
     };
   }, [visible]);
 
-  const handleLangChange = (lang) => {
-    setActiveLang(lang);
-  };
-
   return (
     <>
       <MobileMenuBtn onClick={() => setVisible(!visible)} visible={visible} />
       <div className={clsx(s.mobileMenu, visible && s.visible)}>
         <div className={s.langBlock}>
-          <button className={s.langBtn} onClick={() => handleLangChange('uk')}>
-            <LangIcon
-              className={clsx(s.langIcon, activeLang !== 'uk' && s.notActive)}
-            />
-          </button>
-          <button className={s.langBtn} onClick={() => handleLangChange('en')}>
-            <LangIcon
-              className={clsx(s.langIcon, activeLang !== 'en' && s.notActive)}
-            />
-          </button>
+          <UaIcon
+            className={s.langIcon}
+            onClick={() => handleLanguageSelect('ua')}
+          />
+          <EnIcon
+            className={s.langIcon}
+            onClick={() => handleLanguageSelect('en')}
+          />
         </div>
         <nav className={s.nav}>
           <ul className={s.navList}>
@@ -69,7 +72,7 @@ const MobileMenu = () => {
                 href={`/${locale}`}
                 onClick={() => setVisible(!visible)}
               >
-                Головна
+                {t('navLinks.0')}
               </Link>
             </li>
             <li>
@@ -83,7 +86,7 @@ const MobileMenu = () => {
                 href={`/${locale}/${ROUTES.COLLECTION}`}
                 onClick={() => setVisible(!visible)}
               >
-                Поточні збори
+                {t('navLinks.1')}
               </Link>
             </li>
             <li>
@@ -95,7 +98,7 @@ const MobileMenu = () => {
                 href={`/${locale}/${ROUTES.REPORTING}`}
                 onClick={() => setVisible(!visible)}
               >
-                Звітність
+                {t('navLinks.2')}
               </Link>
             </li>
             <li>
@@ -107,7 +110,7 @@ const MobileMenu = () => {
                 href={`/${locale}/${ROUTES.ABOUT}`}
                 onClick={() => setVisible(!visible)}
               >
-                Про нас
+                {t('navLinks.3')}
               </Link>
             </li>
           </ul>

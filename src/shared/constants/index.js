@@ -15,6 +15,13 @@ export const SOCIALROUTES = {
   FACEBOOK: 'https://www.facebook.com/inharmony.com.ua',
 };
 
+export const LANGUAGES = {
+  UA: 'ua',
+  EN: 'en',
+}
+
+export const NAMESPACES = ['header', 'mainPage']
+
 export const LINKDATA = {
   PATHHOME: '/',
   PATHABOUT: '/about',

@@ -9,7 +9,7 @@ import MobileMenu from '../MobileMenu/MobileMenu';
 
 import s from './Header.module.scss';
 
-const Header = () => {
+const Header = ({ t }) => {
   return (
     <>
       <header>
@@ -31,7 +31,7 @@ const Header = () => {
               <div className={s.rightSide}>
                 <Link href={'/'} className={s.donateLink}>
                   <Icon className={s.heartIcon} iconName="icon-heart" />
-                  Допомога
+                  {t('helpButton')}
                 </Link>
                 <LangSwitcher />
               </div>

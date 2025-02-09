@@ -17,12 +17,15 @@
   font-family: $secondary-font-family;
   font-weight: 700;
   color: $primary-text-color;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   @include font(32, 36);
-
+  @include media(tablet) {
+    margin-bottom: 8px;
+  }
   @include media(desktop) {
     @include font(48, 54);
     white-space: nowrap;
+    margin-bottom: 8px;
   }
 }
 
@@ -41,7 +44,6 @@
   padding: 16px 32px;
   max-width: 370px;
   background: $img-backdrop-color;
-  margin-bottom: 40px;
 
   @include media(tablet) {
     padding: 40px 0;

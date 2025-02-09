@@ -53,11 +53,11 @@ export const updateCollectionService = async (id, payload, options = {}) => {
     );
 
     if (!updatedCollection) {
-      return null; // Handle this case according to your requirements
+      return null; 
     }
 
-    return updatedCollection.value; // Return the updated document
+    return updatedCollection.value; 
   } catch (error) {
-    return null; // Handle this case according to your requirements
+    return null; 
   }
 };

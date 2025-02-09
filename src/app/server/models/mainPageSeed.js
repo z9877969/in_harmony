@@ -22,7 +22,7 @@ const mainPageSeed = async () => {
         long_desc: '',
         status: 'active',
         type: 'collections',
-        langukge: 'uk',
+        language: 'uk',
       },
       {
         title: 'Світло в "Сіру Зону"!',
@@ -35,7 +35,7 @@ const mainPageSeed = async () => {
         long_desc: '',
         status: 'active',
         type: 'collections',
-        langukge: 'uk',
+        language: 'uk',
       },
       {
         title: 'Світло в "Сіру Зону"!',
@@ -48,7 +48,7 @@ const mainPageSeed = async () => {
         long_desc: '',
         status: 'active',
         type: 'collections',
-        langukge: 'uk',
+        language: 'uk',
       },
       {
         title: 'Світло в "Сіру Зону"!',
@@ -61,7 +61,7 @@ const mainPageSeed = async () => {
         long_desc: '',
         status: 'active',
         type: 'collections',
-        langukge: 'uk',
+        language: 'uk',
       },
       {
         title: 'Світло в "Сіру Зону"!',
@@ -74,7 +74,7 @@ const mainPageSeed = async () => {
         long_desc: '',
         status: 'active',
         type: 'collections',
-        langukge: 'uk',
+        language: 'uk',
       },
       {
         title: 'Світло в "Сіру Зону"!',
@@ -87,7 +87,7 @@ const mainPageSeed = async () => {
         long_desc: '',
         status: 'active',
         type: 'collections',
-        langukge: 'uk',
+        language: 'uk',
       },
     ];
 
@@ -162,7 +162,7 @@ const mainPageSeed = async () => {
           cards: await CollectionModel.find({
             type: 'collections',
             status: 'active',
-            langukge: 'uk',
+            language: 'uk',
           }),
         },
       },
@@ -233,7 +233,7 @@ const mainPageSeed = async () => {
         long_desc: '',
         status: 'active',
         type: 'collections',
-        langukge: 'en',
+        language: 'en',
       },
       {
         title: 'Light in the "Gray Zone"!',
@@ -246,7 +246,7 @@ const mainPageSeed = async () => {
         long_desc: '',
         status: 'active',
         type: 'collections',
-        langukge: 'en',
+        language: 'en',
       },
       {
         title: 'Light in the "Gray Zone"!',
@@ -259,7 +259,7 @@ const mainPageSeed = async () => {
         long_desc: '',
         status: 'active',
         type: 'collections',
-        langukge: 'en',
+        language: 'en',
       },
       {
         title: 'Light in the "Gray Zone"!',
@@ -272,7 +272,7 @@ const mainPageSeed = async () => {
         long_desc: '',
         status: 'active',
         type: 'collections',
-        langukge: 'en',
+        language: 'en',
       },
       {
         title: 'Light in the "Gray Zone"!',
@@ -285,7 +285,7 @@ const mainPageSeed = async () => {
         long_desc: '',
         status: 'active',
         type: 'collections',
-        langukge: 'en',
+        language: 'en',
       },
       {
         title: 'Light in the "Gray Zone"!',
@@ -298,7 +298,7 @@ const mainPageSeed = async () => {
         long_desc: '',
         status: 'active',
         type: 'collections',
-        langukge: 'en',
+        language: 'en',
       },
     ];
     await CollectionModel.insertMany(collectionsEN);
@@ -374,7 +374,7 @@ const mainPageSeed = async () => {
           cards: await CollectionModel.find({
             type: 'collections',
             status: 'active',
-            langukge: 'uk',
+            language: 'uk',
           }),
         },
       },

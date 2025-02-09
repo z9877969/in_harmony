@@ -6,7 +6,7 @@ export const getPageUK = async () => {
 
     return page;
   } catch (error) {
-    throw new Error('Failed to retrieve collections');
+    throw new Error('Failed to retrieve page');
   }
 };
 
@@ -16,7 +16,7 @@ export const getPageEN = async () => {
 
     return page;
   } catch (error) {
-    throw new Error('Failed to retrieve collections');
+    throw new Error('Failed to retrieve page');
   }
 };
 

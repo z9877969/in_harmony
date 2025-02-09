@@ -107,7 +107,7 @@ export const handleUpdateCollection = async (req, res) => {
   const existingCollection = await getCollectionById(id);
 
   if (!existingCollection) {
-    throw createHttpError(404, 'Product not found');
+    throw createHttpError(404, 'Collection not found');
   }
 
   let photoUrls = existingCollection.image || [];
@@ -130,12 +130,12 @@ export const handleUpdateCollection = async (req, res) => {
   });
 
   if (!result) {
-    throw createHttpError(404, 'Product not found');
+    throw createHttpError(404, 'Collection not found');
   }
 
   res.json({
     status: 200,
-    message: 'Successfully patched a product!',
+    message: 'Successfully patched a collection!',
     data: result,
   });
 };

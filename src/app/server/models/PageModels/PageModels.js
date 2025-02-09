@@ -13,8 +13,7 @@ export const mainPageSchemaUK = new mongoose.Schema({
 });
 
 export const PagesEN =
-  mongoose.models['PageEN'] ||
-  mongoose.model('PageEN', mainPageSchemaEN);
+  mongoose.models['PageEN'] || mongoose.model('PageEN', mainPageSchemaEN);
 
 export const PagesUK =
   mongoose.models['PagesUK'] || mongoose.model('PagesUK', mainPageSchemaUK);

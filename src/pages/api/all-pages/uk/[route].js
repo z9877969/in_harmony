@@ -1,5 +1,5 @@
-import { handleGetMainPageUA } from '../../../../app/server/controllers/mainPageController.js';
-import connectToDatabase from '@/app/server/lib/mongodb';
+import { handleGetByPoutPageUK } from '@/app/server/controllers/pagesController';
+import { connectToDatabase } from '@/app/server/lib';
 
 export const config = {
   api: {
@@ -11,7 +11,7 @@ export default async function handler(req, res) {
   await connectToDatabase();
 
   if (req.method === 'GET') {
-    return handleGetMainPageUA(req, res);
+    return handleGetByPoutPageUK(req, res);
   }
 
   res.status(405).json({ message: 'Method Not Allowed' });

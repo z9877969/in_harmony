@@ -2,6 +2,10 @@ export const ROUTES = {
   ABOUT: 'about',
   COLLECTION: 'collection',
   REPORTING: 'reporting',
+  PAYMENTS: 'payments',
+  TERMS: 'terms',
+  POLICY: 'policy',
+  DISCARD: 'discard',
 };
 
 export const SOCIALROUTES = {
@@ -9,4 +13,29 @@ export const SOCIALROUTES = {
   TELEGRAM: 'https://t.me/inharmonyua',
   TIKTOK: 'https://www.tiktok.com/@inharmony.ua?_t=8pfFP3VEltN&_r=1',
   FACEBOOK: 'https://www.facebook.com/inharmony.com.ua',
+};
+
+export const LANGUAGES = {
+  UA: 'ua',
+  EN: 'en',
+}
+
+export const NAMESPACES = ['header', 'mainPage']
+
+export const LINKDATA = {
+  PATHHOME: '/',
+  PATHABOUT: '/about',
+  PATHCOLLECTION: '/collection',
+  PATHREPORTING: '/reporting',
+  PATHTERMS: '/terms',
+
+  TEXTDETAILS: 'Детальніше',
+  TEXTHELP: 'Допомогти',
+  TEXTJOIN: 'Приєднатися',
+  TEXTDONATE: 'Задонатити',
+
+  TYPE_LIGHT_BORDER: 'bg-light_border',
+  TYPE_DARK_HEART: 'bg-dark_heart',
+  TYPE_LIGHT_BORDER_BF: 'bg-light_border_biggerFont',
+  TYPE_DARK_BF: 'bg-dark_biggerFont',
 };

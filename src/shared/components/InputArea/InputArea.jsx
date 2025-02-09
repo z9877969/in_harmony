@@ -1,5 +1,6 @@
 'use client';
 
+import clsx from 'clsx';
 import { useId } from 'react';
 import s from './InputArea.module.scss';
 
@@ -12,7 +13,7 @@ const InputArea = ({
   ...props
 }) => {
   const id = useId();
-  const textAreaClass = `${s.textArea} ${className}`;
+  const textAreaClass = clsx(s.textArea, className && className);
 
   return (
     <div>

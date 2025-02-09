@@ -1,7 +1,13 @@
-import { Footer } from '@/modules/footer';
-import { Header } from '@/modules/header';
-import { Breadcrumbs } from '@/shared/components';
+import { dir } from 'i18next';
 import clsx from 'clsx';
+
+import i18nConfig from '../../../i18nConfig';
+import initTranslations from '@/i18n/utils/i18n';
+import TranslationsProvider from '@/i18n/utils/TranslationsProvider';
+import { NAMESPACES } from '@/shared/constants';
+import { Header } from '@/modules/header';
+import { Footer } from '@/modules/footer';
+import { Breadcrumbs } from '@/shared/components';
 import { Montserrat, Open_Sans } from 'next/font/google';
 import '../globals.scss';
 
@@ -11,27 +17,43 @@ export const metadata = {
 };
 
 const montserrat = Montserrat({
-  subsets: ['latin', 'cyrillic'], // Вкажіть підмножини
-  weight: ['700'], // Налаштуйте товщину шрифтів
-  display: 'swap', // Рекомендований формат
+  subsets: ['latin', 'cyrillic'],
+  weight: ['700'],
+  display: 'swap',
+  variable: '--font-montserrat',
 });
 
 const open_sans = Open_Sans({
-  subsets: ['latin', 'cyrillic'], // Вкажіть підмножини
-  weight: ['400', '600'], // Налаштуйте товщину шрифтів
-  display: 'swap', // Рекомендований формат
+  subsets: ['latin', 'cyrillic'],
+  weight: ['400', '600'],
+  display: 'swap',
+  variable: '--font-open_sans',
 });
 
-export default function RootLayout({ children }) {
+const i18nNamespaces = NAMESPACES;
+
+// eslint-disable-next-line react-refresh/only-export-components
+export function generateStaticParams() {
+  return i18nConfig.locales.map((locale) => ({ locale }));
+}
+
+export default async function RootLayout({ children, params: { locale } }) {
+  const { t, resources } = await initTranslations(locale, i18nNamespaces);
   return (
-    <html lang="uk">
-      <body className={clsx(montserrat.className, open_sans.className)}>
-        <Header />
-        <Breadcrumbs />
-        <main>{children}</main>
-        <Footer />
-        <div id="modal"></div>
-      </body>
+    <html lang={locale} dir={dir(locale)}>
+      <TranslationsProvider
+        namespaces={i18nNamespaces}
+        locale={locale}
+        resources={resources}
+      >
+        <body className={clsx(montserrat.className, open_sans.className)}>
+          <Header t={t} />
+          <Breadcrumbs />
+          <main>{children}</main>
+          <Footer />
+          <div id="modal"></div>
+        </body>
+      </TranslationsProvider>
     </html>
   );
 }

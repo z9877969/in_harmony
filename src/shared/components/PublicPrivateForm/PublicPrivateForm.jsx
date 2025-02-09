@@ -15,17 +15,27 @@ import s from './PublicPrivateForm.module.scss';
 import data from './data/PublicPrivateForm.json';
 import Link from 'next/link';
 
-const PublicPrivateForm = () => {
+const PublicPrivateForm = ({ handleSubmitPublicPrivateForm }) => {
   const [isPublic, setIsPublic] = useState(true);
 
-  const validationSchema = Yup.object().shape({
-    name: Yup.string().required(data.validationMessage.ua.required),
-    email: Yup.string()
-      .email(data.validationMessage.ua.email)
-      .required(data.validationMessage.ua.required),
-    message: Yup.string().required(data.validationMessage.ua.required),
-    isChecked: Yup.boolean(),
-  });
+  let validationSchema;
+
+  if (isPublic) {
+    validationSchema = Yup.object().shape({
+      name: Yup.string().required(data.validationMessage.required),
+      email: Yup.string()
+        .email(data.validationMessage.email)
+        .required(data.validationMessage.required),
+      message: Yup.string().required(data.validationMessage.required),
+      dropdown: Yup.string().required(data.validationMessage.dropdown),
+      isChecked: Yup.boolean(),
+    });
+  } else {
+    validationSchema = Yup.object().shape({
+      dropdown: Yup.string().required(data.validationMessage.dropdown),
+      isChecked: Yup.boolean(),
+    });
+  }
 
   return (
     <div className={s.container}>
@@ -35,14 +45,19 @@ const PublicPrivateForm = () => {
           name: '',
           email: '',
           message: '',
+          dropdown: '',
           isChecked: false,
         }}
         validationSchema={validationSchema}
         onSubmit={(values, { resetForm }) => {
+          // eslint-disable-next-line
+          console.log('Form public_private:', values);
+
           resetForm();
+          handleSubmitPublicPrivateForm();
         }}
       >
-        {({ values }) => (
+        {({ values, setFieldValue }) => (
           <Form>
             <div>
               <RadioButton
@@ -91,8 +106,15 @@ const PublicPrivateForm = () => {
             </div>
 
             <p className={s.destination}>{data.destination}</p>
-            <Dropdown />
-
+            <Field name="dropdown">
+              {({ field }) => (
+                <Dropdown
+                  value={field.value}
+                  onSelect={(value) => setFieldValue('dropdown', value)}
+                />
+              )}
+            </Field>
+            <ErrorMessage name="dropdown" component="p" className={s.error} />
             <div className={s.checkboxContainer}>
               <Field
                 type="checkbox"
@@ -102,7 +124,6 @@ const PublicPrivateForm = () => {
               />
               <p>{data.coverCommission}</p>
             </div>
-
             <Button type="submit">{data.btnText}</Button>
             <Link href="#" className={s.payment}>
               {data.otherPaymentMethods}

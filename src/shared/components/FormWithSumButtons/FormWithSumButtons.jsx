@@ -12,6 +12,7 @@ import { arrowFormDonate as FormIcon } from '/public/icons';
 import data from './data/sectionContent.json';
 
 import s from './FormWithSumButtons.module.scss';
+import { useRouter } from 'next/navigation.js';
 
 const validationSchemaFormDonate = yup.object().shape({
   donateTime: yup.string().required(),
@@ -19,12 +20,14 @@ const validationSchemaFormDonate = yup.object().shape({
 });
 
 const FormWithSumButtons = ({ className = '' }) => {
+  const router = useRouter();
   const amounts = [200, 500, 1000];
 
   const onSubmit = (values, { resetForm }) => {
     // eslint-disable-next-line
     console.log('Form donate:', values);
     resetForm();
+    router.push('/ua/payments/step/2');
   };
   return (
     <div className={clsx(s.boxForm, `${className}`)}>

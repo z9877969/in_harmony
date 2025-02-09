@@ -3,12 +3,7 @@
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import clsx from 'clsx';
-import {
-  Button,
-  Container,
-  Input,
-  InputArea,
-} from '@/shared/components';
+import { Button, Container, Input, InputArea } from '@/shared/components';
 import data from '../../data/sectionContent.json';
 
 import s from './DiscardHelpPageForm.module.scss';

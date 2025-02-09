@@ -4,8 +4,6 @@ import { MainPageDonat } from '@/modules/mainPageDonat';
 import { MainPageHero } from '@/modules/mainPageHero';
 import { MainPageProgress } from '@/modules/mainPageProgress';
 
-// import s from './page.module.scss';
-
 const MainPage = () => {
   return (
     <>

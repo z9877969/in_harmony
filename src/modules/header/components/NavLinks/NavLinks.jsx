@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useTranslation } from 'react-i18next';
 import { ROUTES } from '@/shared/constants';
 import s from './NavLinks.module.scss';
 import clsx from 'clsx';
@@ -9,6 +10,7 @@ import clsx from 'clsx';
 const NavLinks = () => {
   const pathname = usePathname();
   const locale = pathname.split('/')[1];
+  const { t } = useTranslation();
   return (
     <nav className={s.nav}>
       <ul className={s.navList}>
@@ -20,7 +22,7 @@ const NavLinks = () => {
             )}
             href={`/${locale}`}
           >
-            Головна
+            {t('navLinks.0')}
           </Link>
         </li>
         <li>
@@ -31,7 +33,7 @@ const NavLinks = () => {
             )}
             href={`/${locale}/${ROUTES.COLLECTION}`}
           >
-            Поточні збори
+            {t('navLinks.1')}
           </Link>
         </li>
         <li>
@@ -42,7 +44,7 @@ const NavLinks = () => {
             )}
             href={`/${locale}/${ROUTES.REPORTING}`}
           >
-            Звітність
+            {t('navLinks.2')}
           </Link>
         </li>
         <li>
@@ -53,7 +55,7 @@ const NavLinks = () => {
             )}
             href={`/${locale}/${ROUTES.ABOUT}`}
           >
-            Про нас
+            {t('navLinks.3')}
           </Link>
         </li>
       </ul>

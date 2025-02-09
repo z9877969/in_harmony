@@ -19,8 +19,6 @@ import data from '../../data/sectionContent.json';
 import s from './MainPageDonat.module.scss';
 
 const MainPageDonat = () => {
-  // eslint-disable-next-line no-console
-  console.log(mainPageDonateDesktop);
   return (
     <Container>
       <section className={s.section}>

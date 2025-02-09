@@ -1,4 +1,3 @@
-import CollectionModel from '../models/CollectionsModel';
 import ReportingsModel from '../models/ReportingModels';
 
 export const getAllReportings = async () => {
@@ -20,7 +19,7 @@ export const getReportingById = async (id) => {
 };
 
 export const createReporting = async (payload) => {
-  const newReport = new CollectionModel(payload);
+  const newReport = new ReportingsModel(payload);
   await newReport.save();
   return newReport;
 };

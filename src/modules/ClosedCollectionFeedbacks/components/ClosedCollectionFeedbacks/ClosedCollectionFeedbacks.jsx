@@ -21,7 +21,7 @@ const ClosedCollectionFeedbacks = () => {
         itemsPerPage = 3;
         slidesCount = Math.ceil(comments.length) - 2;
       } else if (width > 767) {
-        itemsPerPage = 2;
+        itemsPerPage = 1.5;
         slidesCount = Math.ceil(comments.length) - 1;
       }
 
@@ -47,7 +47,7 @@ const ClosedCollectionFeedbacks = () => {
           spaceBetween={24}
         >
           {comments.map((comment) => (
-            <SwiperSlide key={comment._id} className={s.listItem}>
+            <SwiperSlide key={comment._id}>
               <CollectionFeedbacksCard comment={comment} />
             </SwiperSlide>
           ))}

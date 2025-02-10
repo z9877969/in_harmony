@@ -6,20 +6,25 @@ import s from './Dropdown.module.scss';
 import data from './data/Dropdown.json';
 const collections = data.dropdownOptions;
 
-const Dropdown = () => {
+const Dropdown = ({ onSelect }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [title, setTitle] = useState('Підтримати фонд');
+
   const toggleDropdown = () => {
-    setIsDropdownOpen(true);
+    setIsDropdownOpen((prev) => !prev);
   };
-  const handleSelect = (text) => {
-    setTitle(text);
+
+  const handleSelect = (value) => {
+    setTitle(value);
     setIsDropdownOpen(false);
+    onSelect(value);
   };
+
   const arrowName = isDropdownOpen ? 'icon-arrow-up' : 'icon-arrow-down';
+
   return (
     <div className={s.container}>
-      <button className={s.button} onClick={toggleDropdown}>
+      <button className={s.button} onClick={toggleDropdown} type="button">
         {title}
         <Icon
           iconName={arrowName}

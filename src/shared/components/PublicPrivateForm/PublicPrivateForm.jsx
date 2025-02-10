@@ -32,6 +32,7 @@ const PublicPrivateForm = () => {
 
   const [isPublic, setIsPublic] = useState(true);
 
+
   let validationSchema;
 
   if (isPublic) {

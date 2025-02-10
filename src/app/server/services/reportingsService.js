@@ -1,13 +1,13 @@
 import mongoose from 'mongoose';
 import { saveFileToUploadDir } from '../lib';
 import { saveFileToCloudinary } from '../lib/saveFileToCloudinary';
-import ReportingsModel from '../models/ReportingModels';
+import ReportingModel from '../models/ReportingModels';
 import { env } from '../utils';
 import createHttpError from 'http-errors';
 
 export const getAllReportings = async (req, res) => {
   try {
-    const reportings = await ReportingsModel.find().lean();
+    const reportings = await ReportingModel.find().lean();
 
     res.status(200).json({ status: 200, data: reportings });
   } catch (error) {
@@ -19,7 +19,7 @@ export const getReportingById = async (req, res) => {
   try {
     const { id } = req.query;
 
-    const report = await ReportingsModel.findOne({
+    const report = await ReportingModel.findOne({
       _id: id,
     });
 
@@ -50,7 +50,7 @@ export const createReporting = async (req, res) => {
       }
     }
 
-    const newReport = new ReportingsModel({
+    const newReport = new ReportingModel({
       ...req.body,
       image: photoUrls,
     });
@@ -74,7 +74,7 @@ export const updateReportingService = async (req, res) => {
     if (!mongoose.Types.ObjectId.isValid(id)) {
       return res.status(400).json({ message: 'Invalid ID format' });
     }
-    const existingReport = await ReportingsModel.findById(id);
+    const existingReport = await ReportingModel.findById(id);
 
     if (!existingReport) {
       throw createHttpError(404, 'Report not found');
@@ -94,7 +94,7 @@ export const updateReportingService = async (req, res) => {
       }
     }
 
-    const result = await ReportingsModel.findByIdAndUpdate(
+    const result = await ReportingModel.findByIdAndUpdate(
       id,
       {
         ...req.body,

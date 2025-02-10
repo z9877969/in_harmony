@@ -15,13 +15,13 @@ const reportingSchema = new mongoose.Schema({
   type: {
     type: String,
     required: true,
-    enum: ['reportings'],
+    enum: ['reporting'],
   },
   language: { type: String },
 });
 
-export const ReportingsModel =
+export const ReportingModel =
   mongoose.models['Reportings'] ||
   mongoose.model('Reportings', reportingSchema);
 
-export default ReportingsModel;
+export default ReportingModel;

@@ -1,4 +1,4 @@
-import { handleGetPagesUK } from '../../../../app/server/controllers/pagesController.js';
+import { getPageUK } from '@/app/server/services/pagesServices.js';
 import connectToDatabase from '@/app/server/lib/mongodb';
 
 export const config = {
@@ -11,7 +11,7 @@ export default async function handler(req, res) {
   await connectToDatabase();
 
   if (req.method === 'GET') {
-    return handleGetPagesUK(req, res);
+    return getPageUK(req, res);
   }
 
   res.status(405).json({ message: 'Method Not Allowed' });

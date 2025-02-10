@@ -1,50 +1,53 @@
 import { PagesEN, PagesUK } from '../models/PageModels';
 
-export const getPageUK = async () => {
+export const getPageUK = async (req, res) => {
   try {
     const page = await PagesUK.find().lean();
 
-    return page;
+    res.status(200).json({ status: 200, sections: page });
   } catch (error) {
-    throw new Error('Failed to retrieve page');
+    res.status(500).json({ message: error.message });
   }
 };
 
-export const getPageEN = async () => {
+export const getPageEN = async (req, res) => {
   try {
     const page = await PagesEN.find().lean();
 
-    return page;
+    res.status(200).json({ status: 200, sections: page });
   } catch (error) {
-    throw new Error('Failed to retrieve page');
+    res.status(500).json({ message: error.message });
   }
 };
 
-export const getPageByRouteUK = async (route) => {
+export const getPageByRouteUK = async (req, res) => {
   try {
+    const { route } = req.query;
+
     const page = await PagesUK.findOne({ route }).lean();
 
     if (!page) {
       throw new Error(`Page not found for route: ${route}`);
     }
 
-    return page;
+    res.status(200).json({ status: 200, section: page });
   } catch (error) {
-    throw new Error('Failed to retrieve the page');
+    res.status(500).json({ message: error.message });
   }
 };
 
-
-export const getPageByRouteEN = async (route) => {
+export const getPageByRouteEN = async (req, res) => {
   try {
+    const { route } = req.query;
+
     const page = await PagesEN.findOne({ route }).lean();
 
     if (!page) {
       throw new Error(`Page not found for route: ${route}`);
     }
 
-    return page;
+    res.status(200).json({ status: 200, section: page });
   } catch (error) {
-    throw new Error('Failed to retrieve the page');
+    res.status(500).json({ message: error.message });
   }
 };

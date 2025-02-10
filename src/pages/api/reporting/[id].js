@@ -3,7 +3,10 @@ import { uploadMiddleware } from '../../../app/server/lib/multer.js';
 import isValidId from '@/app/server/utils/isValidId.js';
 import validateBody from '@/app/server/utils/validateBody.js';
 import CollectionModel from '@/app/server/models/CollectionsModel.js';
-import { getReportById, handleUpdateReport } from '@/app/server/controllers/reportingsController.js';
+import {
+  getReportingById,
+  updateReportingService,
+} from '@/app/server/services/reportingsService.js';
 export const config = {
   api: {
     bodyParser: false,
@@ -14,14 +17,14 @@ export default async function handler(req, res) {
   await connectToDatabase();
 
   if (req.method === 'GET') {
-    return getReportById(req, res);
+    return getReportingById(req, res);
   }
 
   if (req.method === 'PATCH') {
     isValidId(req, res);
     await uploadMiddleware(req, res);
     validateBody(CollectionModel);
-    return handleUpdateReport(req, res);
+    return updateReportingService(req, res);
   }
 
   res.status(405).json({ message: 'Method not allowed' });

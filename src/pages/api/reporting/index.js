@@ -1,9 +1,9 @@
 import { uploadMiddleware } from '../../../app/server/lib/multer.js';
 import connectToDatabase from '@/app/server/lib/mongodb';
 import {
-  handleCreateReport,
-  handleGetReportings,
-} from '@/app/server/controllers/reportingsController.js';
+  createReporting,
+  getAllReportings,
+} from '@/app/server/services/reportingsService.js';
 
 export const config = {
   api: {
@@ -15,12 +15,12 @@ export default async function handler(req, res) {
   await connectToDatabase();
 
   if (req.method === 'GET') {
-    return handleGetReportings(req, res);
+    return getAllReportings(req, res);
   }
 
   if (req.method === 'POST') {
     await uploadMiddleware(req, res);
-    await handleCreateReport(req, res);
+    await createReporting(req, res);
   } else {
     res.status(405).json({ message: 'Method Not Allowed' });
   }

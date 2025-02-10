@@ -1,10 +1,10 @@
-import {
-  handleCreateCollection,
-  handleGetCollections,
-  handleUpdateCollection,
-} from '@/app/server/controllers/collectionsController';
 import { uploadMiddleware } from '../../../app/server/lib/multer.js';
 import connectToDatabase from '@/app/server/lib/mongodb';
+import {
+  createCollection,
+  getAllCollections,
+  updateCollectionService,
+} from '@/app/server/services/collectionsService.js';
 
 export const config = {
   api: {
@@ -16,19 +16,19 @@ export default async function handler(req, res) {
   await connectToDatabase();
 
   if (req.method === 'GET') {
-    return handleGetCollections(req, res);
+    return getAllCollections(req, res);
   }
 
   if (req.method === 'POST') {
     await uploadMiddleware(req, res);
-    await handleCreateCollection(req, res);
+    await createCollection(req, res);
   } else {
     res.status(405).json({ message: 'Method Not Allowed' });
   }
 
   if (req.method === 'PATCH') {
     await uploadMiddleware(req, res);
-    return handleUpdateCollection(req, res);
+    return updateCollectionService(req, res);
   }
   res.status(405).json({ message: 'Method Not Allowed' });
 }

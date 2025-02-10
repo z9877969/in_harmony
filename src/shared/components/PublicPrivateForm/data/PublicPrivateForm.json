@@ -12,21 +12,9 @@
   "btnText": "До сплати",
   "otherPaymentMethods": "Інші способи оплати",
   "validationMessage": {
-    "required": {
-      "en": "This field is required",
-      "ua": "Це поле обов'язкове"
-    },
-    "email": {
-      "en": "Invalid email format",
-      "ua": "Невірний формат email"
-    },
-    "name": {
-      "en": "Invalid name format",
-      "ua": "Невірний формат name"
-    },
-    "message": {
-      "en": "Invalid message format",
-      "ua": "Невірний формат message"
-    }
+    "required": "Це поле обов'язкове",
+    "email": "Невірний формат email",
+    "name": "Невірний формат name",
+    "message": "Невірний формат message"
   }
 }

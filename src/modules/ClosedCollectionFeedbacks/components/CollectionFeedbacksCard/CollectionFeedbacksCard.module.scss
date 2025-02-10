@@ -1,0 +1,71 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 194px;
+  box-sizing: border-box;
+  background-color: $feedback_bg_color;
+  border-radius: 22px;
+  padding: 16px;
+
+  @include media(tablet) {
+    padding: 20px 20px 28px 20px;
+    width: 450px;
+    height: 230px;
+  }
+
+  @include media(desktop) {
+    width: 416px;
+  }
+}
+
+.personContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.commentText {
+  font-style: italic;
+  font-weight: 300;
+  @include font(16, 24);
+  height: 96px;
+  overflow: auto;
+
+  @include media(tablet) {
+    @include font(18, 27);
+    height: 108px;
+    width: 410px;
+  }
+
+  @include media(desktop) {
+    @include font(18, 27);
+    width: 376px;
+  }
+}
+
+.name {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 400;
+  @include font(16, 24);
+
+  &::before {
+    content: '';
+    display: block;
+    height: 1.5px;
+    width: 14px;
+    background-color: $primary-text-color;
+    margin-top: 4px;
+  }
+}
+
+.role {
+  font-weight: 400;
+  @include font(12, 18);
+
+  @include media(tablet) {
+    @include font(14, 18);
+  }
+}

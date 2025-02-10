@@ -2,29 +2,32 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useTranslation } from 'react-i18next';
 import { ROUTES } from '@/shared/constants';
 import { Container, Section } from '@/shared/components';
 import Button from '@/shared/components/Button/Button';
 import ActivitiesCard from '../ActivitiesCard/ActivitiesCard';
-import data from '../../data/sectionContent.json';
 
 import s from './MainPageAbout.module.scss';
 
 const MainPageAbout = () => {
   const pathname = usePathname();
   const locale = pathname.split('/')[1];
+  const { t } = useTranslation('mainPage');
+  const cards = t('about.activities.cards', { returnObjects: true });
+
   return (
     <Section>
       <Container>
         <div className={s.contentContainer}>
           <div className={s.about}>
-            <h2>{data.title}</h2>
-            <p>{data.description}</p>
+            <h2>{t('about.title')}</h2>
+            <p>{t('about.description')}</p>
           </div>
           <div className={s.activities}>
-            <h3>{data.activities.title}</h3>
+            <h3>{t('about.activities.title')}</h3>
             <ul className={s.cards}>
-              {data.activities.cards.map((item) => (
+              {cards.map((item) => (
                 <li key={item.id}>
                   <ActivitiesCard
                     icon={item.icon}
@@ -35,12 +38,12 @@ const MainPageAbout = () => {
               ))}
             </ul>
           </div>
-          <p className={s.motivation}>{data.motivation}</p>
+          <p className={s.motivation}>{t('about.motivation')}</p>
           <div className={s.image}></div>
           <div className={s.learnMore}>
             <Link href={`/${locale}/${ROUTES.ABOUT}`}>
               <Button variant="secondary" border={true}>
-                {data.learnMore}
+                {t('about.learnMore')}
               </Button>
             </Link>
           </div>

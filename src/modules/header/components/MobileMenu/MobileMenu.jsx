@@ -4,16 +4,26 @@ import { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useTranslation } from 'react-i18next';
+
+import { useLanguageChanger } from '@/i18n/utils/LanguageChanger';
 import { Icon } from '@/shared/components';
-import { uaFlag as LangIcon } from '/public/icons';
+import { uaFlag as UaIcon, googleLogo as EnIcon } from '/public/icons';
 import MobileMenuBtn from '../MobileMenuBtn/MobileMenuBtn';
-import { ROUTES } from '@/shared/constants';
+import { ROUTES, SOCIALROUTES } from '@/shared/constants';
 import s from './MobileMenu.module.scss';
 
 const MobileMenu = () => {
   const pathname = usePathname();
   const locale = pathname.split('/')[1];
   const [visible, setVisible] = useState(false);
+
+  const { t } = useTranslation();
+  const { handleChangeLanguage } = useLanguageChanger();
+
+  const handleLanguageSelect = (newLocale) => {
+    handleChangeLanguage(newLocale);
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -42,8 +52,14 @@ const MobileMenu = () => {
       <MobileMenuBtn onClick={() => setVisible(!visible)} visible={visible} />
       <div className={clsx(s.mobileMenu, visible && s.visible)}>
         <div className={s.langBlock}>
-          <LangIcon className={s.langIcon} />
-          <LangIcon className={s.langIcon} />
+          <UaIcon
+            className={s.langIcon}
+            onClick={() => handleLanguageSelect('ua')}
+          />
+          <EnIcon
+            className={s.langIcon}
+            onClick={() => handleLanguageSelect('en')}
+          />
         </div>
         <nav className={s.nav}>
           <ul className={s.navList}>
@@ -56,7 +72,7 @@ const MobileMenu = () => {
                 href={`/${locale}`}
                 onClick={() => setVisible(!visible)}
               >
-                Головна
+                {t('navLinks.0')}
               </Link>
             </li>
             <li>
@@ -70,7 +86,7 @@ const MobileMenu = () => {
                 href={`/${locale}/${ROUTES.COLLECTION}`}
                 onClick={() => setVisible(!visible)}
               >
-                Поточні збори
+                {t('navLinks.1')}
               </Link>
             </li>
             <li>
@@ -82,7 +98,7 @@ const MobileMenu = () => {
                 href={`/${locale}/${ROUTES.REPORTING}`}
                 onClick={() => setVisible(!visible)}
               >
-                Звітність
+                {t('navLinks.2')}
               </Link>
             </li>
             <li>
@@ -94,29 +110,49 @@ const MobileMenu = () => {
                 href={`/${locale}/${ROUTES.ABOUT}`}
                 onClick={() => setVisible(!visible)}
               >
-                Про нас
+                {t('navLinks.3')}
               </Link>
             </li>
           </ul>
         </nav>
         <ul className={s.socials}>
           <li>
-            <a href="https://www.instagram.com" className={s.socialLink}>
+            <a
+              href={SOCIALROUTES.INSTAGRAM}
+              className={s.socialLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Icon iconName="icon-instagram" className={s.socialsIcon} />
             </a>
           </li>
           <li>
-            <a href="/" className={s.socialLink}>
+            <a
+              href={SOCIALROUTES.TELEGRAM}
+              className={s.socialLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Icon iconName="icon-telegram" className={s.socialsIcon} />
             </a>
           </li>
           <li>
-            <a href="https://www.tiktok.com/" className={s.socialLink}>
+            <a
+              href={SOCIALROUTES.TIKTOK}
+              className={s.socialLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Icon iconName="icon-tiktok" className={s.socialsIcon} />
             </a>
           </li>
           <li>
-            <a href="https://www.facebook.com" className={s.socialLink}>
+            <a
+              href={SOCIALROUTES.FACEBOOK}
+              className={s.socialLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Icon iconName="icon-facebook" className={s.socialsIcon} />
             </a>
           </li>

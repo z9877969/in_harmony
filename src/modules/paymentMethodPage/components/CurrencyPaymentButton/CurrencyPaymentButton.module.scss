@@ -1,0 +1,126 @@
+@import '@/shared/styles/mixins';
+
+.button {
+  font-family: $primary-font-family;
+  font-weight: 600;
+  color: $violet-ui-text-color;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px;
+  @include font(16, 24);
+  border: none;
+  background: transparent;
+  width: 100%;
+  transition: all 0.3s ease;
+
+  @include media(desktop) {
+    height: 64px;
+    @include font(20, 30);
+  }
+}
+
+.icon {
+  fill: transparent;
+  stroke: #7e00cc;
+  transition:
+    transform 0.3s ease,
+    stroke 0.3s ease;
+}
+
+.content {
+  font-family: $primary-font-family;
+  color: $violet-ui-text-color;
+  font-weight: 400;
+  @include font(16, 24);
+  display: block;
+  box-sizing: border-box;
+  animation: fadeIn 0.3s forwards;
+}
+
+.subsectionList {
+  display: flex;
+  flex-direction: column;
+}
+.subsectionItem {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-bottom: 15px;
+}
+.copyBlock {
+  display: flex;
+  flex-direction: row;
+  gap: 3px;
+}
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.sectionTitle {
+  font-family: $primary-font-family;
+  font-weight: 600;
+  color: $violet-ui-text-color;
+  @include font(18, 24);
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  @include media(tablet) {
+    @include font(20, 26);
+  }
+
+  @include media(desktop) {
+    @include font(22, 28);
+  }
+}
+
+.subsectionTitle {
+  font-family: $primary-font-family;
+  font-weight: 600;
+  color: $violet-ui-text-color;
+  @include font(14, 20);
+
+  @include media(tablet) {
+    @include font(16, 22);
+  }
+
+  @include media(desktop) {
+    @include font(18, 24);
+  }
+}
+
+.subsectionContent {
+  font-family: $primary-font-family;
+  font-weight: 400;
+  color: $violet-ui-text-color;
+  @include font(14, 20);
+  display: flex;
+  align-items: center;
+
+  @include media(tablet) {
+    @include font(16, 22);
+  }
+
+  @include media(desktop) {
+    @include font(18, 24);
+  }
+}
+
+.contentTitle {
+  font-family: $primary-font-family;
+  font-weight: 600;
+  color: $violet-ui-text-color;
+  @include font(14, 20);
+
+  @include media(tablet) {
+    @include font(16, 22);
+  }
+
+  @include media(desktop) {
+    @include font(18, 24);
+  }
+}

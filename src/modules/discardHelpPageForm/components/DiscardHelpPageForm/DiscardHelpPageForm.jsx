@@ -2,7 +2,7 @@
 
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import clsx from 'clsx';
+
 import { Button, Container, Input, InputArea } from '@/shared/components';
 import data from '../../data/sectionContent.json';
 
@@ -78,20 +78,19 @@ const DiscardHelpPageForm = () => {
               onBlur={handleBlur}
               error={touched.email && errors.email}
             />
-            <div className={s.boxInput}>
-              <Input
-                className={clsx(s.inputDiscardForm, s.boxInput)}
-                label={data.amountLabel}
-                name="amount"
-                type="text"
-                value={values.amount}
-                placeholder={data.amountPlaceholder}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                error={touched.amount && errors.amount}
-              />
-              <span className={s.spanInput}>UAH</span>
-            </div>
+
+            <Input
+              className={s.inputDiscardForm}
+              label={data.amountLabel}
+              name="amount"
+              type="text"
+              value={values.amount}
+              placeholder={data.amountPlaceholder}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              error={touched.amount && errors.amount}
+              currency="UAH"
+            />
 
             <Input
               className={s.inputDiscardForm}

@@ -1,4 +1,8 @@
+@import '../../styles/variables';
+@import '../../styles/colors';
+
 .label {
+  font-family: $primary-font-family;
   align-self: stretch;
   color: $secondary-text-color;
   @include font(16, 24);
@@ -18,6 +22,7 @@
   overflow: hidden;
 
   &::placeholder {
+    font-family: $primary-font-family;
     color: $secondary-text-color;
     @include font(16, 24);
     font-weight: 400;

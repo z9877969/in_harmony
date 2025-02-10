@@ -9,7 +9,7 @@ import MobileMenu from '../MobileMenu/MobileMenu';
 
 import s from './Header.module.scss';
 
-const Header = () => {
+const Header = ({ t }) => {
   return (
     <>
       <header>
@@ -29,9 +29,9 @@ const Header = () => {
               <SocialLinks />
               {/* Right side header */}
               <div className={s.rightSide}>
-                <Link href={'/donations'} className={s.donateLink}>
+                <Link href={'/'} className={s.donateLink}>
                   <Icon className={s.heartIcon} iconName="icon-heart" />
-                  Допомога
+                  {t('helpButton')}
                 </Link>
                 <LangSwitcher />
               </div>

@@ -1,54 +1,73 @@
+@import '../../styles/_colors.scss';
+@import '../../styles/variables';
+
+.boxForm {
+  padding: 24px 16px;
+  border-radius: 32px;
+  background-color: $form-donate-bg-color;
+  color: $footer-bold-text-color;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 12px 0 $footer-bold-text-color;
+  @include media(tablet) {
+    padding: 28px 20px;
+    width: 450px;
+  }
+  @include media(desktop) {
+    width: 416px;
+  }
+}
+
 .title {
-	font-weight: 600 !important;
-	font-size: 18px !important;
-	line-height: 1.5 !important;
-	text-align: center !important;
-	margin-bottom: 24px !important;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 24px;
 }
 
 .checkboxContainer {
-	display: flex;
-	align-items: center;
-	gap: 4px;
-	margin-bottom: 24px;
-	margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 24px;
+  margin-top: 24px;
 }
 
 .payment {
-	font-weight: 600;
-	font-size: 16px;
-	line-height: 1.5;
-	text-align: center;
-	margin-top: 34px;
-	display: block;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+  margin-top: 34px;
+  display: block;
 }
 .destination {
-	margin-top: 24px;
-	margin-bottom: 4px;
-	font-weight: 400;
+  margin-top: 24px;
+  margin-bottom: 4px;
+  font-weight: 400;
 }
-.container {
-	padding: 28px 20px;
-	background-color: #e0d5f1;
-	color: $footer-bold-text-color;
-}
+
 .inputContainer {
-	display: flex;
-	flex-direction: column;
-	gap: 24px;
-	margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 24px;
 }
 
 .input {
-	padding: 16px;
-	border: none;
+  padding: 16px;
+  border: none;
 }
 .checkbox {
-	width: 18px;
-	height: 18px;
+  width: 18px;
+  height: 18px;
 }
+
+.btn {
+  width: 100%;
+}
+
 .error {
-	color: red;
-	font-size: 14px;
-	margin-top: 4px;
+  color: red;
+  font-size: 14px;
+  margin-top: 4px;
 }

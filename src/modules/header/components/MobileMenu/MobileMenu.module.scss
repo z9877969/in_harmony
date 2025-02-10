@@ -27,18 +27,7 @@
   .langIcon {
     width: 40px;
     height: 40px;
-  }
-  .langBtn {
-    display: flex;
-    padding: 0px;
-    background-color: transparent;
-    border: none;
-  }
-  .langBtnIcon {
-    width: 16px;
-    height: 16px;
-    stroke: $secondary-text-color;
-    fill: none;
+    cursor: pointer;
   }
 
   .nav {
@@ -88,4 +77,8 @@
 .visible {
   transform: translateX(0px);
   transition: all 0.3s;
+}
+
+.notActive {
+  filter: grayscale(100%);
 }

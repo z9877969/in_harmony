@@ -1,12 +1,12 @@
 @import '../../styles/colors';
+@import '../../styles/variables';
 
 .boxForm {
   border-radius: 32px;
   padding: 24px 16px;
-  width: 370px;
   background-color: $form-donate-bg-color;
   backdrop-filter: blur(10px);
-  box-shadow: 0 0 12px 0 rgba(47, 0, 82, 0.1);
+  box-shadow: 0 0 12px 0 $footer-bold-text-color;
 
   @include media(tablet) {
     padding: 28px 20px;
@@ -82,6 +82,7 @@
   border-radius: 60px;
   width: 100%;
   border: none;
+  font-family: $primary-font-family;
   font-weight: 400;
   appearance: none;
   -webkit-appearance: none;
@@ -108,5 +109,7 @@
 }
 
 .errorText {
+  font-family: $primary-font-family;
   color: $form-donate-error-color;
+  font-weight: 400;
 }

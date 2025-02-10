@@ -1,21 +1,35 @@
 'use client';
 
-import { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import {
-  Button,
-  Dropdown,
-  Input,
-  InputArea,
-  RadioButton,
-  SectionTitle,
-} from '..';
+import { Button, Dropdown, Input, InputArea, RadioButton } from '..';
 import s from './PublicPrivateForm.module.scss';
 import data from './data/PublicPrivateForm.json';
 import Link from 'next/link';
 
-const PublicPrivateForm = ({ handleSubmitPublicPrivateForm }) => {
+import { useState, useEffect } from 'react';
+
+const PublicPrivateForm = () => {
+  const [initialValues, setInitialValues] = useState({
+    name: '',
+    email: '',
+    message: '',
+    dropdown: '',
+    isChecked: false,
+    amount: '',
+    donateTime: '',
+  });
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search);
+
+    setInitialValues((prevValues) => ({
+      ...prevValues,
+      amount: searchParams.get('amount'),
+      donateTime: searchParams.get('donateTime'),
+    }));
+  }, []);
+
   const [isPublic, setIsPublic] = useState(true);
 
   let validationSchema;
@@ -37,27 +51,29 @@ const PublicPrivateForm = ({ handleSubmitPublicPrivateForm }) => {
     });
   }
 
-  return (
-    <div className={s.container}>
-      <SectionTitle className={s.title} title={data.title} />
-      <Formik
-        initialValues={{
-          name: '',
-          email: '',
-          message: '',
-          dropdown: '',
-          isChecked: false,
-        }}
-        validationSchema={validationSchema}
-        onSubmit={(values, { resetForm }) => {
-          // eslint-disable-next-line
-          console.log('Form public_private:', values);
+  const handleFormSubmit = (values, { resetForm }) => {
+    const valuesAll = {
+      ...values,
+      amount: initialValues.amount,
+      donateTime: initialValues.donateTime,
+    };
+    // eslint-disable-next-line
+    console.log('valuesAll:', valuesAll);
 
-          resetForm();
-          handleSubmitPublicPrivateForm();
-        }}
+    resetForm();
+  };
+
+  return (
+    <div className={s.boxForm}>
+      <h2 className={s.title} id="title">
+        {data.title}
+      </h2>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={handleFormSubmit}
       >
-        {({ values, setFieldValue }) => (
+        {({ setFieldValue }) => (
           <Form>
             <div>
               <RadioButton
@@ -116,15 +132,19 @@ const PublicPrivateForm = ({ handleSubmitPublicPrivateForm }) => {
             </Field>
             <ErrorMessage name="dropdown" component="p" className={s.error} />
             <div className={s.checkboxContainer}>
-              <Field
-                type="checkbox"
-                name="isChecked"
-                className={s.checkbox}
-                checked={values.isChecked}
-              />
+              <Field type="checkbox" name="isChecked" className={s.checkbox} />
               <p>{data.coverCommission}</p>
             </div>
-            <Button type="submit">{data.btnText}</Button>
+            <Field as={Input} type="hidden" name="amount" />
+            <Field as={Input} type="hidden" name="donateTime" />
+            <Button
+              type="submit"
+              colors="secondary"
+              size="medium"
+              className={s.btn}
+            >
+              {data.btnText}
+            </Button>
             <Link href="#" className={s.payment}>
               {data.otherPaymentMethods}
             </Link>

@@ -1,6 +1,7 @@
 'use client';
 
 import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { useRouter } from 'next/navigation.js';
 import * as yup from 'yup';
 import clsx from 'clsx';
 import Link from 'next/link.js';
@@ -12,11 +13,14 @@ import { arrowFormDonate as FormIcon } from '/public/icons';
 import data from './data/sectionContent.json';
 
 import s from './FormWithSumButtons.module.scss';
-import { useRouter } from 'next/navigation.js';
 
 const validationSchemaFormDonate = yup.object().shape({
   donateTime: yup.string().required(),
-  amount: yup.number().typeError().positive().required(),
+  amount: yup
+    .number()
+    .typeError()
+    .positive(data.positiveRequired)
+    .required(data.amountRequired),
 });
 
 const FormWithSumButtons = ({ className = '' }) => {
@@ -27,8 +31,10 @@ const FormWithSumButtons = ({ className = '' }) => {
     // eslint-disable-next-line
     console.log('Form donate:', values);
     resetForm();
-    router.push('/ua/payments/step/2');
+    const query = new URLSearchParams(values).toString();
+    router.push(`/ua/payments/step/2?${query}`);
   };
+
   return (
     <div className={clsx(s.boxForm, `${className}`)}>
       <Formik

@@ -37,7 +37,7 @@ function LegalInfo({ data }) {
         </dl>
       </section>
 
-      <Link href={`/${locale}/unsubscribe`} className={s.navLink}>
+      <Link href={'/discard'} className={s.navLink}>
         {data.linkUnsubscribeText}
       </Link>
     </section>

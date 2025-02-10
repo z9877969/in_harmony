@@ -26,6 +26,7 @@
 }
 
 .inputDiscardForm {
+  font-family: $primary-font-family;
   border: 2px solid $violet-ui-text-color;
   padding: 12px 24px;
   height: 64px;
@@ -43,4 +44,5 @@
   font-size: 16px;
   line-height: 1.5;
   margin-top: 8px;
+  font-family: $primary-font-family;
 }

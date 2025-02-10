@@ -2,7 +2,7 @@
 // import env from '../utils/evn.js';
 // import { PagesEN, PagesUK } from './PageModels/PageModels.js';
 
-// TO USE THIS RUN : node src/app/server/models/aboutPageModels/aboutPageSeed.js
+// TO USE THIS RUN : node src/app/server/models/seeds/aboutPageSeed.js
 
 // const aboutPageSeed = async () => {
 //   try {

@@ -8,7 +8,11 @@ export const mainPageSchemaEN = new mongoose.Schema({
 
 export const mainPageSchemaUK = new mongoose.Schema({
   local: { type: String, required: true },
-  route: { type: String, required: true, enum: ['main', 'about'] },
+  route: {
+    type: String,
+    required: true,
+    enum: ['main', 'about', 'collection', 'reporting'],
+  },
   sections_list: { type: [mongoose.Schema.Types.Mixed] },
 });
 

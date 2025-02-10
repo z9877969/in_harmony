@@ -2,7 +2,12 @@ import mongoose from 'mongoose';
 
 const collectionSchema = new mongoose.Schema({
   title: { type: String },
-  importance: { type: String },
+  importance: {
+    type: String,
+    enum: ['urgent', 'important', 'non-urgent'],
+    required: true,
+    default: 'important',
+  },
   image: { type: [String], default: [] },
   collected: { type: Number, default: 0 },
   target: { type: Number },

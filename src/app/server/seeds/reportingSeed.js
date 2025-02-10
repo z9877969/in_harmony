@@ -1,8 +1,8 @@
 // import mongoose from 'mongoose';
-// import env from '../utils/evn.js';
-// import ReportingModel from './ReportingModels.js';
+// import { env } from '../utils';
+// import ReportingModel from '../models/ReportingModels';
 
-// TO USE THIS RUN : node src/app/server/models/reportingSeed.js
+// // TO USE THIS RUN : node src/app/server/seeds/reportingSeed.js
 
 // const mainPageSeed = async () => {
 //   try {

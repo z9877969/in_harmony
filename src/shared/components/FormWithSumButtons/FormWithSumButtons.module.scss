@@ -6,7 +6,7 @@
   padding: 24px 16px;
   background-color: $form-donate-bg-color;
   backdrop-filter: blur(10px);
-  box-shadow: 0 0 12px 0 rgba(47, 0, 82, 0.1);
+  box-shadow: 0 0 12px 0 $footer-bold-text-color;
 
   @include media(tablet) {
     padding: 28px 20px;

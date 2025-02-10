@@ -15,15 +15,21 @@ import s from './PublicPrivateForm.module.scss';
 import data from './data/PublicPrivateForm.json';
 import Link from 'next/link';
 
+const currentLanguage = 'ua';
+
 const PublicPrivateForm = () => {
   const [isPublic, setIsPublic] = useState(true);
 
   const validationSchema = Yup.object().shape({
-    name: Yup.string().required(data.validationMessage.ua.required),
+    name: Yup.string().required(
+      data.validationMessage.required[currentLanguage]
+    ),
     email: Yup.string()
-      .email(data.validationMessage.ua.email)
-      .required(data.validationMessage.ua.required),
-    message: Yup.string().required(data.validationMessage.ua.required),
+      .email(data.validationMessage.email)
+      .required(data.validationMessage.required[currentLanguage]),
+    message: Yup.string().required(
+      data.validationMessage.required[currentLanguage]
+    ),
     isChecked: Yup.boolean(),
   });
 

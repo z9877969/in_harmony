@@ -1,0 +1,204 @@
+{
+    "reportingPageData": [
+        {
+            "reportingPageFilters": {
+                "title": "Звітність \"ІнХармоні.Юа\"",
+                "reportingTableList": [
+                    {
+                        "id": 1,
+                        "month": "Квітень",
+                        "year": "2024",
+                        "url": "https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=959038513#gid=959038513"
+                    },
+                    {
+                        "id": 2,
+                        "month": "Травень",
+                        "year": "2024",
+                        "url": "https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=0#gid=0"
+                    },
+                    {
+                        "id": 3,
+                        "month": "Червень",
+                        "year": "2024",
+                        "url": "https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=1377878926#gid=1377878926"
+                    },
+                    {
+                        "id": 4,
+                        "month": "Липень",
+                        "year": "2024",
+                        "url": "https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=240537339#gid=240537339"
+                    },
+                    {
+                        "id": 5,
+                        "month": "Серпень",
+                        "year": "2024",
+                        "url": "https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=1917631733#gid=1917631733"
+                    },
+                    {
+                        "id": 6,
+                        "month": "Вересень",
+                        "year": "2024",
+                        "url": "https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=1070334992#gid=1070334992"
+                    },
+                    {
+                        "id": 7,
+                        "month": "Жовтень",
+                        "year": "2024",
+                        "url": "https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=523745186#gid=523745186"
+                    },
+                    {
+                        "id": 8,
+                        "month": "Листопад",
+                        "year": "2024",
+                        "url": "https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=287277574#gid=287277574"
+                    },
+                    {
+                        "id": 9,
+                        "month": "Грудень",
+                        "year": "2024",
+                        "url": "https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=391773256#gid=391773256"
+                    },
+                    {
+                        "id": 10,
+                        "month": "Січень",
+                        "year": "2025",
+                        "url": "https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=1845796710#gid=1845796710"
+                    }
+                ],
+                "textBtn": " Показати ще"
+            }
+        },
+        {
+            "reportingPageFinishedProjects": {
+                "title": "Реалізовані проєкти",
+                "finishedProjectsList": [
+                    {
+                        "id": 1,
+                        "title": "Вода в сіру зону",
+                        "item": "Зібрано:",
+                        "total": "35768",
+                        "currency": "грн",
+                        "term": "Термін реалізаці:",
+                        "days": "10 ",
+                        "period": "днів",
+                        "comments": "Відгуків:",
+                        "quantity": "5",
+                        "imageUrl": ""
+                    },
+                    {
+                        "id": 2,
+                        "title": "Вода в сіру зону",
+                        "item": "Зібрано:",
+                        "total": "35768",
+                        "currency": "грн",
+                        "term": "Термін реалізаці:",
+                        "days": "10 ",
+                        "period": "днів",
+                        "comments": "Відгуків:",
+                        "quantity": "5",
+                        "imageUrl": ""
+                    },
+                    {
+                        "id": 3,
+                        "title": "Вода в сіру зону",
+                        "item": "Зібрано:",
+                        "total": "35768",
+                        "currency": "грн",
+                        "term": "Термін реалізаці:",
+                        "days": "10 ",
+                        "period": "днів",
+                        "comments": "Відгуків:",
+                        "quantity": "5",
+                        "imageUrl": ""
+                    },
+                    {
+                        "id": 4,
+                        "title": "Вода в сіру зону",
+                        "item": "Зібрано:",
+                        "total": "35768",
+                        "currency": "грн",
+                        "term": "Термін реалізаці:",
+                        "days": "10 ",
+                        "period": "днів",
+                        "comments": "Відгуків:",
+                        "quantity": "5",
+                        "imageUrl": ""
+                    },
+                    {
+                        "id": 5,
+                        "title": "Вода в сіру зону",
+                        "item": "Зібрано:",
+                        "total": "35768",
+                        "currency": "грн",
+                        "term": "Термін реалізаці:",
+                        "days": "10 ",
+                        "period": "днів",
+                        "comments": "Відгуків:",
+                        "quantity": "5",
+                        "imageUrl": ""
+                    },
+                    {
+                        "id": 6,
+                        "title": "Вода в сіру зону",
+                        "item": "Зібрано:",
+                        "total": "35768",
+                        "currency": "грн",
+                        "term": "Термін реалізаці:",
+                        "days": "10 ",
+                        "period": "днів",
+                        "comments": "Відгуків:",
+                        "quantity": "5",
+                        "imageUrl": ""
+                    },
+                    {
+                        "id": 7,
+                        "title": "Вода в сіру зону",
+                        "item": "Зібрано:",
+                        "total": "35768",
+                        "currency": "грн",
+                        "term": "Термін реалізаці:",
+                        "days": "10 ",
+                        "period": "днів",
+                        "comments": "Відгуків:",
+                        "quantity": "5",
+                        "imageUrl": ""
+                    },
+                    {
+                        "id": 8,
+                        "title": "Вода в сіру зону",
+                        "item": "Зібрано:",
+                        "total": "35768",
+                        "currency": "грн",
+                        "term": "Термін реалізаці:",
+                        "days": "10 ",
+                        "period": "днів",
+                        "comments": "Відгуків:",
+                        "quantity": "5",
+                        "imageUrl": ""
+                    },
+                    {
+                        "id": 9,
+                        "title": "Вода в сіру зону",
+                        "item": "Зібрано:",
+                        "total": "35768",
+                        "currency": "грн",
+                        "term": "Термін реалізаці:",
+                        "days": "10 ",
+                        "period": "днів",
+                        "comments": "Відгуків:",
+                        "quantity": "5",
+                        "imageUrl": ""
+                    }
+                ],
+                "textBtn": "Показати ще"
+            }
+        },
+        {
+            "reportingPageDonate": {
+                "title": "Твоя підтримка – \nце шанс на краще майбутнє для тих,\nхто цього потребує!",
+                "image": "",
+                "textBtn": "До зборів"
+            }
+        }
+    ]
+}

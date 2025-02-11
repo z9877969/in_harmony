@@ -15,15 +15,7 @@ const openCollectionsDetailsSeed = async () => {
         local: 'uk',
         route: 'active',
         section_name: 'collection_details',
-        section_content: async (req) => {
-          const { id } = req.query;
-
-          return await CollectionModel.findById({
-            _id: id,
-            type: 'collections',
-            language: 'uk',
-          });
-        },
+        section_content: [],
       },
       {
         local: 'uk',
@@ -76,19 +68,7 @@ const openCollectionsDetailsSeed = async () => {
         local: 'en',
         route: 'active',
         section_name: 'collection_details',
-        section_content: async (req) => {
-          const { id } = req.query;
-
-          const card = await CollectionModel.findOne({
-            _id: id,
-            type: 'collections',
-            language: 'en',
-          });
-
-          return {
-            card,
-          };
-        },
+        section_content: [],
       },
       {
         local: 'en',

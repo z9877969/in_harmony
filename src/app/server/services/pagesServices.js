@@ -66,80 +66,18 @@ export const getPageWithSectionById = async (req, res) => {
         .json({ error: `Page not found for route: ${route}` });
     }
 
-    const section = await CollectionModel.findOne({ _id: id }).lean();
-    if (!section) {
-      return res.status(404).json({ error: `Section not found for ID: ${id}` });
-    }
+    const collection = await CollectionModel.findOne({ _id: id }).lean();
 
     const combinedData = {
-      ...page,
-      dynamicSection: section,
+      ...page.sections_list[0],
+      section_content: { ...collection },
     };
     console.log('DATA', combinedData);
 
-    res.status(200).json({ status: 200, data: combinedData });
+    const addToPage = { ...page.sections_list, ...combinedData };
+
+    res.status(200).json({ status: 200, data: addToPage });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
-
-const addDynamicSectionToPage = async (req, res) => {
-  const { id } = req.query; 
-  try {
-    await mongoose.connect(process.env.MONGODB_URI);
-    console.log('✅ Connected to MongoDB');
-
-    const dynamicSection = await CollectionModel.findOne({
-      _id: new mongoose.ObjectId(id),
-    });
-
-    if (!dynamicSection) {
-      return res.status(404).json({ message: 'Collection not found' });
-    }
-
-    const updatedSection = {
-      local: dynamicSection.language, 
-      route: 'active',
-      section_name: 'collection_details',
-      section_content: {
-        title: dynamicSection.title,
-        image: dynamicSection.image,
-        collected: dynamicSection.collected,
-        target: dynamicSection.target,
-        description: dynamicSection.desc,
-        long_desc: dynamicSection.long_desc,
-        status: dynamicSection.status,
-     
-      },
-    };
-
-    const page = await PagesEN.findOne({ route: 'active' });
-    if (!page) {
-      return res.status(404).json({ message: 'Page not found' });
-    }
-
-    page.sections_list = page.sections_list.map((section) =>
-      section.section_name === 'collection_details'
-        ? {
-            ...section,
-            section_content: {
-              ...section.section_content,
-              ...updatedSection.section_content,
-            },
-          }
-        : section
-    );
-
-    await page.save();
-
-    console.log('✅ Section added to page');
-    res.status(200).json(page);
-  } catch (error) {
-    console.error('❌ Error:', error);
-    res.status(500).json({ message: 'Internal server error' });
-  } finally {
-    mongoose.connection.close();
-  }
-};
-
-export default addDynamicSectionToPage;

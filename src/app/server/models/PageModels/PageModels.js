@@ -3,7 +3,19 @@ import mongoose from 'mongoose';
 export const mainPageSchemaEN = new mongoose.Schema({
   local: { type: String, required: true },
   sections_list: { type: [mongoose.Schema.Types.Mixed] },
-  route: { type: String, required: true },
+  route: {
+    type: String,
+    required: true,
+    enum: [
+      'main',
+      'about',
+      'collection',
+      'reporting',
+      'active',
+      'footer',
+      'closed',
+    ],
+  },
 });
 
 export const mainPageSchemaUA = new mongoose.Schema({
@@ -11,7 +23,15 @@ export const mainPageSchemaUA = new mongoose.Schema({
   route: {
     type: String,
     required: true,
-    enum: ['main', 'about', 'collection', 'reporting', 'active', 'footer'],
+    enum: [
+      'main',
+      'about',
+      'collection',
+      'reporting',
+      'active',
+      'footer',
+      'closed',
+    ],
   },
   sections_list: { type: [mongoose.Schema.Types.Mixed] },
 });

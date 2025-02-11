@@ -1,5 +1,5 @@
 import { connectToDatabase } from '@/app/server/lib';
-import { getPageByRouteUK } from '@/app/server/services/pagesServices';
+import { getPageByRouteUA } from '@/app/server/services/pagesServices';
 
 export const config = {
   api: {
@@ -11,7 +11,7 @@ export default async function handler(req, res) {
   await connectToDatabase();
 
   if (req.method === 'GET') {
-    return getPageByRouteUK(req, res);
+    return getPageByRouteUA(req, res);
   }
 
   res.status(405).json({ message: 'Method Not Allowed' });

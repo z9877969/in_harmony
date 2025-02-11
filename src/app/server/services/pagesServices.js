@@ -21,7 +21,7 @@ export const getPageEN = async (req, res) => {
   }
 };
 
-export const getPageByRouteUK = async (req, res) => {
+export const getPageByRouteUA = async (req, res) => {
   try {
     const { route } = req.query;
 
@@ -53,10 +53,9 @@ export const getPageByRouteEN = async (req, res) => {
   }
 };
 
-export const getPageWithSectionById = async (req, res) => {
+export const getCollectionDetailsByIdEN = async (req, res) => {
   try {
-    const { route, id } = req.query;
-    console.log('Route:', route, 'ID:', id);
+    const { route, id, sectionName = 'collection_details' } = req.query;
 
     const page = await PagesEN.findOne({ route }).lean();
     if (!page) {
@@ -66,16 +65,57 @@ export const getPageWithSectionById = async (req, res) => {
     }
 
     const collection = await CollectionModel.findOne({ _id: id }).lean();
+    if (!collection) {
+      return res
+        .status(404)
+        .json({ error: `Collection not found for ID: ${id}` });
+    }
 
-    const combinedData = {
-      ...page.sections_list[0],
-      section_content: { ...collection },
-    };
-    console.log('DATA', combinedData);
+    const updatedSections = page.sections_list.map((section) => {
+      if (section.section_name === sectionName) {
+        return {
+          ...section,
+          section_content: { ...section.section_content, ...collection },
+        };
+      }
+      return section;
+    });
 
-    const addToPage = [...page.sections_list.slice(1), combinedData];
+    res.status(200).json({ status: 200, data: updatedSections });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
 
-    res.status(200).json({ status: 200, data: addToPage });
+export const getCollectionDetailsByIdUA = async (req, res) => {
+  try {
+    const { route, id, sectionName = 'collection_details' } = req.query;
+
+    const page = await PagesUA.findOne({ route }).lean();
+    if (!page) {
+      return res
+        .status(404)
+        .json({ error: `Page not found for route: ${route}` });
+    }
+
+    const collection = await CollectionModel.findOne({ _id: id }).lean();
+    if (!collection) {
+      return res
+        .status(404)
+        .json({ error: `Collection not found for ID: ${id}` });
+    }
+
+    const updatedSections = page.sections_list.map((section) => {
+      if (section.section_name === sectionName) {
+        return {
+          ...section,
+          section_content: { ...section.section_content, ...collection },
+        };
+      }
+      return section;
+    });
+
+    res.status(200).json({ status: 200, data: updatedSections });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

@@ -14,6 +14,14 @@ const collectionSchema = new mongoose.Schema({
   language: { type: String },
   collected_title: { type: String },
   target_title: { type: String },
+  //reporting options
+  total: { type: String },
+  term: { type: String },
+  days: { type: String },
+  period: { type: String },
+  comments: { type: String },
+  quantity: { type: String },
+  //===========================
   long_desc: {
     type: {
       section1: { type: String, default: '' },

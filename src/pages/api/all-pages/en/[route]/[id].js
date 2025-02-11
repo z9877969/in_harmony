@@ -17,12 +17,8 @@ export default async function handler(req, res) {
     await connectToDatabase();
     const { route, id } = req.query;
 
-    console.log('Route:', route, 'ID:', id);
-
     if (req.method === 'GET') {
       if (route && id) {
-        console.log('GET ROUTE & ID', route);
-
         const dynamicSection = await getPageWithSectionById(req, res);
 
         if (!dynamicSection) {

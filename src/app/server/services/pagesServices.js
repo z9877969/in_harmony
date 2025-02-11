@@ -56,6 +56,7 @@ export const getPageByRouteEN = async (req, res) => {
 export const getPageWithSectionById = async (req, res) => {
   try {
     const { route, id } = req.query;
+    // eslint-disable-next-line
     console.log('Route:', route, 'ID:', id);
 
     const page = await PagesEN.findOne({ route }).lean();
@@ -71,6 +72,7 @@ export const getPageWithSectionById = async (req, res) => {
       ...page.sections_list[0],
       section_content: { ...collection },
     };
+    // eslint-disable-next-line
     console.log('DATA', combinedData);
 
     const addToPage = [...page.sections_list.slice(1), combinedData];

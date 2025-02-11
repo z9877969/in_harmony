@@ -84,13 +84,11 @@ export const getPageWithSectionById = async (req, res) => {
 };
 
 const addDynamicSectionToPage = async (req, res) => {
-  const { id } = req.query; // отримуємо ID для динамічної секції
+  const { id } = req.query; 
   try {
-    // Підключення до MongoDB
     await mongoose.connect(process.env.MONGODB_URI);
     console.log('✅ Connected to MongoDB');
 
-    // Отримуємо динамічну секцію по id
     const dynamicSection = await CollectionModel.findOne({
       _id: new mongoose.ObjectId(id),
     });
@@ -99,11 +97,10 @@ const addDynamicSectionToPage = async (req, res) => {
       return res.status(404).json({ message: 'Collection not found' });
     }
 
-    // Формуємо нову секцію для сторінки
     const updatedSection = {
-      local: dynamicSection.language, // мова для секції
+      local: dynamicSection.language, 
       route: 'active',
-      section_name: 'collection_details', // Назва секції
+      section_name: 'collection_details',
       section_content: {
         title: dynamicSection.title,
         image: dynamicSection.image,
@@ -112,17 +109,15 @@ const addDynamicSectionToPage = async (req, res) => {
         description: dynamicSection.desc,
         long_desc: dynamicSection.long_desc,
         status: dynamicSection.status,
-        // Додаткові дані можна тут додавати...
+     
       },
     };
 
-    // Знаходимо сторінку для оновлення (наприклад, англійська версія)
     const page = await PagesEN.findOne({ route: 'active' });
     if (!page) {
       return res.status(404).json({ message: 'Page not found' });
     }
 
-    // Додаємо нову секцію до списку секцій
     page.sections_list = page.sections_list.map((section) =>
       section.section_name === 'collection_details'
         ? {
@@ -135,7 +130,6 @@ const addDynamicSectionToPage = async (req, res) => {
         : section
     );
 
-    // Оновлюємо сторінку в базі даних
     await page.save();
 
     console.log('✅ Section added to page');

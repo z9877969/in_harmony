@@ -6,7 +6,7 @@ export const mainPageSchemaEN = new mongoose.Schema({
   route: { type: String, required: true },
 });
 
-export const mainPageSchemaUK = new mongoose.Schema({
+export const mainPageSchemaUA = new mongoose.Schema({
   local: { type: String, required: true },
   route: {
     type: String,
@@ -19,5 +19,5 @@ export const mainPageSchemaUK = new mongoose.Schema({
 export const PagesEN =
   mongoose.models['PageEN'] || mongoose.model('PageEN', mainPageSchemaEN);
 
-export const PagesUK =
-  mongoose.models['PagesUK'] || mongoose.model('PagesUK', mainPageSchemaUK);
+export const PagesUA =
+  mongoose.models['PagesUA'] || mongoose.model('PagesUA', mainPageSchemaUA);

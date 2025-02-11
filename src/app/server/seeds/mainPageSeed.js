@@ -1,7 +1,7 @@
 // import mongoose from 'mongoose';
 // import env from '../utils/evn.js';
 // import CollectionModel from '../models/CollectionsModel.js';
-// import { PagesEN, PagesUK } from '../models/PageModels';
+// import { PagesEN, PagesUA } from '../models/PageModels';
 
 // TO USE THIS RUN : node src/app/server/seeds/mainPageSeed.js
 
@@ -10,12 +10,12 @@
 //     await mongoose.connect(env('MONGODB_URI'));
 //     console.log('✅ Connected to MongoDB');
 
-//     await CollectionModel.insertMany(collectionsUK);
+//     await CollectionModel.insertMany(collectionsUA);
 //     console.log('📦 Collections inserted');
 
-// const sectionsUK = [
+// const sectionsUA = [
 //   {
-//     local: 'uk',
+//     local: 'ua',
 //     section_name: 'hero',
 //     route: 'main',
 //     section_content: {
@@ -37,7 +37,7 @@
 //     },
 //   },
 //   {
-//     local: 'uk',
+//     local: 'ua',
 //     section_name: 'about',
 //     route: 'main',
 //     section_content: {
@@ -73,7 +73,7 @@
 //   },
 
 //   {
-//     local: 'uk',
+//     local: 'ua',
 //     route: 'main',
 //     section_name: 'active_collections',
 //     section_content: {
@@ -81,12 +81,12 @@
 //       cards: await CollectionModel.find({
 //         type: 'collections',
 //         status: 'active',
-//         language: 'uk',
+//         language: 'ua',
 //       }),
 //     },
 //   },
 //   {
-//     local: 'uk',
+//     local: 'ua',
 //     route: 'main',
 //     section_name: 'achievements',
 //     section_content: {
@@ -129,7 +129,7 @@
 //     },
 //   },
 //   {
-//     local: 'uk',
+//     local: 'ua',
 //     route: 'main',
 //     section_name: 'donats',
 //     section_content: {
@@ -147,10 +147,10 @@
 //     section_name: 'hero',
 //     route: 'main',
 //     section_content: {
-//       title: 'Helping those in difficult life situktions',
+//       title: 'Helping those in difficult life situations',
 //       cards: [
 //         {
-//           amount: '1 million UKH',
+//           amount: '1 million UAH',
 //           label: 'Total amount collected',
 //         },
 //         {
@@ -187,7 +187,7 @@
 //         {
 //           title: 'Support for Animals in Crisis Regions',
 //           description:
-//             'We feed and evacukte animals from combat zones, provide veterinary care, and help find them new shelters.',
+//             'We feed and evacuate animals from combat zones, provide veterinary care, and help find them new shelters.',
 //         },
 //         {
 //           title: 'Development of Modular Settlements for IDPs',
@@ -227,7 +227,7 @@
 //           text: 'The project solved the problem of transporting and storing drinking water. Thanks to this project, 500 liters of drinking water were delivered to 54 people in the gray zone within a week.',
 //           item: 'Amount Collected:',
 //           total: '35,768',
-//           currency: 'UKH',
+//           currency: 'UAH',
 //           term: 'Implementation Time:',
 //           days: '10',
 //           period: 'days',
@@ -238,7 +238,7 @@
 //           text: 'The project solved the problem of transporting and storing drinking water. Thanks to this project, 500 liters of drinking water were delivered to 54 people in the gray zone within a week.',
 //           item: 'Amount Collected:',
 //           total: '35,768',
-//           currency: 'UKH',
+//           currency: 'UAH',
 //           term: 'Implementation Time:',
 //           days: '10',
 //           period: 'days',
@@ -249,7 +249,7 @@
 //           text: 'The project solved the problem of transporting and storing drinking water. Thanks to this project, 500 liters of drinking water were delivered to 54 people in the gray zone within a week.',
 //           item: 'Amount Collected:',
 //           total: '35,768',
-//           currency: 'UKH',
+//           currency: 'UAH',
 //           term: 'Implementation Time:',
 //           days: '10',
 //           period: 'days',
@@ -271,13 +271,13 @@
 //   },
 // ];
 
-// const mainPageDataUK = new PagesUK({
-//   local: 'uk',
+// const mainPageDataUA = new PagesUA({
+//   local: 'ua',
 //   route: 'main',
-//   sections_list: sectionsUK,
+//   sections_list: sectionsUA,
 // });
-// await PagesUK.create(mainPageDataUK);
-// console.log('📦 Main Page (UK) data inserted');
+// await PagesUA.create(mainPageDataUA);
+// console.log('📦 Main Page (UA) data inserted');
 
 // const mainPageDataEN = new PagesEN({
 //   local: 'en',
@@ -286,7 +286,7 @@
 // });
 
 // await PagesEN.create(mainPageDataEN);
-// console.log('📦 Main Page (UK) data inserted');
+// console.log('📦 Main Page (UA) data inserted');
 
 //     await mongoose.connection.close();
 //     console.log('🔒 Database connection closed');

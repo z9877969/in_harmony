@@ -11,7 +11,7 @@
 
 //     const membersEN = [
 //       {
-//         language: 'uk',
+//         language: 'ua',
 //         firstName: 'Ілона',
 //         lastName: 'Морараш',
 //         position: 'UI/UX Designer',
@@ -25,7 +25,7 @@
 //         ],
 //       },
 //       {
-//         language: 'uk',
+//         language: 'ua',
 
 //         firstName: 'Ганна',
 //         lastName: 'Желдак',
@@ -40,7 +40,7 @@
 //         ],
 //       },
 //       {
-//         language: 'uk',
+//         language: 'ua',
 
 //         firstName: 'Наталія',
 //         lastName: 'Медведєва',
@@ -59,7 +59,7 @@
 //     await TeamMembersModel.insertMany(membersEN);
 //     console.log('📦 Reporting inserted');
 
-//     const membersUK = [
+//     const membersUA = [
 //       {
 //         language: 'en',
 //         firstName: 'Ilona',
@@ -103,7 +103,7 @@
 //         ],
 //       },
 //     ];
-//     await TeamMembersModel.insertMany(membersUK);
+//     await TeamMembersModel.insertMany(membersUA);
 //     console.log('📦 Reporting inserted');
 
 //     await mongoose.connection.close();

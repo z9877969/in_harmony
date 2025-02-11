@@ -1,17 +1,17 @@
 // import mongoose from 'mongoose';
 // import env from '../utils/evn.js';
-// import { PagesEN, PagesUK } from './PageModels/PageModels.js';
+// import { PagesEN, PagesUA } from '../models/PageModels/PageModels.js';
 
-// TO USE THIS RUN : node src/app/server/models/seeds/aboutPageSeed.js
+// // TO USE THIS RUN : node src/app/server/seeds/aboutPageSeed.js
 
 // const aboutPageSeed = async () => {
 //   try {
 //     await mongoose.connect(env('MONGODB_URI'));
 //     console.log('✅ Connected to MongoDB');
 
-//     const sectionsUK = [
+//     const sectionsUA = [
 //       {
-//         local: 'uk',
+//         local: 'ua',
 //         section_name: 'hero',
 //         route: 'about',
 //         section_content: {
@@ -56,7 +56,7 @@
 //         },
 //       },
 //       {
-//         local: 'uk',
+//         local: 'ua',
 //         section_name: 'mission',
 //         route: 'about',
 //         section_content: {
@@ -108,7 +108,7 @@
 //       },
 
 //       {
-//         local: 'uk',
+//         local: 'ua',
 //         route: 'about',
 //         section_name: 'together',
 //         section_content: {
@@ -154,7 +154,7 @@
 //         },
 //       },
 //       {
-//         local: 'uk',
+//         local: 'ua',
 //         route: 'about',
 //         section_name: 'partners',
 //         section_content: {
@@ -175,7 +175,7 @@
 //         },
 //       },
 //       {
-//         local: 'uk',
+//         local: 'ua',
 //         route: 'about',
 //         section_name: 'donats',
 //         section_content: {
@@ -200,7 +200,7 @@
 //             description1:
 //               'From the first days of the war, we united our efforts to support those in difficult conditions.',
 //             description2:
-//               'Our goal is to help everyone who finds themselves in tough life situktions, so they know they are remembered and supported.',
+//               'Our goal is to help everyone who finds themselves in tough life situations, so they know they are remembered and supported.',
 //             description3:
 //               'To give a sense of home, care, and confidence in the future to everyone in need — civilians, military personnel, communities, and abandoned animals.',
 //           },
@@ -242,7 +242,7 @@
 //           title: 'Mission and Values',
 //           subtitle: 'Why We Work',
 //           descriptionMain:
-//             'We help those in difficult life situktions, creating a positive impact and inspiring others to do good.',
+//             'We help those in difficult life situations, creating a positive impact and inspiring others to do good.',
 //           descriptionExtra:
 //             'Our principles are responsibility, sincerity, nobility, and the desire to be helpful. We strive to set an example and give hope to those who need it most.',
 //           inspiration: {
@@ -318,7 +318,7 @@
 //                 name: 'Olena Dyumina',
 //                 role: 'Designer',
 //                 description:
-//                   '"In our team, I am responsible for the visukl communication to ensure your support experience is pleasant and effective."',
+//                   '"In our team, I am responsible for the visual communication to ensure your support experience is pleasant and effective."',
 //               },
 //               {
 //                 id: '4',
@@ -367,13 +367,13 @@
 //       },
 //     ];
 
-//     const aboutPageDataUK = new PagesUK({
-//       local: 'uk',
+//     const aboutPageDataUA = new PagesUA({
+//       local: 'ua',
 //       route: 'about',
-//       sections_list: sectionsUK,
+//       sections_list: sectionsUA,
 //     });
-//     await PagesUK.create(aboutPageDataUK);
-//     console.log('📦  Page (UK) data inserted');
+//     await PagesUA.create(aboutPageDataUA);
+//     console.log('📦  Page (UA) data inserted');
 
 //     const aboutPageDataEN = new PagesEN({
 //       local: 'en',

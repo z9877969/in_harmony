@@ -155,7 +155,7 @@
 //     await ReportingModel.insertMany(reportingEN);
 //     console.log('📦 Reporting inserted');
 
-//     const collectionsUK = [
+//     const collectionsUA = [
 //       {
 //         title: 'Вода в сіру зону',
 //         item: 'Зібрано:',
@@ -168,7 +168,7 @@
 //         quantity: '5',
 //         image: '',
 //         type: 'reporting',
-//         language: 'uk',
+//         language: 'ua',
 //       },
 //       {
 //         title: 'Вода в сіру зону-2',
@@ -182,7 +182,7 @@
 //         quantity: '5',
 //         image: '',
 //         type: 'reporting',
-//         language: 'uk',
+//         language: 'ua',
 //       },
 //       {
 //         title: 'Вода в сіру зону-3',
@@ -196,7 +196,7 @@
 //         quantity: '5',
 //         image: '',
 //         type: 'reporting',
-//         language: 'uk',
+//         language: 'ua',
 //       },
 //       {
 //         title: 'Вода в сіру зону-4',
@@ -209,7 +209,7 @@
 //         comments: 'Відгуків:',
 //         quantity: '5',
 //         image: '',
-//         language: 'uk',
+//         language: 'ua',
 //         type: 'reporting',
 //       },
 //       {
@@ -223,7 +223,7 @@
 //         comments: 'Відгуків:',
 //         quantity: '5',
 //         image: '',
-//         language: 'uk',
+//         language: 'ua',
 //         type: 'reporting',
 //       },
 //       {
@@ -237,7 +237,7 @@
 //         comments: 'Відгуків:',
 //         quantity: '5',
 //         image: '',
-//         language: 'uk',
+//         language: 'ua',
 //         type: 'reporting',
 //       },
 //       {
@@ -251,7 +251,7 @@
 //         comments: 'Відгуків:',
 //         quantity: '5',
 //         image: '',
-//         language: 'uk',
+//         language: 'ua',
 //         type: 'reporting',
 //       },
 //       {
@@ -265,7 +265,7 @@
 //         comments: 'Відгуків:',
 //         quantity: '5',
 //         image: '',
-//         language: 'uk',
+//         language: 'ua',
 //         type: 'reporting',
 //       },
 //       {
@@ -279,7 +279,7 @@
 //         comments: 'Відгуків:',
 //         quantity: '5',
 //         image: '',
-//         language: 'uk',
+//         language: 'ua',
 //         type: 'reporting',
 //       },
 //       {
@@ -293,11 +293,11 @@
 //         comments: 'Відгуків:',
 //         quantity: '5',
 //         image: '',
-//         language: 'uk',
+//         language: 'ua',
 //         type: 'reporting',
 //       },
 //     ];
-//     await ReportingModel.insertMany(collectionsUK);
+//     await ReportingModel.insertMany(collectionsUA);
 //     console.log('📦 Reporting inserted');
 
 //     await mongoose.connection.close();

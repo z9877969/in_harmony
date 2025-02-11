@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { PagesEN, PagesUK } from '../models/PageModels/PageModels.js';
+import { PagesEN, PagesUA } from '../models/PageModels/PageModels.js';
 import env from '../utils/evn.js';
 import TeamMembersModel from '../models/TeamMembersModels.js';
 
@@ -10,9 +10,9 @@ const footerPageSeed = async () => {
     await mongoose.connect(env('MONGODB_URI'));
     console.log('✅ Connected to MongoDB');
 
-    const sectionsUK = [
+    const sectionsUA = [
       {
-        local: 'uk',
+        local: 'ua',
         route: 'footer',
         section_name: 'footer',
         section_content: {
@@ -27,7 +27,7 @@ const footerPageSeed = async () => {
               text: 'Цей сайт був створений завдяки зусиллям студентів GoIT, які працювали над його розробкою. Кожен учасник команди вніс важливий внесок, застосовуючи знання, навички та креативність для досягнення спільної мети. Познайомтеся з людьми, які стоять за створенням цього проєкту:',
             },
             members: await TeamMembersModel.find({
-              language: 'uk',
+              language: 'ua',
             }),
           },
           company: {
@@ -115,7 +115,7 @@ const footerPageSeed = async () => {
               title: 'Contacts:',
               addressTitle: 'Address:',
               address:
-                'Ukraine, 24000, Vinnytsia region, Mohyliv-Podilskyi city, Verkhnia Vokzalna St., building 1',
+                'Uaraine, 24000, Vinnytsia region, Mohyliv-Podilskyi city, Verkhnia Vokzalna St., building 1',
               emailTitle: 'Email:',
               email: 'info@inharmony.ua',
               phoneTitle: 'Phone:',
@@ -173,13 +173,13 @@ const footerPageSeed = async () => {
       },
     ];
 
-    const footerPageDataUK = new PagesUK({
-      local: 'uk',
+    const footerPageDataUA = new PagesUA({
+      local: 'ua',
       route: 'footer',
-      sections_list: sectionsUK,
+      sections_list: sectionsUA,
     });
-    await PagesUK.create(footerPageDataUK);
-    console.log('📦 Reporting Page (UK) data inserted');
+    await PagesUA.create(footerPageDataUA);
+    console.log('📦 Reporting Page (UA) data inserted');
 
     const footerPageDataEN = new PagesEN({
       local: 'en',

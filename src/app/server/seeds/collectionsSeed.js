@@ -9,7 +9,7 @@ const collectionsSeed = async () => {
     await mongoose.connect(env('MONGODB_URI'));
     console.log('✅ Connected to MongoDB');
 
-    const collectionsUK = [
+    const collectionsUA = [
       {
         title: 'Світло в "Сіру Зону"!',
         importance: 'urgent',
@@ -29,7 +29,7 @@ const collectionsSeed = async () => {
         },
         status: 'active',
         type: 'collections',
-        language: 'uk',
+        language: 'ua',
         value: 'lightCollection',
         collected_title: 'Зібрано',
         target_title: 'Ціль',
@@ -53,7 +53,7 @@ const collectionsSeed = async () => {
         },
         status: 'active',
         type: 'collections',
-        language: 'uk',
+        language: 'ua',
         value: 'lightCollection',
         collected_title: 'Зібрано',
         target_title: 'Ціль',
@@ -77,7 +77,7 @@ const collectionsSeed = async () => {
         },
         status: 'active',
         type: 'collections',
-        language: 'uk',
+        language: 'ua',
         value: 'lightCollection',
         collected_title: 'Зібрано',
         target_title: 'Ціль',
@@ -101,7 +101,7 @@ const collectionsSeed = async () => {
         },
         status: 'active',
         type: 'collections',
-        language: 'uk',
+        language: 'ua',
         value: 'lightCollection',
         collected_title: 'Зібрано',
         target_title: 'Ціль',
@@ -125,14 +125,14 @@ const collectionsSeed = async () => {
         },
         status: 'active',
         type: 'collections',
-        language: 'uk',
+        language: 'ua',
         value: 'lightCollection',
         collected_title: 'Зібрано',
         target_title: 'Ціль',
       },
     ];
 
-    await CollectionModel.insertMany(collectionsUK);
+    await CollectionModel.insertMany(collectionsUA);
     console.log('📦 Collections inserted');
 
     const collectionsEN = [

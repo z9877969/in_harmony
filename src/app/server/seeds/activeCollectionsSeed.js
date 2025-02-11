@@ -1,5 +1,5 @@
 // import mongoose from 'mongoose';
-// import { PagesEN, PagesUK } from '../models/PageModels/PageModels.js';
+// import { PagesEN, PagesUA } from '../models/PageModels/PageModels.js';
 // import env from '../utils/evn.js';
 // import CollectionModel from '../models/CollectionsModel.js';
 // import ReportingModel from '../models/ReportingModels.js';
@@ -11,9 +11,9 @@
 //     await mongoose.connect(env('MONGODB_URI'));
 //     console.log('✅ Connected to MongoDB');
 
-//     const sectionsUK = [
+//     const sectionsUA = [
 //       {
-//         local: 'uk',
+//         local: 'ua',
 //         route: 'collection',
 //         section_name: 'active_collections',
 //         section_content: {
@@ -21,19 +21,19 @@
 //           cards: await CollectionModel.find({
 //             type: 'collections',
 //             status: 'active',
-//             language: 'uk',
+//             language: 'ua',
 //           }),
 //         },
 //       },
 //       {
-//         local: 'uk',
+//         local: 'ua',
 //         route: 'collection',
 //         section_name: 'reporting',
 //         section_content: {
 //           title: 'Звітність',
 //           cards: await ReportingModel.find({
 //             type: 'reporting',
-//             language: 'uk',
+//             language: 'ua',
 //           }),
 //         },
 //       },
@@ -69,13 +69,13 @@
 //       },
 //     ];
 
-//     const collectionPageDataUK = new PagesUK({
-//       local: 'uk',
+//     const collectionPageDataUA = new PagesUA({
+//       local: 'ua',
 //       route: 'collection',
-//       sections_list: sectionsUK,
+//       sections_list: sectionsUA,
 //     });
-//     await PagesUK.create(collectionPageDataUK);
-//     console.log('📦 Collection Page (UK) data inserted');
+//     await PagesUA.create(collectionPageDataUA);
+//     console.log('📦 Collection Page (UA) data inserted');
 
 //     const collectionsPageDataEN = new PagesEN({
 //       local: 'en',

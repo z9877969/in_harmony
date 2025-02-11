@@ -11,81 +11,81 @@
 //     await mongoose.connect(env('MONGODB_URI'));
 //     console.log('✅ Connected to MongoDB');
 
-//     // const filtersUA = [
-//     //   {
-//     //     month: 'Квітень',
-//     //     year: '2024',
-//     //     url: 'https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=959038513#gid=959038513',
-//     //     type: 'filter',
-//     //     language: 'ua',
-//     //   },
-//     //   {
-//     //     month: 'Травень',
-//     //     year: '2024',
-//     //     url: 'https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=0#gid=0',
-//     //     type: 'filter',
-//     //     language: 'ua',
-//     //   },
-//     //   {
-//     //     month: 'Червень',
-//     //     year: '2024',
-//     //     url: 'https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=1377878926#gid=1377878926',
-//     //     type: 'filter',
-//     //     language: 'ua',
-//     //   },
-//     //   {
-//     //     month: 'Липень',
-//     //     year: '2024',
-//     //     url: 'https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=240537339#gid=240537339',
-//     //     type: 'filter',
-//     //     language: 'ua',
-//     //   },
-//     //   {
-//     //     month: 'Серпень',
-//     //     year: '2024',
-//     //     url: 'https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=1917631733#gid=1917631733',
-//     //     type: 'filter',
-//     //     language: 'ua',
-//     //   },
-//     //   {
-//     //     month: 'Вересень',
-//     //     year: '2024',
-//     //     url: 'https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=1070334992#gid=1070334992',
-//     //     type: 'filter',
-//     //     language: 'ua',
-//     //   },
-//     //   {
-//     //     month: 'Жовтень',
-//     //     year: '2024',
-//     //     url: 'https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=523745186#gid=523745186',
-//     //     type: 'filter',
-//     //     language: 'ua',
-//     //   },
-//     //   {
-//     //     month: 'Листопад',
-//     //     year: '2024',
-//     //     url: 'https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=287277574#gid=287277574',
-//     //     type: 'filter',
-//     //     language: 'ua',
-//     //   },
-//     //   {
-//     //     month: 'Грудень',
-//     //     year: '2024',
-//     //     url: 'https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=391773256#gid=391773256',
-//     //     type: 'filter',
-//     //     language: 'ua',
-//     //   },
-//     //   {
-//     //     month: 'Січень',
-//     //     year: '2025',
-//     //     url: 'https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=1845796710#gid=1845796710',
-//     //     type: 'filter',
-//     //     language: 'ua',
-//     //   },
-//     // ];
+//     const filtersUA = [
+//       {
+//         month: 'Квітень',
+//         year: '2024',
+//         url: 'https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=959038513#gid=959038513',
+//         type: 'filter',
+//         language: 'ua',
+//       },
+//       {
+//         month: 'Травень',
+//         year: '2024',
+//         url: 'https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=0#gid=0',
+//         type: 'filter',
+//         language: 'ua',
+//       },
+//       {
+//         month: 'Червень',
+//         year: '2024',
+//         url: 'https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=1377878926#gid=1377878926',
+//         type: 'filter',
+//         language: 'ua',
+//       },
+//       {
+//         month: 'Липень',
+//         year: '2024',
+//         url: 'https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=240537339#gid=240537339',
+//         type: 'filter',
+//         language: 'ua',
+//       },
+//       {
+//         month: 'Серпень',
+//         year: '2024',
+//         url: 'https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=1917631733#gid=1917631733',
+//         type: 'filter',
+//         language: 'ua',
+//       },
+//       {
+//         month: 'Вересень',
+//         year: '2024',
+//         url: 'https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=1070334992#gid=1070334992',
+//         type: 'filter',
+//         language: 'ua',
+//       },
+//       {
+//         month: 'Жовтень',
+//         year: '2024',
+//         url: 'https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=523745186#gid=523745186',
+//         type: 'filter',
+//         language: 'ua',
+//       },
+//       {
+//         month: 'Листопад',
+//         year: '2024',
+//         url: 'https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=287277574#gid=287277574',
+//         type: 'filter',
+//         language: 'ua',
+//       },
+//       {
+//         month: 'Грудень',
+//         year: '2024',
+//         url: 'https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=391773256#gid=391773256',
+//         type: 'filter',
+//         language: 'ua',
+//       },
+//       {
+//         month: 'Січень',
+//         year: '2025',
+//         url: 'https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=1845796710#gid=1845796710',
+//         type: 'filter',
+//         language: 'ua',
+//       },
+//     ];
 
-//     // await FiltersModel.insertMany(filtersUA);
-//     // console.log('📦 Filters inserted');
+//     await FiltersModel.insertMany(filtersUA);
+//     console.log('📦 Filters inserted');
 
 //     const sectionsUA = [
 //       {
@@ -123,81 +123,81 @@
 //       },
 //     ];
 
-// const filtersEN = [
-//   {
-//     month: 'April',
-//     year: '2024',
-//     url: 'https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=959038513#gid=959038513',
-//     type: 'filter',
-//     language: 'en',
-//   },
-//   {
-//     month: 'May',
-//     year: '2024',
-//     url: 'https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=0#gid=0',
-//     type: 'filter',
-//     language: 'en',
-//   },
-//   {
-//     month: 'June',
-//     year: '2024',
-//     url: 'https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=1377878926#gid=1377878926',
-//     type: 'filter',
-//     language: 'en',
-//   },
-//   {
-//     month: 'July',
-//     year: '2024',
-//     url: 'https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=240537339#gid=240537339',
-//     type: 'filter',
-//     language: 'en',
-//   },
-//   {
-//     month: 'August',
-//     year: '2024',
-//     url: 'https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=1917631733#gid=1917631733',
-//     type: 'filter',
-//     language: 'en',
-//   },
-//   {
-//     month: 'September',
-//     year: '2024',
-//     url: 'https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=1070334992#gid=1070334992',
-//     type: 'filter',
-//     language: 'en',
-//   },
-//   {
-//     month: 'October',
-//     year: '2024',
-//     url: 'https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=523745186#gid=523745186',
-//     type: 'filter',
-//     language: 'en',
-//   },
-//   {
-//     month: 'November',
-//     year: '2024',
-//     url: 'https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=287277574#gid=287277574',
-//     type: 'filter',
-//     language: 'en',
-//   },
-//   {
-//     month: 'December',
-//     year: '2024',
-//     url: 'https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=391773256#gid=391773256',
-//     type: 'filter',
-//     language: 'en',
-//   },
-//   {
-//     month: 'January',
-//     year: '2025',
-//     url: 'https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=1845796710#gid=1845796710',
-//     type: 'filter',
-//     language: 'en',
-//   },
-// ];
+//     const filtersEN = [
+//       {
+//         month: 'April',
+//         year: '2024',
+//         url: 'https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=959038513#gid=959038513',
+//         type: 'filter',
+//         language: 'en',
+//       },
+//       {
+//         month: 'May',
+//         year: '2024',
+//         url: 'https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=0#gid=0',
+//         type: 'filter',
+//         language: 'en',
+//       },
+//       {
+//         month: 'June',
+//         year: '2024',
+//         url: 'https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=1377878926#gid=1377878926',
+//         type: 'filter',
+//         language: 'en',
+//       },
+//       {
+//         month: 'July',
+//         year: '2024',
+//         url: 'https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=240537339#gid=240537339',
+//         type: 'filter',
+//         language: 'en',
+//       },
+//       {
+//         month: 'August',
+//         year: '2024',
+//         url: 'https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=1917631733#gid=1917631733',
+//         type: 'filter',
+//         language: 'en',
+//       },
+//       {
+//         month: 'September',
+//         year: '2024',
+//         url: 'https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=1070334992#gid=1070334992',
+//         type: 'filter',
+//         language: 'en',
+//       },
+//       {
+//         month: 'October',
+//         year: '2024',
+//         url: 'https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=523745186#gid=523745186',
+//         type: 'filter',
+//         language: 'en',
+//       },
+//       {
+//         month: 'November',
+//         year: '2024',
+//         url: 'https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=287277574#gid=287277574',
+//         type: 'filter',
+//         language: 'en',
+//       },
+//       {
+//         month: 'December',
+//         year: '2024',
+//         url: 'https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=391773256#gid=391773256',
+//         type: 'filter',
+//         language: 'en',
+//       },
+//       {
+//         month: 'January',
+//         year: '2025',
+//         url: 'https://docs.google.com/spreadsheets/d/1Edsv3kINu8kFqZuAkwHbbwdPMWGjjIjKADR_-s_O7-0/edit?gid=1845796710#gid=1845796710',
+//         type: 'filter',
+//         language: 'en',
+//       },
+//     ];
 
-// await FiltersModel.insertMany(filtersEN);
-// console.log('📦 Filters en inserted');
+//     await FiltersModel.insertMany(filtersEN);
+//     console.log('📦 Filters en inserted');
 
 //     const sectionsEN = [
 //       {

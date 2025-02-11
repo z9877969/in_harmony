@@ -1,6 +1,6 @@
 // import mongoose from 'mongoose';
-// import { env } from '../utils';
-// import ReportingModel from '../models/ReportingModels';
+// import env from '../utils/evn.js';
+// import ReportingModel from '../models/ReportingModels.js';
 
 // // TO USE THIS RUN : node src/app/server/seeds/reportingSeed.js
 

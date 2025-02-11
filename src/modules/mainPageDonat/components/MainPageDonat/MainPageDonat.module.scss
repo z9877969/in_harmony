@@ -1,54 +1,64 @@
 @import '../../../../shared/styles/colors';
 
 .section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 100%;
   padding-top: 48px;
   padding-bottom: 48px;
+
+  @include media(tablet) {
+    width: 100%;
+    gap: 32px;
+  }
+
   @include media(desktop) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 24px;
     padding-top: 76px;
     padding-bottom: 76px;
   }
 }
 
-.box {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  @include media(tablet) {
-    gap: 32px;
-  }
-  @include media(desktop) {
-    display: grid;
-    grid-template-rows: auto 1fr;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 24px;
-  }
-}
-
-.picture {
-  @include media(desktop) {
-    order: 2;
-    grid-column: 1;
-  }
-}
-
-.img {
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10.8;
   border-radius: 32px;
-  background-color: $img-backdrop-color;
+  overflow: hidden;
+
+  @include media(mobile) {
+    height: 250px;
+  }
+
   @include media(tablet) {
-    width: 688px;
     height: 444px;
   }
+
   @include media(desktop) {
+    flex: none;
     width: 855px;
     height: 406px;
   }
 }
 
+.image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .boxText {
+  width: 100%;
+  height: auto;
+
   @include media(desktop) {
-    order: 1;
-    grid-column: 1 / -1;
     width: 855px;
+    order: -1;
   }
 }
 
@@ -72,8 +82,10 @@
 }
 
 .form {
+  width: 100%;
   @include media(desktop) {
-    order: 3;
-    grid-column: 2;
+    flex: none;
+    width: 416px;
+    height: 406px;
   }
 }

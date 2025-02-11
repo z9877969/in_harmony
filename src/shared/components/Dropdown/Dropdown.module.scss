@@ -1,36 +1,39 @@
+@import '../../styles/colors.scss';
+
 .button {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	width: 100%;
-	background-color: white;
-	background-color: white;
-	border: none;
-	color: $footer-bold-text-color;
-	font-weight: 600;
-	font-size: 16px;
-	line-height: 1.5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: $primary-bg-color;
+  border: none;
+  color: $footer-bold-text-color;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  font-family: inherit;
 }
 .select {
-	border: none;
-	background-color: white;
-	width: 100%;
-	text-align: start;
-	font-weight: 400;
-	font-size: 16px;
-	line-height: 1.5;
-	color: $footer-bold-text-color;
+  border: none;
+  background-color: $primary-bg-color;
+  width: 100%;
+  text-align: start;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: $footer-bold-text-color;
+  font-family: inherit;
 }
 .container {
-	border-radius: 22px;
-	padding: 10px 20px;
-	font-size: 16px;
-	line-height: 1.5;
-	background-color: white;
+  border-radius: 22px;
+  padding: 10px 20px;
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: $primary-bg-color;
 }
 .list {
-	padding-top: 16px;
-	display: flex;
-	flex-direction: column;
-	gap: 8px;
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }

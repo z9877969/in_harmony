@@ -1,6 +1,7 @@
 'use client';
 
 import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { useRouter } from 'next/navigation.js';
 import * as yup from 'yup';
 import clsx from 'clsx';
 import Link from 'next/link.js';
@@ -23,13 +24,17 @@ const validationSchemaFormDonate = yup.object().shape({
 });
 
 const FormWithSumButtons = ({ className = '' }) => {
+  const router = useRouter();
   const amounts = [200, 500, 1000];
 
   const onSubmit = (values, { resetForm }) => {
     // eslint-disable-next-line
     console.log('Form donate:', values);
     resetForm();
+    const query = new URLSearchParams(values).toString();
+    router.push(`/ua/payments/step/2?${query}`);
   };
+
   return (
     <div className={clsx(s.boxForm, `${className}`)}>
       <Formik

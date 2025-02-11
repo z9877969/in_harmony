@@ -13,39 +13,39 @@ const PageComponent = () => {
         'http://localhost:3000/api/all-pages/en/active/67ab116645adb91e64c7d8f1'
       )
       .then((response) => {
-        const data = response.data.data;
+        const data = response.data;
 
-        const updatedSection = [
-          {
-            ...data.sections_list[0],
-            section_content: {
-              ...data.dynamicSection,
-            },
-          },
-        ];
+        // const updatedSection = [
+        //   {
+        //     ...data.sections_list[0],
+        //     section_content: {
+        //       ...data.dynamicSection,
+        //     },
+        //   },
+        // ];
 
-        const updatedSections = [{ ...data.sections_list , ...updatedSection }];
+        console.log(data);
+        // const updatedSections = [{ ...data.sections_list, ...updatedSection }];
         setPageData(data);
-        setFirstSectionData(updatedSections);
+        // setFirstSectionData(updatedSections);
       })
       .catch((error) => {
         console.error('Error fetching page data:', error);
       });
   }, []);
 
-  if (!firstSectionData) {
-    return <div>Loading...</div>;
-  }
-  console.log(firstSectionData);
+  // if (!firstSectionData) {
+  //   return <div>Loading...</div>;
+  // }
   console.log(pageData);
 
   return (
     <div>
-      {firstSectionData.map((section, index) => (
+      {/* {pageData.sections_list[0].map((section, index) => (
         <div key={index}>
           <h2>{section.section_content && section.section_content.title}</h2>
         </div>
-      ))}
+      ))} */}
     </div>
   );
 };

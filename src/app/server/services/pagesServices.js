@@ -74,7 +74,7 @@ export const getPageWithSectionById = async (req, res) => {
     };
     console.log('DATA', combinedData);
 
-    const addToPage = { ...page.sections_list, ...combinedData };
+    const addToPage = [...page.sections_list.slice(1), combinedData];
 
     res.status(200).json({ status: 200, data: addToPage });
   } catch (error) {

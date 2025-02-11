@@ -10,87 +10,6 @@
 //     await mongoose.connect(env('MONGODB_URI'));
 //     console.log('✅ Connected to MongoDB');
 
-//     const collectionsUK = [
-//       {
-//         title: 'Світло в "Сіру Зону"!',
-//         importance: 'urgent',
-//         collected: 80000,
-//         target: 100000,
-//         alt: 'Світло в "Сіру Зону',
-//         peopleDonate: 100,
-//         desc: 'Збираємо на енергетичні батончики, їжа швидкого приготування, вітаміни- все це необхідно щодня. Долучайтеся до збору, підтримаємо наших воїнів разом!',
-//         long_desc: '',
-//         status: 'active',
-//         type: 'collections',
-//         language: 'uk',
-//       },
-//       {
-//         title: 'Світло в "Сіру Зону"!',
-//         importance: 'urgent',
-//         collected: 5600,
-//         target: 100000,
-//         alt: 'Світло в "Сіру Зону',
-//         peopleDonate: 100,
-//         desc: 'Збираємо на енергетичні батончики, їжа швидкого приготування, вітаміни - все це необхідно щодня. Долучайтеся до збору, підтримаємо наших воїнів разом!',
-//         long_desc: '',
-//         status: 'active',
-//         type: 'collections',
-//         language: 'uk',
-//       },
-//       {
-//         title: 'Світло в "Сіру Зону"!',
-//         importance: 'urgent',
-//         collected: 50000,
-//         target: 100000,
-//         alt: 'Світло в "Сіру Зону',
-//         peopleDonate: 100,
-//         desc: 'Збираємо на енергетичні батончики, їжа швидкого приготування, вітаміни - все це необхідно щодня. Долучайтеся до збору, підтримаємо наших воїнів разом!',
-//         long_desc: '',
-//         status: 'active',
-//         type: 'collections',
-//         language: 'uk',
-//       },
-//       {
-//         title: 'Світло в "Сіру Зону"!',
-//         importance: 'urgent',
-//         collected: 2000,
-//         target: 100000,
-//         alt: 'Світло в "Сіру Зону',
-//         peopleDonate: 100,
-//         desc: 'Немає електроенергії, води, газу, щоденні обстріли, 54 особи пенсійного віку.Села Плавні і Кам‘янське (Запорізька лінія фронту).',
-//         long_desc: '',
-//         status: 'active',
-//         type: 'collections',
-//         language: 'uk',
-//       },
-//       {
-//         title: 'Світло в "Сіру Зону"!',
-//         importance: 'urgent',
-//         collected: 2000,
-//         target: 100000,
-//         alt: 'Світло в "Сіру Зону',
-//         peopleDonate: 100,
-//         desc: 'Немає електроенергії, води, газу, щоденні обстріли, 54 особи пенсійного віку.Села Плавні і Кам‘янське (Запорізька лінія фронту).',
-//         long_desc: '',
-//         status: 'active',
-//         type: 'collections',
-//         language: 'uk',
-//       },
-//       {
-//         title: 'Світло в "Сіру Зону"!',
-//         importance: 'urgent',
-//         collected: 2000,
-//         target: 100000,
-//         alt: 'Світло в "Сіру Зону',
-//         peopleDonate: 100,
-//         desc: 'Немає електроенергії, води, газу, щоденні обстріли, 54 особи пенсійного віку.Села Плавні і Кам‘янське (Запорізька лінія фронту).',
-//         long_desc: '',
-//         status: 'active',
-//         type: 'collections',
-//         language: 'uk',
-//       },
-//     ];
-
 //     await CollectionModel.insertMany(collectionsUK);
 //     console.log('📦 Collections inserted');
 
@@ -221,89 +140,6 @@
 //     },
 //   },
 // ];
-
-// const collectionsEN = [
-//   {
-//     title: 'Light in the "Gray Zone"!',
-//     importance: 'urgent',
-//     collected: 80000,
-//     target: 100000,
-//     alt: 'Light in the "Gray Zone"',
-//     peopleDonate: 100,
-//     desc: 'We are collecting for energy bars, instant food, vitamins—everything necessary for daily survival. Join the collection, let’s support our soldiers together!',
-//     long_desc: '',
-//     status: 'active',
-//     type: 'collections',
-//     language: 'en',
-//   },
-//   {
-//     title: 'Light in the "Gray Zone"!',
-//     importance: 'urgent',
-//     collected: 5600,
-//     target: 100000,
-//     alt: 'Light in the "Gray Zone"',
-//     peopleDonate: 100,
-//     desc: 'We are collecting for energy bars, instant food, vitamins—everything necessary for daily survival. Join the collection, let’s support our soldiers together!',
-//     long_desc: '',
-//     status: 'active',
-//     type: 'collections',
-//     language: 'en',
-//   },
-//   {
-//     title: 'Light in the "Gray Zone"!',
-//     importance: 'urgent',
-//     collected: 50000,
-//     target: 100000,
-//     alt: 'Light in the "Gray Zone"',
-//     peopleDonate: 100,
-//     desc: 'We are collecting for energy bars, instant food, vitamins—everything necessary for daily survival. Join the collection, let’s support our soldiers together!',
-//     long_desc: '',
-//     status: 'active',
-//     type: 'collections',
-//     language: 'en',
-//   },
-//   {
-//     title: 'Light in the "Gray Zone"!',
-//     importance: 'urgent',
-//     collected: 2000,
-//     target: 100000,
-//     alt: 'Light in the "Gray Zone"',
-//     peopleDonate: 100,
-//     desc: 'No electricity, water, or gas, constant shelling, 54 pensioners. Villages Plavni and Kamyanske (Zaporizhzhya frontline).',
-//     long_desc: '',
-//     status: 'active',
-//     type: 'collections',
-//     language: 'en',
-//   },
-//   {
-//     title: 'Light in the "Gray Zone"!',
-//     importance: 'urgent',
-//     collected: 2000,
-//     target: 100000,
-//     alt: 'Light in the "Gray Zone"',
-//     peopleDonate: 100,
-//     desc: 'No electricity, water, or gas, constant shelling, 54 pensioners. Villages Plavni and Kamyanske (Zaporizhzhya frontline).',
-//     long_desc: '',
-//     status: 'active',
-//     type: 'collections',
-//     language: 'en',
-//   },
-//   {
-//     title: 'Light in the "Gray Zone"!',
-//     importance: 'urgent',
-//     collected: 2000,
-//     target: 100000,
-//     alt: 'Light in the "Gray Zone"',
-//     peopleDonate: 100,
-//     desc: 'No electricity, water, or gas, constant shelling, 54 pensioners. Villages Plavni and Kamyanske (Zaporizhzhya frontline).',
-//     long_desc: '',
-//     status: 'active',
-//     type: 'collections',
-//     language: 'en',
-//   },
-// ];
-// await CollectionModel.insertMany(collectionsEN);
-// console.log('📦 Collections inserted');
 
 // const sectionsEN = [
 //   {
@@ -460,4 +296,4 @@
 //   }
 // };
 
-//mainPageSeed();
+// mainPageSeed();

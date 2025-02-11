@@ -11,7 +11,7 @@ export const mainPageSchemaUK = new mongoose.Schema({
   route: {
     type: String,
     required: true,
-    enum: ['main', 'about', 'collection', 'reporting'],
+    enum: ['main', 'about', 'collection', 'reporting', 'active'],
   },
   sections_list: { type: [mongoose.Schema.Types.Mixed] },
 });

@@ -4,9 +4,9 @@
 // import { FiltersModel } from '../models/FilterModel.js';
 // import env from '../utils/evn.js';
 
-// // TO USE THIS RUN : node src/app/server/seeds/reportingsPageSeed.js
+// // TO USE THIS RUN : node src/app/server/seeds/reportingPageSeed.js
 
-// const mainPageSeed = async () => {
+// const reportingPageSeed = async () => {
 //   try {
 //     await mongoose.connect(env('MONGODB_URI'));
 //     console.log('✅ Connected to MongoDB');
@@ -262,4 +262,4 @@
 //   }
 // };
 
-// mainPageSeed();
+// reportingPageSeed();

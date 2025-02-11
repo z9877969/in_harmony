@@ -4,7 +4,7 @@
 
 // // TO USE THIS RUN : node src/app/server/seeds/reportingSeed.js
 
-// const mainPageSeed = async () => {
+// const reportingSeed = async () => {
 //   try {
 //     await mongoose.connect(env('MONGODB_URI'));
 //     console.log('✅ Connected to MongoDB');
@@ -308,4 +308,4 @@
 //   }
 // };
 
-// mainPageSeed();
+// reportingSeed();

@@ -6,7 +6,7 @@
 
 // // TO USE THIS RUN : node src/app/server/seeds/activeCollectionsSeed.js
 
-// const mainPageSeed = async () => {
+// const activeCollectionsSeed = async () => {
 //   try {
 //     await mongoose.connect(env('MONGODB_URI'));
 //     console.log('✅ Connected to MongoDB');
@@ -94,4 +94,4 @@
 //   }
 // };
 
-// mainPageSeed();
+// activeCollectionsSeed();

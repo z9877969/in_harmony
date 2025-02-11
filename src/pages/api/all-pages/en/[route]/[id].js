@@ -29,21 +29,7 @@ export default async function handler(req, res) {
           return res.status(404).json({ message: 'Collection not found' });
         }
 
-        const response = {
-          route: route,
-          section_name: 'collection_details',
-          section_content: {
-            title: dynamicSection.title,
-            image: dynamicSection.image,
-            collected: dynamicSection.collected,
-            target: dynamicSection.target,
-            description: dynamicSection.desc,
-            long_desc: dynamicSection.long_desc,
-            status: dynamicSection.status,
-          },
-        };
-
-        return res.status(200).json(response);
+        return res.status(200).json(dynamicSection);
       } else if (route) {
         return getPageByRouteEN(req, res);
       } else if (id) {

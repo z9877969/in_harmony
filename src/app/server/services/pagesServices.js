@@ -252,8 +252,7 @@ export const getCollectionDetailsByIdEN = async (req, res) => {
 
     const { route, id, sectionName = 'collection_details' } = req.query;
 
-    const { route, id } = req.query;
-    // eslint-disable-next-line
+    
    
 
     const page = await PagesEN.findOne({ route }).lean();

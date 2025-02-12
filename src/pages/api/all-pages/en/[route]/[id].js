@@ -1,9 +1,5 @@
 import { connectToDatabase } from '@/app/server/lib';
-import { getCollectionById } from '@/app/server/services/collectionsService';
-import {
-  getPageByRouteEN,
-  getPageWithSectionById,
-} from '@/app/server/services/pagesServices';
+import { getCollectionDetailsByIdEN } from '@/app/server/services/pagesServices';
 
 export const config = {
   api: {
@@ -19,17 +15,13 @@ export default async function handler(req, res) {
 
     if (req.method === 'GET') {
       if (route && id) {
-        const dynamicSection = await getPageWithSectionById(req, res);
+        const dynamicSection = await getCollectionDetailsByIdEN(req, res);
 
         if (!dynamicSection) {
           return res.status(404).json({ message: 'Collection not found' });
         }
 
         return res.status(200).json(dynamicSection);
-      } else if (route) {
-        return getPageByRouteEN(req, res);
-      } else if (id) {
-        return getCollectionById(req, res);
       } else {
         return res.status(400).json({ message: 'Route or ID is required' });
       }
@@ -37,8 +29,7 @@ export default async function handler(req, res) {
       return res.status(405).json({ message: 'Method Not Allowed' });
     }
   } catch (error) {
-    // eslint-disable-next-line
-    console.error('Error fetching data:', error);
+
     return res.status(500).json({ message: 'Internal Server Error' });
   }
 }

@@ -1,7 +1,6 @@
 // import mongoose from 'mongoose';
 // import { PagesEN, PagesUA } from '../models/PageModels/PageModels.js';
 // import env from '../utils/evn.js';
-// import TeamMembersModel from '../models/TeamMembersModels.js';
 
 // // TO USE THIS RUN : node src/app/server/seeds/footerSeed.js
 
@@ -26,9 +25,6 @@
 //               title: 'Знайомтесь з нашою командою',
 //               text: 'Цей сайт був створений завдяки зусиллям студентів GoIT, які працювали над його розробкою. Кожен учасник команди вніс важливий внесок, застосовуючи знання, навички та креативність для досягнення спільної мети. Познайомтеся з людьми, які стоять за створенням цього проєкту:',
 //             },
-//             members: await TeamMembersModel.find({
-//               language: 'ua',
-//             }),
 //           },
 //           company: {
 //             contacts: {
@@ -106,9 +102,6 @@
 //               title: 'Meet Our Team',
 //               text: 'This website was created thanks to the efforts of GoIT students who worked on its development. Each team member made an important contribution, applying knowledge, skills, and creativity to achieve a common goal. Get to know the people behind this project:',
 //             },
-//             members: await TeamMembersModel.find({
-//               language: 'en',
-//             }),
 //           },
 //           company: {
 //             contacts: {

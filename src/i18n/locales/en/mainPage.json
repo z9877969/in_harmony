@@ -1,37 +1,5 @@
 {
     "about": {
-        "title": "About us",
-        "description": "InHarmony — is a charity that brings together people who are committed to making a difference for those who need it most. We work to support military families, internally displaced persons, and war-affected citizens. In addition, our work is focused on caring for animals affected by war and in need of help and protection. Thanks to your contributions and trust, we can provide critical support where it is needed most.",
-        "activities": {
-            "title": "Key areas of activity:",
-            "cards": [
-                {
-                    "id": "1",
-                    "icon": "icon-support",
-                    "title": "Support for military families and IDPs",
-                    "description": "We provide necessary assistance to the families of military personnel and internally displaced persons, providing essential items, food, and psychological support."
-                },
-                {
-                    "id": "2",
-                    "icon": "icon-hand",
-                    "title": "Assistance to frontline territories",
-                    "description": "We deliver humanitarian aid to villagers on the front lines. We provide food, medicine, and essential supplies, supporting them in difficult times."
-                },
-                {
-                    "id": "3",
-                    "icon": "icon-animal-paw",
-                    "title": "Supporting animals in crisis regions",
-                    "description": "We feed and evacuate animals from dangerous war zones, provide veterinary care, and help them find new shelter."
-                },
-                {
-                    "id": "4",
-                    "icon": "icon-house",
-                    "title": "Development of a modular town for displaced people",
-                    "description": "We are creating a project for a modern and safe modular town for residents of Mariupol who lost their homes due to the war."
-                }
-            ]
-        },
-        "motivation": "Join our initiative — together we can save even more lives!",
         "learnMore": "Learn more"
     }
 }

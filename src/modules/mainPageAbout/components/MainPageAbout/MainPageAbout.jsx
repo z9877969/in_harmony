@@ -10,27 +10,27 @@ import ActivitiesCard from '../ActivitiesCard/ActivitiesCard';
 
 import s from './MainPageAbout.module.scss';
 
-const MainPageAbout = () => {
+const MainPageAbout = ({ content }) => {
   const pathname = usePathname();
   const locale = pathname.split('/')[1];
   const { t } = useTranslation('mainPage');
-  const cards = t('about.activities.cards', { returnObjects: true });
+  const icons = ['icon-support', 'icon-hand', 'icon-animal-paw', 'icon-house'];
 
   return (
     <Section>
       <Container>
         <div className={s.contentContainer}>
           <div className={s.about}>
-            <h2>{t('about.title')}</h2>
-            <p>{t('about.description')}</p>
+            <h2>{content?.title}</h2>
+            <p>{content?.description}</p>
           </div>
           <div className={s.activities}>
-            <h3>{t('about.activities.title')}</h3>
+            <h3>{content?.sub_titles}</h3>
             <ul className={s.cards}>
-              {cards.map((item) => (
-                <li key={item.id}>
+              {content?.cards.map((item, index) => (
+                <li key={index}>
                   <ActivitiesCard
-                    icon={item.icon}
+                    icon={icons[index]}
                     title={item.title}
                     description={item.description}
                   />
@@ -38,7 +38,7 @@ const MainPageAbout = () => {
               ))}
             </ul>
           </div>
-          <p className={s.motivation}>{t('about.motivation')}</p>
+          <p className={s.motivation}>{content?.motivation}</p>
           <div className={s.image}></div>
           <div className={s.learnMore}>
             <Link href={`/${locale}/${ROUTES.ABOUT}`}>

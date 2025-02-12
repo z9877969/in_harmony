@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { SwiperSlide } from 'swiper/react';
+import { useTranslation } from 'react-i18next';
 import {
   ActiveCollectionsCard,
   Button,
@@ -11,17 +12,18 @@ import {
 } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import { ActiveCollectionList } from '@/modules/mainPageCollection';
-import collections from '../../data/section-content.json';
+
 import s from './MainPageCollection.module.scss';
 
 const MainPageCollection = ({ content }) => {
+  const { t } = useTranslation('mainPage');
   const [isTablet, setIsTablet] = useState(false);
   const [visibleItems] = useState(3);
   const router = useRouter();
   const pathname = usePathname();
   const locale = pathname.split('/')[1];
-
-  const allCollections = collections.collections;
+  const cards = content.cards;
+  const buttons = t('active_collections.buttons', { returnObjects: true });
 
   useEffect(() => {
     const handleResize = () => {
@@ -53,12 +55,12 @@ const MainPageCollection = ({ content }) => {
                 slideCount={2}
                 spaceBetween={24}
               >
-                {allCollections.slice(0, visibleItems).map((collection) => (
+                {cards.slice(0, visibleItems).map((collection) => (
                   <SwiperSlide key={collection._id}>
                     <ActiveCollectionsCard
                       collection={collection}
-                      buttonDetails={collections.button_details}
-                      buttonDonas={collections.button_donas}
+                      buttonDetails={buttons.details}
+                      buttonDonats={buttons.donats}
                     />
                   </SwiperSlide>
                 ))}
@@ -66,7 +68,9 @@ const MainPageCollection = ({ content }) => {
             ) : (
               <ActiveCollectionList
                 visibleItems={visibleItems}
-                allCollection={collections}
+                allCollection={cards}
+                buttonDetails={buttons.details}
+                buttonDonats={buttons.donats}
               />
             )}
           </div>
@@ -77,7 +81,7 @@ const MainPageCollection = ({ content }) => {
             size="large"
             fontSize="eighteen"
           >
-            {collections.all_collections_button}
+            {buttons.allCollections}
           </Button>
         </div>
       </Container>

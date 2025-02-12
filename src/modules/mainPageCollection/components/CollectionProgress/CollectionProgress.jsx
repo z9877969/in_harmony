@@ -1,7 +1,11 @@
 import { ProgressBar } from '@/shared/components';
 import s from './CollectionProgress.module.scss';
 
-const CollectionProgress = ({ collected, target }) => {
+const CollectionProgress = ({
+  collected_title,
+  target_title, collected,
+  target,
+}) => {
   const progress = (collected / target) * 100;
   const formattedProgress = Math.round(progress);
 
@@ -10,11 +14,11 @@ const CollectionProgress = ({ collected, target }) => {
       {collected && target && (
         <div className={s.targetContainer}>
           <p className={s.targetText}>
-            Зібрано
+            {collected_title}
             <span className={s.counts}>{collected} &#x20B4;</span>
           </p>
           <p className={s.targetText}>
-            Ціль
+            {target_title}
             <span className={s.counts}>{target} &#x20B4;</span>
           </p>
         </div>

@@ -14,7 +14,7 @@ import {
 import { CollectionProgress } from '@/modules/mainPageCollection';
 import s from './ActiveCollectionsCard.module.scss';
 
-function ActiveCollectionsCard({ collection, buttonDetails, buttonDonas }) {
+function ActiveCollectionsCard({ collection, buttonDetails, buttonDonats }) {
   const router = useRouter();
   const pathname = usePathname();
   const locale = pathname.split('/')[1];
@@ -54,11 +54,14 @@ function ActiveCollectionsCard({ collection, buttonDetails, buttonDonas }) {
         <CollectionProgress
           collected={collection.collected}
           target={collection.target}
+          collected_title={collection.collected_title}
+          target_title={collection.target_title}
         />
         <p className={s.peopleDonate}>
           <Icon iconName="icon-people" className={s.collectionIcon} />
-          <span>{collection.peopleDonate}</span> донорів
+          <span>{collection.peopleDonate}</span> {collection.peopleDonate_title}
         </p>
+
         <div className={s.buttonContainer}>
           <Button
             border="true"
@@ -75,7 +78,7 @@ function ActiveCollectionsCard({ collection, buttonDetails, buttonDonas }) {
             className={s.heartButton}
           >
             <Icon iconName="icon-heart" className={s.heartIcon} />
-            {buttonDonas}
+            {buttonDonats}
           </Button>
         </div>
       </div>

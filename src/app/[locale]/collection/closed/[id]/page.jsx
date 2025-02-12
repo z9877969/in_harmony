@@ -1,4 +1,4 @@
-import { ClosedCollectionFeedbacks } from '@/modules/closedCollectionFeedbacks';
+import { ClosedCollectionFeedbacks } from '@/modules/ClosedCollectionFeedbacks/index.js';
 
 // import s from './page.module.scss';
 const CollectionPage = () => {

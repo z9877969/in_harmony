@@ -1,8 +1,10 @@
 'use client';
 
-import { usePathname, useRouter } from 'next/navigation';
-import { Button, Icon } from '@/shared/components';
-import { ROUTES } from '@/shared/constants';
+import { usePathname } from 'next/navigation';
+
+import { Icon } from '@/shared/components';
+import { LINKDATA, ROUTES } from '@/shared/constants';
+import { CollectionProgress } from '@/modules/mainPageCollection';
 import {
   lightMobil,
   lightMobil2x,
@@ -11,11 +13,11 @@ import {
   lightDesktop,
   lightDesktop2x,
 } from '@/shared/images/active-collection';
-import { CollectionProgress } from '@/modules/mainPageCollection';
+import LinkButton from '../LinkButton/LinkButton.jsx';
+
 import s from './ActiveCollectionsCard.module.scss';
 
 function ActiveCollectionsCard({ collection, buttonDetails, buttonDonas }) {
-  const router = useRouter();
   const pathname = usePathname();
   const locale = pathname.split('/')[1];
 
@@ -60,23 +62,16 @@ function ActiveCollectionsCard({ collection, buttonDetails, buttonDonas }) {
           <span>{collection.peopleDonate}</span> донорів
         </p>
         <div className={s.buttonContainer}>
-          <Button
-            border="true"
-            size="large"
-            onClick={() =>
-              router.push(`/${locale}/${ROUTES.COLLECTION}/${collection._id}`)
-            }
-          >
-            {buttonDetails}
-          </Button>
-          <Button
-            onClick={() => router.push(`/${locale}/${ROUTES.PAYMENTS}`)}
-            size="large"
-            className={s.heartButton}
-          >
-            <Icon iconName="icon-heart" className={s.heartIcon} />
-            {buttonDonas}
-          </Button>
+          <LinkButton
+            path={`/${locale}/${ROUTES.COLLECTION.ACTIVE}`}
+            linkText={buttonDetails}
+            type={LINKDATA.TYPE_LIGHT_BORDER}
+          />
+          <LinkButton
+            path={`/${locale}/${ROUTES.PAYMENTS(1)}?value=${collection.value}`}
+            linkText={buttonDonas}
+            type={LINKDATA.TYPE_DARK_HEART}
+          />
         </div>
       </div>
     </div>

@@ -1,6 +1,5 @@
 // import mongoose from 'mongoose';
 // import env from '../utils/evn.js';
-// import CollectionModel from '../models/CollectionsModel.js';
 // import { PagesEN, PagesUA } from '../models/PageModels/PageModels.js';
 
 // // TO USE THIS RUN : node src/app/server/seeds/mainPageSeed.js
@@ -75,54 +74,14 @@
 //         section_name: 'active_collections',
 //         section_content: {
 //           title: 'Активні збори',
-//           cards: await CollectionModel.find({
-//             type: 'collections',
-//             status: 'active',
-//             language: 'ua',
-//           }),
 //         },
 //       },
 //       {
 //         local: 'ua',
 //         route: 'main',
-//         section_name: 'achievements',
+//         section_name: 'closed_collections',
 //         section_content: {
 //           title: 'Останні досягнення',
-//           cards: [
-//             {
-//               title: 'Вода в сіру зону',
-//               text: 'Проект вирішив проблему транспортування та зберігання питної води.Завдяки цьому проекту було доставлено 500 л питної води 54 людям у сірій зоні протягом тижня.',
-//               item: 'Зібрано:',
-//               total: '35768',
-//               currency: 'грн',
-//               term: 'Термін реалізаці:',
-//               days: '10 ',
-//               period: 'днів',
-//               type: 'progress',
-//             },
-//             {
-//               title: 'Вода в сіру зону-2',
-//               text: 'Проект вирішив проблему транспортування та зберігання питної води.Завдяки цьому проекту було доставлено 500 л питної води 54 людям у сірій зоні протягом тижня.',
-//               item: 'Зібрано:',
-//               total: '35768',
-//               currency: 'грн',
-//               term: 'Термін реалізаці:',
-//               days: '10 ',
-//               period: 'днів',
-//               type: 'progress',
-//             },
-//             {
-//               title: 'Вода в сіру зону-3',
-//               text: 'Проект вирішив проблему транспортування та зберігання питної води.Завдяки цьому проекту було доставлено 500 л питної води 54 людям у сірій зоні протягом тижня.',
-//               item: 'Зібрано:',
-//               total: '35768',
-//               currency: 'грн',
-//               term: 'Термін реалізаці:',
-//               days: '10 ',
-//               period: 'днів',
-//               type: 'progress',
-//             },
-//           ],
 //         },
 //       },
 //       {
@@ -201,58 +160,17 @@
 //       {
 //         local: 'en',
 //         route: 'main',
-//         section_name: 'active_acllections',
+//         section_name: 'active_collections',
 //         section_content: {
 //           title: 'Active Collections',
-
-//           cards: await CollectionModel.find({
-//             type: 'collections',
-//             status: 'active',
-//             language: 'en',
-//           }),
 //         },
 //       },
 //       {
 //         local: 'en',
 //         route: 'main',
-//         section_name: 'achievements',
+//         section_name: 'closed_collections',
 //         section_content: {
 //           title: 'Recent Achievements',
-//           cards: [
-//             {
-//               title: 'Water to the Gray Zone',
-//               text: 'The project solved the problem of transporting and storing drinking water. Thanks to this project, 500 liters of drinking water were delivered to 54 people in the gray zone within a week.',
-//               item: 'Amount Collected:',
-//               total: '35,768',
-//               currency: 'UAH',
-//               term: 'Implementation Time:',
-//               days: '10',
-//               period: 'days',
-//               type: 'progress',
-//             },
-//             {
-//               title: 'Water to the Gray Zone-2',
-//               text: 'The project solved the problem of transporting and storing drinking water. Thanks to this project, 500 liters of drinking water were delivered to 54 people in the gray zone within a week.',
-//               item: 'Amount Collected:',
-//               total: '35,768',
-//               currency: 'UAH',
-//               term: 'Implementation Time:',
-//               days: '10',
-//               period: 'days',
-//               type: 'progress',
-//             },
-//             {
-//               title: 'Water to the Gray Zone-3',
-//               text: 'The project solved the problem of transporting and storing drinking water. Thanks to this project, 500 liters of drinking water were delivered to 54 people in the gray zone within a week.',
-//               item: 'Amount Collected:',
-//               total: '35,768',
-//               currency: 'UAH',
-//               term: 'Implementation Time:',
-//               days: '10',
-//               period: 'days',
-//               type: 'progress',
-//             },
-//           ],
 //         },
 //       },
 //       {

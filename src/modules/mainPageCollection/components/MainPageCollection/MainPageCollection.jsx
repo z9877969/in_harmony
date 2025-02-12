@@ -14,7 +14,7 @@ import { ActiveCollectionList } from '@/modules/mainPageCollection';
 import collections from '../../data/section-content.json';
 import s from './MainPageCollection.module.scss';
 
-const MainPageCollection = () => {
+const MainPageCollection = ({ content }) => {
   const [isTablet, setIsTablet] = useState(false);
   const [visibleItems] = useState(3);
   const router = useRouter();
@@ -43,7 +43,7 @@ const MainPageCollection = () => {
     <section className={s.collectionSection}>
       <Container>
         <div className={s.mainContainer}>
-          <h2 className={s.title}>{collections.title}</h2>
+          <h2 className={s.title}>{content.title}</h2>
           <div>
             {isTablet ? (
               <DotsSwiper

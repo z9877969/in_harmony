@@ -335,6 +335,49 @@ export const getCollectionDetailsByIdUA = async (req, res) => {
         .json({ error: `Page not found for route: ${route}` });
     }
 
+    const sectionConfigs = {
+      active_collections: { status: 'active', type: 'collections' },
+      closed_collections: { status: 'closed', type: 'collections' },
+      filters: { type: 'filter', status: 'filter' },
+      comments: { type: 'was-helped', status: 'comments' },
+      footer: { type: 'team' },
+    };
+
+    const updatedSections = await Promise.all(
+      page.sections_list.map(async (section) => {
+        const config = sectionConfigs[section.section_name];
+
+        if (config) {
+          const query = {
+            type: config.type,
+            ...(config.status && { status: config.status }),
+            language: 'en',
+          };
+
+          let data;
+          if (config.type === 'collections') {
+            data = await CollectionModel.find(query).lean();
+          } else if (config.type === 'filter') {
+            data = await FiltersModel.find(query).lean();
+          } else if (config.type === 'was-helped') {
+            data = await CommentsModel.find(query).lean();
+          } else if (config.type === 'team') {
+            data = await TeamMembersModel.find(query).lean();
+          }
+
+          return {
+            ...section,
+            section_content: {
+              ...section.section_content,
+              cards: data,
+            },
+          };
+        }
+
+        return section;
+      })
+    );
+
     const collection = await CollectionModel.findOne({ _id: id }).lean();
     if (!collection) {
       return res
@@ -342,7 +385,7 @@ export const getCollectionDetailsByIdUA = async (req, res) => {
         .json({ error: `Collection not found for ID: ${id}` });
     }
 
-    const updatedSections = page.sections_list.map((section) => {
+    const finalSections = updatedSections.map((section) => {
       if (section.section_name === sectionName) {
         return {
           ...section,
@@ -352,7 +395,7 @@ export const getCollectionDetailsByIdUA = async (req, res) => {
       return section;
     });
 
-    res.status(200).json({ status: 200, data: updatedSections });
+    res.status(200).json({ status: 200, data: finalSections });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

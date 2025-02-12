@@ -7,6 +7,7 @@ const membersSchema = new mongoose.Schema({
   image: { type: [String], default: [] },
   social: { type: [mongoose.Schema.Types.Mixed] },
   language: { type: String },
+  type: { type: String, enum: ['team'] },
 });
 
 export const TeamMembersModel =

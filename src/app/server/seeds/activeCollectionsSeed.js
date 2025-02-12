@@ -1,9 +1,6 @@
 // import mongoose from 'mongoose';
 // import { PagesEN, PagesUA } from '../models/PageModels/PageModels.js';
 // import env from '../utils/evn.js';
-// import CollectionModel from '../models/CollectionsModel.js';
-// import ReportingModel from '../models/ReportingModels.js';
-
 // // TO USE THIS RUN : node src/app/server/seeds/activeCollectionsSeed.js
 
 // const activeCollectionsSeed = async () => {
@@ -18,23 +15,14 @@
 //         section_name: 'active_collections',
 //         section_content: {
 //           title: 'Активні збори',
-//           cards: await CollectionModel.find({
-//             type: 'collections',
-//             status: 'active',
-//             language: 'ua',
-//           }),
 //         },
 //       },
 //       {
 //         local: 'ua',
 //         route: 'collection',
-//         section_name: 'reporting',
+//         section_name: 'closed_collections',
 //         section_content: {
 //           title: 'Звітність',
-//           cards: await ReportingModel.find({
-//             type: 'reporting',
-//             language: 'ua',
-//           }),
 //         },
 //       },
 //     ];
@@ -46,25 +34,15 @@
 //         section_name: 'active_collections',
 //         section_content: {
 //           title: 'Active Collections',
-
-//           cards: await CollectionModel.find({
-//             type: 'collections',
-//             status: 'active',
-//             language: 'en',
-//           }),
 //         },
 //       },
 
 //       {
 //         local: 'en',
 //         route: 'collection',
-//         section_name: 'reporting',
+//         section_name: 'closed_collections',
 //         section_content: {
 //           title: 'Reporting',
-//           cards: await ReportingModel.find({
-//             type: 'reporting',
-//             language: 'en',
-//           }),
 //         },
 //       },
 //     ];

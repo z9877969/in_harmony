@@ -53,11 +53,11 @@ const MobileMenu = () => {
       <div className={clsx(s.mobileMenu, visible && s.visible)}>
         <div className={s.langBlock}>
           <UaIcon
-            className={s.langIcon}
+            className={clsx(s.langIcon, locale === 'ua' && s.activeLangIcon)}
             onClick={() => handleLanguageSelect('ua')}
           />
           <EnIcon
-            className={s.langIcon}
+            className={clsx(s.langIcon, locale === 'en' && s.activeLangIcon)}
             onClick={() => handleLanguageSelect('en')}
           />
         </div>

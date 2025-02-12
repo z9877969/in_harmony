@@ -56,7 +56,6 @@ export const getPageUK = async (req, res) => {
         return { ...page, sections_list: updatedSections };
       })
     );
-    console.log(updatedPages);
     res.status(200).json({ status: 200, pages: updatedPages });
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -173,7 +172,6 @@ export const getPageByRouteUA = async (req, res) => {
         return section;
       })
     );
-    console.log(updatedSections);
 
     res.status(200).json({
       status: 200,

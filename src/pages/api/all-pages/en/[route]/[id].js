@@ -37,6 +37,7 @@ export default async function handler(req, res) {
       return res.status(405).json({ message: 'Method Not Allowed' });
     }
   } catch (error) {
+    // eslint-disable-next-line
     console.error('Error fetching data:', error);
     return res.status(500).json({ message: 'Internal Server Error' });
   }

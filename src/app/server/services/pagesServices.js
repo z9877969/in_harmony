@@ -249,7 +249,12 @@ export const getPageByRouteEN = async (req, res) => {
 
 export const getCollectionDetailsByIdEN = async (req, res) => {
   try {
+
     const { route, id, sectionName = 'collection_details' } = req.query;
+
+    const { route, id } = req.query;
+    // eslint-disable-next-line
+   
 
     const page = await PagesEN.findOne({ route }).lean();
     if (!page) {
@@ -342,6 +347,9 @@ export const getCollectionDetailsByIdUA = async (req, res) => {
       comments: { type: 'was-helped', status: 'comments' },
       footer: { type: 'team' },
     };
+
+    
+
 
     const updatedSections = await Promise.all(
       page.sections_list.map(async (section) => {

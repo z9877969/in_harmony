@@ -10,6 +10,7 @@ const filtersSchema = new mongoose.Schema({
     enum: ['filter'],
   },
   language: { type: String },
+  status: { type: String, enum: ['filter'], required: true },
 });
 
 export const FiltersModel =

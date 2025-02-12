@@ -23,6 +23,7 @@
 //           { name: 'linkedin', url: 'https://www.linkedin.com' },
 //           { name: 'behance', url: 'https://www.behance.net' },
 //         ],
+//         type: 'team',
 //       },
 //       {
 //         language: 'ua',
@@ -38,6 +39,7 @@
 //           { name: 'linkedin', url: 'https://www.linkedin.com' },
 //           { name: 'behance', url: 'https://www.behance.net' },
 //         ],
+//         type: 'team',
 //       },
 //       {
 //         language: 'ua',
@@ -53,6 +55,7 @@
 //           { name: 'linkedin', url: 'https://www.linkedin.com' },
 //           { name: 'behance', url: 'https://www.behance.net' },
 //         ],
+//         type: 'team',
 //       },
 //     ];
 
@@ -73,6 +76,7 @@
 //           { name: 'linkedin', url: 'https://www.linkedin.com' },
 //           { name: 'behance', url: 'https://www.behance.net' },
 //         ],
+//         type: 'team',
 //       },
 //       {
 //         language: 'en',
@@ -87,6 +91,7 @@
 //           { name: 'linkedin', url: 'https://www.linkedin.com' },
 //           { name: 'behance', url: 'https://www.behance.net' },
 //         ],
+//         type: 'team',
 //       },
 //       {
 //         language: 'en',
@@ -101,6 +106,7 @@
 //           { name: 'linkedin', url: 'https://www.linkedin.com' },
 //           { name: 'behance', url: 'https://www.behance.net' },
 //         ],
+//         type: 'team',
 //       },
 //     ];
 //     await TeamMembersModel.insertMany(membersUA);

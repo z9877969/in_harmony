@@ -1,8 +1,6 @@
 // import mongoose from 'mongoose';
 // import { PagesEN, PagesUA } from '../models/PageModels/PageModels.js';
 // import env from '../utils/evn.js';
-// import CollectionModel from '../models/CollectionsModel.js';
-// import CommentsModel from '../models/WasHelpedCommentsModels.js';
 
 // // TO USE THIS RUN : node src/app/server/seeds/closedCollectionDetailsSeed.js
 
@@ -24,23 +22,14 @@
 //         section_name: 'comments',
 //         section_content: {
 //           title: 'Відгуки тих, кому допомогли',
-//           cards: await CommentsModel.find({
-//             type: 'was-helped',
-//             language: 'ua',
-//           }),
 //         },
 //       },
 //       {
 //         local: 'ua',
 //         route: 'closed',
-//         section_name: 'other_collections',
+//         section_name: 'closed_collections',
 //         section_content: {
 //           title: 'Інші реалізовані проєкти:',
-//           cards: await CollectionModel.find({
-//             type: 'collections',
-//             status: 'closed',
-//             language: 'ua',
-//           }),
 //         },
 //       },
 //     ];
@@ -58,23 +47,14 @@
 //         section_name: 'comments',
 //         section_content: {
 //           title: 'Reviews from those who were helped',
-//           cards: await CommentsModel.find({
-//             type: 'was-helped',
-//             language: 'en',
-//           }),
 //         },
 //       },
 //       {
 //         local: 'en',
 //         route: 'closed',
-//         section_name: 'other_collections',
+//         section_name: 'closed_collections',
 //         section_content: {
 //           title: 'Other implemented projects:',
-//           cards: await CollectionModel.find({
-//             type: 'collections',
-//             status: 'closed',
-//             language: 'en',
-//           }),
 //         },
 //       },
 //     ];

@@ -1,7 +1,6 @@
 // import mongoose from 'mongoose';
 // import { PagesEN, PagesUA } from '../models/PageModels/PageModels.js';
 // import env from '../utils/evn.js';
-// import CollectionModel from '../models/CollectionsModel.js';
 
 // // TO USE THIS RUN : node src/app/server/seeds/openCollectionsDetailsSeed.js
 
@@ -52,13 +51,9 @@
 //       {
 //         local: 'ua',
 //         route: 'active',
-//         section_name: 'other_collections',
+//         section_name: 'active_collections',
 //         section_content: {
 //           title: 'Інші активні збори:',
-//           cards: await CollectionModel.find({
-//             type: 'collections',
-//             language: 'ua',
-//           }),
 //         },
 //       },
 //     ];
@@ -105,13 +100,9 @@
 //       {
 //         local: 'en',
 //         route: 'active',
-//         section_name: 'other_collections',
+//         section_name: 'active_collections',
 //         section_content: {
 //           title: 'Other Active Collections:',
-//           cards: await CollectionModel.find({
-//             type: 'collections',
-//             language: 'en',
-//           }),
 //         },
 //       },
 //     ];

@@ -15,7 +15,6 @@ const collectionSchema = new mongoose.Schema({
   collected_title: { type: String },
   target_title: { type: String },
   //reporting options
-  total: { type: String },
   term: { type: String },
   days: { type: String },
   period: { type: String },
@@ -44,12 +43,13 @@ const collectionSchema = new mongoose.Schema({
       'clothesCollection',
       'waterCollection',
       'lightCollection',
+      'placesToStayCollection',
     ],
     required: true,
   },
   importance: {
     type: String,
-    enum: ['urgent', 'important', 'non-urgent'],
+    enum: ['urgent', 'important', 'non-urgent', 'permanent'],
     required: true,
     default: 'important',
   },

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import clsx from 'clsx';
 import { Swiper } from 'swiper/react';
 import 'swiper/css';
@@ -13,6 +13,8 @@ const DotsSwiper = ({
   slideCount,
   spaceBetween,
 }) => {
+  const swiperRef = useRef(null);
+
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const handleSlideChange = (swiper) => {
@@ -21,11 +23,13 @@ const DotsSwiper = ({
 
   const goToSlide = (index) => {
     setCurrentSlide(index);
+    swiperRef.current?.swiper.slideTo(index);
   };
 
   return (
     <>
       <Swiper
+        ref={swiperRef}
         className={clsx(customSwiper)}
         spaceBetween={spaceBetween}
         slidesPerView={slideCount}

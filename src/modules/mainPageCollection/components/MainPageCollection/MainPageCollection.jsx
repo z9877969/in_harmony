@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { SwiperSlide } from 'swiper/react';
 import {
   ActiveCollectionsCard,
@@ -18,6 +18,8 @@ const MainPageCollection = () => {
   const [isTablet, setIsTablet] = useState(false);
   const [visibleItems] = useState(3);
   const router = useRouter();
+  const pathname = usePathname();
+  const locale = pathname.split('/')[1];
 
   const allCollections = collections.collections;
 
@@ -69,7 +71,7 @@ const MainPageCollection = () => {
             )}
           </div>
           <Button
-            onClick={() => router.push(`/${ROUTES.COLLECTION}`)}
+            onClick={() => router.push(`/${locale}/${ROUTES.COLLECTION}`)}
             border="true"
             className={s.desktopButton}
             size="large"

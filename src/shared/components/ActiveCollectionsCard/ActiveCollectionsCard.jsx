@@ -70,7 +70,7 @@ function ActiveCollectionsCard({ collection, buttonDetails, buttonDonas }) {
             {buttonDetails}
           </Button>
           <Button
-            onClick={() => router.push('')}
+            onClick={() => router.push(`/${locale}/${ROUTES.PAYMENTS}`)}
             size="large"
             className={s.heartButton}
           >

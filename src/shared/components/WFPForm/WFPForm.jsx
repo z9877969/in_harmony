@@ -1,76 +1,208 @@
-const WFPForm = ({
-  regular = false,
-  amount = 0,
-  clientFirstName,
-  clientLastName,
-  clientEmail,
-}) => {
-  const orderId = '1qwertdasdf';
+'use client';
 
-  const key = 'fa61cf37bab976ebadbb7e8b8715efd07bae6552';
-  const merchant = 'inharmony_com_ua';
-  const merchantDomain = 'inharmony.com.ua';
+import { usePathname } from 'next/navigation.js';
+import {
+  forwardRef,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+  useState,
+} from 'react';
 
-  const description = 'Donate Inharmony';
-  const qnt = 1;
-  const currency = 'UAH';
-  const ts = Math.floor(Date.now() / 1000);
-  const controlString = `${merchant};${merchantDomain};${orderId};${ts};${amount};${currency};${description};${qnt};${amount}`;
+const WFPForm = forwardRef(
+  (
+    {
+      isPublic = true,
+      isRegular = true,
+      message = '',
+      amount = 0,
+      clientFirstName = 'Serhii',
+      clientLastName = 'Hudzenko',
+      clientEmail = 'serhii.hudzenko@mail.com',
+      paymentPurpose = 'inHarmony Donate',
+    },
+    ref
+  ) => {
+    const [formData, setFormData] = useState(null);
+    console.log('formData: ', formData);
+    const formRef = useRef(null);
+    const [loading, setLoading] = useState(false);
 
-  const hash = generateHash(controlString, key);
+    const pathname = usePathname();
+    const locale = pathname.split('/')[1];
+    console.log('locale: ', locale);
 
-  const getNextMonthDateFormatted = () => {
-    const date = new Date();
-    date.setMonth(date.getMonth() + 1);
+    async function generateOrderAndSubmit() {
+      if (loading) return;
 
-    return date.toLocaleDateString('uk-UA', {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric',
-    });
-  };
+      try {
+        setLoading(true);
+        const response = await fetch('/api/payments', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            amount,
+            type: isRegular ? 'regular' : 'one-time',
+            clientFirstName: isPublic ? clientFirstName : '',
+            clientLastName: isPublic ? clientLastName : '',
+            clientEmail: isPublic ? clientEmail : '',
+            paymentPurpose,
+            status: 'InProcessing',
+          }),
+        });
 
-  return (
-    <form
-      method="post"
-      action="https://secure.wayforpay.com/pay"
-      acceptCharset="utf-8"
-    >
-      <input type="hidden" name="clientFirstName" value={clientFirstName} />
-      <input type="hidden" name="clientLastName" value={clientLastName} />
-      <input type="hidden" name="clientEmail" value={clientEmail} />
-      <input type="hidden" name="amount" value={amount} />
-      <input type="hidden" name="merchantAccount" value={merchant} />
-      <input type="hidden" name="merchantAuthType" value="SimpleSignature" />
-      <input type="hidden" name="merchantDomainName" value={merchantDomain} />
-      <input type="hidden" name="merchantSignature" value={hash} />
-      <input type="hidden" name="orderReference" value={orderId} />
-      <input type="hidden" name="orderDate" value={ts} />
-      <input type="hidden" name="currency" value={currency} />
-      <input type="hidden" name="productName[]" value={description} />
-      <input type="hidden" name="productPrice[]" value={amount} />
-      <input type="hidden" name="productCount[]" value={qnt} />
-      <input
-        type="hidden"
-        name="returnUrl"
-        value="http://localhost:3000/uk/collection/active/1"
-      />
-      {regular === true && (
-        <>
-          <input type="hidden" name="regularBehavior" value="preset" />
-          <input type="hidden" name="regularMode" value="monthly" />
-          <input type="hidden" name="regularAmount" value={amount} />
-          <input type="hidden" name="regularOn" value="1" />
-          <input
-            type="hidden"
-            name="dateNext"
-            value={getNextMonthDateFormatted()}
-          />
-          <input type="hidden" name="regularCount" value="12" />
-        </>
-      )}
-    </form>
-  );
-};
+        if (!response.ok) {
+          throw new Error(
+            `Помилка при створенні платежу: ${response.statusText}`
+          );
+        }
+
+        const data = await response.json();
+        if (data) {
+          setFormData(data);
+        }
+      } catch (error) {
+        console.error('Помилка під час запиту:', error);
+        setLoading(false);
+      }
+    }
+
+    useImperativeHandle(ref, () => ({
+      generateOrderAndSubmit,
+    }));
+
+    let serviceUrl = '';
+    useEffect(() => {
+      if (formData) {
+        formRef.current?.submit();
+      }
+      serviceUrl =
+        `${formData.appBaseUR}/${locale}/?isPublic=${isPublic}&isRegular=${isRegular}&amount=${amount}` +
+        (isPublic
+          ? `&message=${message}&clientFirstName=${clientFirstName}&clientLastName=${clientLastName}&clientEmail=${clientEmail}&paymentPurpose=${paymentPurpose}`
+          : '');
+
+      console.log('formData: ', formData);
+    }, [formData]);
+
+    return (
+      <>
+        {formData && (
+          <form
+            ref={formRef}
+            method="post"
+            action={formData.paymentUrl}
+            acceptCharset="utf-8"
+          >
+            <input
+              type="hidden"
+              name="defaultPaymentSystem"
+              value={formData.defaultPaymentSystem}
+            />
+
+            <input type="hidden" name="serviceUrl" value={serviceUrl} />
+            <input type="hidden" name="language" value={formData.language} />
+            <input
+              type="hidden"
+              name="orderTimeout"
+              value={formData.orderTimeout}
+            />
+            {isPublic && clientFirstName && (
+              <input
+                type="hidden"
+                name="clientFirstName"
+                value={clientFirstName}
+              />
+            )}
+            {isPublic && clientLastName && (
+              <input
+                type="hidden"
+                name="clientLastName"
+                value={clientLastName}
+              />
+            )}
+            {isPublic && clientEmail && (
+              <input type="hidden" name="clientEmail" value={clientEmail} />
+            )}
+            <input type="hidden" name="amount" value={formData.amount} />
+            <input
+              type="hidden"
+              name="merchantAccount"
+              value={formData.merchantAccount}
+            />
+            <input
+              type="hidden"
+              name="merchantAuthType"
+              value={formData.merchantAuthType}
+            />
+            <input
+              type="hidden"
+              name="merchantDomainName"
+              value={formData.merchantDomainName}
+            />
+            <input
+              type="hidden"
+              name="merchantSignature"
+              value={formData.merchantSignature}
+            />
+            <input
+              type="hidden"
+              name="orderReference"
+              value={formData.orderReference}
+            />
+            <input type="hidden" name="orderDate" value={formData.orderDate} />
+            <input type="hidden" name="currency" value={formData.currency} />
+            <input
+              type="hidden"
+              name="productName[]"
+              value={formData.paymentPurpose}
+            />
+            <input
+              type="hidden"
+              name="productPrice[]"
+              value={formData.amount}
+            />
+            <input
+              type="hidden"
+              name="productCount[]"
+              value={formData.productCount}
+            />
+            {isRegular && (
+              <>
+                <input
+                  type="hidden"
+                  name="regularBehavior"
+                  value={formData.regularBehavior}
+                />
+                <input
+                  type="hidden"
+                  name="regularMode"
+                  value={formData.regularMode}
+                />
+                <input
+                  type="hidden"
+                  name="regularAmount"
+                  value={formData.amount}
+                />
+                <input
+                  type="hidden"
+                  name="regularOn"
+                  value={formData.regularOn}
+                />
+                <input
+                  type="hidden"
+                  name="regularCount"
+                  value={formData.regularCount}
+                />
+              </>
+            )}
+          </form>
+        )}
+      </>
+    );
+  }
+);
+
+WFPForm.displayName = 'WFPForm';
 
 export default WFPForm;

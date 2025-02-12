@@ -1,0 +1,99 @@
+@import '../../styles/mixins';
+
+.defaultLink {
+  display: flex;
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+
+  font-family: $primary-font-family;
+  font-weight: 600;
+  cursor: pointer;
+  border: 2px solid $violet-ui-text-color;
+  border-radius: 9999px;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.border {
+  padding: 12px 0;
+
+  @include font(16, 24);
+  color: $violet-ui-text-color;
+
+  background-color: transparent;
+  //   border: 2px solid $violet-ui-text-color;
+
+  &:hover,
+  &:focus {
+    @include colored-button-effects-styles(
+      $violet-ui-text-color,
+      $wite-text-color
+    );
+  }
+}
+
+.backGroundHeart {
+  padding: 10px 0;
+
+  @include font(18, 27);
+  color: $wite-text-color;
+
+  background-color: $violet-ui-text-color;
+
+  &:hover,
+  &:focus {
+    background-color: transparent;
+    color: $violet-ui-text-color;
+  }
+}
+
+.borderBiggerFont {
+  padding: 13px 0;
+
+  @include font(18, 27);
+  color: $violet-ui-text-color;
+
+  background-color: transparent;
+  border: 2px solid $violet-ui-text-color;
+
+  &:hover,
+  &:focus {
+    @include colored-button-effects-styles(
+      $violet-ui-text-color,
+      $wite-text-color
+    );
+  }
+
+  @include media(tablet) {
+    padding: 10px;
+  }
+}
+
+.backGroundBiggerFont {
+  padding: 10px 0;
+  @include font(18, 27);
+
+  color: $wite-text-color;
+  background-color: $violet-ui-text-color;
+
+  &:hover,
+  &:focus {
+    background-color: transparent;
+    color: $violet-ui-text-color;
+  }
+}
+
+.iconWrapper {
+  display: flex;
+  margin-right: 9px;
+  align-items: center;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}

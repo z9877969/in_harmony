@@ -17,10 +17,11 @@ const AboutPageMission = () => {
           <div className={s.imageWrapper}>
             <Image
               className={s.image}
-              src=""
+              src="/images/default_image.webp"
               alt="Team Photo"
               width={416}
               height={306}
+              priority
             />
           </div>
           <div className={s.about}>
@@ -29,7 +30,7 @@ const AboutPageMission = () => {
             <p className={s.descriptionExtra}>{data.descriptionExtra}</p>
           </div>
         </div>
-        <div>
+        <div className={s.iconsContainer}>
           <h3 className={s.inspirationTitle}>
             {data.inspiration.inspirationTitle}
           </h3>

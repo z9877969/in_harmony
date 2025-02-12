@@ -1,1 +1,0 @@
-export { updateLocaleMiddleware } from './updateLocaleMiddleware';

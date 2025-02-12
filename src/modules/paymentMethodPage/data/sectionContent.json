@@ -1,0 +1,102 @@
+{
+  "title": "Вибір способу оплати",
+  "paymentCard": "Картка",
+  "methods": [
+    {
+      "key": "carte",
+      "label": "За реквізитами",
+      "sections": [
+        {
+          "key": "uah",
+          "title": "Платіжні реквізити Банку в національній валюті",
+          "subsections": [
+            {
+              "title": "Надавач платiжних послуг отримувача",
+              "content": "АТ “УНІВЕРСАЛ БАНК”, Київ, Україна"
+            },
+            {
+              "title": "Рахунок отримувача",
+              "contentCopy": "UA383220010000026004110000764"
+            },
+            {
+              "title": "Назва отримувача",
+              "content": "ГО «ІнХармоні.Юа»"
+            },
+            {
+              "title": "Код отримувача",
+              "contentCopy": "44849411"
+            }
+          ]
+        },
+        {
+          "key": "usd",
+          "title": "Платіжні реквізити банку для переказів в іноземній валюті (USD)",
+          "subsections": [
+            {
+              "title": "Отримувач",
+              "content": "name: NGO «InHarmony.ua»",
+              "contentTitle": "Account No:",
+              "contentCopy": "UA563220010000026003110000765"
+            },
+            {
+              "title": "Надавач платіжних послуг отримувача",
+              "content": "JSC UNIVERSAL BANK, KYIV, UKRAINE ",
+              "contentTitle": "SWIFT:",
+              "contentCopy": " UNJSUAUKXXX"
+            },
+            {
+              "title": "Банк посередник",
+              "content": "DEUTSCHE BANK TRUST CO. AMERICAS, NEW YORK, USA",
+              "contentTitle": "Account number:",
+              "contentCopy": "04452477"
+            },
+
+            {
+              "title": "Призначення платежу",
+              "content": "Призначення платежу згідно до Ваших контрактів, інвойсів тощо."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "payPal",
+      "label": "PayPal",
+      "sections": [
+        {
+          "contentCopy": "cheeseharmony777@gmail.com"
+        }
+      ]
+    },
+    {
+      "key": "crypto",
+      "label": "Crypto",
+      "sections": [
+        {
+          "title": "Bitcoin (BTC)",
+          "contentCopy": "bc1q9dvu9turuj6elqq044a8xfytt0n6w8uw83fs9t"
+        },
+        {
+          "title": "USDT - Tether (TRC20)",
+          "contentCopy": "TPSTybe3iEBrjdw5ZTmubjPvDzpv3yKkmM"
+        },
+        {
+          "title": "Ethereum (ETH)",
+          "contentCopy": "0x8d22c4906b5D323208b0dd55B81cD43b592B3f5b"
+        },
+        {
+          "title": "Solana (SOL)",
+          "contentCopy": "4F51gBDneSaevvjKFKGxEzFEiDWu6xHTMfkceuMH3qHY"
+        },
+        {
+          "title": "Binance Coin - BNB (BEP20)",
+          "contentCopy": "0x8d22c4906b5D323208b0dd55B81cD43b592B3f5b"
+        },
+        {
+          "title": "Litecoin (LTC)",
+          "contentCopy": "ltc1qm6wd6q0mm073neu7vhg6slehst08q2werc7fu2"
+        }
+      ]
+    }
+  ]
+}

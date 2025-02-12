@@ -1,10 +1,10 @@
-import { NextResponse } from 'next/server';
-import { updateLocaleMiddleware } from '@/app/middlewares';
+import { i18nRouter } from 'next-i18n-router';
+import i18nConfig from '/i18nConfig';
 
 export function middleware(request) {
-  let response = NextResponse.next();
-
-  response = updateLocaleMiddleware(request, response);
-
-  return response;
+  return i18nRouter(request, i18nConfig);
 }
+
+export const config = {
+  matcher: '/((?!api|static|.*\\..*|_next).*)',
+};

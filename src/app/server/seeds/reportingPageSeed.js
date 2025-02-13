@@ -8,7 +8,8 @@ import { Pages } from '../models/PageModels.js';
 const reportingPageSeed = async () => {
   try {
     await mongoose.connect(env('MONGODB_URI'));
-    console.log('✅ Connected to MongoDB');
+    // eslint-disable-next-line
+    console.log('✅ Connected to MongoDB'); 
 
     // const filtersUA = [
     //   {
@@ -245,7 +246,8 @@ const reportingPageSeed = async () => {
       sections_list: sectionsUA,
     });
     await Pages.create(reportingPageDataUA);
-    console.log('📦 Reporting Page (UA) data inserted');
+    // eslint-disable-next-line
+    console.log('📦 Reporting Page (UA) data inserted'); 
 
     const reportingPageDataEN = new Pages({
       local: 'en',
@@ -254,14 +256,17 @@ const reportingPageSeed = async () => {
     });
 
     await Pages.create(reportingPageDataEN);
-    console.log('📦 Reporting Page (EN) data inserted');
+    // eslint-disable-next-line
+    console.log('📦 Reporting Page (EN) data inserted'); 
 
     await mongoose.connection.close();
-    console.log('🔒 Database connection closed');
+    // eslint-disable-next-line
+    console.log('🔒 Database connection closed'); 
   } catch (error) {
-    console.error('❌ Error seeding database:', error);
+    // eslint-disable-next-line
+    console.error('❌ Error seeding database:', error); 
     await mongoose.connection.close();
   }
 };
 
-reportingPageSeed();
+// reportingPageSeed();

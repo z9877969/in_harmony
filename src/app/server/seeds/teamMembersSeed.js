@@ -7,6 +7,7 @@ import env from '../utils/evn.js';
 const reportingSeed = async () => {
   try {
     await mongoose.connect(env('MONGODB_URI'));
+    // eslint-disable-next-line
     console.log('✅ Connected to MongoDB');
 
     const membersEN = [
@@ -60,6 +61,7 @@ const reportingSeed = async () => {
     ];
 
     await TeamMembersModel.insertMany(membersEN);
+    // eslint-disable-next-line
     console.log('📦 Reporting inserted');
 
     const membersUA = [
@@ -110,14 +112,17 @@ const reportingSeed = async () => {
       },
     ];
     await TeamMembersModel.insertMany(membersUA);
+    // eslint-disable-next-line
     console.log('📦 Reporting inserted');
 
     await mongoose.connection.close();
+    // eslint-disable-next-line
     console.log('🔒 Database connection closed');
   } catch (error) {
+    // eslint-disable-next-line
     console.error('❌ Error seeding database:', error);
     await mongoose.connection.close();
   }
 };
 
-reportingSeed();
+// reportingSeed();

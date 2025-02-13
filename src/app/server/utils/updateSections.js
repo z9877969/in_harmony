@@ -1,5 +1,6 @@
 import CollectionModel from '../models/CollectionsModel';
 import FiltersModel from '../models/FilterModel';
+import PartnersModel from '../models/PartnersModel.js';
 import TeamMembersModel from '../models/TeamMembersModels';
 import CommentsModel from '../models/WasHelpedCommentsModels';
 import { sectionConfigs } from './updatePages.js';
@@ -13,7 +14,7 @@ export default async function updateSections(page) {
         const query = {
           type: config.type,
           ...(config.status && { status: config.status }),
-          language: section.local,
+          ...(config.type !== 'partners' && { language: section.local }),
         };
         let data;
         if (config.type === 'collections') {
@@ -24,6 +25,8 @@ export default async function updateSections(page) {
           data = await CommentsModel.find(query).lean();
         } else if (config.type === 'team') {
           data = await TeamMembersModel.find(query).lean();
+        } else if (config.type === 'partners') {
+          data = await PartnersModel.find(query).lean();
         }
 
         return {

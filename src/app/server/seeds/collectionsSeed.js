@@ -13,6 +13,13 @@
 //       {
 //         title: 'На корм для покинутих тварин',
 //         importance: 'permanent',
+//         image: [
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739447574/photo_2024-09-29_16.40.23_k4h5tl.jpg',
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739447574/photo_2024-09-29_16.45.33_vytlik.jpg',
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739447573/IMG_5908_oxlyeq.jpg',
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739447572/IMG_7404_dsdidn.jpg',
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739447571/photo_2024-09-29_16.46.08_dxcnu4.jpg',
+//         ],
 //         collected: 27350,
 //         target: 200000,
 //         alt: 'photo of collection',
@@ -36,6 +43,12 @@
 //       },
 //       {
 //         title: 'Світло в "Сіру Зону"!',
+//         image: [
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739447395/IMG_8875_sdzygp.jpg',
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739447393/IMG_8293_onddmb.jpg',
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739447392/IMG_8299_iy0ncb.jpg',
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739447391/IMG_8300_ktmzeb.jpg',
+//         ],
 //         importance: 'urgent',
 //         collected: 4165,
 //         target: 380000,
@@ -59,6 +72,12 @@
 //       },
 //       {
 //         title: 'Підтримка воїнів на передовій',
+//         image: [
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739445637/jae3whc5gdsnmosftgqs.jpg',
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739445636/o6o0ozrfeeesd5hc7x6h.jpg',
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739445635/enc6ghmpdviorbenxxco.jpg',
+//         ],
+
 //         importance: 'permanent',
 //         collected: 2600,
 //         target: 200000,
@@ -83,6 +102,13 @@
 //       },
 //       {
 //         title: 'Газовий Балон в Кожний Двір',
+//         image: [
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739447391/IMG_8304_j02ebr.jpg',
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739447390/IMG_8305_ipnqn7.jpg',
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739447388/IMG_8448_xb8ogf.jpg',
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739447387/IMG_1569_xitoqp.jpg',
+//         ],
+
 //         importance: 'urgent',
 //         collected: 800,
 //         target: 1040000,
@@ -107,6 +133,12 @@
 //       },
 //       {
 //         title: 'Безкоштовна Питна Вода в Сіру Зону',
+//         image: [
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739447389/IMG_8325_nfmy6n.jpg',
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739447388/IMG_8340_pl21o0.jpg',
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739447388/IMG_8449_ov3hie.jpg',
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739447388/IMG_8450_whziyy.jpg',
+//         ],
 //         importance: 'urgent',
 //         collected: 800,
 //         target: 3216419,
@@ -130,6 +162,13 @@
 //       },
 //       {
 //         title: 'Модульне містечко для 37 родин Маріупольців',
+//         image: [
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739445718/bemtrbvvihc7fcol4gbt.png',
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739445711/s1yjz1vux9f5sqtlfxes.jpg',
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739445710/bn36eyruygim27ksxizv.jpg',
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739445709/quudemu2rluyf5ilwe5v.jpg',
+//         ],
+
 //         importance: 'non-urgent',
 //         collected: 2000,
 //         target: 42000000,
@@ -154,6 +193,11 @@
 //       },
 //       {
 //         title: 'Вода в Гуляйполе',
+//         image: [
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739445929/k3hegjd56rtd9led1fov.jpg',
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739445920/dpab8e8sgmf8n71kd5fj.jpg',
+//         ],
+
 //         collected: 60130,
 //         target: 60130,
 //         alt: 'collection photo',
@@ -178,13 +222,19 @@
 //         days: '65',
 //         period: 'днів',
 //         comments: 'Відгуків:',
-//         quantity: '5',
 //       },
 //       {
-//         title: 'Збір коштів на корм',
+//         title: 'Питну воду в Сіру Зону!',
+//         image: [
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739446394/wzbi4davcctilzoj0zrj.jpg',
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739446392/rjxffueayx2krshw6qzp.jpg',
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739446391/rik5ncp5ljbzmdin84ky.jpg',
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739446390/qvb3zr1nchdupoa4fbxp.jpg',
+//         ],
+
 //         collected: 18900,
 //         target: 18900,
-//         alt: 'Світло в "Сіру Зону',
+//         alt: 'collection photo',
 //         desc: 'Реалізований проєкт',
 //         peopleDonate: 9,
 //         peopleDonate_title: 'донорів',
@@ -206,7 +256,6 @@
 //         days: '70',
 //         period: 'днів',
 //         comments: 'Відгуків:',
-//         quantity: '5',
 //       },
 //     ];
 
@@ -216,6 +265,13 @@
 //     const collectionsEN = [
 //       {
 //         title: 'For Feeding Abandoned Animals',
+//         image: [
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739447574/photo_2024-09-29_16.40.23_k4h5tl.jpg',
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739447574/photo_2024-09-29_16.45.33_vytlik.jpg',
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739447573/IMG_5908_oxlyeq.jpg',
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739447572/IMG_7404_dsdidn.jpg',
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739447571/photo_2024-09-29_16.46.08_dxcnu4.jpg',
+//         ],
 //         importance: 'permanent',
 //         collected: 27350,
 //         target: 200000,
@@ -240,6 +296,13 @@
 //       },
 //       {
 //         title: 'Light in the "Gray Zone"!',
+//         image: [
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739447395/IMG_8875_sdzygp.jpg',
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739447393/IMG_8293_onddmb.jpg',
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739447392/IMG_8299_iy0ncb.jpg',
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739447391/IMG_8300_ktmzeb.jpg',
+//         ],
+
 //         importance: 'urgent',
 //         collected: 4165,
 //         target: 380000,
@@ -264,6 +327,12 @@
 //       },
 //       {
 //         title: 'Support for Frontline Soldiers',
+//         image: [
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739445637/jae3whc5gdsnmosftgqs.jpg',
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739445636/o6o0ozrfeeesd5hc7x6h.jpg',
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739445635/enc6ghmpdviorbenxxco.jpg',
+//         ],
+
 //         importance: 'permanent',
 //         collected: 2600,
 //         target: 200000,
@@ -288,6 +357,13 @@
 //       },
 //       {
 //         title: 'A Gas Cylinder for Every Household',
+//         image: [
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739447391/IMG_8304_j02ebr.jpg',
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739447390/IMG_8305_ipnqn7.jpg',
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739447388/IMG_8448_xb8ogf.jpg',
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739447387/IMG_1569_xitoqp.jpg',
+//         ],
+
 //         importance: 'urgent',
 //         collected: 800,
 //         target: 1040000,
@@ -312,6 +388,13 @@
 //       },
 //       {
 //         title: 'Free Drinking Water in the Gray Zone',
+//         image: [
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739447389/IMG_8325_nfmy6n.jpg',
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739447388/IMG_8340_pl21o0.jpg',
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739447388/IMG_8449_ov3hie.jpg',
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739447388/IMG_8450_whziyy.jpg',
+//         ],
+
 //         importance: 'urgent',
 //         collected: 800,
 //         target: 3216419,
@@ -335,6 +418,13 @@
 //       },
 //       {
 //         title: 'Modular Town for 37 Mariupol Families',
+//         image: [
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739445718/bemtrbvvihc7fcol4gbt.png',
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739445711/s1yjz1vux9f5sqtlfxes.jpg',
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739445710/bn36eyruygim27ksxizv.jpg',
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739445709/quudemu2rluyf5ilwe5v.jpg',
+//         ],
+
 //         importance: 'non-urgent',
 //         collected: 2000,
 //         target: 42000000,
@@ -359,6 +449,10 @@
 //       },
 //       {
 //         title: 'Water in Huliaipole',
+//         image: [
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739445929/k3hegjd56rtd9led1fov.jpg',
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739445920/dpab8e8sgmf8n71kd5fj.jpg',
+//         ],
 //         collected: 60130,
 //         target: 60130,
 //         alt: 'collection photo',
@@ -383,13 +477,19 @@
 //         days: '65',
 //         period: 'days',
 //         comments: 'Reviews:',
-//         quantity: '5',
 //       },
 //       {
-//         title: 'Fundraising for Animal Feed',
+//         title: 'Drinking water in the Gray Zone!',
+//         image: [
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739446394/wzbi4davcctilzoj0zrj.jpg',
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739446392/rjxffueayx2krshw6qzp.jpg',
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739446391/rik5ncp5ljbzmdin84ky.jpg',
+//           'https://res.cloudinary.com/dg56vgtae/image/upload/v1739446390/qvb3zr1nchdupoa4fbxp.jpg',
+//         ],
+
 //         collected: 18900,
 //         target: 18900,
-//         alt: 'Light in the "Gray Zone"',
+//         alt: 'Lcollection photo',
 //         desc: 'Project completed',
 //         peopleDonate: 9,
 //         peopleDonate_title: 'donors',
@@ -405,6 +505,13 @@
 //         type: 'collections',
 //         language: 'en',
 //         value: 'lightCollection',
+//         collected_title: 'Collected',
+//         target_title: 'Target',
+//         currency: 'UAH',
+//         term: 'Implementation Period:',
+//         days: '70',
+//         period: 'days',
+//         comments: 'Reviews:',
 //       },
 //     ];
 

@@ -2,7 +2,7 @@ export const ROUTES = {
   ABOUT: 'about',
   COLLECTION: 'collection',
   REPORTING: 'reporting',
-  PAYMENTS: 'payments',
+  PAYMENTS: (step = 1) => `/payments/step/${step}`,
   TERMS: 'terms',
   POLICY: 'policy',
   DISCARD: 'discard',
@@ -18,9 +18,9 @@ export const SOCIALROUTES = {
 export const LANGUAGES = {
   UA: 'ua',
   EN: 'en',
-}
+};
 
-export const NAMESPACES = ['header', 'mainPage']
+export const NAMESPACES = ['header', 'mainPage'];
 
 export const LINKDATA = {
   PATHHOME: '/',
@@ -38,4 +38,22 @@ export const LINKDATA = {
   TYPE_DARK_HEART: 'bg-dark_heart',
   TYPE_LIGHT_BORDER_BF: 'bg-light_border_biggerFont',
   TYPE_DARK_BF: 'bg-dark_biggerFont',
+};
+
+export const PAYMENT_CONFIG = {
+  key: process.env.WAYFORPAY_KEY,
+  merchantAccount: process.env.WAYFORPAY_MERCHANT_NAME,
+  merchantDomainName: process.env.WAYFORPAY_MERCHANT_DOMAIN,
+  paymentUrl: 'https://secure.wayforpay.com/pay',
+  language: 'UA',
+  orderTimeout: 49000,
+  merchantAuthType: 'SimpleSignature',
+  productCount: '1',
+  currency: 'UAH',
+  defaultPaymentSystem: 'card',
+  regularBehavior: 'preset',
+  regularMode: 'monthly',
+  regularOn: '1',
+  regularCount: '12',
+  appBaseURL: process.env.APP_DOMAIN,
 };

@@ -5,9 +5,11 @@ import { Pages } from '../models/PageModels.js';
 
 // TO USE THIS RUN : node src/app/server/seeds/reportingPageSeed.js
 
+// eslint-disable-next-line
 const reportingPageSeed = async () => {
   try {
     await mongoose.connect(env('MONGODB_URI'));
+    // eslint-disable-next-line
     console.log('✅ Connected to MongoDB');
 
     // const filtersUA = [
@@ -245,6 +247,7 @@ const reportingPageSeed = async () => {
       sections_list: sectionsUA,
     });
     await Pages.create(reportingPageDataUA);
+    // eslint-disable-next-line
     console.log('📦 Reporting Page (UA) data inserted');
 
     const reportingPageDataEN = new Pages({
@@ -254,14 +257,17 @@ const reportingPageSeed = async () => {
     });
 
     await Pages.create(reportingPageDataEN);
+    // eslint-disable-next-line
     console.log('📦 Reporting Page (EN) data inserted');
 
     await mongoose.connection.close();
+    // eslint-disable-next-line
     console.log('🔒 Database connection closed');
   } catch (error) {
+    // eslint-disable-next-line
     console.error('❌ Error seeding database:', error);
     await mongoose.connection.close();
   }
 };
 
-reportingPageSeed();
+// reportingPageSeed();

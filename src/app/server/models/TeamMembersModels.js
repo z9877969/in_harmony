@@ -1,13 +1,13 @@
 import mongoose from 'mongoose';
 
 const membersSchema = new mongoose.Schema({
-  firstName: { type: String },
-  lastName: { type: String },
-  position: { type: String },
+  firstName: { type: String, default: null },
+  lastName: { type: String, default: null },
+  position: { type: String, default: null },
   image: { type: [String], default: [] },
   social: { type: [mongoose.Schema.Types.Mixed] },
-  language: { type: String },
-  type: { type: String, enum: ['team'] },
+  language: { type: String, required: true },
+  type: { type: String, enum: ['team'], required: true },
 });
 
 export const TeamMembersModel =

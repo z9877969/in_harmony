@@ -1,4 +1,5 @@
 {
+  "title": "Підтримати фонд",
   "dropdownOptions": [
     { "value": "foodCollection", "label": "Збір на їжу військовим" },
     {
@@ -9,6 +10,12 @@
       "value": "clothesCollection",
       "label": "Збір на теплий одяг для місцевих жителів"
     },
-    { "value": "waterCollection", "label": "Збір на воду в сіру зону" }
+    { "value": "waterCollection", "label": "Збір на воду в сіру зону" },
+
+    { "value": "carCollection", "label": "Збір на машину" },
+    { "value": "houseCollection", "label": "Світло в кожен дім" },
+    { "value": "gasCollection", "label": "Збір на газ" },
+    { "value": "bplaCollection", "label": "Збір на БПЛА" },
+    { "value": "allCollection", "label": "Збір на все" }
   ]
 }

@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { Container, SectionTitle } from '@/shared/components';
+import { Container, Section, SectionTitle } from '@/shared/components';
 import { inHarmonyLogoMini as InHarmonyLogoMini } from '/public/icons';
 
 import { circleColors, textColors } from '../../data/dataStyles';
@@ -11,7 +11,7 @@ import s from './AboutPageMission.module.scss';
 const AboutPageMission = () => {
   return (
     <Container>
-      <section className={s.section}>
+      <Section className={s.section}>
         <SectionTitle title={data.title} className={s.title} />
         <div className={s.infoBlock}>
           <div className={s.imageWrapper}>
@@ -53,7 +53,7 @@ const AboutPageMission = () => {
             </li>
           </ul>
         </div>
-      </section>
+      </Section>
     </Container>
   );
 };

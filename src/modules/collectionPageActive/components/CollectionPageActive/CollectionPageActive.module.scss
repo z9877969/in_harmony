@@ -1,5 +1,10 @@
 .section {
+  max-width: 100%;
   padding: 8px 0 48px 0;
+
+  @include media(mobile) {
+    width: 100%;
+  }
 
   @include media(tablet) {
     padding: 8px 0 95px 0;

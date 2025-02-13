@@ -3,6 +3,7 @@ import Image from 'next/image';
 import {
   Container,
   FormWithSumButtons,
+  Section,
   SectionTitle,
 } from '@/shared/components';
 
@@ -21,7 +22,7 @@ import s from './MainPageDonat.module.scss';
 const MainPageDonat = () => {
   return (
     <Container>
-      <section className={s.section}>
+      <Section className={s.section}>
         <div className={s.imageWrapper}>
           <Image
             className={s.image}
@@ -31,11 +32,11 @@ const MainPageDonat = () => {
             priority
             sizes="100%"
             srcSet={`
-                ${mainPageDonateMobile.src} 320w, 
-                ${mainPageDonateTablet.src} 768w, 
+                ${mainPageDonateMobile.src} 320w,
+                ${mainPageDonateMobile2x.src} 640w,
+                ${mainPageDonateTablet.src} 768w,
+                ${mainPageDonateTablet2x.src} 1536w,
                 ${mainPageDonateDesktop.src} 1440w,
-                ${mainPageDonateMobile2x.src} 640w, 
-                ${mainPageDonateTablet2x.src} 1536w, 
                 ${mainPageDonateDesktop2x.src} 2880w
               `}
           />
@@ -45,7 +46,7 @@ const MainPageDonat = () => {
           <p className={s.text}>{data.text}</p>
         </div>
         <FormWithSumButtons className={s.form} />
-      </section>
+      </Section>
     </Container>
   );
 };

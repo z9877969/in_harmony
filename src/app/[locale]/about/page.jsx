@@ -8,12 +8,6 @@ import s from './page.module.scss';
 
 const AboutPage = async ({ params: { locale } }) => {
   const { sectionsDict } = await api.getPageApi({ locale, page: 'about' });
-  const pages = await api.getAllPages({ locale });
-
-  // eslint-disable-next-line
-  console.log('sectionsDict :>> ', sectionsDict);
-  // eslint-disable-next-line
-  console.log('pages :>> ', pages);
 
   return (
     <div className={s.container}>

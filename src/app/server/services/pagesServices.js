@@ -10,7 +10,7 @@ export const getPage = async (req, res) => {
 
     res.status(200).json({
       status: 200,
-      section: { ...pages, ...updatedPages },
+      page: { ...pages, ...updatedPages },
     });
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -29,7 +29,7 @@ export const getPageByRoute = async (req, res) => {
 
     res.status(200).json({
       status: 200,
-      section: { ...page, sections_list: updatedSections },
+      page: { ...page, sections_list: updatedSections },
     });
   } catch (error) {
     res.status(500).json({ message: error.message });

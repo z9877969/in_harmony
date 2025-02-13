@@ -4,20 +4,14 @@ import { updatePages, updateSections } from '../utils';
 
 export const getPage = async (req, res) => {
   try {
-    const pages = await Pages.find().lean();
+    const { locale } = req.query;
+    const pages = await Pages.find({ local: locale }).lean();
     const updatedPages = await updatePages(pages);
-    const sortedCollections = updatedPages.reduce(
-      (acc, page) => {
-        if (page.local === 'en') {
-          acc.en.push(page);
-        } else {
-          acc.ua.push(page);
-        }
-        return acc;
-      },
-      { en: [], ua: [] }
-    );
-    res.status(200).json({ status: 200, data: sortedCollections });
+
+    res.status(200).json({
+      status: 200,
+      section: { ...pages, ...updatedPages },
+    });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

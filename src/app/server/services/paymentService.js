@@ -16,7 +16,7 @@ export const createPayment = async (req, res) => {
 
   if (!amount || !type || !paymentPurpose) {
     return res.status(400).json({
-      error: 'Поля сума, тип платежу та призначення плаьежу є обов’язковими',
+      error: 'Поля сума, тип платежу та призначення платежу є обов’язковими',
     });
   }
 

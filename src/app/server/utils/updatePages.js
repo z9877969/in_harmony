@@ -1,5 +1,6 @@
 import CollectionModel from '../models/CollectionsModel';
 import FiltersModel from '../models/FilterModel';
+import PartnersModel from '../models/PartnersModel';
 import TeamMembersModel from '../models/TeamMembersModels';
 import CommentsModel from '../models/WasHelpedCommentsModels';
 
@@ -9,6 +10,7 @@ export const sectionConfigs = {
   filters: { type: 'filter', status: 'filter' },
   comments: { type: 'was-helped', status: 'comments' },
   footer: { type: 'team' },
+  partners: { type: 'partners' },
 };
 
 export default async function updatePages(pages) {
@@ -34,6 +36,8 @@ export default async function updatePages(pages) {
               data = await CommentsModel.find(query).lean();
             } else if (config.type === 'team') {
               data = await TeamMembersModel.find(query).lean();
+            } else if (config.type === 'partners') {
+              data = await PartnersModel.find(query).lean();
             }
 
             return {

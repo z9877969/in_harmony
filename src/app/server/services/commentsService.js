@@ -1,48 +1,37 @@
 import mongoose from 'mongoose';
 import createHttpError from 'http-errors';
-import { saveFileToUploadDir } from '../lib';
-import { saveFileToCloudinary } from '../lib/saveFileToCloudinary';
-import { env } from '../utils';
-import CollectionModel from '../models/CollectionsModel';
+import CommentsModel from '../models/WasHelpedCommentsModels';
+import env from '../utils/evn.js';
+import { saveFileToCloudinary } from '../lib/saveFileToCloudinary.js';
+import saveFileToUploadDir from '../lib/saveFileToUploadDir.js';
 
-export const getAllCollections = async (req, res) => {
+export const getAllComments = async (req, res) => {
   try {
-    const collections = await CollectionModel.find().lean();
+    const comments = await CommentsModel.find().lean();
 
-    const sortedCollections = collections.reduce(
-      (acc, collection) => {
-        if (collection.status === 'active') {
-          acc.activeCollections.push(collection);
-        } else {
-          acc.closedCollections.push(collection);
-        }
-        return acc;
-      },
-      { activeCollections: [], closedCollections: [] }
-    );
-    res.status(200).json({ status: 200, data: sortedCollections });
+    res.status(200).json({ status: 200, data: comments });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
 
-export const getCollectionById = async (req, res) => {
+export const getCommentById = async (req, res) => {
   try {
     const { id } = req.query;
 
-    const collection = await CollectionModel.findOne({
+    const comment = await CommentsModel.findOne({
       _id: id,
     });
-    if (!collection) {
-      return res.status(404).json({ error: 'Collection not found' });
+    if (!comment) {
+      return res.status(404).json({ error: 'Comment not found' });
     }
-    res.status(200).json({ status: 200, data: collection });
+    res.status(200).json({ status: 200, data: comment });
   } catch (error) {
-    res.status(500).json({ error: 'Failed to fetch collection' });
+    res.status(500).json({ error: 'Failed to fetch comment' });
   }
 };
 
-export const createCollection = async (req, res) => {
+export const createComment = async (req, res) => {
   try {
     const image = req.files;
     let photoUrls = [];
@@ -59,18 +48,19 @@ export const createCollection = async (req, res) => {
       }
     }
 
-    const newCollection = new CollectionModel({
+    const newComment = new CommentsModel({
       ...req.body,
       image: photoUrls,
     });
-    await newCollection.save();
-    res.status(201).json(newCollection);
+
+    await newComment.save();
+    res.status(201).json(newComment);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
 
-export const updateCollectionService = async (req, res) => {
+export const updateComment = async (req, res) => {
   try {
     const { id } = req.query;
     const image = req.files;
@@ -82,13 +72,13 @@ export const updateCollectionService = async (req, res) => {
     if (!mongoose.Types.ObjectId.isValid(id)) {
       return res.status(400).json({ message: 'Invalid ID format' });
     }
-    const existingCollection = await CollectionModel.findById(id);
+    const existingComment = await CommentsModel.findById(id);
 
-    if (!existingCollection) {
-      throw createHttpError(404, 'Collection not found');
+    if (!existingComment) {
+      throw createHttpError(404, 'Comment not found');
     }
 
-    let photoUrls = existingCollection.image || [];
+    let photoUrls = existingComment.image || [];
 
     if (image && image.length) {
       for (const img of image) {
@@ -102,7 +92,7 @@ export const updateCollectionService = async (req, res) => {
       }
     }
 
-    const result = await CollectionModel.findByIdAndUpdate(
+    const result = await CommentsModel.findByIdAndUpdate(
       { _id: id },
       { ...req.body, image: photoUrls },
       {
@@ -112,7 +102,7 @@ export const updateCollectionService = async (req, res) => {
     );
 
     if (!result) {
-      throw createHttpError(404, 'Collection not found');
+      throw createHttpError(404, 'Comment not found');
     }
 
     res.status(200).json({

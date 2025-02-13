@@ -1,5 +1,5 @@
 import { DiscardHelpPageForm } from '@/modules/discardHelpPageForm/index.js';
-import { DiscardHelpPageHero } from '@/modules/DiscardHelpPageHero';
+import { DiscardHelpPageHero } from '@/modules/discardHelpPageHero';
 // import { insideServerApi as api } from '@/shared/services';
 // import s from './page.module.scss';
 

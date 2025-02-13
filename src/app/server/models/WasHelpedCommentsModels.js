@@ -10,6 +10,8 @@ const commentsSchema = new mongoose.Schema({
   language: { type: String },
   type: { type: String, default: 'was-helped' },
   term: { type: String },
+  status: { type: String, default: 'comments' },
+  createdAt: { type: Date, default: Date.now },
 });
 
 export const CommentsModel =

@@ -20,6 +20,7 @@ const collectionSchema = new mongoose.Schema({
   period: { type: String },
   comments: { type: String },
   quantity: { type: String },
+  currency: { type: String, default: null },
   //===========================
   long_desc: {
     type: {

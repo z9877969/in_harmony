@@ -1,6 +1,6 @@
 // import mongoose from 'mongoose';
 // import env from '../utils/evn.js';
-// import { PagesEN, PagesUA } from '../models/PageModels/PageModels.js';
+// import { Pages } from '../models/PageModels.js';
 
 // // TO USE THIS RUN : node src/app/server/seeds/aboutPageSeed.js
 
@@ -367,21 +367,21 @@
 //       },
 //     ];
 
-//     const aboutPageDataUA = new PagesUA({
+//     const aboutPageDataUA = new Pages({
 //       local: 'ua',
 //       route: 'about',
 //       sections_list: sectionsUA,
 //     });
-//     await PagesUA.create(aboutPageDataUA);
+//     await Pages.create(aboutPageDataUA);
 //     console.log('📦  Page (UA) data inserted');
 
-//     const aboutPageDataEN = new PagesEN({
+//     const aboutPageDataEN = new Pages({
 //       local: 'en',
 //       route: 'about',
 //       sections_list: sectionsEN,
 //     });
 
-//     await PagesEN.create(aboutPageDataEN);
+//     await Pages.create(aboutPageDataEN);
 //     console.log('📦  Page (EN) data inserted');
 
 //     await mongoose.connection.close();

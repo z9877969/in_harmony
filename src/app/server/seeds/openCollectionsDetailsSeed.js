@@ -1,6 +1,6 @@
 // import mongoose from 'mongoose';
-// import { PagesEN, PagesUA } from '../models/PageModels/PageModels.js';
 // import env from '../utils/evn.js';
+// import { Pages } from '../models/PageModels.js';
 
 // // TO USE THIS RUN : node src/app/server/seeds/openCollectionsDetailsSeed.js
 
@@ -107,21 +107,21 @@
 //       },
 //     ];
 
-//     const OpenCollectionsPageDataUA = new PagesUA({
+//     const OpenCollectionsPageDataUA = new Pages({
 //       local: 'ua',
 //       route: 'active',
 //       sections_list: sectionsUA,
 //     });
-//     await PagesUA.create(OpenCollectionsPageDataUA);
+//     await Pages.create(OpenCollectionsPageDataUA);
 //     console.log('📦 OpenCollectionsDataEN Page (UA) data inserted');
 
-//     const OpenCollectionsDataEN = new PagesEN({
+//     const OpenCollectionsDataEN = new Pages({
 //       local: 'en',
 //       route: 'active',
 //       sections_list: sectionsEN,
 //     });
 
-//     await PagesEN.create(OpenCollectionsDataEN);
+//     await Pages.create(OpenCollectionsDataEN);
 //     console.log('📦 OpenCollectionsDataEN Page (EN) data inserted');
 
 //     await mongoose.connection.close();

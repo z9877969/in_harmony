@@ -85,3 +85,8 @@
     height: auto;
   }
 }
+.textNext {
+  @include font(16, 24);
+  font-weight: 400;
+  text-align: left;
+}

@@ -1,5 +1,5 @@
 import { connectToDatabase } from '@/app/server/lib';
-import { getCollectionDetailsByIdEN } from '@/app/server/services/pagesServices';
+import { getPageByRoute } from '@/app/server/services/pagesServices';
 
 export const config = {
   api: {
@@ -7,29 +7,21 @@ export const config = {
     externalResolver: true,
   },
 };
-
 export default async function handler(req, res) {
   try {
     await connectToDatabase();
-    const { route, id } = req.query;
+    const { route } = req.query;
 
     if (req.method === 'GET') {
-      if (route && id) {
-        const dynamicSection = await getCollectionDetailsByIdEN(req, res);
-
-        if (!dynamicSection) {
-          return res.status(404).json({ message: 'Collection not found' });
-        }
-
-        return res.status(200).json(dynamicSection);
+      if (route) {
+        return getPageByRoute(req, res);
       } else {
-        return res.status(400).json({ message: 'Route or ID is required' });
+        return res.status(400).json({ message: 'Route is required' });
       }
     } else {
       return res.status(405).json({ message: 'Method Not Allowed' });
     }
   } catch (error) {
-
     return res.status(500).json({ message: 'Internal Server Error' });
   }
 }

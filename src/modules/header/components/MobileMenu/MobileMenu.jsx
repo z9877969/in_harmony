@@ -10,7 +10,7 @@ import { useLanguageChanger } from '@/i18n/utils/LanguageChanger';
 import { Icon } from '@/shared/components';
 import { uaFlag as UaIcon, googleLogo as EnIcon } from '/public/icons';
 import MobileMenuBtn from '../MobileMenuBtn/MobileMenuBtn';
-import { ROUTES, SOCIALROUTES } from '@/shared/constants';
+import { LANGUAGES, ROUTES, SOCIALROUTES } from '@/shared/constants';
 import s from './MobileMenu.module.scss';
 
 const MobileMenu = () => {
@@ -53,12 +53,18 @@ const MobileMenu = () => {
       <div className={clsx(s.mobileMenu, visible && s.visible)}>
         <div className={s.langBlock}>
           <UaIcon
-            className={s.langIcon}
-            onClick={() => handleLanguageSelect('ua')}
+            className={clsx(
+              s.langIcon,
+              locale === LANGUAGES.UA && s.activeLangIcon
+            )}
+            onClick={() => handleLanguageSelect(LANGUAGES.UA)}
           />
           <EnIcon
-            className={s.langIcon}
-            onClick={() => handleLanguageSelect('en')}
+            className={clsx(
+              s.langIcon,
+              locale === LANGUAGES.EN && s.activeLangIcon
+            )}
+            onClick={() => handleLanguageSelect(LANGUAGES.EN)}
           />
         </div>
         <nav className={s.nav}>

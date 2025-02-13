@@ -124,11 +124,7 @@
   }
 }
 
-.learnMore > button {
-  @include font(18, 27);
-  font-family: $primary-font-family;
-  width: 100%;
-
+.learnMore {
   @include media(mobile) {
     width: 370px;
   }
@@ -138,4 +134,9 @@
   @include media(desktop) {
     width: fit-content;
   }
+}
+
+.learnMore > a {
+  @include font(18, 27);
+  padding: 12px 32px;
 }

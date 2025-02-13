@@ -1,4 +1,3 @@
-
 .partnersSection {
   padding: 48px 0;
 
@@ -10,10 +9,10 @@
 .mainContainer {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  margin-bottom: 32px;
 
   @include media(tablet) {
-    gap: 40px;
+    margin-bottom: 40px;
   }
 }
 

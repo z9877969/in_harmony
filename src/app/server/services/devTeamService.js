@@ -15,22 +15,6 @@ export const getAllTeam = async (req, res) => {
   }
 };
 
-// export const getCommentById = async (req, res) => {
-//   try {
-//     const { id } = req.query;
-
-//     const comment = await CommentsModel.findOne({
-//       _id: id,
-//     });
-//     if (!comment) {
-//       return res.status(404).json({ error: 'Comment not found' });
-//     }
-//     res.status(200).json({ status: 200, data: comment });
-//   } catch (error) {
-//     res.status(500).json({ error: 'Failed to fetch collection' });
-//   }
-// };
-
 export const createMember = async (req, res) => {
   try {
     const image = req.files;

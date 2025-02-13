@@ -1,37 +1,21 @@
 import mongoose from 'mongoose';
 import createHttpError from 'http-errors';
-import CommentsModel from '../models/WasHelpedCommentsModels';
 import env from '../utils/evn.js';
 import { saveFileToCloudinary } from '../lib/saveFileToCloudinary.js';
 import saveFileToUploadDir from '../lib/saveFileToUploadDir.js';
+import PartnersModel from '../models/PartnersModel.js';
 
-export const getAllComments = async (req, res) => {
+export const getAllPartners = async (req, res) => {
   try {
-    const comments = await CommentsModel.find().lean();
+    const partners = await PartnersModel.find().lean();
 
-    res.status(200).json({ status: 200, data: comments });
+    res.status(200).json({ status: 200, data: partners });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
 
-export const getCommentById = async (req, res) => {
-  try {
-    const { id } = req.query;
-
-    const comment = await CommentsModel.findOne({
-      _id: id,
-    });
-    if (!comment) {
-      return res.status(404).json({ error: 'Comment not found' });
-    }
-    res.status(200).json({ status: 200, data: comment });
-  } catch (error) {
-    res.status(500).json({ error: 'Failed to fetch comment' });
-  }
-};
-
-export const createComment = async (req, res) => {
+export const createPartner = async (req, res) => {
   try {
     const image = req.files;
     let photoUrls = [];
@@ -48,19 +32,19 @@ export const createComment = async (req, res) => {
       }
     }
 
-    const newComment = new CommentsModel({
+    const newPartner = new PartnersModel({
       ...req.body,
       image: photoUrls,
     });
 
-    await newComment.save();
-    res.status(201).json(newComment);
+    await newPartner.save();
+    res.status(201).json(newPartner);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
 
-export const updateComment = async (req, res) => {
+export const updatePartner = async (req, res) => {
   try {
     const { id } = req.query;
     const image = req.files;
@@ -72,13 +56,13 @@ export const updateComment = async (req, res) => {
     if (!mongoose.Types.ObjectId.isValid(id)) {
       return res.status(400).json({ message: 'Invalid ID format' });
     }
-    const existingComment = await CommentsModel.findById(id);
+    const existingPartner = await PartnersModel.findById(id);
 
-    if (!existingComment) {
+    if (!existingPartner) {
       throw createHttpError(404, 'Comment not found');
     }
 
-    let photoUrls = existingComment.image || [];
+    let photoUrls = existingPartner.image || [];
 
     if (image && image.length) {
       for (const img of image) {
@@ -92,7 +76,7 @@ export const updateComment = async (req, res) => {
       }
     }
 
-    const result = await CommentsModel.findByIdAndUpdate(
+    const result = await PartnersModel.findByIdAndUpdate(
       { _id: id },
       { ...req.body, image: photoUrls },
       {
@@ -102,7 +86,7 @@ export const updateComment = async (req, res) => {
     );
 
     if (!result) {
-      throw createHttpError(404, 'Comment not found');
+      throw createHttpError(404, 'Partner not found');
     }
 
     res.status(200).json({

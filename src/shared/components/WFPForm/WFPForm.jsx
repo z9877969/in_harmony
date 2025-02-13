@@ -5,6 +5,7 @@ import {
   forwardRef,
   useEffect,
   useImperativeHandle,
+  useMemo,
   useRef,
   useState,
 } from 'react';
@@ -13,31 +14,30 @@ const WFPForm = forwardRef(
   (
     {
       isPublic = true,
-      isRegular = true,
+      isRegular = false,
       message = '',
       amount = 0,
-      clientFirstName = 'Serhii',
-      clientLastName = 'Hudzenko',
-      clientEmail = 'serhii.hudzenko@mail.com',
+      clientFirstName = '',
+      clientLastName = '',
+      clientEmail = '',
       paymentPurpose = 'inHarmony Donate',
     },
     ref
   ) => {
     const [formData, setFormData] = useState(null);
-    console.log('formData: ', formData);
-    const formRef = useRef(null);
     const [loading, setLoading] = useState(false);
+
+    const formRef = useRef(null);
 
     const pathname = usePathname();
     const locale = pathname.split('/')[1];
-    console.log('locale: ', locale);
 
     async function generateOrderAndSubmit() {
       if (loading) return;
 
       try {
         setLoading(true);
-        const response = await fetch('/api/payments', {
+        const response = await fetch('/api/payment', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -63,6 +63,7 @@ const WFPForm = forwardRef(
         }
       } catch (error) {
         console.error('Помилка під час запиту:', error);
+      } finally {
         setLoading(false);
       }
     }
@@ -71,19 +72,45 @@ const WFPForm = forwardRef(
       generateOrderAndSubmit,
     }));
 
-    let serviceUrl = '';
+    const returnUrl = useMemo(() => {
+      if (!formData) return '';
+
+      const baseUrl = `${formData.appBaseURL}/${locale}/thanks`;
+
+      const params = new URLSearchParams({
+        isPublic,
+        isRegular,
+        amount,
+        ...(isPublic && message && { message }),
+        ...(isPublic && clientFirstName && { clientFirstName }),
+        ...(isPublic && clientLastName && { clientLastName }),
+        ...(isPublic && clientEmail && { clientEmail }),
+        ...(isPublic && paymentPurpose && { paymentPurpose }),
+      });
+
+      return `${baseUrl}?${params.toString().replace(/\+/g, '%20')}`;
+    }, [
+      formData,
+      locale,
+      isPublic,
+      isRegular,
+      amount,
+      message,
+      clientFirstName,
+      clientLastName,
+      clientEmail,
+      paymentPurpose,
+    ]);
+
     useEffect(() => {
       if (formData) {
         formRef.current?.submit();
       }
-      serviceUrl =
-        `${formData.appBaseUR}/${locale}/?isPublic=${isPublic}&isRegular=${isRegular}&amount=${amount}` +
-        (isPublic
-          ? `&message=${message}&clientFirstName=${clientFirstName}&clientLastName=${clientLastName}&clientEmail=${clientEmail}&paymentPurpose=${paymentPurpose}`
-          : '');
-
-      console.log('formData: ', formData);
     }, [formData]);
+
+    useImperativeHandle(ref, () => ({
+      generateOrderAndSubmit,
+    }));
 
     return (
       <>
@@ -100,7 +127,12 @@ const WFPForm = forwardRef(
               value={formData.defaultPaymentSystem}
             />
 
-            <input type="hidden" name="serviceUrl" value={serviceUrl} />
+            <input type="hidden" name="returnUrl" value={returnUrl} />
+            <input
+              name="serviceUrl"
+              value={`${formData.appBaseURL}/api/payment-log`}
+              hidden
+            />
             <input type="hidden" name="language" value={formData.language} />
             <input
               type="hidden"

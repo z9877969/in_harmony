@@ -1,5 +1,6 @@
 import { PAYMENT_CONFIG } from '@/shared/constants/index.js';
-import Payment from '../models/PaymentSchema/Payment.js';
+
+import PaymentModel from '../models/PaymentModels/Payment.js';
 import generateHash from '../utils/generateHash.js';
 
 export const createPayment = async (req, res) => {
@@ -14,13 +15,15 @@ export const createPayment = async (req, res) => {
   } = req.body;
 
   if (!amount || !type || !paymentPurpose) {
-    return res.status(400).json({ error: 'Усі поля є обов’язковими' });
+    return res.status(400).json({
+      error: 'Поля сума, тип платежу та призначення плаьежу є обов’язковими',
+    });
   }
 
   try {
     const orderDate = Math.floor(Date.now() / 1000);
 
-    const payment = new Payment({
+    const payment = new PaymentModel({
       amount,
       type,
       clientFirstName,

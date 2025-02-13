@@ -1,10 +1,11 @@
 import React from 'react';
 
 import s from './CardProjectReporting.module.scss';
-import { Button } from '@/shared/components';
+import LinkButton from '../LinkButton/LinkButton';
 
 export default function CardProjectReporting({ slid }) {
   const {
+    id,
     title,
     item,
     total,
@@ -42,14 +43,11 @@ export default function CardProjectReporting({ slid }) {
           </p>
         </div>
         <div className={s.btnWrapper}>
-          <Button
-            border="true"
-            variant="secondary"
+          <LinkButton
+            path={`/collection/closed/${id}`}
             className={s.button}
-            size="large"
-          >
-            Детальніше
-          </Button>
+            linkText={'Детальніше'}
+          />
         </div>
       </div>
     </div>

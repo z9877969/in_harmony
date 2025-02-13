@@ -1,5 +1,5 @@
 import { connectToDatabase } from '@/app/server/lib';
-import { getPageByRouteEN } from '@/app/server/services/pagesServices';
+import { getPageByRouteEN } from '@/app/server/services/pagesServices.js';
 
 export const config = {
   api: {

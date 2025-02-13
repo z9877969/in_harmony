@@ -64,20 +64,22 @@
 }
 
 .inputFooter {
+  font-family: $primary-font-family;
   border: none;
   background-color: $wite-text-color;
   padding: 8px 16px;
-
+  @include font(16, 24);
   &::placeholder {
     color: $secondary-text-color;
   }
 }
 
 .textAreaFooter {
+  font-family: $primary-font-family;
   border: none;
   background-color: $wite-text-color;
   padding: 16px 16px;
-
+  @include font(16, 24);
   &::placeholder {
     color: $secondary-text-color;
   }

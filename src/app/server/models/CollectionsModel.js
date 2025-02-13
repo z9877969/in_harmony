@@ -2,23 +2,57 @@ import mongoose from 'mongoose';
 
 const collectionSchema = new mongoose.Schema({
   title: { type: String },
-  importance: { type: String },
   image: { type: [String], default: [] },
   collected: { type: Number, default: 0 },
   target: { type: Number },
   alt: { type: String, default: '' },
   peopleDonate: { type: Number, default: 0 },
+  peopleDonate_title: { type: String },
   desc: { type: String },
-  long_desc: { type: String, default: '' },
-  status: { type: String, enum: ['active', 'closed'], default: 'active' },
   createdAt: { type: Date, default: Date.now },
   closedAt: { type: Date, default: null },
+  language: { type: String },
+  collected_title: { type: String },
+  target_title: { type: String },
+  //reporting options
+  term: { type: String },
+  days: { type: String },
+  period: { type: String },
+  comments: { type: String },
+  quantity: { type: String },
+  //===========================
+  long_desc: {
+    type: {
+      section1: { type: String, default: '' },
+      section2: { type: String, default: '' },
+      section3: { type: String, default: '' },
+    },
+    default: () => ({ section1: '', section2: '', section3: '' }),
+  },
+  status: { type: String, enum: ['active', 'closed'], default: 'active' },
   type: {
     type: String,
     required: true,
     enum: ['collections'],
   },
-  language: { type: String },
+  value: {
+    type: String,
+    enum: [
+      'foodCollection',
+      'medicineCollection',
+      'clothesCollection',
+      'waterCollection',
+      'lightCollection',
+      'placesToStayCollection',
+    ],
+    required: true,
+  },
+  importance: {
+    type: String,
+    enum: ['urgent', 'important', 'non-urgent', 'permanent'],
+    required: true,
+    default: 'important',
+  },
 });
 
 export const CollectionModel =

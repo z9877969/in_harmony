@@ -1,179 +1,181 @@
 .section {
-  padding-top: 36px;
-  padding-bottom: 94px;
-  @include media(tablet) {
-    padding-top: 96px;
-    padding-bottom: 96px;
-  }
-  @include media(desktop) {
-    padding-top: 32px;
-    padding-bottom: 156px;
-  }
+	padding-top: 36px;
+	padding-bottom: 94px;
+	@include media(tablet) {
+		padding-top: 96px;
+		padding-bottom: 96px;
+	}
+	@include media(desktop) {
+		padding-top: 32px;
+		padding-bottom: 156px;
+	}
 }
 .titleContainer {
-  display: flex;
-  gap: 8px;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 24px;
+	display: flex;
+	gap: 8px;
+	flex-direction: column;
+	align-items: center;
+	margin-bottom: 24px;
 }
 .iconCheck {
-  width: 42px;
-  height: 42px;
-  fill: #b3b3b3;
-  @include media(tablet) {
-    width: 56px;
-    height: 56px;
-  }
+	width: 42px;
+	height: 42px;
+	fill: #b3b3b3;
+	@include media(tablet) {
+		width: 56px;
+		height: 56px;
+	}
 }
 .title {
-  font-family: $secondary-font-family;
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 1.25;
-  text-align: center;
-  @include media(tablet) {
-    font-size: 40px;
-    line-height: 1.2;
-  }
-  @include media(desktop) {
-    font-size: 48px;
-    line-height: 1.17;
-  }
+	font-family: $secondary-font-family;
+	font-weight: 700;
+	font-size: 32px;
+	line-height: 1.25;
+	text-align: center;
+	@include media(tablet) {
+		font-size: 40px;
+		line-height: 1.2;
+	}
+	@include media(desktop) {
+		font-size: 48px;
+		line-height: 1.17;
+	}
 }
 .thanksContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 auto;
-  margin-bottom: calc(96px + 400px);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 0 auto;
+	margin-bottom: calc(96px + 400px);
 }
 .imageContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  background-color: gray;
-  width: 100%;
-  height: 400px;
-  max-width: 402px;
-  @include media(tablet) {
-    max-width: 688px;
-  }
-  @include media(desktop) {
-    max-width: 1540px;
-    height: 568px;
-  }
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto;
+	background-color: gray;
+	width: 100%;
+	height: 400px;
+	max-width: 402px;
+	@include media(tablet) {
+		max-width: 688px;
+	}
+	@include media(desktop) {
+		max-width: 1540px;
+		height: 568px;
+	}
 }
 .image {
-  width: 36px;
-  height: 36px;
+	width: 36px;
+	height: 36px;
 }
 
 .thanksBlock {
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  gap: 12px;
-  background-color: $img-backdrop-color;
-  padding: 16px;
-  border-radius: 32px;
-  transform: translateY(-64px);
-  margin-bottom: 30px;
-  @include media(tablet) {
-    gap: 32px;
-    width: 636px;
-    padding: 28px 20px;
-    border-radius: 40px;
-  }
-  @include media(desktop) {
-    width: 856px;
-    padding: 32px 40px;
-  }
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+	gap: 12px;
+	background-color: $img-backdrop-color;
+	padding: 16px;
+	border-radius: 32px;
+	transform: translateY(-64px);
+	margin-bottom: 30px;
+	@include media(tablet) {
+		gap: 32px;
+		width: 636px;
+		padding: 28px 20px;
+		border-radius: 40px;
+	}
+	@include media(desktop) {
+		width: 856px;
+		padding: 32px 40px;
+	}
 }
 .thanksBlockText {
-  font-style: italic;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.5;
-  @include media(desktop) {
-    font-size: 18px;
-  }
+	font-style: italic;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 1.5;
+	@include media(desktop) {
+		font-size: 18px;
+	}
 }
 .thanksBlockDesc {
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 1.5;
-  text-align: end;
-  @include media(tablet) {
-    font-size: 18px;
-  }
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 1.5;
+	text-align: end;
+	@include media(tablet) {
+		font-size: 18px;
+	}
 }
 .socialBlock {
-  font-family: $secondary-font-family;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 72px;
-  @include media(tablet) {
-    margin-bottom: 120px;
-  }
-  @include media(desktop) {
-    flex-direction: row;
-    gap: 48px;
-    margin-bottom: 160px;
-  }
+	font-family: $secondary-font-family;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 72px;
+	@include media(tablet) {
+		margin-bottom: 120px;
+	}
+	@include media(desktop) {
+		flex-direction: row;
+		gap: 48px;
+		margin-bottom: 160px;
+	}
 }
 .socialTitle {
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 1.17;
-  margin-bottom: 8px;
-  @include media(tablet) {
-    font-size: 28px;
-    line-height: 1.5;
-    margin-bottom: 12px;
-  }
-  @include media(desktop) {
-    margin-bottom: 18px;
-  }
+	font-family: $secondary-font-family;
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 1.17;
+	margin-bottom: 8px;
+	@include media(tablet) {
+		font-size: 28px;
+		line-height: 1.5;
+		margin-bottom: 12px;
+	}
+	@include media(desktop) {
+		margin-bottom: 18px;
+	}
 }
 .socialText {
-  margin-bottom: 24px;
-  font-family: $primary-font-family;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 1.5;
-  @include media(tablet) {
-    font-size: 18px;
-    margin-bottom: 32px;
-  }
+	margin-bottom: 24px;
+	font-family: $primary-font-family;
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 1.5;
+	@include media(tablet) {
+		font-size: 18px;
+		margin-bottom: 32px;
+	}
 }
 
 .socialImage {
-  display: none;
-  @include media(desktop) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: gray;
-    border-radius: 32px;
-    width: 100%;
-    max-width: 636px;
-    height: 416px;
-  }
+	display: none;
+	@include media(desktop) {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: gray;
+		border-radius: 32px;
+		width: 100%;
+		max-width: 636px;
+		height: 416px;
+	}
 }
 
 .thanksSubTitle {
-  text-align: center;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 1.17;
-  @include media(tablet) {
-    font-size: 40px;
-    line-height: 1.5;
-  }
-  @include media(desktop) {
-    font-size: 48px;
-    line-height: 1.17;
-  }
+	font-family: $secondary-font-family;
+	text-align: center;
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 1.17;
+	@include media(tablet) {
+		font-size: 40px;
+		line-height: 1.5;
+	}
+	@include media(desktop) {
+		font-size: 48px;
+		line-height: 1.17;
+	}
 }

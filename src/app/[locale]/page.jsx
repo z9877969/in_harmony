@@ -7,12 +7,12 @@ import { insideServerApi as api } from '@/shared/services';
 
 const MainPage = async ({ params: { locale } }) => {
   const { sectionsDict } = await api.getPageApi({ locale, page: 'main' });
-  const pages = await api.getAllPages({ locale });
+  // const pages = await api.getAllPages({ locale });
 
   // eslint-disable-next-line
-  console.log('sectionsDict :>> ', sectionsDict);
-  // eslint-disable-next-line
-  console.log('pages :>> ', pages);
+  // console.log('sectionsDict :>> ', sectionsDict);
+  // // eslint-disable-next-line
+  // console.log('pages :>> ', pages);
 
   return (
     <>

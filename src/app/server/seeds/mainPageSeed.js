@@ -1,6 +1,6 @@
 // import mongoose from 'mongoose';
 // import env from '../utils/evn.js';
-// import { PagesEN, PagesUA } from '../models/PageModels/PageModels.js';
+// import { Pages } from '../models/PageModels.js';
 
 // // TO USE THIS RUN : node src/app/server/seeds/mainPageSeed.js
 
@@ -39,7 +39,7 @@
 //         section_content: {
 //           title: 'Про нас',
 //           description:
-//             'InHarmony — це благодійна організація, що об’єднує людей, готових створювати зміни для тих, хто цього потребує найбільше.',
+//             'InHarmony — це благодійна організація, що об`єднує людей, готових створювати зміни для тих, хто цього потребує найбільше. Ми працюємо для підтримки родин військових, внутрішньо переміщених осіб та громадян, які постраждали від війни. Окрім цього, наша робота спрямована на турботу про тварин, які постраждали внаслідок війни, та потребують допомоги і захисту. Завдяки вашим внескам та довірі, ми можемо забезпечувати критично важливу підтримку там, де вона необхідна найбільше.',
 //           cards: [
 //             {
 //               title: 'Підтримка родин військових та ВПО',
@@ -128,7 +128,7 @@
 //           title: 'About Us',
 
 //           description:
-//             'InHarmony is a charitable organization that brings together people willing to create change for those who need it the most.',
+//             'InHarmony — is a charity that brings together people who are committed to making a difference for those who need it most. We work to support military families, internally displaced persons, and war-affected citizens. In addition, our work is focused on caring for animals affected by war and in need of help and protection. Thanks to your contributions and trust, we can provide critical support where it is needed most.',
 //           cards: [
 //             {
 //               title: 'Support for Military Families and IDPs',
@@ -186,22 +186,21 @@
 //       },
 //     ];
 
-//     const mainPageDataUA = new PagesUA({
+//     const PageData1 = new Pages({
 //       local: 'ua',
 //       route: 'main',
 //       sections_list: sectionsUA,
 //     });
-//     await PagesUA.create(mainPageDataUA);
+//     await Pages.create(PageData1);
 //     console.log('📦 Main Page (UA) data inserted');
 
-//     const mainPageDataEN = new PagesEN({
+//     const PageData2 = new Pages({
 //       local: 'en',
 //       route: 'main',
 //       sections_list: sectionsEN,
 //     });
-
-//     await PagesEN.create(mainPageDataEN);
-//     console.log('📦 Main Page (UA) data inserted');
+//     await Pages.create(PageData2);
+//     console.log('📦 Main Page (En) data inserted');
 
 //     await mongoose.connection.close();
 //     console.log('🔒 Database connection closed');

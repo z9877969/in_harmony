@@ -9,7 +9,7 @@
   width: 100%;
   height: calc(100% - 85px);
   background-color: $primary-bg-color;
-  z-index: 9999;
+  z-index: 999;
   overflow: hidden;
   transform: translateX(-150%);
   transition: all 0.3s;
@@ -27,7 +27,12 @@
   .langIcon {
     width: 40px;
     height: 40px;
+    filter: grayscale(100%);
     cursor: pointer;
+  }
+
+  .activeLangIcon {
+    filter: grayscale(0);
   }
 
   .nav {
@@ -77,8 +82,4 @@
 .visible {
   transform: translateX(0px);
   transition: all 0.3s;
-}
-
-.notActive {
-  filter: grayscale(100%);
 }

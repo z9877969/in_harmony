@@ -15,6 +15,7 @@
     "cloudinary": "^2.5.1",
     "clsx": "^2.1.1",
     "dotenv": "^16.4.7",
+    "embla-carousel-auto-scroll": "^8.5.2",
     "embla-carousel-react": "^8.5.2",
     "formik": "^2.4.6",
     "http-errors": "^2.0.0",

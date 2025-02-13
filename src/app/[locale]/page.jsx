@@ -9,7 +9,7 @@ const MainPage = async ({ params: { locale } }) => {
   const { sectionsDict } = await api.getPageApi({ locale, page: 'main' });
   const pages = await api.getAllPages({ locale });
 
-  // eslint - disable - next - line;
+  // eslint-disable-next-line
   console.log('sectionsDict :>> ', sectionsDict);
   // eslint-disable-next-line
   console.log('pages :>> ', pages);

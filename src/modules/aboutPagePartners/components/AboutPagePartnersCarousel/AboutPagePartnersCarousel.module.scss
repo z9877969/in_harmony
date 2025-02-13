@@ -1,9 +1,13 @@
-
-.list {
+.embla {
+  overflow: hidden;
+}
+.embla__container {
   display: flex;
-  gap: 16px;
-
+  flex-direction: row;
+}
+.embla__slide {
+  margin-right: 16px;
   @include media(tablet) {
-    gap: 24px;
+    margin-right: 24px;
   }
 }

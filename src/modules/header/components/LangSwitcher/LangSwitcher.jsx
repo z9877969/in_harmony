@@ -7,6 +7,7 @@ import { uaFlag as UaIcon, googleLogo as EnIcon } from '/public/icons';
 import { Icon } from '@/shared/components';
 
 import s from './LangSwitcher.module.scss';
+import { LANGUAGES } from '@/shared/constants';
 
 const LangSwitcher = () => {
   const { currentLocale, handleChangeLanguage } = useLanguageChanger();
@@ -22,7 +23,7 @@ const LangSwitcher = () => {
   return (
     <div className={s.langBlock}>
       <button className={s.langBtn} onClick={toggleDropdown}>
-        {currentLocale === 'ua' ? (
+        {currentLocale === LANGUAGES.UA ? (
           <UaIcon className={s.langIcon} />
         ) : (
           <EnIcon className={s.langIcon} />
@@ -34,15 +35,15 @@ const LangSwitcher = () => {
         <div className={s.dropdown}>
           <ul>
             <li
-              onClick={() => handleLanguageSelect('ua')}
-              className={`${s.languageItem} ${currentLocale === 'ua' ? s.selected : ''}`}
+              onClick={() => handleLanguageSelect(LANGUAGES.UA)}
+              className={`${s.languageItem} ${currentLocale === LANGUAGES.UA ? s.selected : ''}`}
             >
               <UaIcon className={s.langIcon} />
               <span>UA</span>
             </li>
             <li
-              onClick={() => handleLanguageSelect('en')}
-              className={`${s.languageItem} ${currentLocale === 'en' ? s.selected : ''}`}
+              onClick={() => handleLanguageSelect(LANGUAGES.EN)}
+              className={`${s.languageItem} ${currentLocale === LANGUAGES.EN ? s.selected : ''}`}
             >
               <EnIcon className={s.langIcon} />
               <span>EN</span>

@@ -1,47 +1,23 @@
 'use client';
 
-import { useRef, useState, useEffect } from 'react';
+import useEmblaCarousel from 'embla-carousel-react';
 import s from './AboutPagePartnersCarousel.module.scss';
+import AutoScroll from 'embla-carousel-auto-scroll';
+
 import AboutPagePartnersCard from '../AboutPagePartnersCard/AboutPagePartnersCard';
 
 const AboutPagePartnersCarousel = ({ partners }) => {
-  const containerRef = useRef(null);
-  const [scrollAmount, setScrollAmount] = useState(0);
-  const [isScrolling] = useState(true);
+  const [emblaRef] = useEmblaCarousel({ loop: true }, [
+    AutoScroll({ playOnInit: true, speed: 0.7, stopOnInteraction: false }),
+  ]);
 
   const duplicatedItems = [...partners.logo, ...partners.logo];
 
-  useEffect(() => {
-    if (!isScrolling || !containerRef.current) return;
-
-    const wrapper = containerRef.current;
-
-    const scroll = () => {
-      setScrollAmount((prev) => {
-        const nextAmount = prev + 0.5;
-        if (nextAmount >= wrapper.scrollWidth / 2) {
-          return 0;
-        }
-        return nextAmount;
-      });
-    };
-
-    const interval = setInterval(scroll, 20);
-    return () => clearInterval(interval);
-  }, [isScrolling]);
-
-  useEffect(() => {
-    const wrapper = containerRef.current;
-    if (wrapper) {
-      wrapper.style.transform = `translateX(-${scrollAmount}px)`;
-    }
-  }, [scrollAmount]);
-
   return (
-    <div>
-      <ul className={s.list} ref={containerRef}>
+    <div className={s.embla} ref={emblaRef}>
+      <ul className={s.embla__container}>
         {duplicatedItems.map((partners, index) => (
-          <li key={index}>
+          <li className={s.embla__slide} key={index}>
             <AboutPagePartnersCard partners={partners} />
           </li>
         ))}

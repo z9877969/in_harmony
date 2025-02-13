@@ -16,7 +16,7 @@ class InsideServerApi {
       `${this.serverUrl}/api/all-pages/${locale}/${page}`
     );
     const body = await response.json();
-    const sectionsList = body.section.sections_list;
+    const sectionsList = body.section?.sections_list ?? [];
     const sectionsDict = Object.values(sectionsList).reduce((acc, el) => {
       acc[el.section_name] = el;
 
@@ -29,7 +29,7 @@ class InsideServerApi {
     const response = await fetch(`${this.serverUrl}/api/all-pages/${locale}`);
     const body = await response.json();
 
-    return body.sections;
+    return body.pages;
   };
 }
 

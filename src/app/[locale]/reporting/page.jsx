@@ -4,12 +4,7 @@ import { ReportingPageFinishedProjects } from '@/modules/reportingPageFinishedPr
 import { insideServerApi as api } from '@/shared/services';
 const ReportingPage = async ({ params: { locale } }) => {
   const { sectionsDict } = await api.getPageApi({ locale, page: 'reporting' });
-  const pages = await api.getAllPages({ locale });
-
-  // eslint-disable-next-line
-  console.log('sectionsDict :>> ', sectionsDict);
-  // eslint-disable-next-line
-  console.log('pages :>> ', pages);
+  
   return (
     <>
       <ReportingPageFilters content={sectionsDict.filters.section_content} />

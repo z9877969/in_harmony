@@ -7,9 +7,9 @@ import * as yup from 'yup';
 import clsx from 'clsx';
 import Link from 'next/link.js';
 
-import { ROUTES } from '@/shared/constants/index.js';
+import { ROUTES } from '@/shared/constants';
 
-import { Button, RadioButton } from '../index.js';
+import { Button, RadioButton } from '..';
 
 import { arrowFormDonate as FormIcon } from '/public/icons';
 

@@ -9,7 +9,7 @@
     {
       "_id": "abcdef123456abcdef123456",
       "title": "Збір на їжу військовим",
-      "value": "foodCollection",
+      "goal": "foodCollection",
       "importance": "Терміновий збір",
       "image": "",
       "collected": 80000,
@@ -22,7 +22,7 @@
     {
       "_id": "2bcdef123456abcdef123456",
       "title": "Збір на ліки для жителів села Степногірське",
-      "value": "medicineCollection",
+      "goal": "medicineCollection",
       "importance": "Терміновий збір",
       "image": "",
       "collected": 5600,
@@ -35,7 +35,7 @@
     {
       "_id": "abfdef123456abcdef123456",
       "title": "Збір на теплий одяг для місцевих жителів",
-      "value": "clothesCollection",
+      "goal": "clothesCollection",
       "importance": "Терміновий збір",
       "image": "",
       "collected": 50000,
@@ -48,7 +48,7 @@
     {
       "_id": "abcwef123456abcdef123456",
       "title": "Збір на воду в сіру зону",
-      "value": "waterCollection",
+      "goal": "waterCollection",
       "importance": "Терміновий збір",
       "image": "",
       "collected": 2000,
@@ -61,7 +61,7 @@
     {
       "_id": "abcdef123456abcdef12345f",
       "title": "Збір на машину",
-      "value": "carCollection",
+      "goal": "carCollection",
       "importance": "Терміновий збір",
       "image": "",
       "collected": 2000,
@@ -74,7 +74,7 @@
     {
       "_id": "abcdef123456abcdhf123456",
       "title": "Світло в кожен дім",
-      "value": "houseCollection",
+      "goal": "houseCollection",
       "importance": "Терміновий збір",
       "image": "",
       "collected": 2000,
@@ -87,7 +87,7 @@
     {
       "_id": "abcdef123456abcdef12345t",
       "title": "Збір на газ",
-      "value": "gasCollection",
+      "goal": "gasCollection",
       "importance": "Терміновий збір",
       "image": "",
       "collected": 2000,
@@ -100,7 +100,7 @@
     {
       "_id": "abcdef123456abcdef12346d",
       "title": "Збір на БПЛА",
-      "value": "bplaCollection",
+      "goal": "bplaCollection",
       "importance": "Терміновий збір",
       "image": "",
       "collected": 2000,
@@ -113,7 +113,7 @@
     {
       "_id": "abcdef123456abcdefdf3456",
       "title": "Збір на все",
-      "value": "allCollection",
+      "goal": "allCollection",
       "importance": "Терміновий збір",
       "image": "",
       "collected": 2000,

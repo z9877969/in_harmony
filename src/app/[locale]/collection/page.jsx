@@ -1,5 +1,5 @@
-import { CollectionPageActive } from '@/modules/collectionPageActive/index.js';
-import { CollectionPageReporting } from '@/modules/collectionPageReporting/index.js';
+import { CollectionPageActive } from '@/modules/collectionPageActive';
+import { CollectionPageReporting } from '@/modules/collectionPageReporting';
 
 // import s from './page.module.scss';
 

@@ -2,9 +2,10 @@
 
 import Link from 'next/link.js';
 import { usePathname } from 'next/navigation.js';
-import s from './LegalInfo.module.scss';
 
-import { ROUTES } from '@/shared/constants/index.js';
+import { ROUTES } from '@/shared/constants';
+
+import s from './LegalInfo.module.scss';
 
 function LegalInfo({ data }) {
   const pathname = usePathname();

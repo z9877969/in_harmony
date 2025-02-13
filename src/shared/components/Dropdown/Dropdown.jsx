@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { Icon } from '../index.js';
+import { Icon } from '..';
 
 import data from './data/Dropdown.json';
 

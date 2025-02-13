@@ -37,14 +37,6 @@ const collectionSchema = new mongoose.Schema({
   },
   value: {
     type: String,
-    enum: [
-      'foodCollection',
-      'medicineCollection',
-      'clothesCollection',
-      'waterCollection',
-      'lightCollection',
-      'placesToStayCollection',
-    ],
     required: true,
   },
   importance: {

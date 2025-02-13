@@ -14,6 +14,13 @@ const collectionSchema = new mongoose.Schema({
   language: { type: String },
   collected_title: { type: String },
   target_title: { type: String },
+  //reporting options
+  term: { type: String },
+  days: { type: String },
+  period: { type: String },
+  comments: { type: String },
+  quantity: { type: String },
+  //===========================
   long_desc: {
     type: {
       section1: { type: String, default: '' },
@@ -36,12 +43,13 @@ const collectionSchema = new mongoose.Schema({
       'clothesCollection',
       'waterCollection',
       'lightCollection',
+      'placesToStayCollection',
     ],
     required: true,
   },
   importance: {
     type: String,
-    enum: ['urgent', 'important', 'non-urgent'],
+    enum: ['urgent', 'important', 'non-urgent', 'permanent'],
     required: true,
     default: 'important',
   },

@@ -19,6 +19,7 @@
 //         term: 'роки',
 //         language: 'ua',
 //         type: 'was-helped',
+//         status: 'comments',
 //       },
 //       {
 //         name: 'Андрій',
@@ -29,6 +30,7 @@
 //         term: 'роки',
 //         language: 'ua',
 //         type: 'was-helped',
+//         status: 'comments',
 //       },
 //       {
 //         name: 'Петро Іванович',
@@ -39,26 +41,7 @@
 //         term: 'роки',
 //         language: 'ua',
 //         type: 'was-helped',
-//       },
-//       {
-//         name: 'Петро Іванович',
-//         user_status: 'місцевий житель',
-//         comment:
-//           '“Ця допомога була для нас справжнім спасінням у найтемніші дні. Ви надихаєте нас!”',
-//         age: '56',
-//         term: 'роки',
-//         language: 'ua',
-//         type: 'was-helped',
-//       },
-//       {
-//         name: 'Петро Іванович',
-//         user_status: 'місцевий житель',
-//         comment:
-//           '“Ця допомога була для нас справжнім спасінням у найтемніші дні. Ви надихаєте нас!”',
-//         age: '56',
-//         term: 'роки',
-//         language: 'ua',
-//         type: 'was-helped',
+//         status: 'comments',
 //       },
 //     ];
 
@@ -75,6 +58,7 @@
 //         term: 'years',
 //         language: 'en',
 //         type: 'was-helped',
+//         status: 'comments',
 //       },
 //       {
 //         name: 'Andriy',
@@ -85,6 +69,7 @@
 //         term: 'years',
 //         language: 'en',
 //         type: 'was-helped',
+//         status: 'comments',
 //       },
 //       {
 //         name: 'Petro Ivanovych',
@@ -95,26 +80,7 @@
 //         term: 'years',
 //         language: 'en',
 //         type: 'was-helped',
-//       },
-//       {
-//         name: 'Petro Ivanovych',
-//         user_status: 'local resident',
-//         comment:
-//           '“This assistance was a real lifeline for us during the darkest days. You inspire us!”',
-//         age: '56',
-//         term: 'years',
-//         language: 'en',
-//         type: 'was-helped',
-//       },
-//       {
-//         name: 'Petro Ivanovych',
-//         user_status: 'local resident',
-//         comment:
-//           '“This assistance was a real lifeline for us during the darkest days. You inspire us!”',
-//         age: '56',
-//         term: 'years',
-//         language: 'en',
-//         type: 'was-helped',
+//         status: 'comments',
 //       },
 //     ];
 //     await CommentsModel.insertMany(commentsEN);

@@ -9,12 +9,7 @@ const CollectionPage = async ({ params: { locale } }) => {
     locale,
     page: 'collection',
   });
-  const pages = await api.getAllPages({ locale });
-
-  // eslint-disable-next-line
-  console.log('sectionsDict collection:>> ', sectionsDict);
-  // eslint-disable-next-line
-  console.log('pages :>> ', pages);
+  
   return (
     <>
       <OpenCollectionPageHero

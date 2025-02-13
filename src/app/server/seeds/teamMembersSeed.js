@@ -4,6 +4,7 @@ import env from '../utils/evn.js';
 
 // TO USE THIS RUN : node src/app/server/seeds/teamMembersSeed.js
 
+// eslint-disable-next-line
 const reportingSeed = async () => {
   try {
     await mongoose.connect(env('MONGODB_URI'));

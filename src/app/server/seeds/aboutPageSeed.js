@@ -1,6 +1,7 @@
 // import mongoose from 'mongoose';
 // import env from '../utils/evn.js';
 // import { Pages } from '../models/PageModels.js';
+// import PartnersModel from '../models/PartnersModel.js';
 
 // // TO USE THIS RUN : node src/app/server/seeds/aboutPageSeed.js
 
@@ -8,6 +9,22 @@
 //   try {
 //     await mongoose.connect(env('MONGODB_URI'));
 //     console.log('✅ Connected to MongoDB');
+
+//     const partnersLogo = [
+//       { logo: 'icon-non-image', type: 'partners' },
+//       { logo: 'icon-non-image', type: 'partners' },
+//       { logo: 'icon-non-image', type: 'partners' },
+//       { logo: 'icon-non-image', type: 'partners' },
+//       { logo: 'icon-non-image', type: 'partners' },
+//       { logo: 'icon-non-image', type: 'partners' },
+//       { logo: 'icon-non-image', type: 'partners' },
+//       { logo: 'icon-non-image', type: 'partners' },
+//       { logo: 'icon-non-image', type: 'partners' },
+//       { logo: 'icon-non-image', type: 'partners' },
+//     ];
+
+//     await PartnersModel.insertMany(partnersLogo);
+//     console.log('📦 Logos inserted');
 
 //     const sectionsUA = [
 //       {
@@ -160,18 +177,6 @@
 //         section_content: {
 //           title: 'Наші партнери',
 //           desc: 'Команда, партнери і ви — наші ключові сили! Ми вдячні тим, хто розділяє нашу мету і допомагає реалізовувати добрі справи.',
-//           cards: [
-//             { logo: 'icon-non-image' },
-//             { logo: 'icon-non-image' },
-//             { logo: 'icon-non-image' },
-//             { logo: 'icon-non-image' },
-//             { logo: 'icon-non-image' },
-//             { logo: 'icon-non-image' },
-//             { logo: 'icon-non-image' },
-//             { logo: 'icon-non-image' },
-//             { logo: 'icon-non-image' },
-//             { logo: 'icon-non-image' },
-//           ],
 //         },
 //       },
 //       {
@@ -339,18 +344,6 @@
 //         section_content: {
 //           title: 'Our Partners',
 //           desc: 'The team, partners, and you are our key strengths! We are grateful to those who share our goal and help bring good deeds to life.',
-//           cards: [
-//             { logo: 'icon-non-image' },
-//             { logo: 'icon-non-image' },
-//             { logo: 'icon-non-image' },
-//             { logo: 'icon-non-image' },
-//             { logo: 'icon-non-image' },
-//             { logo: 'icon-non-image' },
-//             { logo: 'icon-non-image' },
-//             { logo: 'icon-non-image' },
-//             { logo: 'icon-non-image' },
-//             { logo: 'icon-non-image' },
-//           ],
 //         },
 //       },
 //       {

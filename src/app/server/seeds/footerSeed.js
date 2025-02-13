@@ -1,6 +1,6 @@
 // import mongoose from 'mongoose';
-// import { PagesEN, PagesUA } from '../models/PageModels/PageModels.js';
 // import env from '../utils/evn.js';
+// import { Pages } from '../models/PageModels.js';
 
 // // TO USE THIS RUN : node src/app/server/seeds/footerSeed.js
 
@@ -166,21 +166,21 @@
 //       },
 //     ];
 
-//     const footerPageDataUA = new PagesUA({
+//     const footerPageDataUA = new Pages({
 //       local: 'ua',
 //       route: 'footer',
 //       sections_list: sectionsUA,
 //     });
-//     await PagesUA.create(footerPageDataUA);
+//     await Pages.create(footerPageDataUA);
 //     console.log('📦 Reporting Page (UA) data inserted');
 
-//     const footerPageDataEN = new PagesEN({
+//     const footerPageDataEN = new Pages({
 //       local: 'en',
 //       route: 'footer',
 //       sections_list: sectionsEN,
 //     });
 
-//     await PagesEN.create(footerPageDataEN);
+//     await Pages.create(footerPageDataEN);
 //     console.log('📦 Reporting Page (EN) data inserted');
 
 //     await mongoose.connection.close();

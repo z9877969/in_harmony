@@ -1,6 +1,6 @@
 // import mongoose from 'mongoose';
-// import { PagesEN, PagesUA } from '../models/PageModels/PageModels.js';
 // import env from '../utils/evn.js';
+// import { Pages } from '../models/PageModels.js';
 // // TO USE THIS RUN : node src/app/server/seeds/activeCollectionsSeed.js
 
 // const activeCollectionsSeed = async () => {
@@ -47,21 +47,21 @@
 //       },
 //     ];
 
-//     const collectionPageDataUA = new PagesUA({
+//     const collectionPageDataUA = new Pages({
 //       local: 'ua',
 //       route: 'collection',
 //       sections_list: sectionsUA,
 //     });
-//     await PagesUA.create(collectionPageDataUA);
+//     await Pages.create(collectionPageDataUA);
 //     console.log('📦 Collection Page (UA) data inserted');
 
-//     const collectionsPageDataEN = new PagesEN({
+//     const collectionsPageDataEN = new Pages({
 //       local: 'en',
 //       route: 'collection',
 //       sections_list: sectionsEN,
 //     });
 
-//     await PagesEN.create(collectionsPageDataEN);
+//     await Pages.create(collectionsPageDataEN);
 //     console.log('📦 Collection Page (EN) data inserted');
 
 //     await mongoose.connection.close();

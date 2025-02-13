@@ -1,5 +1,5 @@
 import { connectToDatabase } from '@/app/server/lib';
-import { getCollectionDetailsByIdUA } from '@/app/server/services/pagesServices';
+import { getCollectionDetailsById } from '@/app/server/services/pagesServices';
 
 export const config = {
   api: {
@@ -7,7 +7,6 @@ export const config = {
     externalResolver: true,
   },
 };
-
 export default async function handler(req, res) {
   try {
     await connectToDatabase();
@@ -15,12 +14,7 @@ export default async function handler(req, res) {
 
     if (req.method === 'GET') {
       if (route && id) {
-        const dynamicSection = await getCollectionDetailsByIdUA(req, res);
-
-        if (!dynamicSection) {
-          return res.status(404).json({ message: 'Collection not found' });
-        }
-
+        const dynamicSection = await getCollectionDetailsById(req, res);
         return res.status(200).json(dynamicSection);
       } else {
         return res.status(400).json({ message: 'Route or ID is required' });

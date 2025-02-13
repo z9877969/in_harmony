@@ -1,13 +1,19 @@
 'use client';
 
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
-import { Button, Dropdown, Input, InputArea, RadioButton } from '..';
-import s from './PublicPrivateForm.module.scss';
-import data from './data/PublicPrivateForm.json';
 import Link from 'next/link';
+import * as Yup from 'yup';
+
+import { Button, Dropdown, Input, InputArea, RadioButton } from '../index.js';
+
+import data from './data/PublicPrivateForm.json';
+import dropdownData from '../Dropdown/data/Dropdown.json';
+
+import s from './PublicPrivateForm.module.scss';
 
 import { useState, useEffect } from 'react';
+
+const collections = dropdownData.dropdownOptions;
 
 const PublicPrivateForm = () => {
   const [initialValues, setInitialValues] = useState({
@@ -27,11 +33,11 @@ const PublicPrivateForm = () => {
       ...prevValues,
       amount: searchParams.get('amount'),
       donateTime: searchParams.get('donateTime'),
+      dropdown: searchParams.get('value'),
     }));
   }, []);
 
   const [isPublic, setIsPublic] = useState(true);
-
 
   let validationSchema;
 
@@ -51,15 +57,18 @@ const PublicPrivateForm = () => {
       isChecked: Yup.boolean(),
     });
   }
-
   const handleFormSubmit = (values, { resetForm }) => {
+    const selectedOption = collections.find(
+      (option) => option.value === values.dropdown
+    );
     const valuesAll = {
       ...values,
       amount: initialValues.amount,
       donateTime: initialValues.donateTime,
+      dropdown: selectedOption ? selectedOption.label : values.dropdown,
     };
     // eslint-disable-next-line
-    console.log('valuesAll:', valuesAll);
+    console.log('All values:', valuesAll);
 
     resetForm();
   };
@@ -73,6 +82,7 @@ const PublicPrivateForm = () => {
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={handleFormSubmit}
+        enableReinitialize
       >
         {({ setFieldValue }) => (
           <Form>
@@ -128,6 +138,7 @@ const PublicPrivateForm = () => {
                 <Dropdown
                   value={field.value}
                   onSelect={(value) => setFieldValue('dropdown', value)}
+                  initialValue={initialValues.dropdown}
                 />
               )}
             </Field>

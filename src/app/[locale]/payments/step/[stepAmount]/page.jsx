@@ -6,7 +6,7 @@ import {
   ProgressBar,
   PublicPrivateForm,
   SectionTitle,
-} from '@/shared/components/index.js';
+} from '@/shared/components';
 
 import s from './page.module.scss';
 

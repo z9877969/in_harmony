@@ -1,4 +1,4 @@
-import { ReportingPageFilters } from '@/modules/reportingPageFilters/index.js';
+import { ReportingPageFilters } from '@/modules/reportingPageFilters';
 import { ReportingPageDonate } from '@/modules/reportingPageDonate';
 import { ReportingPageFinishedProjects } from '@/modules/reportingPageFinishedProjects';
 import { insideServerApi as api } from '@/shared/services';

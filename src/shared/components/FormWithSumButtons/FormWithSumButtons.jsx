@@ -2,11 +2,14 @@
 
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { useRouter } from 'next/navigation.js';
+import { useEffect, useState } from 'react';
 import * as yup from 'yup';
 import clsx from 'clsx';
 import Link from 'next/link.js';
 
-import { Button, RadioButton } from '../index.js';
+import { ROUTES } from '@/shared/constants';
+
+import { Button, RadioButton } from '..';
 
 import { arrowFormDonate as FormIcon } from '/public/icons';
 
@@ -24,24 +27,40 @@ const validationSchemaFormDonate = yup.object().shape({
 });
 
 const FormWithSumButtons = ({ className = '' }) => {
+  const [initialValues, setInitialValues] = useState({
+    amount: '',
+    donateTime: 'oneTime',
+    value: '',
+  });
+
   const router = useRouter();
   const amounts = [200, 500, 1000];
 
   const onSubmit = (values, { resetForm }) => {
+    const valuesAll = {
+      ...values,
+      value: initialValues.value || '',
+    };
     // eslint-disable-next-line
-    console.log('Form donate:', values);
+    console.log('Form donate:', valuesAll);
     resetForm();
-    const query = new URLSearchParams(values).toString();
-    router.push(`/ua/payments/step/2?${query}`);
+    const query = new URLSearchParams(valuesAll).toString();
+    router.push(`${ROUTES.PAYMENTS(2)}?${query}`);
   };
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search);
+
+    setInitialValues((prevValues) => ({
+      ...prevValues,
+      value: searchParams.get('value'),
+    }));
+  }, []);
 
   return (
     <div className={clsx(s.boxForm, `${className}`)}>
       <Formik
-        initialValues={{
-          amount: '',
-          donateTime: 'oneTime',
-        }}
+        initialValues={initialValues}
         validationSchema={validationSchemaFormDonate}
         onSubmit={onSubmit}
       >

@@ -1,4 +1,4 @@
-import { OpenCollectionGoal } from '@/modules/openCollectionGoal/index.js';
+import { OpenCollectionGoal } from '@/modules/openCollectionGoal';
 import { OpenCollectionOther } from '@/modules/openCollectionOther';
 import { OpenCollectionPageHero } from '@/modules/openCollectionPageHero';
 import { insideServerApi as api } from '@/shared/services';

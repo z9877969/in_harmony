@@ -2,7 +2,7 @@ export const ROUTES = {
   ABOUT: 'about',
   COLLECTION: 'collection',
   REPORTING: 'reporting',
-  PAYMENTS: 'payments',
+  PAYMENTS: (step = 1) => `/payments/step/${step}`,
   TERMS: 'terms',
   POLICY: 'policy',
   DISCARD: 'discard',
@@ -18,9 +18,9 @@ export const SOCIALROUTES = {
 export const LANGUAGES = {
   UA: 'ua',
   EN: 'en',
-}
+};
 
-export const NAMESPACES = ['header', 'mainPage']
+export const NAMESPACES = ['header', 'mainPage'];
 
 export const LINKDATA = {
   PATHHOME: '/',

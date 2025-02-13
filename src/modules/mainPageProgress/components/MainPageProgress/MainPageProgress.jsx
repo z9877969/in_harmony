@@ -3,14 +3,13 @@ import { Container } from '@/shared/components';
 import { SectionTitle } from '@/shared/components';
 import { CardForSwiperWhithArrow } from '@/shared/components';
 import { SwiperWithArrows } from '@/modules/swiperWithArrows';
-import { content } from '../../data/sectionContent';
 import s from './MainPageProgress.module.scss';
 
-const MainPageProgress = () => {
+const MainPageProgress = ({ content }) => {
   return (
     <section className={s.container}>
       <Container>
-        <SectionTitle className={s.title} title="Останні досягнення" />
+        <SectionTitle className={s.title} title={content.title} />
         <SwiperWithArrows
           isArrowsShow={true}
           options={{
@@ -18,7 +17,7 @@ const MainPageProgress = () => {
             loop: false,
             containScroll: 'trimSnaps',
           }}
-          slides={content}
+          slides={content.cards}
           Component={CardForSwiperWhithArrow}
         />
       </Container>

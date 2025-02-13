@@ -19,7 +19,9 @@ const MainPage = async ({ params: { locale } }) => {
       <MainPageHero content={sectionsDict.hero.section_content} />
       <MainPageCollection />
       <MainPageAbout content={sectionsDict.about.section_content} />
-      <MainPageProgress />
+      <MainPageProgress
+        content={sectionsDict.closed_collections?.section_content}
+      />
       <MainPageDonat />
     </>
   );

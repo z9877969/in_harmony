@@ -178,7 +178,6 @@
 //         days: '65',
 //         period: 'днів',
 //         comments: 'Відгуків:',
-//         quantity: '5',
 //       },
 //       {
 //         title: 'Збір коштів на корм',
@@ -206,7 +205,6 @@
 //         days: '70',
 //         period: 'днів',
 //         comments: 'Відгуків:',
-//         quantity: '5',
 //       },
 //     ];
 
@@ -383,7 +381,6 @@
 //         days: '65',
 //         period: 'days',
 //         comments: 'Reviews:',
-//         quantity: '5',
 //       },
 //       {
 //         title: 'Fundraising for Animal Feed',
@@ -405,6 +402,13 @@
 //         type: 'collections',
 //         language: 'en',
 //         value: 'lightCollection',
+//         collected_title: 'Collected',
+//         target_title: 'Target',
+//         currency: 'UAH',
+//         term: 'Implementation Period:',
+//         days: '70',
+//         period: 'days',
+//         comments: 'Reviews:',
 //       },
 //     ];
 

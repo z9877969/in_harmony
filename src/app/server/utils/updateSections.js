@@ -4,7 +4,7 @@ import TeamMembersModel from '../models/TeamMembersModels';
 import CommentsModel from '../models/WasHelpedCommentsModels';
 import { sectionConfigs } from './updatePages.js';
 
-export async function updateSections(page) {
+export default async function updateSections(page) {
   const updatedSections = await Promise.all(
     page.sections_list.map(async (section) => {
       const config = sectionConfigs[section.section_name];

@@ -1,7 +1,6 @@
 import CollectionModel from '../models/CollectionsModel';
 import { Pages } from '../models/PageModels';
-import updatePages from '../utils/updatePages.js';
-import { updateSections } from '../utils/updateSection';
+import { updatePages, updateSections } from '../utils';
 
 export const getPage = async (req, res) => {
   try {
@@ -24,8 +23,7 @@ export const getPage = async (req, res) => {
   }
 };
 
-
-export const getPageByRoute= async (req, res) => {
+export const getPageByRoute = async (req, res) => {
   try {
     const { route, locale } = req.query;
 
@@ -44,9 +42,7 @@ export const getPageByRoute= async (req, res) => {
   }
 };
 
-
-
-export const getCollectionDetailsById= async (req, res) => {
+export const getCollectionDetailsById = async (req, res) => {
   try {
     const { route, id, sectionName = 'collection_details', locale } = req.query;
     const page = await Pages.findOne({ route: route, local: locale }).lean();

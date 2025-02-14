@@ -20,7 +20,7 @@ const Dropdown = ({ onSelect, initialValue }) => {
         (option) => option.value === initialValue
       );
       if (selectedOption) {
-        setTitle(selectedOption.label);
+        setTitle(selectedOption.title);
         if (buttonRef.current) {
           buttonRef.current.click();
         }
@@ -32,9 +32,9 @@ const Dropdown = ({ onSelect, initialValue }) => {
     setIsDropdownOpen((prev) => !prev);
   };
 
-  const handleSelect = (label) => {
-    setTitle(label);
-    onSelect(label);
+  const handleSelect = (title) => {
+    setTitle(title);
+    onSelect(title);
     setIsDropdownOpen(false);
   };
 
@@ -58,12 +58,12 @@ const Dropdown = ({ onSelect, initialValue }) => {
               <li key={idx}>
                 <button
                   className={s.select}
-                  onClick={() => handleSelect(el.label)}
+                  onClick={() => handleSelect(el.title)}
                   ref={
-                    initialValue && el.value === initialValue ? buttonRef : null
+                    initialValue && el.title === initialValue ? buttonRef : null
                   }
                 >
-                  {el.label}
+                  {el.title}
                 </button>
               </li>
             ))}

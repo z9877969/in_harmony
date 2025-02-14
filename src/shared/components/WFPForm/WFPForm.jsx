@@ -62,6 +62,7 @@ const WFPForm = forwardRef(
           setFormData(data);
         }
       } catch (error) {
+        // eslint-disable-next-line
         console.error('Помилка під час запиту:', error);
       } finally {
         setLoading(false);

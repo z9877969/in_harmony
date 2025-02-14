@@ -14,11 +14,10 @@ import {
   mainPageDonateTablet,
   mainPageDonateTablet2x,
 } from '@/shared/images/main-page-donate';
-import data from '../../data/sectionContent.json';
 
 import s from './MainPageDonat.module.scss';
 
-const MainPageDonat = () => {
+const MainPageDonat = ({ content }) => {
   return (
     <Container>
       <section className={s.section}>
@@ -26,7 +25,7 @@ const MainPageDonat = () => {
           <Image
             className={s.image}
             src={mainPageDonateDesktop.src}
-            alt={data.alt}
+            alt={content.alt}
             fill
             priority
             sizes="100%"
@@ -41,8 +40,8 @@ const MainPageDonat = () => {
           />
         </div>
         <div className={s.boxText}>
-          <SectionTitle title={data.title} className={s.title} />
-          <p className={s.text}>{data.text}</p>
+          <SectionTitle title={content.title} className={s.title} />
+          <p className={s.text}>{content.description}</p>
         </div>
         <FormWithSumButtons className={s.form} />
       </section>

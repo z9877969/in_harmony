@@ -1,23 +1,41 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Icon } from '..';
-import s from './Dropdown.module.scss';
+
 import data from './data/Dropdown.json';
+
+import s from './Dropdown.module.scss';
+
 const collections = data.dropdownOptions;
 
-const Dropdown = ({ onSelect }) => {
+const Dropdown = ({ onSelect, initialValue }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [title, setTitle] = useState('Підтримати фонд');
+  const [title, setTitle] = useState(data.title);
+  const buttonRef = useRef(null);
+
+  useEffect(() => {
+    if (initialValue) {
+      const selectedOption = collections.find(
+        (option) => option.value === initialValue
+      );
+      if (selectedOption) {
+        setTitle(selectedOption.title);
+        if (buttonRef.current) {
+          buttonRef.current.click();
+        }
+      }
+    }
+  }, [initialValue]);
 
   const toggleDropdown = () => {
     setIsDropdownOpen((prev) => !prev);
   };
 
-  const handleSelect = (value) => {
-    setTitle(value);
+  const handleSelect = (title) => {
+    setTitle(title);
+    onSelect(title);
     setIsDropdownOpen(false);
-    onSelect(value);
   };
 
   const arrowName = isDropdownOpen ? 'icon-arrow-up' : 'icon-arrow-down';
@@ -40,9 +58,12 @@ const Dropdown = ({ onSelect }) => {
               <li key={idx}>
                 <button
                   className={s.select}
-                  onClick={() => handleSelect(el.label)}
+                  onClick={() => handleSelect(el.title)}
+                  ref={
+                    initialValue && el.title === initialValue ? buttonRef : null
+                  }
                 >
-                  {el.label}
+                  {el.title}
                 </button>
               </li>
             ))}

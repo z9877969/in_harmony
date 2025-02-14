@@ -1,6 +1,7 @@
 {
   "name": "in_harmony",
   "version": "0.1.0",
+  "type": "module",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -10,11 +11,18 @@
     "lint:fix": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0 --fix"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.66.0",
+    "cloudinary": "^2.5.1",
     "clsx": "^2.1.1",
+    "dotenv": "^16.4.7",
+    "embla-carousel-auto-scroll": "^8.5.2",
     "embla-carousel-react": "^8.5.2",
     "formik": "^2.4.6",
+    "http-errors": "^2.0.0",
     "i18next": "^24.2.2",
     "i18next-resources-to-backend": "^1.2.1",
+    "mongoose": "^8.10.0",
+    "multer": "^1.4.5-lts.1",
     "next": "14.2.22",
     "next-i18n-router": "^5.5.1",
     "normalize-scss": "^8.0.0",

@@ -2,6 +2,9 @@
 
 import Link from 'next/link.js';
 import { usePathname } from 'next/navigation.js';
+
+import { ROUTES } from '@/shared/constants';
+
 import s from './LegalInfo.module.scss';
 
 function LegalInfo({ data }) {
@@ -36,8 +39,7 @@ function LegalInfo({ data }) {
           </div>
         </dl>
       </section>
-
-      <Link href={'/discard'} className={s.navLink}>
+      <Link href={ROUTES.DISCARD} className={s.navLink}>
         {data.linkUnsubscribeText}
       </Link>
     </section>

@@ -2,7 +2,13 @@
   "root": true,
   "extends": ["next", "next/core-web-vitals", "eslint:recommended"],
   "plugins": ["react-refresh"],
-
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "globals": {
+    "Promise": "readonly"
+  },
   "rules": {
     "react/jsx-no-target-blank": "off",
     "react-refresh/only-export-components": [

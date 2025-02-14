@@ -1,13 +1,41 @@
 'use client';
 
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
-import { Button, Dropdown, Input, InputArea, RadioButton } from '..';
-import s from './PublicPrivateForm.module.scss';
-import data from './data/PublicPrivateForm.json';
 import Link from 'next/link';
+import * as Yup from 'yup';
 
-import { useState, useEffect } from 'react';
+import {
+  Button,
+  Dropdown,
+  Input,
+  InputArea,
+  RadioButton,
+  WFPForm,
+} from '../index.js';
+
+import data from './data/PublicPrivateForm.json';
+import dropdownData from '../Dropdown/data/Dropdown.json';
+
+import s from './PublicPrivateForm.module.scss';
+
+import { useState, useEffect, useRef } from 'react';
+
+const validationSchemaPublic = Yup.object().shape({
+  name: Yup.string().required(data.validationMessage.required),
+  email: Yup.string()
+    .email(data.validationMessage.email)
+    .required(data.validationMessage.required),
+  message: Yup.string().required(data.validationMessage.required),
+  dropdown: Yup.string().required(data.validationMessage.dropdown),
+  isChecked: Yup.boolean(),
+});
+
+const validationSchemaAnonymous = Yup.object().shape({
+  dropdown: Yup.string().required(data.validationMessage.dropdown),
+  isChecked: Yup.boolean(),
+});
+
+const collections = dropdownData.dropdownOptions;
 
 const PublicPrivateForm = () => {
   const [initialValues, setInitialValues] = useState({
@@ -19,6 +47,26 @@ const PublicPrivateForm = () => {
     amount: '',
     donateTime: '',
   });
+  const [isPublic, setIsPublic] = useState(true);
+  const [loading, setLoading] = useState(false);
+
+  const wfpFormRef = useRef(null);
+
+  let validationSchema;
+
+  if (isPublic) {
+    validationSchema = validationSchemaPublic;
+  } else {
+    validationSchema = validationSchemaAnonymous;
+  }
+
+  const handleRadioButtonChange = (value) => {
+    if (isPublic && value !== 'public') {
+      setIsPublic(false);
+    } else if (!isPublic && value === 'public') {
+      setIsPublic(true);
+    }
+  };
 
   useEffect(() => {
     const searchParams = new URLSearchParams(window.location.search);
@@ -27,39 +75,34 @@ const PublicPrivateForm = () => {
       ...prevValues,
       amount: searchParams.get('amount'),
       donateTime: searchParams.get('donateTime'),
+      dropdown: searchParams.get('value'),
     }));
   }, []);
 
-  const [isPublic, setIsPublic] = useState(true);
+  const handleFormSubmit = async (values) => {
+    const selectedOption = collections.find(
+      (option) => option.value === values.dropdown
+    );
+    const amountWithCommission = values.isChecked
+      ? parseFloat(initialValues.amount) * 1.02
+      : parseFloat(initialValues.amount);
 
-
-  let validationSchema;
-
-  if (isPublic) {
-    validationSchema = Yup.object().shape({
-      name: Yup.string().required(data.validationMessage.required),
-      email: Yup.string()
-        .email(data.validationMessage.email)
-        .required(data.validationMessage.required),
-      message: Yup.string().required(data.validationMessage.required),
-      dropdown: Yup.string().required(data.validationMessage.dropdown),
-      isChecked: Yup.boolean(),
-    });
-  } else {
-    validationSchema = Yup.object().shape({
-      dropdown: Yup.string().required(data.validationMessage.dropdown),
-      isChecked: Yup.boolean(),
-    });
-  }
-
-  const handleFormSubmit = (values, { resetForm }) => {
     const valuesAll = {
       ...values,
-      amount: initialValues.amount,
+      amount: amountWithCommission.toFixed(0),
       donateTime: initialValues.donateTime,
+      dropdown: selectedOption ? selectedOption.title : values.dropdown,
     };
 
-    resetForm();
+    setInitialValues(valuesAll);
+  };
+
+  const handleFinalSubmit = async () => {
+    if (wfpFormRef.current) {
+      setLoading(true);
+      await wfpFormRef.current.generateOrderAndSubmit();
+      setLoading(false);
+    }
   };
 
   return (
@@ -70,7 +113,12 @@ const PublicPrivateForm = () => {
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
-        onSubmit={handleFormSubmit}
+        onSubmit={async (values, actions) => {
+          await handleFormSubmit(values);
+          await handleFinalSubmit();
+          actions.setSubmitting(false);
+        }}
+        enableReinitialize
       >
         {({ setFieldValue }) => (
           <Form>
@@ -78,7 +126,7 @@ const PublicPrivateForm = () => {
               <RadioButton
                 options={data.donateOptions}
                 name="donateOptions"
-                onChange={() => setIsPublic((prev) => !prev)}
+                onChange={handleRadioButtonChange}
               />
 
               {isPublic && (
@@ -126,6 +174,7 @@ const PublicPrivateForm = () => {
                 <Dropdown
                   value={field.value}
                   onSelect={(value) => setFieldValue('dropdown', value)}
+                  initialValue={initialValues.dropdown}
                 />
               )}
             </Field>
@@ -142,7 +191,7 @@ const PublicPrivateForm = () => {
               size="medium"
               className={s.btn}
             >
-              {data.btnText}
+              {!loading ? `${data.btnText}` : 'обробка запиту'}
             </Button>
             <Link href="#" className={s.payment}>
               {data.otherPaymentMethods}
@@ -150,8 +199,17 @@ const PublicPrivateForm = () => {
           </Form>
         )}
       </Formik>
+
+      <WFPForm
+        ref={wfpFormRef}
+        amount={initialValues.amount}
+        clientEmail={initialValues.email}
+        message={initialValues.message}
+        paymentPurpose={initialValues.dropdown}
+        donateTime={initialValues.donateTime}
+        clientFirstName={initialValues.name}
+      />
     </div>
   );
 };
-
 export default PublicPrivateForm;

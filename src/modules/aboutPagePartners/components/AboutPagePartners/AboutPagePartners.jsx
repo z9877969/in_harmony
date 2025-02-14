@@ -12,9 +12,9 @@ const AboutPagePartners = () => {
             <h2 className={s.title}>{partners.title}</h2>
             <p className={s.desc}>{partners.desc}</p>
           </div>
-          <AboutPagePartnersCarousel partners={partners} />
         </div>
       </Container>
+      <AboutPagePartnersCarousel partners={partners} />
     </section>
   );
 };

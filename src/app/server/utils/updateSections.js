@@ -14,7 +14,7 @@ export default async function updateSections(page) {
         const query = {
           type: config.type,
           ...(config.status && { status: config.status }),
-          ...(config.language && { language: section.local }),
+          ...(config.type !== 'partners' && { language: section.local }),
         };
         let data;
         if (config.type === 'collections') {

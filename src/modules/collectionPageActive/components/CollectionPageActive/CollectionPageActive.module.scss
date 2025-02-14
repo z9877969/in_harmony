@@ -13,9 +13,11 @@
   @include media(desktop) {
     padding: 16px 0 76px 0;
   }
-}
+} 
 
-.mainContainer {
+
+.content {
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 32px;

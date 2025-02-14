@@ -58,8 +58,6 @@ const PublicPrivateForm = () => {
       amount: initialValues.amount,
       donateTime: initialValues.donateTime,
     };
-    // eslint-disable-next-line
-    console.log('valuesAll:', valuesAll);
 
     resetForm();
   };

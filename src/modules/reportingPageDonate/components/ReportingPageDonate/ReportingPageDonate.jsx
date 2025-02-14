@@ -24,9 +24,9 @@ const ReportingPageDonate = () => {
   const locale = pathname.split('/')[1];
 
   return (
-    <Container>
-      <Section className={s.section}>
-        <div className={s.mainContainer}>
+    <Section className={s.section}>
+      <Container>
+        <div className={s.content}>
           <div className={s.imageWrapper}>
             <Image
               className={s.image}
@@ -56,8 +56,8 @@ const ReportingPageDonate = () => {
             </Button>
           </div>
         </div>
-      </Section>
-    </Container>
+      </Container>
+    </Section>
   );
 };
 

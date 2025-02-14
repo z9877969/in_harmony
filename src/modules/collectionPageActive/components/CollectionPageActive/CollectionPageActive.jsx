@@ -27,9 +27,9 @@ const CollectionPageActive = () => {
   };
 
   return (
-    <Container>
-      <Section className={s.section} ref={sectionRef}>
-        <div className={s.mainContainer}>
+    <Section className={s.section} ref={sectionRef}>
+      <Container>
+        <div className={s.content}>
           <SectionTitle title={collection.title} />
           <ActiveCollectionList
             visibleItems={visibleItems}
@@ -47,8 +47,8 @@ const CollectionPageActive = () => {
               : collection.all_collections_button}
           </Button>
         </div>
-      </Section>
-    </Container>
+      </Container>
+    </Section>
   );
 };
 

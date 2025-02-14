@@ -1,7 +1,4 @@
 .section {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
   max-width: 100%;
   padding: 8px 0px 48px 0px;
 
@@ -10,9 +7,19 @@
   }
 
   @include media(desktop) {
+    padding: 16px 0px 78px 0px;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+
+  @include media(desktop) {
     flex-direction: row;
     gap: 48px;
-    padding: 16px 0px 78px 0px;
   }
 }
 

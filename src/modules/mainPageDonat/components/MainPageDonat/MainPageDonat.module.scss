@@ -1,12 +1,21 @@
 @import '../../../../shared/styles/colors';
 
 .section {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
   max-width: 100%;
   padding-top: 48px;
   padding-bottom: 48px;
+
+  @include media(desktop) {
+    padding-top: 76px;
+    padding-bottom: 76px;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
 
   @include media(tablet) {
     width: 100%;
@@ -17,8 +26,6 @@
     flex-direction: row;
     flex-wrap: wrap;
     gap: 24px;
-    padding-top: 76px;
-    padding-bottom: 76px;
   }
 }
 

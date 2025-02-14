@@ -4,27 +4,33 @@
 @import '@/shared/styles/colors';
 
 .section {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
   max-width: 100%;
-  height: auto;
-  justify-content: center;
   padding: 48px 0;
 
   @include media(mobile) {
     width: 100%;
   }
 
+  @include media(desktop) {
+    padding: 76px 0;
+  }
+
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+  height: auto;
+  justify-content: center;
+
   @include media(tablet) {
     gap: 40px;
-    width: 100%;
   }
 
   @include media(desktop) {
     gap: 48px;
-    width: 100%;
-    padding: 76px 0;
   }
 }
 
@@ -60,6 +66,7 @@
 }
 .image {
   display: none;
+  
   @include media(desktop) {
     display: block;
     width: 416px;

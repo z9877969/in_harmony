@@ -1,7 +1,7 @@
-.ContentContainer {
+.content {
   padding: 16px 16px 24px 16px;
   border-radius: 32px;
-  max-width: 100%;
+  width: 100%;
   max-width: 370px;
   box-sizing: border-box;
   display: flex;
@@ -26,7 +26,6 @@
   background: #ddd;
   width: 100%;
   aspect-ratio: 16 / 11.35;
-  max-width: 100%;
   height: auto;
   max-height: 240px;
   overflow: hidden;

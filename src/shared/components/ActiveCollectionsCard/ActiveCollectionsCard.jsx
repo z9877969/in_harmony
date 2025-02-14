@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
+
 import { Button, Icon } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import {
@@ -13,6 +14,7 @@ import {
   lightDesktop2x,
 } from '@/shared/images/active-collection';
 import { CollectionProgress } from '@/modules/mainPageCollection';
+
 import s from './ActiveCollectionsCard.module.scss';
 
 function ActiveCollectionsCard({ collection, buttonDetails, buttonDonas }) {
@@ -21,7 +23,7 @@ function ActiveCollectionsCard({ collection, buttonDetails, buttonDonas }) {
   const locale = pathname.split('/')[1];
 
   return (
-    <div className={s.ContentContainer}>
+    <div className={s.content}>
       <div className={s.imageWrapper}>
         <Image
           className={s.image}

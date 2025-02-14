@@ -78,6 +78,11 @@
 }
 
 .title {
+  height: 74px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
   font-weight: 700;
   @include font(20, 28);
   font-family: $secondary-font-family;

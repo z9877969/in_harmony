@@ -5,11 +5,11 @@ import { Container, SectionTitle } from '@/shared/components';
 
 import s from './CollectionPageReporting.module.scss';
 import CollectionCardList from '../CollectionCardList/CollectionCardList';
-import { content } from '../../data/sectionContent';
+
 import { ROUTES } from '@/shared/constants';
 import Link from 'next/link';
 
-export default function CollectionPageReporting() {
+export default function CollectionPageReporting({ content }) {
   const [isTablet, setIsTablet] = useState(false);
 
   const visibleItems = isTablet ? 2 : 3;
@@ -19,7 +19,6 @@ export default function CollectionPageReporting() {
       const width = window.innerWidth;
       setIsTablet(width >= 768 && width < 1440);
     };
-
     handleResize();
     window.addEventListener('resize', handleResize);
 
@@ -31,8 +30,8 @@ export default function CollectionPageReporting() {
   return (
     <section>
       <Container>
-        <SectionTitle title="Звітність" className={s.title} />
-        <CollectionCardList data={content} visibleItems={visibleItems} />
+        <SectionTitle title={content.title} className={s.title} />
+        <CollectionCardList data={content.cards} visibleItems={visibleItems} />
         <div className={s.linkWrapper}>
           <Link href={ROUTES.REPORTING} className={s.link}>
             Всі звіти

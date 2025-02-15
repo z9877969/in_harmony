@@ -31,6 +31,12 @@ class InsideServerApi {
 
     return body.pages;
   };
+
+  getCollectionCardById = async ({ id }) => {
+    const response = await fetch(`${this.serverUrl}/api/collections/${id}`);
+    const body = await response.json();
+    return body;
+  };
 }
 
 export const insideServerApi = new InsideServerApi();

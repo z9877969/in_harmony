@@ -8,7 +8,7 @@ export default function CollectionCardList({ data, visibleItems }) {
         {data.slice(0, visibleItems).map((slid) => (
           <CardProjectReporting
             slid={slid}
-            key={slid.id}
+            key={slid._id}
             className={s.listItem}
           />
         ))}

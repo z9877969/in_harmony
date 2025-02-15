@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef, useState } from 'react';
-import { Button, Container, SectionTitle } from '@/shared/components';
+import { Button, Container, Section, SectionTitle } from '@/shared/components';
 import { ActiveCollectionList } from '@/modules/mainPageCollection';
 import collection from '../../data/section-content.json';
 import s from './CollectionPageActive.module.scss';
@@ -27,9 +27,9 @@ const CollectionPageActive = () => {
   };
 
   return (
-    <section className={s.section} ref={sectionRef}>
+    <Section className={s.section} ref={sectionRef}>
       <Container>
-        <div className={s.mainContainer}>
+        <div className={s.content}>
           <SectionTitle title={collection.title} />
           <ActiveCollectionList
             visibleItems={visibleItems}
@@ -48,7 +48,7 @@ const CollectionPageActive = () => {
           </Button>
         </div>
       </Container>
-    </section>
+    </Section>
   );
 };
 

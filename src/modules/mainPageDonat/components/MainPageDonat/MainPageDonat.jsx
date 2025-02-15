@@ -3,9 +3,9 @@ import Image from 'next/image';
 import {
   Container,
   FormWithSumButtons,
+  Section,
   SectionTitle,
 } from '@/shared/components';
-
 import {
   mainPageDonateDesktop,
   mainPageDonateDesktop2x,
@@ -19,33 +19,35 @@ import s from './MainPageDonat.module.scss';
 
 const MainPageDonat = ({ content }) => {
   return (
-    <Container>
-      <section className={s.section}>
-        <div className={s.imageWrapper}>
-          <Image
-            className={s.image}
-            src={mainPageDonateDesktop.src}
-            alt={content.alt}
-            fill
-            priority
-            sizes="100%"
-            srcSet={`
-                ${mainPageDonateMobile.src} 320w, 
-                ${mainPageDonateTablet.src} 768w, 
+    <Section className={s.section}>
+      <Container>
+        <div className={s.content}>
+          <div className={s.imageWrapper}>
+            <Image
+              className={s.image}
+              src={mainPageDonateDesktop.src}
+              alt={data.alt}
+              fill
+              priority
+              sizes="100%"
+              srcSet={`
+                ${mainPageDonateMobile.src} 320w,
+                ${mainPageDonateMobile2x.src} 640w,
+                ${mainPageDonateTablet.src} 768w,
+                ${mainPageDonateTablet2x.src} 1536w,
                 ${mainPageDonateDesktop.src} 1440w,
-                ${mainPageDonateMobile2x.src} 640w, 
-                ${mainPageDonateTablet2x.src} 1536w, 
                 ${mainPageDonateDesktop2x.src} 2880w
               `}
-          />
+            />
+          </div>
+          <div className={s.boxText}>
+            <SectionTitle title={content.title} className={s.title} />
+            <p className={s.text}>{content.description}</p>
+          </div>
+          <FormWithSumButtons className={s.form} />
         </div>
-        <div className={s.boxText}>
-          <SectionTitle title={content.title} className={s.title} />
-          <p className={s.text}>{content.description}</p>
-        </div>
-        <FormWithSumButtons className={s.form} />
-      </section>
-    </Container>
+      </Container>
+    </Section>
   );
 };
 

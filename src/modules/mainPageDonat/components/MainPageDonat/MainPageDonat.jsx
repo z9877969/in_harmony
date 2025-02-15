@@ -26,7 +26,7 @@ const MainPageDonat = ({ content }) => {
             <Image
               className={s.image}
               src={mainPageDonateDesktop.src}
-              alt={data.alt}
+              alt={content.alt}
               fill
               priority
               sizes="100%"

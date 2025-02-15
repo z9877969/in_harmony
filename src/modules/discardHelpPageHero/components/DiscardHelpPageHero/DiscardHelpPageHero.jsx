@@ -26,6 +26,8 @@ const DiscardHelpPageHero = () => {
               fill
               priority
               sizes="100%"
+              placeholder="blur"
+              blurDataURL="/images/blur-placeholder.jpg"
               srcSet={`
                 ${peacePosterMobile.src} 320w,
                 ${peacePosterMobile2x.src} 640w, 

@@ -11,6 +11,7 @@ export default async function handler(req, res) {
   try {
     await createLogPayment(req, res);
   } catch (error) {
+    // eslint-disable-next-line
     console.error('Create Log Payment Handler Error:', error);
     return res.status(500).json({ error: 'Помилка сервера' });
   }

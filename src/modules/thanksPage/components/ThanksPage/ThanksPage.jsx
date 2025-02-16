@@ -1,8 +1,42 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { Container, Icon } from '@/shared/components';
 import SocialLinks from '../SocialLinks/SocialLinks';
 import s from './ThankPage.module.scss';
 
 const ThanksPage = () => {
+  const query = useSearchParams();
+  const [hasSent, setHasSent] = useState(false);
+
+  useEffect(() => {
+    if (hasSent || !query.toString()) return;
+
+    const postQuery = async () => {
+      try {
+        const response = await fetch(`/api/user-payment`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(Object.fromEntries(query.entries())),
+        });
+
+        if (!response.ok) {
+          throw new Error('Request error');
+        }
+
+        setHasSent(true);
+      } catch (error) {
+        // eslint-disable-next-line
+        console.error('request error:', error);
+      }
+    };
+
+    postQuery();
+  }, [query, hasSent]);
+
   return (
     <section className={s.section}>
       <Container>
@@ -28,10 +62,7 @@ const ThanksPage = () => {
         <div className={s.socialBlock}>
           <div>
             <h2 className={s.socialTitle}>Будьте з нами!</h2>
-            <p className={s.socialText}>
-              Приєднуйтеся до наших соцмереж, щоб бути в курсі нових ініціатив
-              та бачити результати вашої підтримки.
-            </p>
+            <p className={s.socialText}>Приєднуйтеся до наших соцмереж...</p>
             <SocialLinks />
           </div>
           <div className={s.socialImage}>

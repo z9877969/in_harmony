@@ -22,7 +22,7 @@ const MainPage = async ({ params: { locale } }) => {
       <MainPageProgress
         content={sectionsDict.closed_collections?.section_content}
       />
-      <MainPageDonat />
+      <MainPageDonat content={sectionsDict.donats.section_content} />
     </>
   );
 };

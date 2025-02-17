@@ -1,0 +1,30 @@
+@import '@/shared/styles/mixins';
+.container {
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.title {
+  font-family: $primary-font-family;
+  @include font(28, 28);
+  font-weight: 700;
+  color: $secondary-text-color;
+}
+
+.message {
+  @include font(20, 30);
+  font-weight: 700;
+  color: $secondary-text-color;
+}
+
+.link {
+  font-family: $primary-font-family;
+  @include font(16, 22);
+  font-weight: 700;
+  color: $violet-ui-text-color;
+  text-decoration: underline;
+}

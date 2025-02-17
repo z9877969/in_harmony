@@ -62,6 +62,7 @@ const WFPForm = forwardRef(
           setFormData(data);
         }
       } catch (error) {
+        // eslint-disable-next-line
         console.error('Помилка під час запиту:', error);
       } finally {
         setLoading(false);
@@ -75,17 +76,17 @@ const WFPForm = forwardRef(
     const returnUrl = useMemo(() => {
       if (!formData) return '';
 
-      const baseUrl = `${formData.appBaseURL}/${locale}/thanks`;
+      const baseUrl = `${formData.appBaseURL}/api/redirect-to-thanks`;
 
       const params = new URLSearchParams({
+        locale,
         isPublic,
         isRegular,
-        amount,
+        amount: formData.amount,
         ...(isPublic && message && { message }),
         ...(isPublic && clientFirstName && { clientFirstName }),
         ...(isPublic && clientLastName && { clientLastName }),
         ...(isPublic && clientEmail && { clientEmail }),
-        ...(isPublic && paymentPurpose && { paymentPurpose }),
       });
 
       return `${baseUrl}?${params.toString().replace(/\+/g, '%20')}`;
@@ -94,12 +95,10 @@ const WFPForm = forwardRef(
       locale,
       isPublic,
       isRegular,
-      amount,
       message,
       clientFirstName,
       clientLastName,
       clientEmail,
-      paymentPurpose,
     ]);
 
     useEffect(() => {
@@ -120,6 +119,7 @@ const WFPForm = forwardRef(
             method="post"
             action={formData.paymentUrl}
             acceptCharset="utf-8"
+            target="_blank"
           >
             <input
               type="hidden"

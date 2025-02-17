@@ -1,21 +1,21 @@
 {
   "title": "Підтримати фонд",
   "dropdownOptions": [
-    { "value": "foodCollection", "label": "Збір на їжу військовим" },
+    { "value": "foodCollection", "title": "Збір на їжу військовим" },
     {
       "value": "medicineCollection",
-      "label": "Збір на ліки для жителів села Степногірське"
+      "title": "Збір на ліки "
     },
     {
       "value": "clothesCollection",
-      "label": "Збір на теплий одяг для місцевих жителів"
+      "title": "Збір на теплий одяг "
     },
-    { "value": "waterCollection", "label": "Збір на воду в сіру зону" },
+    { "value": "waterCollection", "title": "Збір на воду в сіру зону" },
 
-    { "value": "carCollection", "label": "Збір на машину" },
-    { "value": "houseCollection", "label": "Світло в кожен дім" },
-    { "value": "gasCollection", "label": "Збір на газ" },
-    { "value": "bplaCollection", "label": "Збір на БПЛА" },
-    { "value": "allCollection", "label": "Збір на все" }
+    { "value": "carCollection", "title": "Збір на машину" },
+    { "value": "houseCollection", "title": "Світло в кожен дім" },
+    { "value": "gasCollection", "title": "Збір на газ" },
+    { "value": "bplaCollection", "title": "Збір на БПЛА" },
+    { "value": "allCollection", "title": "Збір на все" }
   ]
 }

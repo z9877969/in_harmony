@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 import { Icon } from '@/shared/components';
@@ -22,32 +23,28 @@ function ActiveCollectionsCard({ collection, buttonDetails, buttonDonas }) {
   const locale = pathname.split('/')[1];
 
   return (
-    <div className={s.ContentContainer}>
-      <div className={s.collectionImg}>
-        <picture>
-          <source
-            srcSet={`${lightMobil.src} 1x, ${lightMobil2x.src} 2x`}
-            media="(max-width: 767px)"
-          />
-          <source
-            srcSet={`${lightTablet.src} 1x, ${lightTablet2x.src} 2x`}
-            media="(max-width: 1023px)"
-          />
-          <source
-            srcSet={`${lightDesktop.src} 1x, ${lightDesktop2x.src} 2x`}
-            media="(min-width: 1024px)"
-          />
-          <img
-            src={lightMobil.src}
-            alt={collection.title}
-            className={s.image}
-            loading="lazy"
-          />
-        </picture>
+    <div className={s.content}>
+      <div className={s.imageWrapper}>
+        <Image
+          className={s.image}
+          src={lightDesktop.src}
+          alt={collection.title}
+          fill
+          priority
+          sizes="100%"
+          placeholder="blur"
+          blurDataURL="/images/blur-placeholder.jpg"
+          srcSet={`
+            ${lightMobil.src} 320w,
+            ${lightMobil2x.src} 640w,
+            ${lightTablet.src} 768w,
+            ${lightTablet2x.src} 1536w,
+            ${lightDesktop.src} 1440w,
+            ${lightDesktop2x.src} 2880w
+          `}
+        />
       </div>
-
       <p className={s.importance}>{collection.importance}</p>
-
       <div className={s.mainContentContainer}>
         <div className={s.contentContainer}>
           <h3 className={s.title}>{collection.title} </h3>

@@ -1,5 +1,5 @@
 import connectToDatabase from '@/app/server/lib/mongodb.js';
-import { uploadMiddleware } from '../../../app/server/lib/multer.js';
+import { uploadMiddleware } from '../../../../app/server/lib/multer.js';
 import isValidId from '@/app/server/utils/isValidId.js';
 import validateBody from '@/app/server/utils/validateBody.js';
 import CollectionModel from '@/app/server/models/CollectionsModel.js';

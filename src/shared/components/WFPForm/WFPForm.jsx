@@ -10,15 +10,24 @@ import {
   useState,
 } from 'react';
 
+function generateQueryParams(params) {
+  const encodedParams = Object.entries(params)
+    .map(
+      ([key, value]) =>
+        `${encodeURIComponent(key)}=${encodeURIComponent(value)}`
+    )
+    .join('&');
+  return encodedParams ? `${encodedParams}` : '';
+}
+
 const WFPForm = forwardRef(
   (
     {
-      isPublic = true,
+      isPublic = false,
       isRegular = false,
       message = '',
       amount = 0,
       clientFirstName = '',
-      clientLastName = '',
       clientEmail = '',
       paymentPurpose = 'inHarmony Donate',
     },
@@ -43,9 +52,10 @@ const WFPForm = forwardRef(
           body: JSON.stringify({
             amount,
             type: isRegular ? 'regular' : 'one-time',
+            isPublic,
             clientFirstName: isPublic ? clientFirstName : '',
-            clientLastName: isPublic ? clientLastName : '',
             clientEmail: isPublic ? clientEmail : '',
+            message: isPublic ? message : '',
             paymentPurpose,
             status: 'InProcessing',
           }),
@@ -69,37 +79,20 @@ const WFPForm = forwardRef(
       }
     }
 
-    useImperativeHandle(ref, () => ({
-      generateOrderAndSubmit,
-    }));
-
     const returnUrl = useMemo(() => {
       if (!formData) return '';
 
       const baseUrl = `${formData.appBaseURL}/api/redirect-to-thanks`;
 
-      const params = new URLSearchParams({
+      const params = {
         locale,
-        isPublic,
-        isRegular,
-        amount: formData.amount,
-        ...(isPublic && message && { message }),
-        ...(isPublic && clientFirstName && { clientFirstName }),
-        ...(isPublic && clientLastName && { clientLastName }),
-        ...(isPublic && clientEmail && { clientEmail }),
-      });
+        orderId: formData.orderReference,
+      };
 
-      return `${baseUrl}?${params.toString().replace(/\+/g, '%20')}`;
-    }, [
-      formData,
-      locale,
-      isPublic,
-      isRegular,
-      message,
-      clientFirstName,
-      clientLastName,
-      clientEmail,
-    ]);
+      const queryParams = generateQueryParams(params);
+
+      return `${baseUrl}?${queryParams}`;
+    }, [formData, locale]);
 
     useEffect(() => {
       if (formData) {
@@ -144,13 +137,6 @@ const WFPForm = forwardRef(
                 type="hidden"
                 name="clientFirstName"
                 value={clientFirstName}
-              />
-            )}
-            {isPublic && clientLastName && (
-              <input
-                type="hidden"
-                name="clientLastName"
-                value={clientLastName}
               />
             )}
             {isPublic && clientEmail && (

@@ -1,9 +1,11 @@
 .progressBarContainer {
+  width: 100%;
   border-radius: 32px;
   overflow: hidden;
 }
 
 .progressBar {
+  width: 100%;
   height: 100%;
   border-radius: 32px;
   transition: width 0.3s ease-in-out;

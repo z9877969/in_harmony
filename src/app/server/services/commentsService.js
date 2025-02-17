@@ -7,7 +7,8 @@ import saveFileToUploadDir from '../lib/saveFileToUploadDir.js';
 
 export const getAllComments = async (req, res) => {
   try {
-    const comments = await CommentsModel.find().lean();
+    const { locale } = req.query;
+    const comments = await CommentsModel.find({ language: locale }).lean();
 
     res.status(200).json({ status: 200, data: comments });
   } catch (error) {

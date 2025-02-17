@@ -1,43 +1,30 @@
-import {
-  peacePosterMobile,
-  peacePosterMobile2x,
-  peacePosterTablet,
-  peacePosterTablet2x,
-  peacePosterDesktop,
-  peacePosterDesktop2x,
-} from '@/shared/images/discard-help-page-hero';
-import { Container } from '@/shared/components';
+import Image from 'next/image';
 
+import { Container, Section } from '@/shared/components';
 import data from '../../data/sectionContent.json';
 
 import s from './DiscardHelpPageHero.module.scss';
 
 const DiscardHelpPageHero = () => {
+  // dataProps отримуємо з пропсів або з fetch-запиту
+  const dataProps = {
+    imageUrl: '/images/peace-poster-desktop2x.png',
+  };
   return (
-    <section>
+    <Section className={s.section}>
       <Container>
-        <div className={s.mainContainer}>
-          <div className={s.imageContainer}>
-            <picture>
-              <source
-                srcSet={`${peacePosterMobile.src} 1x, ${peacePosterMobile2x.src} 2x`}
-                media="(max-width: 767px)"
-              />
-              <source
-                srcSet={`${peacePosterTablet.src} 1x, ${peacePosterTablet2x.src} 2x`}
-                media="(max-width: 1023px)"
-              />
-              <source
-                srcSet={`${peacePosterDesktop.src} 1x, ${peacePosterDesktop2x.src} 2x`}
-                media="(min-width: 1024px)"
-              />
-              <img
-                src={peacePosterMobile.src}
-                alt="Peace poster"
-                className={s.image}
-                loading="lazy"
-              />
-            </picture>
+        <div className={s.content}>
+          <div className={s.imageWrapper}>
+            <Image
+              className={s.image}
+              src={dataProps.imageUrl}
+              alt={data.alt}
+              fill
+              priority
+              sizes="100%"
+              placeholder="blur"
+              blurDataURL="/images/blur-placeholder.jpg"
+            />
           </div>
           <div className={s.textBlock}>
             <h1 className={s.title}>{data.title}</h1>
@@ -46,7 +33,7 @@ const DiscardHelpPageHero = () => {
           </div>
         </div>
       </Container>
-    </section>
+    </Section>
   );
 };
 

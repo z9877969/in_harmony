@@ -4,4 +4,8 @@ export const nameMap = {
   about: 'Про команду',
   terms: 'Правила та умови сайту',
   discard: 'Скасування допомоги',
+  payments: 'Оплата',
+  step: 'Крок',
+  active: 'Активний',
+  closed: 'Закритий',
 };

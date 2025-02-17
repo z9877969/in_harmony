@@ -19,3 +19,4 @@ export { default as RadioButton } from './RadioButton/RadioButton';
 export { default as Section } from './Section/Section';
 export { default as SectionTitle } from './SectionTitle/SectionTitle';
 export { default as WFPForm } from './WFPForm/WFPForm';
+export { default as Loader } from './Loader/Loader';

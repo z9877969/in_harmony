@@ -1,6 +1,8 @@
 export const ROUTES = {
   ABOUT: 'about',
   COLLECTION: 'collection',
+  ACTIVE_COLLECTION: 'collection/active',
+  CLOSED_COLLECTION: 'collection/closed',
   REPORTING: 'reporting',
   PAYMENTS: (step = 1) => `/payments/step/${step}`,
   TERMS: 'terms',

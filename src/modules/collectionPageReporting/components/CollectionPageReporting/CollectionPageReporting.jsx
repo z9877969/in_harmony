@@ -5,11 +5,11 @@ import { Container, SectionTitle } from '@/shared/components';
 
 import s from './CollectionPageReporting.module.scss';
 import CollectionCardList from '../CollectionCardList/CollectionCardList';
-import { content } from '../../data/sectionContent';
+// import { content } from '../../data/sectionContent';
 import { ROUTES } from '@/shared/constants';
 import Link from 'next/link';
 
-export default function CollectionPageReporting() {
+export default function CollectionPageReporting({ content }) {
   const [isTablet, setIsTablet] = useState(false);
 
   const visibleItems = isTablet ? 2 : 3;

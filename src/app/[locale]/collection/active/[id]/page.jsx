@@ -9,14 +9,16 @@ const CollectionPage = async ({ params: { locale } }) => {
     locale,
     page: 'collection',
   });
-  
+
   return (
     <>
       <OpenCollectionPageHero
         content={sectionsDict.active_collections.section_content}
       />
       <OpenCollectionGoal />
-      <OpenCollectionOther />
+      <OpenCollectionOther
+        content={sectionsDict.active_collections.section_content}
+      />
     </>
   );
 };

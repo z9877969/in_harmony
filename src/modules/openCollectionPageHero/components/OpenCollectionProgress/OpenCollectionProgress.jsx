@@ -1,19 +1,19 @@
 import { Icon } from '@/shared/components';
 import { ProgressBar } from '@/shared/components';
 import s from './OpenCollectionProgress.module.scss';
-
+import sectionContent from '../../data/sectionContent.json';
 const OpenCollectionProgress = ({ data }) => {
-  const progress = (data.collected.amount / data.target.amount) * 100;
+  const progress = (data.collected / data.target) * 100;
   const formattedProgress = Math.round(progress);
   return (
     <div>
       <div className={s.title}>
-        <p>{data.collected.title}</p>
-        <p>{data.target.title}</p>
+        <p>{data.collected_title}</p>
+        <p>{data.target_title}</p>
       </div>
       <div className={s.amount}>
-        <p>{Number(data.collected.amount).toLocaleString('uk-UA')} &#x20B4;</p>
-        <p>{Number(data.target.amount).toLocaleString('uk-UA')} &#x20B4;</p>
+        <p>{Number(data.collected).toLocaleString('uk-UA')} &#x20B4;</p>
+        <p>{Number(data.target).toLocaleString('uk-UA')} &#x20B4;</p>
       </div>
       <div className={s.progressContainer}>
         <ProgressBar
@@ -24,9 +24,12 @@ const OpenCollectionProgress = ({ data }) => {
         <p>{formattedProgress}%</p>
       </div>
       <div className={s.donors}>
-        <Icon className={s.icon} iconName={data.donors.icon} />
+        <Icon
+          className={s.icon}
+          iconName={sectionContent.progress.donors.icon}
+        />
         <p>
-          {data.donors.amount} {data.donors.title}
+          {data.peopleDonate} {data.peopleDonate_title}
         </p>
       </div>
     </div>

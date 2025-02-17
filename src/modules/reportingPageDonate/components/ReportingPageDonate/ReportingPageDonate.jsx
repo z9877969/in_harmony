@@ -5,14 +5,6 @@ import { usePathname, useRouter } from 'next/navigation';
 
 import { Button, Container, Section } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
-import {
-  girlMobil,
-  girlMobil2x,
-  girlTablet,
-  girlTablet2x,
-  girlDesktop,
-  girlDesktop2x,
-} from '@/shared/images/reporting-page-donate';
 import reporting from '../../data/section-content.json';
 
 import s from './ReportingPageDonate.module.scss';
@@ -23,6 +15,11 @@ const ReportingPageDonate = () => {
 
   const locale = pathname.split('/')[1];
 
+      // dataProps отримуємо з пропсів або з fetch-запиту
+      const dataProps = {
+        imageUrl: '/images/girl-desktop2x.png',
+      };
+
   return (
     <Section className={s.section}>
       <Container>
@@ -30,19 +27,11 @@ const ReportingPageDonate = () => {
           <div className={s.imageWrapper}>
             <Image
               className={s.image}
-              src={girlDesktop.src}
+              src={dataProps.imageUrl}
               alt={reporting.title}
               fill
               priority
               sizes="100%"
-              srcSet={`
-                ${girlMobil.src} 320w,
-                ${girlMobil2x.src} 640w, 
-                ${girlTablet.src} 768w,
-                ${girlTablet2x.src} 1536w, 
-                ${girlDesktop.src} 1440w,
-                ${girlDesktop2x.src} 2880w
-              `}
             />
           </div>
           <div className={s.textContainer}>

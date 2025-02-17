@@ -1,19 +1,15 @@
 import Image from 'next/image';
 
-import {
-  peacePosterMobile,
-  peacePosterMobile2x,
-  peacePosterTablet,
-  peacePosterTablet2x,
-  peacePosterDesktop,
-  peacePosterDesktop2x,
-} from '@/shared/images/discard-help-page-hero';
 import { Container, Section } from '@/shared/components';
 import data from '../../data/sectionContent.json';
 
 import s from './DiscardHelpPageHero.module.scss';
 
 const DiscardHelpPageHero = () => {
+  // dataProps отримуємо з пропсів або з fetch-запиту
+  const dataProps = {
+    imageUrl: '/images/peace-poster-desktop2x.png',
+  };
   return (
     <Section className={s.section}>
       <Container>
@@ -21,19 +17,11 @@ const DiscardHelpPageHero = () => {
           <div className={s.imageWrapper}>
             <Image
               className={s.image}
-              src={peacePosterDesktop.src}
+              src={dataProps.imageUrl}
               alt={data.alt}
               fill
               priority
               sizes="100%"
-              srcSet={`
-                ${peacePosterMobile.src} 320w,
-                ${peacePosterMobile2x.src} 640w, 
-                ${peacePosterTablet.src} 768w,
-                ${peacePosterTablet2x.src} 1536w, 
-                ${peacePosterDesktop.src} 1440w,
-                ${peacePosterDesktop2x.src} 2880w
-              `}
             />
           </div>
           <div className={s.textBlock}>

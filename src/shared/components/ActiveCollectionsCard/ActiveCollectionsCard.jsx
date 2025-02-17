@@ -32,6 +32,8 @@ function ActiveCollectionsCard({ collection, buttonDetails, buttonDonas }) {
           fill
           priority
           sizes="100%"
+          placeholder="blur"
+          blurDataURL="/images/blur-placeholder.jpg"
           srcSet={`
             ${lightMobil.src} 320w,
             ${lightMobil2x.src} 640w,

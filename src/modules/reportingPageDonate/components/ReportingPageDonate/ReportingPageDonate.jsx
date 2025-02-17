@@ -35,6 +35,8 @@ const ReportingPageDonate = () => {
               fill
               priority
               sizes="100%"
+              placeholder="blur"
+              blurDataURL="/images/blur-placeholder.jpg"
               srcSet={`
                 ${girlMobil.src} 320w,
                 ${girlMobil2x.src} 640w, 

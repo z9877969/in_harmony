@@ -8,6 +8,10 @@ import data from '../../data/sectionContent.json';
 import s from './AboutPageMission.module.scss';
 
 const AboutPageMission = () => {
+    // dataProps отримуємо з пропсів або з fetch-запиту
+    const dataProps = {
+      imageUrl: '/images/default_image.webp',
+    };
   return (
     <Section className={s.section}>
       <Container>
@@ -17,7 +21,7 @@ const AboutPageMission = () => {
             <div className={s.imageWrapper}>
               <Image
                 className={s.image}
-                src="/images/default_image.webp"
+                src={dataProps.imageUrl}
                 alt="Team Photo"
                 width={416}
                 height={306}

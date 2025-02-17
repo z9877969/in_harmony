@@ -6,14 +6,6 @@ import { usePathname } from 'next/navigation';
 import { Icon } from '@/shared/components';
 import { LINKDATA, ROUTES } from '@/shared/constants';
 import { CollectionProgress } from '@/modules/mainPageCollection';
-import {
-  lightMobil,
-  lightMobil2x,
-  lightTablet,
-  lightTablet2x,
-  lightDesktop,
-  lightDesktop2x,
-} from '@/shared/images/active-collection';
 import LinkButton from '../LinkButton/LinkButton.jsx';
 
 import s from './ActiveCollectionsCard.module.scss';
@@ -27,21 +19,13 @@ function ActiveCollectionsCard({ collection, buttonDetails, buttonDonas }) {
       <div className={s.imageWrapper}>
         <Image
           className={s.image}
-          src={lightDesktop.src}
+          src={collection.imageUrl}
           alt={collection.title}
           fill
           priority
           sizes="100%"
           placeholder="blur"
           blurDataURL="/images/blur-placeholder.jpg"
-          srcSet={`
-            ${lightMobil.src} 320w,
-            ${lightMobil2x.src} 640w,
-            ${lightTablet.src} 768w,
-            ${lightTablet2x.src} 1536w,
-            ${lightDesktop.src} 1440w,
-            ${lightDesktop2x.src} 2880w
-          `}
         />
       </div>
       <p className={s.importance}>{collection.importance}</p>

@@ -30,6 +30,8 @@ const MainPageDonat = ({ content }) => {
               fill
               priority
               sizes="100%"
+              placeholder="blur"
+              blurDataURL="/images/blur-placeholder.jpg"
               srcSet={`
                 ${mainPageDonateMobile.src} 320w,
                 ${mainPageDonateMobile2x.src} 640w,

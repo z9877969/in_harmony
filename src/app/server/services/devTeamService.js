@@ -7,7 +7,8 @@ import TeamMembersModel from '../models/TeamMembersModels';
 
 export const getAllTeam = async (req, res) => {
   try {
-    const members = await TeamMembersModel.find().lean();
+    const { locale } = req.query;
+    const members = await TeamMembersModel.find({ language: locale }).lean();
 
     res.status(200).json({ status: 200, data: members });
   } catch (error) {

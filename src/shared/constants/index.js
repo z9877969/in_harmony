@@ -57,5 +57,4 @@ export const PAYMENT_CONFIG = {
   regularMode: 'monthly',
   regularOn: '1',
   regularCount: '12',
-  appBaseURL: process.env.APP_DOMAIN,
 };

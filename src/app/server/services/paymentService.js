@@ -7,9 +7,10 @@ export const createPayment = async (req, res) => {
   const {
     amount,
     type,
+    isPublic,
     clientFirstName,
-    clientLastName,
     clientEmail,
+    message,
     paymentPurpose,
     status,
   } = req.body;
@@ -23,12 +24,17 @@ export const createPayment = async (req, res) => {
   try {
     const orderDate = Math.floor(Date.now() / 1000);
 
+    const host = req.headers.host;
+    const protocol = host.includes('localhost') ? 'http' : 'https';
+    const serverUrl = `${protocol}://${host}`;
+
     const payment = new PaymentModel({
       amount,
       type,
+      isPublic,
       clientFirstName,
-      clientLastName,
       clientEmail,
+      message,
       paymentPurpose,
       orderDate,
       status,
@@ -53,7 +59,6 @@ export const createPayment = async (req, res) => {
       regularMode,
       regularOn,
       regularCount,
-      appBaseURL,
     } = PAYMENT_CONFIG;
 
     const controlString = `${merchantAccount};${merchantDomainName};${orderReference};${orderDate};${amount};${currency};${paymentPurpose};${productCount};${amount}`;
@@ -67,7 +72,6 @@ export const createPayment = async (req, res) => {
       amount,
       type,
       clientFirstName,
-      clientLastName,
       clientEmail,
       paymentPurpose,
       status,
@@ -84,11 +88,11 @@ export const createPayment = async (req, res) => {
       regularMode,
       regularOn,
       regularCount,
-      appBaseURL,
+      appBaseURL: serverUrl,
     };
 
     return res.status(201).json(data);
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    res.status(500).json({ message: 'Помилка при створенні платежу', error });
   }
 };

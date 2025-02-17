@@ -48,12 +48,15 @@ export default async function RootLayout({ children, params: { locale } }) {
         resources={resources}
       >
         <body className={clsx(montserrat.className, open_sans.className)}>
-          <Header t={t} />
-          <Breadcrumbs />
           <ErrorBoundary>
+            <Header t={t} />
+            <Breadcrumbs />
+          
             <main>{children}</main>
+          
+          
+            <Footer />
           </ErrorBoundary>
-          <Footer />
           <div id="modal"></div>
         </body>
       </TranslationsProvider>

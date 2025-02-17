@@ -22,6 +22,8 @@ const DiscardHelpPageHero = () => {
               fill
               priority
               sizes="100%"
+              placeholder="blur"
+              blurDataURL="/images/blur-placeholder.jpg"
             />
           </div>
           <div className={s.textBlock}>

@@ -10,10 +10,10 @@ import {
 import s from './MainPageDonat.module.scss';
 
 const MainPageDonat = ({ content }) => {
-    // dataProps отримуємо з пропсів або з fetch-запиту
-    const dataProps = {
-      imageUrl: '/images/main-page-donate-desktop2x.png',
-    };
+  // dataProps отримуємо з пропсів або з fetch-запиту
+  const dataProps = {
+    imageUrl: '/images/main-page-donate-desktop2x.png',
+  };
 
   return (
     <Section className={s.section}>
@@ -27,6 +27,8 @@ const MainPageDonat = ({ content }) => {
               fill
               priority
               sizes="100%"
+              placeholder="blur"
+              blurDataURL="/images/blur-placeholder.jpg"
             />
           </div>
           <div className={s.boxText}>

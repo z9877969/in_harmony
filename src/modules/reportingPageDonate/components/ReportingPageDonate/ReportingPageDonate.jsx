@@ -15,10 +15,10 @@ const ReportingPageDonate = () => {
 
   const locale = pathname.split('/')[1];
 
-      // dataProps отримуємо з пропсів або з fetch-запиту
-      const dataProps = {
-        imageUrl: '/images/girl-desktop2x.png',
-      };
+  // dataProps отримуємо з пропсів або з fetch-запиту
+  const dataProps = {
+    imageUrl: '/images/girl-desktop2x.png',
+  };
 
   return (
     <Section className={s.section}>
@@ -32,6 +32,8 @@ const ReportingPageDonate = () => {
               fill
               priority
               sizes="100%"
+              placeholder="blur"
+              blurDataURL="/images/blur-placeholder.jpg"
             />
           </div>
           <div className={s.textContainer}>

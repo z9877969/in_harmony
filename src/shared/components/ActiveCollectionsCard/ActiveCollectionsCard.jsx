@@ -24,6 +24,8 @@ function ActiveCollectionsCard({ collection, buttonDetails, buttonDonas }) {
           fill
           priority
           sizes="100%"
+          placeholder="blur"
+          blurDataURL="/images/blur-placeholder.jpg"
         />
       </div>
       <p className={s.importance}>{collection.importance}</p>

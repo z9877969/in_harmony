@@ -1,0 +1,26 @@
+@import '@/shared/styles/mixins';
+.container {
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.heading {
+  font-family: $primary-font-family;
+  @include font(36, 36);
+  font-weight: 700;
+  color: $secondary-text-color;
+}
+
+.message {
+  @include font(20, 30);
+  font-weight: 700;
+  color: $violet-ui-text-color;
+}
+
+.button {
+  margin-top: 10px;
+}

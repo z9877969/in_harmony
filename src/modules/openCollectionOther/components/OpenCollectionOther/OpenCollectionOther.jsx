@@ -11,16 +11,12 @@ import {
 } from '@/shared/components';
 import other_collection from '../../data/section-content.json';
 import s from './OpenCollectionOther.module.scss';
-import { useParams } from 'next/navigation';
 
 const OpenCollectionOther = ({ content }) => {
   const [visibleItems, setVisibleItems] = useState(1);
   const [totalSlides, setTotalSlides] = useState(0);
-  const [collections, setCollections] = useState();
-  //   const collections = other_collection.collections;
 
-  const { id } = useParams();
-
+  const { otherCollections, otherCollectionTitle } = content;
   useEffect(() => {
     const handleResize = (collections) => {
       const width = window.innerWidth;
@@ -38,26 +34,20 @@ const OpenCollectionOther = ({ content }) => {
       setVisibleItems(itemsPerPage);
       setTotalSlides(slidesCount > 0 ? slidesCount : 1);
     };
+    handleResize(otherCollections);
 
-    const handleData = () => {
-      const otherCollections = content.cards.filter((el) => el._id !== id);
-
-      handleResize(otherCollections);
-      setCollections(otherCollections);
-    };
-    handleData();
     window.addEventListener('resize', handleResize);
 
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [content.cards, id]);
+  }, [otherCollections]);
 
   return (
     <Section className={s.section}>
-      {collections && (
+      {otherCollections && (
         <Container>
-          <SectionTitle title={collections.title} className={s.title} />
+          <SectionTitle title={otherCollectionTitle} className={s.title} />
           <div>
             <DotsSwiper
               customSwiper={s.customSwiper}
@@ -65,7 +55,7 @@ const OpenCollectionOther = ({ content }) => {
               slideCount={visibleItems}
               spaceBetween={24}
             >
-              {collections.map((collection) => (
+              {otherCollections.map((collection) => (
                 <SwiperSlide key={collection._id}>
                   <ActiveCollectionsCard
                     collection={collection}

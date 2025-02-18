@@ -1,44 +1,33 @@
-'use client';
 import { Container } from '@/shared/components';
 import { Icon } from '@/shared/components';
-import OpenCollectionProgress from '../OpenCollectionProgress/OpenCollectionProgress';
 import sectionContent from '../../data/sectionContent.json';
 import s from './OpenCollectionPageHero.module.scss';
-import { useEffect, useState } from 'react';
-import { useParams } from 'next/navigation';
+import OpenCollectionProgress from '../OpenCollectionProgress/OpenCollectionProgress';
 
 const OpenCollectionPageHero = ({ content }) => {
-  const [data, setData] = useState();
-  const { id } = useParams();
-  useEffect(() => {
-    const getData = () => {
-      const information = content.cards.find((el) => el._id === id);
-      setData(information);
-    };
-    getData();
-  }, [content, id]);
+  const { elementById } = content;
   return (
     <section className={s.wrapper}>
-      {data && (
+      {elementById && (
         <Container>
           <div className={s.mainContent}>
             <div className={s.image}>
               <Icon className={s.icon} iconName={sectionContent.icon} />
             </div>
             <div className={s.info}>
-              <h2 className={s.title}>{data.title}</h2>
+              <h2 className={s.title}>{elementById.title}</h2>
               <div className={s.status}>
                 <span></span>
-                <p>{data.status}</p>
+                <p>{elementById.status}</p>
               </div>
               <div className={s.description}>
-                <p>{data.long_desc.section1}</p>
-                <p>{data.long_desc.section2}</p>
-                <p>{data.long_desc.section3}</p>
+                <p>{elementById.long_desc.section1}</p>
+                <p>{elementById.long_desc.section2}</p>
+                <p>{elementById.long_desc.section3}</p>
               </div>
             </div>
           </div>
-          <OpenCollectionProgress data={data} />
+          <OpenCollectionProgress data={elementById} />
         </Container>
       )}
     </section>

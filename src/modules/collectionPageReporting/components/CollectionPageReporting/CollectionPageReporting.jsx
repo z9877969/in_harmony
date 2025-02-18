@@ -13,7 +13,7 @@ export default function CollectionPageReporting({ content }) {
   const [isTablet, setIsTablet] = useState(false);
 
   const visibleItems = isTablet ? 2 : 3;
-
+  const { cards } = content;
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
@@ -32,7 +32,7 @@ export default function CollectionPageReporting({ content }) {
     <section>
       <Container>
         <SectionTitle title="Звітність" className={s.title} />
-        <CollectionCardList data={content} visibleItems={visibleItems} />
+        <CollectionCardList data={cards} visibleItems={visibleItems} />
         <div className={s.linkWrapper}>
           <Link href={ROUTES.REPORTING} className={s.link}>
             Всі звіти

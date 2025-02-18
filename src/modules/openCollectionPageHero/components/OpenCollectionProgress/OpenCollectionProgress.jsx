@@ -1,7 +1,7 @@
 import { Icon } from '@/shared/components';
 import { ProgressBar } from '@/shared/components';
 import s from './OpenCollectionProgress.module.scss';
-import sectionContent from '../../data/sectionContent.json';
+
 const OpenCollectionProgress = ({ data }) => {
   const progress = (data.collected / data.target) * 100;
   const formattedProgress = Math.round(progress);
@@ -24,10 +24,7 @@ const OpenCollectionProgress = ({ data }) => {
         <p>{formattedProgress}%</p>
       </div>
       <div className={s.donors}>
-        <Icon
-          className={s.icon}
-          iconName={sectionContent.progress.donors.icon}
-        />
+        <Icon className={s.icon} iconName={'icon-people'} />
         <p>
           {data.peopleDonate} {data.peopleDonate_title}
         </p>

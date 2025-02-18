@@ -4,21 +4,14 @@ import { OpenCollectionPageHero } from '@/modules/openCollectionPageHero';
 import { insideServerApi as api } from '@/shared/services';
 // import s from './page.module.scss';
 
-const CollectionPage = async ({ params: { locale } }) => {
-  const { sectionsDict } = await api.getPageApi({
-    locale,
-    page: 'collection',
-  });
+const CollectionPage = async ({ params: { locale, id } }) => {
+  const collectionData = await api.getActiveCollectionPageApi(locale, id);
 
   return (
     <>
-      <OpenCollectionPageHero
-        content={sectionsDict.active_collections.section_content}
-      />
+      <OpenCollectionPageHero content={collectionData} />
       <OpenCollectionGoal />
-      <OpenCollectionOther
-        content={sectionsDict.active_collections.section_content}
-      />
+      <OpenCollectionOther content={collectionData} />
     </>
   );
 };

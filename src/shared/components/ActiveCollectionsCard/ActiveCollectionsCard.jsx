@@ -9,10 +9,12 @@ import { CollectionProgress } from '@/modules/mainPageCollection';
 import LinkButton from '../LinkButton/LinkButton.jsx';
 
 import s from './ActiveCollectionsCard.module.scss';
+import { useTranslation } from 'react-i18next';
 
-function ActiveCollectionsCard({ collection, buttonDetails, buttonDonas }) {
+function ActiveCollectionsCard({ collection }) {
   const pathname = usePathname();
   const locale = pathname.split('/')[1];
+  const { t } = useTranslation();
 
   return (
     <div className={s.content}>
@@ -44,17 +46,13 @@ function ActiveCollectionsCard({ collection, buttonDetails, buttonDonas }) {
         </p>
         <div className={s.buttonContainer}>
           <LinkButton
-<<<<<<< HEAD
             path={`/${locale}/${ROUTES.COLLECTION}/active/${collection._id}`}
-=======
-            path={`/${locale}/${ROUTES.ACTIVE_COLLECTION}/${collection._id}`}
->>>>>>> cc892a512b3e8e051ef7212776a4d18a86ebfc5f
-            linkText={buttonDetails}
+            linkText={t('button_details')}
             type={LINKDATA.TYPE_LIGHT_BORDER}
           />
           <LinkButton
             path={`/${locale}/${ROUTES.PAYMENTS(1)}?value=${collection.value}`}
-            linkText={buttonDonas}
+            linkText={t('button_donats')}
             type={LINKDATA.TYPE_DARK_HEART}
           />
         </div>

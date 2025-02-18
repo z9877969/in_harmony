@@ -29,13 +29,8 @@ const CollectionPageActive = ({ content }) => {
   return (
     <Section className={s.section} ref={sectionRef}>
       <Container>
-<<<<<<< HEAD
-        <div className={s.mainContainer}>
-          <SectionTitle title={title} />
-=======
         <div className={s.content}>
-          <SectionTitle title={collection.title} />
->>>>>>> cc892a512b3e8e051ef7212776a4d18a86ebfc5f
+          <SectionTitle title={title} />
           <ActiveCollectionList
             visibleItems={visibleItems}
             allCollection={cards}

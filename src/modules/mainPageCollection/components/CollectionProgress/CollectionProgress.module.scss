@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+  width: 100%;
 }
 
 .targetContainer {
@@ -39,24 +40,9 @@
 }
 
 .bar {
-  max-width: 282px;
-  min-width: 210px;
+  width: 100%;
   height: 12px;
   background-color: $progress-bar-bg;
-
-  @include media(mobile) {
-    min-width: 282px;
-  }
-
-  @include media(tablet) {
-    min-width: 236px;
-    max-width: 236px;
-  }
-
-  @include media(desktop) {
-    min-width: 320px;
-    max-width: 320px;
-  }
 }
 
 .rate {

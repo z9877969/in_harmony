@@ -1,9 +1,9 @@
-import { uploadMiddleware } from '../../../app/server/lib/multer.js';
+import { uploadMiddleware } from '../../../../app/server/lib/multer.js';
 import connectToDatabase from '@/app/server/lib/mongodb';
 import {
-  createComment,
-  getAllComments,
-} from '@/app/server/services/commentsService.js';
+  createMember,
+  getAllTeam,
+} from '@/app/server/services/devTeamService.js';
 
 export const config = {
   api: {
@@ -15,12 +15,12 @@ export default async function handler(req, res) {
   await connectToDatabase();
 
   if (req.method === 'GET') {
-    return getAllComments(req, res);
+    return getAllTeam(req, res);
   }
 
   if (req.method === 'POST') {
     await uploadMiddleware(req, res);
-    await createComment(req, res);
+    await createMember(req, res);
   } else {
     res.status(405).json({ message: 'Method Not Allowed' });
   }

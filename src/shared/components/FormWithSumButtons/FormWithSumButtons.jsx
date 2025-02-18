@@ -115,7 +115,7 @@ const FormWithSumButtons = ({ className = '' }) => {
         )}
       </Formik>
       <div className={s.boxLink}>
-        <Link href="/payments">{data.otherPayment}</Link>
+        <Link href={ROUTES.PAYMENTS(0)}>{data.otherPayment}</Link>
       </div>
     </div>
   );

@@ -3,7 +3,7 @@
 import { useTranslation } from 'react-i18next';
 
 export default function GlobalError({ error, reset }) {
-  const { t } = useTranslation('ErrorBoundary');
+  const { t } = useTranslation('errorBoundary');
 
   return (
     <div style={{ textAlign: 'center', padding: '20px' }}>

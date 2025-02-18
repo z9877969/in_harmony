@@ -3,9 +3,10 @@ import data from '../../data/sectionContent.json';
 import Share from '../Share/Share.jsx';
 import SupportForm from '../SupportForm/SupportForm.jsx';
 import WhatCanBeDone from '../WhatCanBeDone/WhatCanBeDone.jsx';
+
 import s from './OpenCollectionGoal.module.scss';
 
-const OpenCollectionGoal = () => {
+const OpenCollectionGoal = ({ goal }) => {
   return (
     <Section>
       <Container>
@@ -16,7 +17,12 @@ const OpenCollectionGoal = () => {
             data={data.whatCanBeDone}
           />
 
-          <SupportForm className={s.gridItemForm} data={data.supportForm} />
+          <SupportForm
+            value={goal}
+            className={s.gridItemForm}
+            data={data.supportForm}
+            goal={goal}
+          />
 
           <Share data={data.share} className={s.gridItemShare} />
         </div>

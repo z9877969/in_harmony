@@ -9,7 +9,7 @@ const CollectionPage = async ({ params: { locale } }) => {
     locale,
     page: 'collection',
   });
-  
+
   return (
     <>
       <OpenCollectionPageHero

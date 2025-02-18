@@ -1,18 +1,22 @@
+'use client';
+
 import Link from 'next/link';
+import { useTranslation } from 'react-i18next';
 
 import { Container } from '@/shared/components';
-
-import s from './not-faund.module.scss';
+import s from './not-found.module.scss';
 
 export default function NotFound() {
+  const { t } = useTranslation('notFound');
+
   return (
     <section>
       <Container>
         <div className={s.container}>
-          <h2 className={s.title}>404 - Сторінку не знайдено</h2>
-          <p className={s.message}>Здається, такої сторінки не існує.</p>
+          <h2 className={s.title}>{t('notFoundTitle')}</h2>
+          <p className={s.message}>{t('notFoundMessage')}</p>
           <Link href="/" className={s.link}>
-            Повернутися на головну
+            {t('backToHome')}
           </Link>
         </div>
       </Container>

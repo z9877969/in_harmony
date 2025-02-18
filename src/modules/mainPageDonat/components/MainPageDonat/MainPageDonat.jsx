@@ -6,18 +6,15 @@ import {
   Section,
   SectionTitle,
 } from '@/shared/components';
-import {
-  mainPageDonateDesktop,
-  mainPageDonateDesktop2x,
-  mainPageDonateMobile,
-  mainPageDonateMobile2x,
-  mainPageDonateTablet,
-  mainPageDonateTablet2x,
-} from '@/shared/images/main-page-donate';
 
 import s from './MainPageDonat.module.scss';
 
 const MainPageDonat = ({ content }) => {
+  // dataProps отримуємо з пропсів або з fetch-запиту
+  const dataProps = {
+    imageUrl: '/images/main-page-donate-desktop2x.png',
+  };
+
   return (
     <Section className={s.section}>
       <Container>
@@ -25,19 +22,13 @@ const MainPageDonat = ({ content }) => {
           <div className={s.imageWrapper}>
             <Image
               className={s.image}
-              src={mainPageDonateDesktop.src}
+              src={dataProps.imageUrl}
               alt={content.alt}
               fill
               priority
               sizes="100%"
-              srcSet={`
-                ${mainPageDonateMobile.src} 320w,
-                ${mainPageDonateMobile2x.src} 640w,
-                ${mainPageDonateTablet.src} 768w,
-                ${mainPageDonateTablet2x.src} 1536w,
-                ${mainPageDonateDesktop.src} 1440w,
-                ${mainPageDonateDesktop2x.src} 2880w
-              `}
+              placeholder="blur"
+              blurDataURL="/images/blur-placeholder.jpg"
             />
           </div>
           <div className={s.boxText}>

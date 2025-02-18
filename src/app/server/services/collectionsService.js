@@ -7,7 +7,8 @@ import CollectionModel from '../models/CollectionsModel';
 
 export const getAllCollections = async (req, res) => {
   try {
-    const collections = await CollectionModel.find().lean();
+    const { locale } = req.query;
+    const collections = await CollectionModel.find({ language: locale }).lean();
 
     const sortedCollections = collections.reduce(
       (acc, collection) => {

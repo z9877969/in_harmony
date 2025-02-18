@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 
 import { usePathname } from 'next/navigation.js';
@@ -12,6 +14,7 @@ import s from './CardProjectReporting.module.scss';
 export default function CardProjectReporting({ slid }) {
   const pathname = usePathname();
   const locale = pathname.split('/')[1];
+
   const {
     id,
     title,
@@ -52,7 +55,7 @@ export default function CardProjectReporting({ slid }) {
         </div>
         <div className={s.btnWrapper}>
           <LinkButton
-            path={`/${locale}/${ROUTES.CLOSED_COLLECTION}/${id}`}
+            path={`/${locale}/${ROUTES.COLLECTION}/${ROUTES.CLOSED}/${id}`}
             className={s.button}
             linkText={data.linkButtonDetails}
           />

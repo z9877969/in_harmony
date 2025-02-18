@@ -51,10 +51,9 @@ export default async function RootLayout({ children, params: { locale } }) {
           <ErrorBoundary>
             <Header t={t} />
             <Breadcrumbs />
-          
+
             <main>{children}</main>
-          
-          
+
             <Footer />
           </ErrorBoundary>
           <div id="modal"></div>

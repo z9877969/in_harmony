@@ -1,8 +1,8 @@
 export const ROUTES = {
   ABOUT: 'about',
   COLLECTION: 'collection',
-  ACTIVE_COLLECTION: 'collection/active',
-  CLOSED_COLLECTION: 'collection/closed',
+  ACTIVE: 'active',
+  CLOSED: 'closed',
   REPORTING: 'reporting',
   PAYMENTS: (step = 1) =>
     step === 0 ? 'payments/methods' : `/payments/step/${step}`,

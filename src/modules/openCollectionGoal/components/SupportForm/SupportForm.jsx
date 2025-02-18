@@ -6,6 +6,7 @@ import Link from 'next/link.js';
 import { usePathname, useRouter } from 'next/navigation';
 import { useCallback, useMemo } from 'react';
 import * as Yup from 'yup';
+import { ROUTES } from '@/shared/constants';
 import s from './SupportForm.module.scss';
 
 const SupportForm = ({ data, className = '' }) => {
@@ -95,7 +96,7 @@ const SupportForm = ({ data, className = '' }) => {
           {data.submitBtnText}
         </Button>
 
-        <Link className={s.link} href="/payment">
+        <Link className={s.link} href={`/${ROUTES.PAYMENTS(0)}`}>
           {data.otherPaymentsLinkText}
         </Link>
       </form>

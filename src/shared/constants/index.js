@@ -4,7 +4,8 @@ export const ROUTES = {
   ACTIVE_COLLECTION: 'collection/active',
   CLOSED_COLLECTION: 'collection/closed',
   REPORTING: 'reporting',
-  PAYMENTS: (step = 1) => `/payments/step/${step}`,
+  PAYMENTS: (step = 1) =>
+    step === 0 ? 'payments/methods' : `/payments/step/${step}`,
   TERMS: 'terms',
   POLICY: 'policy',
   DISCARD: 'discard',

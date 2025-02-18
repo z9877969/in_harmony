@@ -32,37 +32,34 @@
     padding: 24px auto;
   }
   @include media(desktop) {
-    padding: 103px 50px;
+    padding: 94px 50px;
   }
 }
-
 .title {
+  height: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
   @include font(24, 28);
   font-family: $secondary-font-family;
   text-align: left;
   font-weight: 700;
   margin: 24px 0;
-
+  @include media(tablet) {
+    margin-bottom: 20px;
+  }
   @include media(desktop) {
-    margin-bottom: 24px;
+    margin-bottom: 8px;
   }
 }
 .text {
   @include font(16, 24);
   font-weight: 400;
   text-align: left;
-  margin-bottom: 12px;
-  @include media(mobile) {
-    margin-bottom: 12px;
-  }
-  @include media(tablet) {
-    margin-bottom: 20px;
-  }
-  @include media(desktop) {
-    margin-bottom: 20px;
-  }
+  margin-bottom: 8px;
 }
-
 .preTitle {
   @include font(18, 27);
   font-size: 18px;
@@ -89,4 +86,22 @@
   @include font(16, 24);
   font-weight: 400;
   text-align: left;
+  margin-bottom: 12px;
+  height: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  @include media(tablet) {
+    margin-bottom: 20px;
+    height: 75px;
+    -webkit-line-clamp: 3;
+  }
+  @include media(desktop) {
+    max-width: 450px;
+    margin-bottom: 16px;
+    height: 75px;
+    -webkit-line-clamp: 3;
+  }
 }

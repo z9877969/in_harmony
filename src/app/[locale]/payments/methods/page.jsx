@@ -1,11 +1,7 @@
-import s from './page.module.scss';
+import { PaymentMethodPage } from '@/modules/paymentMethodPage';
 
-const PaymentMethodsPage = () => {
-  return (
-    <>
-      <h1 className={s.title}>PaymentMethodsPage</h1>
-    </>
-  );
+const PaymentPage = () => {
+  return <PaymentMethodPage />;
 };
 
-export default PaymentMethodsPage;
+export default PaymentPage;

@@ -1,10 +1,11 @@
 export const ROUTES = {
   ABOUT: 'about',
   COLLECTION: 'collection',
-  ACTIVE_COLLECTION: 'collection/active',
-  CLOSED_COLLECTION: 'collection/closed',
+  ACTIVE: 'active',
+  CLOSED: 'closed',
   REPORTING: 'reporting',
-  PAYMENTS: (step = 1) => `/payments/step/${step}`,
+  PAYMENTS: (step = 1) =>
+    step === 0 ? 'payments/methods' : `/payments/step/${step}`,
   TERMS: 'terms',
   POLICY: 'policy',
   DISCARD: 'discard',
@@ -22,7 +23,7 @@ export const LANGUAGES = {
   EN: 'en',
 };
 
-export const NAMESPACES = ['header', 'mainPage'];
+export const NAMESPACES = ['header', 'mainPage', 'errorBoundary', 'notFound'];
 
 export const LINKDATA = {
   PATHHOME: '/',
@@ -57,5 +58,4 @@ export const PAYMENT_CONFIG = {
   regularMode: 'monthly',
   regularOn: '1',
   regularCount: '12',
-  appBaseURL: process.env.APP_DOMAIN,
 };

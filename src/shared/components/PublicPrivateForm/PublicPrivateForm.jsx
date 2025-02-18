@@ -46,26 +46,26 @@ const PublicPrivateForm = () => {
     isChecked: false,
     amount: '',
     donateTime: '',
+    isPublic: true,
   });
-  const [isPublic, setIsPublic] = useState(true);
+  // const [isPublic, setIsPublic] = useState(true);
   const [loading, setLoading] = useState(false);
 
   const wfpFormRef = useRef(null);
 
   let validationSchema;
 
-  if (isPublic) {
+  if (initialValues.isPublic) {
     validationSchema = validationSchemaPublic;
   } else {
     validationSchema = validationSchemaAnonymous;
   }
 
   const handleRadioButtonChange = (value) => {
-    if (isPublic && value !== 'public') {
-      setIsPublic(false);
-    } else if (!isPublic && value === 'public') {
-      setIsPublic(true);
-    }
+    setInitialValues((prevValues) => ({
+      ...prevValues,
+      isPublic: value === 'public',
+    }));
   };
 
   useEffect(() => {
@@ -129,7 +129,7 @@ const PublicPrivateForm = () => {
                 onChange={handleRadioButtonChange}
               />
 
-              {isPublic && (
+              {initialValues.isPublic && (
                 <div className={s.inputContainer}>
                   <Field
                     as={Input}
@@ -206,8 +206,9 @@ const PublicPrivateForm = () => {
         clientEmail={initialValues.email}
         message={initialValues.message}
         paymentPurpose={initialValues.dropdown}
-        donateTime={initialValues.donateTime}
+        isRegular={initialValues.donateTime}
         clientFirstName={initialValues.name}
+        isPublic={initialValues.isPublic}
       />
     </div>
   );

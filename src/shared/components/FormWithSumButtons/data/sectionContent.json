@@ -1,7 +1,7 @@
 {
   "donateTimeOptions": [
-    { "value": "oneTime", "label": "Одноразово" },
-    { "value": "monthly", "label": "Щомісячно" }
+    { "value": "false", "label": "Одноразово" },
+    { "value": "true", "label": "Щомісячно" }
   ],
   "text": "Регулярна допомога рятує більше життів!",
   "submitButton": "До сплати",

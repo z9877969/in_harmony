@@ -7,12 +7,7 @@ const ThanksPage = async ({ params: { locale } }) => {
     locale,
     page: 'thanks',
   });
-  const pages = await api.getAllPages({ locale });
 
-  // eslint-disable-next-line
-  console.log('sectionsDict >> ', sectionsDict.thanks.section_content);
-  // eslint-disable-next-line
-  console.log('pages :>> ', pages);
   return <ThanksPageComponent content={sectionsDict.thanks.section_content} />;
 };
 

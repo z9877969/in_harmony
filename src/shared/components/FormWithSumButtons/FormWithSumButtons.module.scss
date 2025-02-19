@@ -1,11 +1,7 @@
-@import '../../styles/colors';
-@import '../../styles/variables';
-
 .boxForm {
   border-radius: 32px;
   padding: 24px 16px;
   background-color: $form-donate-bg-color;
-  backdrop-filter: blur(10px);
   box-shadow: 0 0 12px 0 $footer-bold-text-color;
 
   @include media(tablet) {
@@ -19,11 +15,10 @@
 }
 
 .textForm {
+  @include font(14, 22);
   margin-top: 8px;
   margin-bottom: 24px;
   font-weight: 400;
-  font-size: 14px;
-  line-height: 1.57143;
   color: $footer-bold-text-color;
   display: flex;
   justify-content: space-between;
@@ -49,8 +44,8 @@
 }
 
 .btnDonate {
+  @include font(16, 24);
   padding: 0 10px;
-  line-height: 1.5;
   color: $footer-bold-text-color;
   @include media(tablet) {
     padding: 0 22px;
@@ -107,6 +102,7 @@
 
 .boxLink a {
   padding: 10px;
+  color: #2f0052;
 }
 
 .errorText {

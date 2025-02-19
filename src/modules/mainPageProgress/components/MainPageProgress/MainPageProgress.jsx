@@ -1,5 +1,5 @@
 'use client';
-import { Container } from '@/shared/components';
+import { Container, Section } from '@/shared/components';
 import { SectionTitle } from '@/shared/components';
 import { CardForSwiperWhithArrow } from '@/shared/components';
 import { SwiperWithArrows } from '@/modules/swiperWithArrows';
@@ -7,7 +7,7 @@ import s from './MainPageProgress.module.scss';
 
 const MainPageProgress = ({ content }) => {
   return (
-    <section className={s.container}>
+    <Section>
       <Container>
         <SectionTitle className={s.title} title={content.title} />
         <SwiperWithArrows
@@ -21,7 +21,7 @@ const MainPageProgress = ({ content }) => {
           Component={CardForSwiperWhithArrow}
         />
       </Container>
-    </section>
+    </Section>
   );
 };
 

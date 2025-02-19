@@ -1,13 +1,11 @@
-@import '../../../../shared/styles/colors';
-
 .section {
   max-width: 100%;
   padding-top: 48px;
-  padding-bottom: 48px;
+  padding-bottom: 96px;
 
   @include media(desktop) {
     padding-top: 76px;
-    padding-bottom: 76px;
+    padding-bottom: 152px;
   }
 }
 
@@ -81,19 +79,20 @@
 }
 
 .text {
+  @include font(16, 24);
   font-weight: 400;
-  line-height: 1.5;
   @include media(desktop) {
-    font-size: 18px;
+    @include font(18, 27);
     width: 613px;
   }
 }
 
 .form {
   width: 100%;
+  @include media(tablet) {
+    width: 450px;
+  }
   @include media(desktop) {
-    flex: none;
     width: 416px;
-    height: 406px;
   }
 }

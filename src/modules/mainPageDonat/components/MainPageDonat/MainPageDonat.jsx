@@ -3,7 +3,6 @@ import Image from 'next/image';
 import {
   Container,
   FormWithSumButtons,
-  Section,
   SectionTitle,
 } from '@/shared/components';
 
@@ -16,7 +15,7 @@ const MainPageDonat = ({ content }) => {
   };
 
   return (
-    <Section className={s.section}>
+    <section className={s.section}>
       <Container>
         <div className={s.content}>
           <div className={s.imageWrapper}>
@@ -38,7 +37,7 @@ const MainPageDonat = ({ content }) => {
           <FormWithSumButtons className={s.form} />
         </div>
       </Container>
-    </Section>
+    </section>
   );
 };
 

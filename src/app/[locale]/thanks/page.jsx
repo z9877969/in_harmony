@@ -5,15 +5,15 @@ import { ThanksPage as ThanksPageComponent } from '@/modules/thanksPage';
 const ThanksPage = async ({ params: { locale } }) => {
   const { sectionsDict } = await api.getPageApi({
     locale,
-    page: 'discard',
+    page: 'thanks',
   });
   const pages = await api.getAllPages({ locale });
 
   // eslint-disable-next-line
-  console.log('sectionsDict >> ', sectionsDict);
+  console.log('sectionsDict >> ', sectionsDict.thanks.section_content);
   // eslint-disable-next-line
   console.log('pages :>> ', pages);
-  return <ThanksPageComponent />;
+  return <ThanksPageComponent content={sectionsDict.thanks.section_content} />;
 };
 
 export default ThanksPage;

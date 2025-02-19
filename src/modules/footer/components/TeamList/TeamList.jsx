@@ -1,12 +1,45 @@
+'use client';
+
 import { Icon } from '@/shared/components/index.js';
 import Image from 'next/image.js';
+import { usePathname } from 'next/navigation.js';
+import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import ImageContainer from '../ImageContainer/ImageContainer.jsx';
 import SocialMediaLinks from '../SocialMediaLinks/SocialMediaLinks.jsx';
 import TeamInfo from '../TeamInfo/TeamInfo.jsx';
-
 import s from './TeamList.module.scss';
 
-const TeamList = ({ data }) => {
+const TeamList = () => {
+  const pathname = usePathname();
+  const locale = pathname.split('/')[1];
+  const [data, setData] = useState(null);
+  const { t } = useTranslation('footer');
+
+  useEffect(() => {
+    try {
+      const fetchData = async () => {
+        const response = await fetch(`/api/dev-team/${locale}`);
+
+        if (!response.ok) {
+          throw new Error(
+            `${t('apiErrors.fetchingError')} ${response.status} ${response.statusText}`
+          );
+        }
+
+        const fetchedData = await response.json();
+        if (fetchedData) {
+          setData(fetchedData.data);
+        }
+      };
+
+      fetchData();
+    } catch (error) {
+      // eslint-disable-next-line
+      console.error(`${t('apiErrors.exceptionError')}  ${error}`);
+    }
+  }, [locale, t]);
+
   if (!data) {
     return null;
   }
@@ -17,9 +50,11 @@ const TeamList = ({ data }) => {
         return (
           <li className={s.teamItem} key={member.id}>
             <ImageContainer>
-              {member.url ? (
+              {member.image[0] ? (
                 <Image
-                  src={member.url}
+                  src={member.image[0]}
+                  placeholder="blur"
+                  blurDataURL={member.image[0]}
                   alt={`${member.firstName} ${member.lastName}`}
                   width={0}
                   height={0}

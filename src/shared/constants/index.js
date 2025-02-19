@@ -29,6 +29,7 @@ export const NAMESPACES = [
   'errorBoundary',
   'notFound',
   'copyIcon',
+  'footer'
 ];
 
 export const LINKDATA = {

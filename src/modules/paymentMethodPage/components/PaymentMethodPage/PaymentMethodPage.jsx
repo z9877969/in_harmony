@@ -1,6 +1,7 @@
 import PaymentButton from '../PaymentButton/PaymentButton';
 import CurrencyPaymentButton from '../CurrencyPaymentButton/CurrencyPaymentButton';
 import { Container } from '@/shared/components';
+import PaymentLinkButton from '../PaymentLinkButton/PaymentLinkButton';
 
 import s from './PaymentMethodPage.module.scss';
 
@@ -12,10 +13,13 @@ const PaymentMethodPage = ({ sections }) => {
       <Container>
         <h1 className={s.titlePayment}>{title}</h1>
         <div className={s.containerContent}>
-          <button className={s.paymentCard}>{paymentCard}</button>
+          <PaymentLinkButton
+            paymentCard={paymentCard}
+            className={s.paymentCard}
+          />
 
-          {methods.map(({ key, label, sections }, index) => {
-            return key === 'carte' ? (
+          {methods.map(({ key, label, sections }, index) =>
+            key === 'carte' ? (
               <CurrencyPaymentButton
                 key={index}
                 label={label}
@@ -23,8 +27,8 @@ const PaymentMethodPage = ({ sections }) => {
               />
             ) : (
               <PaymentButton key={index} label={label} sections={sections} />
-            );
-          })}
+            )
+          )}
         </div>
       </Container>
     </section>

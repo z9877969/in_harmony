@@ -6,8 +6,8 @@ import { Button, Container, SectionTitle } from '@/shared/components';
 import s from './AboutPageMakeDonation.module.scss';
 
 const AboutPageMakeDonation = ({ content }) => {
-  const { t } = useTranslation('aboutPage.togetherSection');
-  const router = useRouter(s);
+  const { t } = useTranslation();
+  const router = useRouter();
   return (
     <section className={s.makeDonationSection}>
       <Container>
@@ -26,15 +26,15 @@ const AboutPageMakeDonation = ({ content }) => {
               >
                 {t('helpBtn')}
               </Button>
-              <Button
+              {/* <Button
                 onClick={() => router.push('/enjoy')}
                 size="large"
                 border="true"
                 fontSize="eighteen"
                 className={s.buttonSize}
               >
-                {t('joinBtn')}
-              </Button>
+                {t('helpBtn')}
+              </Button> */}
             </div>
           </div>
           {Array.isArray(content.image) && content.image.length > 0 && (
@@ -42,9 +42,9 @@ const AboutPageMakeDonation = ({ content }) => {
               <Image
                 src={content.image[0]}
                 alt={content.title}
+                size="100%"
                 fill
-                objectFit="cover"
-                objectPosition="center"
+                style={{ objectFit: 'cover', objectPosition: 'center' }}
               />
             </div>
           )}

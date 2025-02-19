@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Icon } from '@/shared/components';
+// import { Icon } from '@/shared/components';
 import s from './AboutPagePartnersCard.module.scss';
 const AboutPagePartnersCard = ({ cards }) => {
   return (
@@ -10,8 +10,8 @@ const AboutPagePartnersCard = ({ cards }) => {
             src={cards.image[0]}
             alt={cards.logo}
             fill
-            objectFit="cover"
-            objectPosition="center"
+            sizes="100%"
+            style={{ objectFit: 'cover', objectPosition: 'center' }}
           />
         </div>
       )}

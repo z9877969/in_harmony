@@ -1,7 +1,7 @@
 'use client';
 
 import { ErrorMessage, Field, Form, Formik } from 'formik';
-import { useRouter } from 'next/navigation.js';
+import { usePathname, useRouter } from 'next/navigation.js';
 import { useEffect, useState } from 'react';
 import * as yup from 'yup';
 import clsx from 'clsx';
@@ -29,11 +29,12 @@ const validationSchemaFormDonate = yup.object().shape({
 const FormWithSumButtons = ({ className = '' }) => {
   const [initialValues, setInitialValues] = useState({
     amount: '',
-    donateTime: 'oneTime',
+    donateTime: 'false',
     value: '',
   });
 
   const router = useRouter();
+  const locale = usePathname().split('/')[1];
   const amounts = [200, 500, 1000];
 
   const onSubmit = (values, { resetForm }) => {
@@ -45,7 +46,7 @@ const FormWithSumButtons = ({ className = '' }) => {
     console.log('Form donate:', valuesAll);
     resetForm();
     const query = new URLSearchParams(valuesAll).toString();
-    router.push(`${ROUTES.PAYMENTS(2)}?${query}`);
+    router.push(`/${locale}/${ROUTES.PAYMENTS(2)}?${query}`);
   };
 
   useEffect(() => {

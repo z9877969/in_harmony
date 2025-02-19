@@ -1,28 +1,20 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { usePathname, useRouter } from 'next/navigation';
 import { SwiperSlide } from 'swiper/react';
 import {
   ActiveCollectionsCard,
-  Button,
   Container,
   DotsSwiper,
   SectionTitle,
 } from '@/shared/components';
-import { ROUTES } from '@/shared/constants';
 import { ActiveCollectionList } from '@/modules/mainPageCollection';
-import collections from '../../data/section-content.json';
+import ActiveCollectionPageNavBtn from '../ActiveCollectionPageNavBtn/ActiveCollectionPageNavBtn';
 import s from './MainPageCollection.module.scss';
 
-const MainPageCollection = () => {
+const MainPageCollection = ({ content }) => {
   const [isTablet, setIsTablet] = useState(false);
   const [visibleItems] = useState(3);
-  const router = useRouter();
-  const pathname = usePathname();
-  const locale = pathname.split('/')[1];
-
-  const allCollections = collections.collections;
 
   useEffect(() => {
     const handleResize = () => {
@@ -43,7 +35,7 @@ const MainPageCollection = () => {
   return (
     <Container>
       <section className={s.collectionSection}>
-        <SectionTitle title={collections.title} className={s.title} />
+        <SectionTitle title={content.title} className={s.title} />
         <div>
           {isTablet ? (
             <DotsSwiper
@@ -53,32 +45,20 @@ const MainPageCollection = () => {
               slideCount={2}
               spaceBetween={24}
             >
-              {allCollections.slice(0, visibleItems).map((collection) => (
+              {content.cards?.slice(0, visibleItems).map((collection) => (
                 <SwiperSlide key={collection._id}>
-                  <ActiveCollectionsCard
-                    collection={collection}
-                    buttonDetails={collections.button_details}
-                    buttonDonas={collections.button_donas}
-                  />
+                  <ActiveCollectionsCard collection={collection} />
                 </SwiperSlide>
               ))}
             </DotsSwiper>
           ) : (
             <ActiveCollectionList
               visibleItems={visibleItems}
-              allCollection={collections}
+              allCollection={content.cards}
             />
           )}
         </div>
-        <Button
-          onClick={() => router.push(`/${locale}/${ROUTES.COLLECTION}`)}
-          border="true"
-          className={s.desktopButton}
-          size="large"
-          fontSize="eighteen"
-        >
-          {collections.all_collections_button}
-        </Button>
+        <ActiveCollectionPageNavBtn className={s.desktopButton} />
       </section>
     </Container>
   );

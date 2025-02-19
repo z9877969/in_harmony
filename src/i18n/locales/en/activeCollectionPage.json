@@ -1,1 +1,8 @@
-{}
+{
+    "hero": {
+        "collectionStatus": {
+            "active": "Active",
+            "closed": "Closed"
+        }
+    }
+}

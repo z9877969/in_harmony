@@ -14,15 +14,15 @@ import { useTranslation } from 'react-i18next';
 function ActiveCollectionsCard({ collection }) {
   const pathname = usePathname();
   const locale = pathname.split('/')[1];
-  const { t } = useTranslation();
+  const { t } = useTranslation('activeCollectionCard');
 
   return (
     <div className={s.content}>
       <div className={s.imageWrapper}>
         <Image
           className={s.image}
-          src={collection.imageUrl}
-          alt={collection.title}
+          src={collection.image[0]}
+          alt={collection.title + 'image'}
           fill
           priority
           sizes="100%"
@@ -30,7 +30,9 @@ function ActiveCollectionsCard({ collection }) {
           blurDataURL="/images/blur-placeholder.jpg"
         />
       </div>
-      <p className={s.importance}>{collection.importance}</p>
+      <p className={s.importance}>
+        {t(`importanceType.${collection.importance}`)}
+      </p>
       <div className={s.mainContentContainer}>
         <div className={s.contentContainer}>
           <h3 className={s.title}>{collection.title} </h3>
@@ -42,7 +44,8 @@ function ActiveCollectionsCard({ collection }) {
         />
         <p className={s.peopleDonate}>
           <Icon iconName="icon-people" className={s.collectionIcon} />
-          <span>{collection.peopleDonate}</span> донорів
+          <span>{collection.peopleDonate}</span>
+          {t('donor.3rd')}
         </p>
         <div className={s.buttonContainer}>
           <LinkButton

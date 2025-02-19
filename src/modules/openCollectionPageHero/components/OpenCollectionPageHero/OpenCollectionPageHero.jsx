@@ -3,6 +3,7 @@ import { Icon } from '@/shared/components';
 import sectionContent from '../../data/sectionContent.json';
 import s from './OpenCollectionPageHero.module.scss';
 import OpenCollectionProgress from '../OpenCollectionProgress/OpenCollectionProgress';
+import CollectionStatusLabel from '../CollectionStatusLabel/CollectionStatusLabel';
 
 const OpenCollectionPageHero = ({ content }) => {
   const { title, long_desc, status } = content;
@@ -18,8 +19,7 @@ const OpenCollectionPageHero = ({ content }) => {
             <div className={s.info}>
               <h2 className={s.title}>{title}</h2>
               <div className={s.status}>
-                <span></span>
-                <p>{status}</p>
+                <CollectionStatusLabel status={status} />
               </div>
               <div className={s.description}>
                 <p>{long_desc.section1}</p>

@@ -9,5 +9,14 @@
   "payments": "Payments",
   "step": "Step",
   "active": "Active",
-  "closed": "Closed"
+  "closed": "Closed",
+  "importanceType": {
+    "permanent": "Collection open",
+    "urgent": "Urgent collection"
+  },
+  "donor": {
+    "1st": "donator",
+    "2nd": "donators",
+    "3rd": "donators"
+  }
 }

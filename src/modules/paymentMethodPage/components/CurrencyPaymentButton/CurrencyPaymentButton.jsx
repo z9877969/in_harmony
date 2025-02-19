@@ -24,39 +24,30 @@ const CurrencyPaymentButton = ({ label, sections }) => {
   );
 };
 
-const RenderSection = ({ section }) => (
-  <div className={s.section}>
-    <h2 className={s.sectionTitle}>{section.title}</h2>
-
-    <ul className={s.subsectionList}>
-      {section.subsections?.map((sub, index) => (
-        <li key={index} className={s.subsectionItem}>
-          {sub.title && <h3 className={s.subsectionTitle}>{sub.title}</h3>}
-
-          {sub.content && <p className={s.content}>{sub.content}</p>}
-
-          {(sub.contentTitle || sub.contentCopy) && (
-            <div className={s.copyBlock}>
-              {sub.contentTitle && (
-                <h4 className={s.contentTitle}>{sub.contentTitle}</h4>
+const RenderSection = ({ section }) => {
+  return (
+    <div className={s.section}>
+      <h2 className={s.sectionTitle}>{section.title}</h2>
+      {section.subsections ? (
+        section.subsections.map((sub, index) => (
+          <div key={index} className={s.subsection}>
+            <h3 className={s.subsectionTitle}>{sub.title}</h3>
+            <div className={s.subsectionContainer}>
+              {sub.content && (
+                <p className={s.subsectionContent}>{sub.content}</p>
               )}
               {sub.contentCopy && <CopyIcon text={sub.contentCopy} />}
             </div>
-          )}
-        </li>
-      ))}
-      {!section.subsections?.length && (
-        <li className={s.subsection}>
+          </div>
+        ))
+      ) : (
+        <div className={s.subsectionContent}>
           {section.content && <p>{section.content}</p>}
-          {section.contentCopy && (
-            <div className={s.copyBlock}>
-              <CopyIcon text={section.contentCopy} />
-            </div>
-          )}
-        </li>
+          {section.contentCopy && <CopyIcon text={section.contentCopy} />}
+        </div>
       )}
-    </ul>
-  </div>
-);
+    </div>
+  );
+};
 
 export default CurrencyPaymentButton;

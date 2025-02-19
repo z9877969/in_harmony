@@ -2,13 +2,17 @@
 
 import { Button, Input, InputArea } from '@/shared/components/index.js';
 import { useFormik } from 'formik';
+import { useTranslation } from 'react-i18next';
 import { validationSchema } from '../../validation/validationSchema.js';
 import s from './ContactUs.module.scss';
 import { useTranslation } from 'react-i18next';
 
 const ContactUs = () => {
   const initialValues = { name: '', email: '', message: '' };
+
   const { t } = useTranslation('forms');
+
+
 
   const formik = useFormik({
     initialValues,
@@ -33,7 +37,9 @@ const ContactUs = () => {
             name="name"
             value={formik.values.name}
             type="text"
+
             placeholder={t('support.placeholderName')}
+
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             error={formik.touched.name && formik.errors.name}
@@ -44,7 +50,9 @@ const ContactUs = () => {
             name="email"
             value={formik.values.email}
             type="text"
+
             placeholder={t('support.placeholderEmail')}
+
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             error={formik.touched.email && formik.errors.email}
@@ -54,7 +62,9 @@ const ContactUs = () => {
             className={s.textAreaFooter}
             name="message"
             value={formik.values.message}
+
             placeholder={t('support.placeholderMessage')}
+
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             error={formik.touched.message && formik.errors.message}

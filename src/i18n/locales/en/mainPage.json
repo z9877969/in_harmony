@@ -1,5 +1,8 @@
 {
     "about": {
         "learnMore": "Learn more"
+    },
+    "activeCollection": {
+        "moreBtn": "All fees"
     }
 }

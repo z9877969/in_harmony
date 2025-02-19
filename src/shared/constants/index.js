@@ -23,7 +23,13 @@ export const LANGUAGES = {
   EN: 'en',
 };
 
-export const NAMESPACES = ['header', 'mainPage', 'errorBoundary', 'notFound'];
+export const NAMESPACES = [
+  'header',
+  'mainPage',
+  'errorBoundary',
+  'notFound',
+  'footer',
+];
 
 export const LINKDATA = {
   PATHHOME: '/',

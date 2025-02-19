@@ -15,11 +15,7 @@ import s from './CardProjectReporting.module.scss';
 export default function CardProjectReporting({ slid }) {
   const pathname = usePathname();
   const locale = pathname.split('/')[1];
-<<<<<<< HEAD
   //   const { t } = useTranslation();
-=======
-
->>>>>>> db29ee6cd2d8a751d41d61d8e2d53695c4e527e1
   const {
     _id,
     title,
@@ -73,7 +69,7 @@ export default function CardProjectReporting({ slid }) {
         </div>
         <div className={s.btnWrapper}>
           <LinkButton
-            path={`/${locale}/${ROUTES.COLLECTION}/${ROUTES.CLOSED}/${id}`}
+            path={`/${locale}/${ROUTES.COLLECTION}/${ROUTES.CLOSED}/${_id}`}
             className={s.button}
             linkText={data.linkButtonDetails}
           />

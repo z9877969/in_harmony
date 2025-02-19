@@ -5,29 +5,30 @@ import s from './OpenCollectionPageHero.module.scss';
 import OpenCollectionProgress from '../OpenCollectionProgress/OpenCollectionProgress';
 
 const OpenCollectionPageHero = ({ content }) => {
-  const { elementById } = content;
+  const { title, long_desc, status } = content;
+
   return (
     <section className={s.wrapper}>
-      {elementById && (
+      {content && (
         <Container>
           <div className={s.mainContent}>
             <div className={s.image}>
               <Icon className={s.icon} iconName={sectionContent.icon} />
             </div>
             <div className={s.info}>
-              <h2 className={s.title}>{elementById.title}</h2>
+              <h2 className={s.title}>{title}</h2>
               <div className={s.status}>
                 <span></span>
-                <p>{elementById.status}</p>
+                <p>{status}</p>
               </div>
               <div className={s.description}>
-                <p>{elementById.long_desc.section1}</p>
-                <p>{elementById.long_desc.section2}</p>
-                <p>{elementById.long_desc.section3}</p>
+                <p>{long_desc.section1}</p>
+                <p>{long_desc.section2}</p>
+                <p>{long_desc.section3}</p>
               </div>
             </div>
           </div>
-          <OpenCollectionProgress data={elementById} />
+          <OpenCollectionProgress data={content} />
         </Container>
       )}
     </section>

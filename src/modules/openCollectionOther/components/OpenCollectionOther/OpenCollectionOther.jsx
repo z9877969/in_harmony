@@ -12,11 +12,12 @@ import {
 import other_collection from '../../data/section-content.json';
 import s from './OpenCollectionOther.module.scss';
 
-const OpenCollectionOther = ({ content }) => {
+const OpenCollectionOther = ({ content, id }) => {
   const [visibleItems, setVisibleItems] = useState(1);
   const [totalSlides, setTotalSlides] = useState(0);
 
-  const { otherCollections, otherCollectionTitle } = content;
+  const otherCollections = content.cards.filter((card) => card._id !== id);
+
   useEffect(() => {
     const handleResize = (collections) => {
       const width = window.innerWidth;
@@ -47,7 +48,7 @@ const OpenCollectionOther = ({ content }) => {
     <Section className={s.section}>
       {otherCollections && (
         <Container>
-          <SectionTitle title={otherCollectionTitle} className={s.title} />
+          <SectionTitle title={content.title} className={s.title} />
           <div>
             <DotsSwiper
               customSwiper={s.customSwiper}

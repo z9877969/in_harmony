@@ -7,11 +7,14 @@ import { insideServerApi as api } from '@/shared/services';
 const CollectionPage = async ({ params: { locale, id } }) => {
   const collectionData = await api.getActiveCollectionPageApi(locale, id);
 
+ 
   return (
     <>
-      <OpenCollectionPageHero content={collectionData} />
+      <OpenCollectionPageHero
+        content={collectionData.data[0].section_content}
+      />
       <OpenCollectionGoal />
-      <OpenCollectionOther content={collectionData} />
+      <OpenCollectionOther id={id} content={collectionData.data[2].section_content} />
     </>
   );
 };

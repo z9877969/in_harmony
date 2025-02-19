@@ -4,7 +4,7 @@ import { ReportingPageFinishedProjects } from '@/modules/reportingPageFinishedPr
 import { insideServerApi as api } from '@/shared/services';
 const ReportingPage = async ({ params: { locale } }) => {
   const { sectionsDict } = await api.getPageApi({ locale, page: 'reporting' });
-  
+
   return (
     <>
       <ReportingPageFilters content={sectionsDict.filters.section_content} />

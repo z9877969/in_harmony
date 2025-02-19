@@ -6,15 +6,13 @@ import { Feedbacks } from '../../index.js';
 
 import { useLoadMore } from '../hooks/useLoadMore.js';
 
-// import data from '../../data/sectionContent.json';
+import data from '../../data/sectionContent.json';
 
 import s from './ReportingPageFilters.module.scss';
 
 const ReportingPageFilters = ({ content }) => {
   const { cards } = content;
   const { items, handleLoadMore, hasMore } = useLoadMore(5, cards.length);
-
-  console.log(items);
 
   const visibleItems = cards.slice(0, items);
   return (
@@ -37,7 +35,7 @@ const ReportingPageFilters = ({ content }) => {
               className={s.btnReporting}
               onClick={handleLoadMore}
             >
-              {/* {data.textBtn} */}
+              {data.textBtn}
             </Button>
           )}
         </div>

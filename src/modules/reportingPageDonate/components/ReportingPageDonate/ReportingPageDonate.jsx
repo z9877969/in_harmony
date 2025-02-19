@@ -9,7 +9,7 @@ import reporting from '../../data/section-content.json';
 
 import s from './ReportingPageDonate.module.scss';
 
-const ReportingPageDonate = () => {
+const ReportingPageDonate = ({ content }) => {
   const route = useRouter();
   const pathname = usePathname();
 
@@ -17,7 +17,7 @@ const ReportingPageDonate = () => {
 
   // dataProps отримуємо з пропсів або з fetch-запиту
   const dataProps = {
-    imageUrl: '/images/girl-desktop2x.png',
+    imageUrl: content.image[0],
   };
 
   return (
@@ -28,7 +28,7 @@ const ReportingPageDonate = () => {
             <Image
               className={s.image}
               src={dataProps.imageUrl}
-              alt={reporting.title}
+              alt={content.title}
               fill
               priority
               sizes="100%"
@@ -37,7 +37,7 @@ const ReportingPageDonate = () => {
             />
           </div>
           <div className={s.textContainer}>
-            <h3 className={s.title}>{reporting.title}</h3>
+            <h3 className={s.title}>{content.title}</h3>
             <Button
               onClick={() => route.push(`/${locale}/${ROUTES.COLLECTION}`)}
               size="large"

@@ -8,15 +8,18 @@ import { ROUTES } from '@/shared/constants';
 import data from '../CardProjectReporting/data/sectionContent.json';
 
 import s from './CardProjectReporting.module.scss';
+import Image from 'next/image.js';
 
 export default function CardProjectReporting({ slid }) {
   const pathname = usePathname();
   const locale = pathname.split('/')[1];
   const {
     id,
+    image,
+    alt,
     title,
-    item,
-    total,
+    collected_title,
+    target,
     currency,
     term,
     days,
@@ -25,17 +28,28 @@ export default function CardProjectReporting({ slid }) {
     quantity,
   } = slid;
   comments;
+
+  const dataProps = {
+    imageUrl: image[0],
+  };
+
   return (
     <div className={s.list}>
       <div className={s.slide}>
-        <div className={s.imgBlock}></div>
+        <Image
+          className={s.imgBlock}
+          src={dataProps.imageUrl}
+          alt={alt}
+          width={292}
+          height={234}
+        />
 
         <div className={s.wrapper}>
           <h3 className={s.title}>{title}</h3>
           <p className={s.text}>
-            <span className={s.preTitle}>{item}</span>
+            <span className={s.preTitle}>{collected_title}</span>
             &#8197;
-            <span>{total}</span> &#8197;
+            <span>{target}</span> &#8197;
             <span>{currency}</span>
           </p>
           <p className={s.text}>
@@ -52,7 +66,7 @@ export default function CardProjectReporting({ slid }) {
         </div>
         <div className={s.btnWrapper}>
           <LinkButton
-            path={`/${locale}/${ROUTES.CLOSED_COLLECTION}/${id}`}
+            path={`/${locale}/${ROUTES.COLLECTION}/${ROUTES.CLOSED}/${id}`}
             className={s.button}
             linkText={data.linkButtonDetails}
           />

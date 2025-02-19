@@ -8,4 +8,5 @@ export const nameMap = {
   step: 'Крок',
   active: 'Активний',
   closed: 'Закритий',
+  methods:'Mетоди'
 };

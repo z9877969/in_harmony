@@ -6,12 +6,12 @@ import { ActiveCollectionList } from '@/modules/mainPageCollection';
 import collection from '../../data/section-content.json';
 import s from './CollectionPageActive.module.scss';
 
-const CollectionPageActive = () => {
+const CollectionPageActive = ({ content }) => {
   const initialVisibleItems = 6;
   const [visibleItems, setVisibleItems] = useState(initialVisibleItems);
   const [isExpanded, setIsExpanded] = useState(false);
   const sectionRef = useRef(null);
-
+  const { cards, title } = content;
   const handleToggleVisibleItems = () => {
     if (isExpanded) {
       setVisibleItems(initialVisibleItems);
@@ -21,7 +21,7 @@ const CollectionPageActive = () => {
         block: 'start',
       });
     } else {
-      setVisibleItems(collection.collections.length);
+      setVisibleItems(cards.length);
     }
     setIsExpanded(!isExpanded);
   };
@@ -30,10 +30,10 @@ const CollectionPageActive = () => {
     <Section className={s.section} ref={sectionRef}>
       <Container>
         <div className={s.content}>
-          <SectionTitle title={collection.title} />
+          <SectionTitle title={title} />
           <ActiveCollectionList
             visibleItems={visibleItems}
-            allCollection={collection}
+            allCollection={cards}
             className={s.list}
           />
           <Button

@@ -1,13 +1,14 @@
 import * as Yup from 'yup';
 
-export const validationSchema = Yup.object({
-  name: Yup.string()
-    .min(2, ({ min }) => `Ім’я повинно бути не менше ${min} символів`)
-    .required('Ім’я обов’язкове'),
-  email: Yup.string()
-    .matches(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, 'Невірна електронна адреса')
-    .required('Електронна адреса обов’язкова'),
-  message: Yup.string()
-    .min(5, ({ min }) => `Повідомленнямає містити не менше ${min} символів`)
-    .required('Повідомлення обов’язкове'),
-});
+export const validationSchema = (t) =>
+  Yup.object({
+    name: Yup.string()
+      .min(2, t('support.nameLenght'))
+      .required(t('support.nameRequired')),
+    email: Yup.string()
+      .matches(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, t('support.emailInvalid'))
+      .required(t('support.emailRequired')),
+    message: Yup.string()
+      .min(5, t(`support.messageLenght`))
+      .required(t('support.messageRequired')),
+  });

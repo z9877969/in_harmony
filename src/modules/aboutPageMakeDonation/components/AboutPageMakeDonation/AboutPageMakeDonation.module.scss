@@ -93,3 +93,15 @@
     border-radius: 32px;
   }
 }
+.imageWrapper {
+  display: none;
+
+  @include media(desktop) {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    width: 636px;
+    height: 360px;
+    border-radius: 32px;
+  }
+}

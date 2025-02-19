@@ -3,18 +3,18 @@ import partners from '../../data/section-content.json';
 import AboutPagePartnersCarousel from '../AboutPagePartnersCarousel/AboutPagePartnersCarousel';
 import s from './AboutPagePartners.module.scss';
 
-const AboutPagePartners = () => {
+const AboutPagePartners = ({ content }) => {
   return (
     <section className={s.partnersSection}>
       <Container>
         <div className={s.mainContainer}>
           <div className={s.textContainer}>
-            <h2 className={s.title}>{partners.title}</h2>
-            <p className={s.desc}>{partners.desc}</p>
+            <h2 className={s.title}>{content.title}</h2>
+            <p className={s.desc}>{content.desc}</p>
           </div>
         </div>
       </Container>
-      <AboutPagePartnersCarousel partners={partners} />
+      <AboutPagePartnersCarousel cards={content.cards} partners={partners} />
     </section>
   );
 };

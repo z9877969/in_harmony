@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 
 import { usePathname } from 'next/navigation.js';
@@ -13,6 +15,7 @@ import Image from 'next/image.js';
 export default function CardProjectReporting({ slid }) {
   const pathname = usePathname();
   const locale = pathname.split('/')[1];
+
   const {
     id,
     image,

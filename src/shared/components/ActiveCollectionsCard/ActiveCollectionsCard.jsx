@@ -44,7 +44,7 @@ function ActiveCollectionsCard({ collection, buttonDetails, buttonDonas }) {
         </p>
         <div className={s.buttonContainer}>
           <LinkButton
-            path={`/${locale}/${ROUTES.ACTIVE_COLLECTION}/${collection._id}`}
+            path={`/${locale}/${ROUTES.COLLECTION}/${ROUTES.ACTIVE}/${collection._id}`}
             linkText={buttonDetails}
             type={LINKDATA.TYPE_LIGHT_BORDER}
           />

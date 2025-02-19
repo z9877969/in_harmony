@@ -1,9 +1,7 @@
 'use client';
 
 import React, { Component } from 'react';
-
 import { Button, Container } from '@/shared/components';
-
 import styles from './ErrorBoundary.module.scss';
 
 class ErrorBoundary extends Component {
@@ -22,16 +20,18 @@ class ErrorBoundary extends Component {
   };
 
   render() {
+    const { t } = this.props;
+
     if (this.state.hasError) {
       return (
         <Container>
           <div className={styles.container}>
-            <h2 className={styles.heading}>Помилка</h2>
+            <h2 className={styles.heading}>{t('errorTitle')}</h2>
             <p className={styles.message}>
-              {this.state.error?.message || 'Щось пішло не так.'}
+              {this.state.error?.message || t('errorMessage')}
             </p>
             <Button className={styles.button} onClick={this.resetError}>
-              Спробувати знову
+              {t('tryAgain')}
             </Button>
           </div>
         </Container>

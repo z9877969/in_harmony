@@ -30,17 +30,23 @@ export const createLogPayment = async (req, res) => {
     //   clientName,
     // } = req.body;
 
-    // eslint-disable-next-line no-console
     try {
-      // eslint-disable-next-line no-console
       console.log('Type of req.body:', typeof req.body);
 
-      const parsedBody =
+      let parsedBody =
         typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
-      // eslint-disable-next-line no-console
-      console.log('Parsed req.body:', parsedBody);
+
+      // Якщо req.body містить один ключ, який є JSON-рядком, то розпаковуємо його
+      const firstKey = Object.keys(parsedBody)[0];
+      if (
+        typeof firstKey === 'string' &&
+        firstKey.includes('merchantAccount')
+      ) {
+        parsedBody = JSON.parse(firstKey);
+      }
+
+      console.log('Corrected req.body:', parsedBody);
     } catch (error) {
-      // eslint-disable-next-line no-console
       console.error('Error parsing req.body:', error);
     }
 

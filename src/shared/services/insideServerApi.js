@@ -31,6 +31,20 @@ class InsideServerApi {
 
     return body.pages;
   };
+
+  getActiveCollectionPageApi = async (locale, id) => {
+    const response = await fetch(
+      `${this.serverUrl}/api/all-pages/${locale}/active/${id}`
+    );
+
+    if (!response.ok) {
+      throw new Error(
+        `Failed to fetch collection data: ${response.statusText}`
+      );
+    }
+
+    return response.json();
+  };
 }
 
 export const insideServerApi = new InsideServerApi();

@@ -1,4 +1,13 @@
 {
   "button_details": "Details",
-  "button_donats": "Donate"
+  "button_donats": "Donate",
+  "collection": "Current fees",
+  "reporting": "Reporting",
+  "about": "About the team",
+  "terms": "Terms and condition",
+  "discard": "Cancellation of assistance",
+  "payments": "Payments",
+  "step": "Step",
+  "active": "Active",
+  "closed": "Closed"
 }

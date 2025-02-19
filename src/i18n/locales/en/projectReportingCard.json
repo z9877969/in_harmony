@@ -1,4 +1,5 @@
 {
   "empty_quantity": "Empty",
-  "linkButtonDetails": "Details"
+  "linkButtonDetails": "Details",
+  "about": { "linkButtonDetails": "Read more" }
 }

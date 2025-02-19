@@ -1,15 +1,18 @@
 'use client';
-import { Button, Input } from '@/shared/components/index.js';
-import clsx from 'clsx';
-import { useFormik } from 'formik';
-import Link from 'next/link.js';
-import { usePathname, useRouter } from 'next/navigation';
-import { useCallback, useMemo } from 'react';
+
 import * as Yup from 'yup';
+import clsx from 'clsx';
+import Link from 'next/link.js';
+import { useFormik } from 'formik';
+import { useCallback, useMemo } from 'react';
+
+import { Button, Input } from '@/shared/components/index.js';
+import { usePathname, useRouter } from 'next/navigation';
 import { ROUTES } from '@/shared/constants';
+
 import s from './SupportForm.module.scss';
 
-const SupportForm = ({ data, className = '' }) => {
+const SupportForm = ({ data, value, className = '' }) => {
   const router = useRouter();
   const locale = usePathname().split('/')[1];
   const sectionClasses = clsx(s.sectionClass, className);
@@ -31,9 +34,8 @@ const SupportForm = ({ data, className = '' }) => {
     },
     validationSchema,
     onSubmit: ({ amount }) => {
-      router.push(
-        `/${locale}/payments/step/2?${new URLSearchParams({ amount })}`
-      );
+      const queryParams = new URLSearchParams({ amount, value }).toString();
+      router.push(`/${locale}/${ROUTES.PAYMENTS(2)}?${queryParams}`);
       formik.resetForm();
     },
   });

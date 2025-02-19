@@ -1,7 +1,9 @@
 'use client';
 
 import { Container, Logo, Modal } from '@/shared/components';
-import { useState } from 'react';
+import { usePathname } from 'next/navigation.js';
+import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Contacts from '../Contacts/Contacts.jsx';
 import ContactUs from '../ContactUs/ContactUs.jsx';
 import LegalInfo from '../LegalInfo/LegalInfo.jsx';
@@ -9,14 +11,49 @@ import ModalContent from '../ModalContent/ModalContent.jsx';
 import SiteNavigation from '../SiteNavigation/SiteNavigation.jsx';
 import SocialMediaLinks from '../SocialMediaLinks/SocialMediaLinks.jsx';
 import TeamList from '../TeamList/TeamList.jsx';
-import data from '../../data/sectionContent.json';
 import s from './Footer.module.scss';
 
 const Footer = () => {
+  const pathname = usePathname();
+  const locale = pathname.split('/')[1];
   const [isOpen, setIsOpen] = useState(false);
+  const [data, setData] = useState(null);
+  const { t } = useTranslation('footer');
+
   const toggleModal = () => {
     setIsOpen((prev) => !prev);
   };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`/api/all-pages/${locale}/footer`);
+
+        if (!response.ok) {
+          throw new Error(
+            `${t('apiErrors.fetchingError')} ${response.statusText}`
+          );
+        }
+
+        const footerData = await response.json();
+        if (footerData?.section?.sections_list?.[1]?.section_content) {
+          setData(footerData.section.sections_list[1].section_content);
+        } else {
+          // eslint-disable-next-line
+          console.warn(`${t('apiErrors.missingDataError')}  ${footerData}`);
+        }
+      } catch (error) {
+        // eslint-disable-next-line
+        console.error(`${t('apiErrors.exceptionError')}  ${error}`);
+      }
+    };
+
+    fetchData();
+  }, [locale, t]);
+
+  if (!data) {
+    return null;
+  }
 
   return (
     <footer className={s.footer}>
@@ -46,11 +83,11 @@ const Footer = () => {
             onClick={toggleModal}
             className={s.linkBtn}
             type="button"
-            ariaaria-label={data.team.openModalButtonAriaLabelText}
+            ariaaria-label={t('openModalButton.openModalButtonAriaLabelText')}
           >
-            {data.team.openModalButtonText}
+            {t('openModalButton.openModalButtonText')}
           </button>
-          <small className={s.copyright}>© 2024 InHarmony</small>
+          <small className={s.copyright}>{data.company.copyright}</small>
         </div>
       </Container>
       <Modal className={'teamModal'} open={isOpen} onClose={toggleModal}>
@@ -58,7 +95,7 @@ const Footer = () => {
           title={data.team.teamModalContent.title}
           text={data.team.teamModalContent.text}
         >
-          <TeamList data={data.team.members} />
+          <TeamList />
         </ModalContent>
       </Modal>
     </footer>

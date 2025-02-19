@@ -43,6 +43,7 @@ const AboutPageMakeDonation = ({ content }) => {
                 src={content.image[0]}
                 alt={content.title}
                 size="100%"
+                priority
                 fill
                 style={{ objectFit: 'cover', objectPosition: 'center' }}
               />

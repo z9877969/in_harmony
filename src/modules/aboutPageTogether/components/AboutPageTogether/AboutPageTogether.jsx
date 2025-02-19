@@ -4,7 +4,6 @@ import TeamPersonCard from '../TeamPersonCard/TeamPersonCard';
 import s from './AboutPageTogether.module.scss';
 
 const AboutPageTogether = ({ content }) => {
-  console.log(content.team.cards.icon);
   return (
     <Section>
       <Container>

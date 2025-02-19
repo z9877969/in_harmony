@@ -1,5 +1,4 @@
 import { Container } from '@/shared/components';
-import partners from '../../data/section-content.json';
 import AboutPagePartnersCarousel from '../AboutPagePartnersCarousel/AboutPagePartnersCarousel';
 import s from './AboutPagePartners.module.scss';
 
@@ -14,7 +13,7 @@ const AboutPagePartners = ({ content }) => {
           </div>
         </div>
       </Container>
-      <AboutPagePartnersCarousel cards={content.cards} partners={partners} />
+      <AboutPagePartnersCarousel cards={content.cards} />
     </section>
   );
 };

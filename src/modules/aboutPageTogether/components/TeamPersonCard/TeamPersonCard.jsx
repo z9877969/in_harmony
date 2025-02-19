@@ -13,6 +13,7 @@ const TeamPersonCard = ({ icon, name, role, description, image }) => {
                 src={image[0]}
                 alt="Team Photo"
                 fill
+                priority
                 sizes="100%"
                 style={{ objectFit: 'cover', objectPosition: 'top' }}
               />

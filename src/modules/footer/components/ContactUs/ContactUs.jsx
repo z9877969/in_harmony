@@ -5,14 +5,18 @@ import { useFormik } from 'formik';
 import { useTranslation } from 'react-i18next';
 import { validationSchema } from '../../validation/validationSchema.js';
 import s from './ContactUs.module.scss';
+import { useTranslation } from 'react-i18next';
 
-const ContactUs = ({ data }) => {
+const ContactUs = () => {
   const initialValues = { name: '', email: '', message: '' };
-  const { t } = useTranslation('footer');
+
+  const { t } = useTranslation('forms');
+
+
 
   const formik = useFormik({
     initialValues,
-    validationSchema,
+    validationSchema: validationSchema(t),
 
     onSubmit: (values) => {
       // eslint-disable-next-line
@@ -22,14 +26,10 @@ const ContactUs = ({ data }) => {
     },
   });
 
-  if (!data) {
-    return null;
-  }
-
   return (
     <section className={s.contactUsSection}>
       <div className={s.formWrapper}>
-        <h2 className={s.title}>{data.title}</h2>
+        <h2 className={s.title}>{t('support.title')}</h2>
 
         <form className={s.form} onSubmit={formik.handleSubmit}>
           <Input
@@ -37,7 +37,9 @@ const ContactUs = ({ data }) => {
             name="name"
             value={formik.values.name}
             type="text"
-            placeholder={t('contactUs.placeholderName')}
+
+            placeholder={t('support.placeholderName')}
+
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             error={formik.touched.name && formik.errors.name}
@@ -48,7 +50,9 @@ const ContactUs = ({ data }) => {
             name="email"
             value={formik.values.email}
             type="text"
-            placeholder={t('contactUs.placeholderEmail')}
+
+            placeholder={t('support.placeholderEmail')}
+
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             error={formik.touched.email && formik.errors.email}
@@ -58,13 +62,15 @@ const ContactUs = ({ data }) => {
             className={s.textAreaFooter}
             name="message"
             value={formik.values.message}
-            placeholder={t('contactUs.placeholderMessage')}
+
+            placeholder={t('support.placeholderMessage')}
+
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             error={formik.touched.message && formik.errors.message}
           />
           <Button type="submit" variant="primary" fontSize="twenty">
-            {t('contactUs.buttonText')}
+            {t('support.buttonText')}
           </Button>
         </form>
       </div>

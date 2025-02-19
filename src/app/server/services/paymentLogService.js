@@ -30,6 +30,9 @@ export const createLogPayment = async (req, res) => {
       clientName,
     } = req.body;
 
+    // eslint-disable-next-line no-console
+    console.log('>>>>>>>>>>> paymentLogService body: ', req.body);
+
     const status = 'accept';
     const time = Math.floor(Date.now() / 1000);
     const { key } = PAYMENT_CONFIG;

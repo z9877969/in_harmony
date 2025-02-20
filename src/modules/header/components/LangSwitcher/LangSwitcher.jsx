@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useLanguageChanger } from '@/i18n/utils/LanguageChanger';
 
 import { uaFlag as UaIcon, googleLogo as EnIcon } from '/public/icons';
@@ -12,6 +12,8 @@ import { LANGUAGES } from '@/shared/constants';
 const LangSwitcher = () => {
   const { currentLocale, handleChangeLanguage } = useLanguageChanger();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
+  const buttonRef = useRef(false);
 
   const toggleDropdown = () => setIsDropdownOpen((prev) => !prev);
 
@@ -20,9 +22,34 @@ const LangSwitcher = () => {
     setIsDropdownOpen(false);
   };
 
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    const handleEscPress = (e) => {
+      if (e.key === 'Escape' && isDropdownOpen) {
+        setIsDropdownOpen(false);
+        buttonRef.current.blur();
+      }
+    };
+
+    if (isDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('keydown', handleEscPress);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleEscPress);
+    };
+  }, [isDropdownOpen]);
+
   return (
-    <div className={s.langBlock}>
-      <button className={s.langBtn} onClick={toggleDropdown}>
+    <div className={s.langBlock} ref={dropdownRef}>
+      <button className={s.langBtn} onClick={toggleDropdown} ref={buttonRef}>
         {currentLocale === LANGUAGES.UA ? (
           <UaIcon className={s.langIcon} />
         ) : (

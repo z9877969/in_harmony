@@ -15,7 +15,7 @@ const PaymentButton = ({ label, sections }) => {
 
 const RenderSection = ({ section }) => (
   <div className={s.section}>
-    <h2 className={s.sectionTitle}>{section.title}</h2>
+    {section.title && <h2 className={s.sectionTitle}>{section.title}</h2>}
 
     {section.subsections ? (
       section.subsections.map((sub, index) => (

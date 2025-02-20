@@ -1,0 +1,18 @@
+{
+  "openModalButton": {
+    "openModalButtonText": "Команда дизайнерів та розробників сайту InHarmony",
+    "openModalButtonAriaLabelText": "Переглянути команду дизайнерів та розробників сайту InHarmony"
+  },
+  "contactUs": {
+    "placeholderName": "Ваше ім'я",
+    "placeholderEmail": "Ваш email",
+    "placeholderMessage": "Ваше повідомлення",
+    "buttonText": "Надіслати",
+    "buttonAriaLabel": "Відправити форму з контактними даними"
+  },
+  "apiErrors": {
+    "fetchingError": "Помилка при при отримані данних:",
+    "missingDataError": "Очікувані дані відсутні у відповіді API:",
+    "exceptionError": "Виняток, Помилка під час запиту:"
+  }
+}

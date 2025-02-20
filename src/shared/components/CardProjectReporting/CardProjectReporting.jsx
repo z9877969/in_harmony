@@ -10,16 +10,18 @@ import { ROUTES } from '@/shared/constants';
 import data from '../CardProjectReporting/data/sectionContent.json';
 
 import s from './CardProjectReporting.module.scss';
+
 import Image from 'next/image.js';
 
 export default function CardProjectReporting({ slid }) {
   const pathname = usePathname();
   const locale = pathname.split('/')[1];
-
+  //   const { t } = useTranslation();
   const {
-    id,
+    _id,
     image,
     alt,
+
     title,
     collected_title,
     target,
@@ -29,7 +31,9 @@ export default function CardProjectReporting({ slid }) {
     period,
     comments,
     quantity,
+    //  image,
   } = slid;
+
   comments;
 
   const dataProps =
@@ -69,12 +73,12 @@ export default function CardProjectReporting({ slid }) {
           <p className={s.text}>
             <span className={s.preTitle}>{comments}</span>
             &#8197;
-            <span>{quantity}</span>
+            <span>{quantity ? quantity : 'Немає'}</span>
           </p>
         </div>
         <div className={s.btnWrapper}>
           <LinkButton
-            path={`/${locale}/${ROUTES.COLLECTION}/${ROUTES.CLOSED}/${id}`}
+            path={`/${locale}/${ROUTES.COLLECTION}/${ROUTES.CLOSED}/${_id}`}
             className={s.button}
             linkText={data.linkButtonDetails}
           />

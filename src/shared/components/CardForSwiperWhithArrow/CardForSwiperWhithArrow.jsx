@@ -19,7 +19,6 @@ const CardForSwiperWhithArrow = ({ slid }) => {
           <div className={s.wrapper}>
             <h3 className={s.title}>{title}</h3>
             <p className={s.textNext}>{long_desc?.section1}</p>
-            <p className={s.text}>{long_desc?.section2}</p>
             <p className={s.text}>
               <span className={s.preTitle}>{collected_title}:</span> {collected}{' '}
               {currency}

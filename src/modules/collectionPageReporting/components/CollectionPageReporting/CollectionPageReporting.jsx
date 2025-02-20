@@ -5,15 +5,15 @@ import { Container, SectionTitle } from '@/shared/components';
 
 import s from './CollectionPageReporting.module.scss';
 import CollectionCardList from '../CollectionCardList/CollectionCardList';
-import { content } from '../../data/sectionContent';
+// import { content } from '../../data/sectionContent';
 import { ROUTES } from '@/shared/constants';
 import Link from 'next/link';
 
-export default function CollectionPageReporting() {
+export default function CollectionPageReporting({ content }) {
   const [isTablet, setIsTablet] = useState(false);
 
   const visibleItems = isTablet ? 2 : 3;
-
+  const { cards } = content;
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
@@ -32,7 +32,7 @@ export default function CollectionPageReporting() {
     <section>
       <Container>
         <SectionTitle title="Звітність" className={s.title} />
-        <CollectionCardList data={content} visibleItems={visibleItems} />
+        <CollectionCardList data={cards} visibleItems={visibleItems} />
         <div className={s.linkWrapper}>
           <Link href={ROUTES.REPORTING} className={s.link}>
             Всі звіти

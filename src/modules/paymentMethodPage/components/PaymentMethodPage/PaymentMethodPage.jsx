@@ -1,13 +1,11 @@
-import paymentData from '../../data/sectionContent.json';
-
 import PaymentButton from '../PaymentButton/PaymentButton';
-import CurrencyPaymentButton from '../CurrencyPaymentButton/CurrencyPaymentButton ';
+import CurrencyPaymentButton from '../CurrencyPaymentButton/CurrencyPaymentButton';
 import { Container } from '@/shared/components';
 
 import s from './PaymentMethodPage.module.scss';
 
-const PaymentMethodPage = () => {
-  const { title, paymentCard, methods } = paymentData;
+const PaymentMethodPage = ({ sections }) => {
+  const { title, paymentCard, methods } = sections[0];
 
   return (
     <section className={s.sectionPayment}>
@@ -16,17 +14,17 @@ const PaymentMethodPage = () => {
         <div className={s.containerContent}>
           <button className={s.paymentCard}>{paymentCard}</button>
 
-          {methods.map(({ key, label, sections }) =>
-            key === 'carte' ? (
+          {methods.map(({ key, label, sections }, index) => {
+            return key === 'carte' ? (
               <CurrencyPaymentButton
-                key={key}
+                key={index}
                 label={label}
                 sections={sections}
               />
             ) : (
-              <PaymentButton key={key} label={label} sections={sections} />
-            )
-          )}
+              <PaymentButton key={index} label={label} sections={sections} />
+            );
+          })}
         </div>
       </Container>
     </section>

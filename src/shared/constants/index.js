@@ -29,6 +29,17 @@ export const NAMESPACES = [
   'errorBoundary',
   'notFound',
   'reportingPage',
+  'copyIcon',
+  'footer',
+  'activeCollectionCard',
+  'aboutPage',
+  'activeCollectionPage',
+  'closedCollectionPage',
+  'collectionsListPage',
+  'discardPage',
+  'forms',
+  'paymentPage',
+  'projectReportingCard',
 ];
 
 export const LINKDATA = {

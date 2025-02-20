@@ -12,14 +12,14 @@ import {
 import other_collection from '../../data/section-content.json';
 import s from './OpenCollectionOther.module.scss';
 
-const OpenCollectionOther = () => {
+const OpenCollectionOther = ({ content, id }) => {
   const [visibleItems, setVisibleItems] = useState(1);
   const [totalSlides, setTotalSlides] = useState(0);
 
-  const collections = other_collection.collections;
+  const otherCollections = content.cards.filter((card) => card._id !== id);
 
   useEffect(() => {
-    const handleResize = () => {
+    const handleResize = (collections) => {
       const width = window.innerWidth;
       let itemsPerPage = 1;
       let slidesCount = collections.length;
@@ -35,38 +35,40 @@ const OpenCollectionOther = () => {
       setVisibleItems(itemsPerPage);
       setTotalSlides(slidesCount > 0 ? slidesCount : 1);
     };
+    handleResize(otherCollections);
 
-    handleResize();
     window.addEventListener('resize', handleResize);
 
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [collections.length]);
+  }, [otherCollections]);
 
   return (
     <Section className={s.section}>
-      <Container>
-        <SectionTitle title={other_collection.title} className={s.title} />
-        <div>
-          <DotsSwiper
-            customSwiper={s.customSwiper}
-            totalSlides={totalSlides}
-            slideCount={visibleItems}
-            spaceBetween={24}
-          >
-            {collections.map((collection) => (
-              <SwiperSlide key={collection._id}>
-                <ActiveCollectionsCard
-                  collection={collection}
-                  buttonDetails={other_collection.button_details}
-                  buttonDonas={other_collection.button_donas}
-                />
-              </SwiperSlide>
-            ))}
-          </DotsSwiper>
-        </div>
-      </Container>
+      {otherCollections && (
+        <Container>
+          <SectionTitle title={content.title} className={s.title} />
+          <div>
+            <DotsSwiper
+              customSwiper={s.customSwiper}
+              totalSlides={totalSlides}
+              slideCount={visibleItems}
+              spaceBetween={24}
+            >
+              {otherCollections.map((collection) => (
+                <SwiperSlide key={collection._id}>
+                  <ActiveCollectionsCard
+                    collection={collection}
+                    buttonDetails={other_collection.button_details}
+                    buttonDonas={other_collection.button_donas}
+                  />
+                </SwiperSlide>
+              ))}
+            </DotsSwiper>
+          </div>
+        </Container>
+      )}
     </Section>
   );
 };

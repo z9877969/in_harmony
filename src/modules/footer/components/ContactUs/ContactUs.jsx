@@ -2,11 +2,13 @@
 
 import { Button, Input, InputArea } from '@/shared/components/index.js';
 import { useFormik } from 'formik';
+import { useTranslation } from 'react-i18next';
 import { validationSchema } from '../../validation/validationSchema.js';
 import s from './ContactUs.module.scss';
 
 const ContactUs = ({ data }) => {
   const initialValues = { name: '', email: '', message: '' };
+  const { t } = useTranslation('footer');
 
   const formik = useFormik({
     initialValues,
@@ -35,7 +37,7 @@ const ContactUs = ({ data }) => {
             name="name"
             value={formik.values.name}
             type="text"
-            placeholder={data.placeholderName}
+            placeholder={t('contactUs.placeholderName')}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             error={formik.touched.name && formik.errors.name}
@@ -46,7 +48,7 @@ const ContactUs = ({ data }) => {
             name="email"
             value={formik.values.email}
             type="text"
-            placeholder={data.placeholderEmail}
+            placeholder={t('contactUs.placeholderEmail')}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             error={formik.touched.email && formik.errors.email}
@@ -56,13 +58,13 @@ const ContactUs = ({ data }) => {
             className={s.textAreaFooter}
             name="message"
             value={formik.values.message}
-            placeholder={data.placeholderMessage}
+            placeholder={t('contactUs.placeholderMessage')}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             error={formik.touched.message && formik.errors.message}
           />
           <Button type="submit" variant="primary" fontSize="twenty">
-            {data.buttonText}
+            {t('contactUs.buttonText')}
           </Button>
         </form>
       </div>

@@ -9,18 +9,20 @@ import { CollectionProgress } from '@/modules/mainPageCollection';
 import LinkButton from '../LinkButton/LinkButton.jsx';
 
 import s from './ActiveCollectionsCard.module.scss';
+import { useTranslation } from 'react-i18next';
 
-function ActiveCollectionsCard({ collection, buttonDetails, buttonDonas }) {
+function ActiveCollectionsCard({ collection }) {
   const pathname = usePathname();
   const locale = pathname.split('/')[1];
+  const { t } = useTranslation('activeCollectionCard');
 
   return (
     <div className={s.content}>
       <div className={s.imageWrapper}>
         <Image
           className={s.image}
-          src={collection.imageUrl}
-          alt={collection.title}
+          src={collection.image[0]}
+          alt={collection.title + 'image'}
           fill
           priority
           sizes="100%"
@@ -28,7 +30,9 @@ function ActiveCollectionsCard({ collection, buttonDetails, buttonDonas }) {
           blurDataURL="/images/blur-placeholder.jpg"
         />
       </div>
-      <p className={s.importance}>{collection.importance}</p>
+      <p className={s.importance}>
+        {t(`importanceType.${collection.importance}`)}
+      </p>
       <div className={s.mainContentContainer}>
         <div className={s.contentContainer}>
           <h3 className={s.title}>{collection.title} </h3>
@@ -40,18 +44,19 @@ function ActiveCollectionsCard({ collection, buttonDetails, buttonDonas }) {
         />
         <p className={s.peopleDonate}>
           <Icon iconName="icon-people" className={s.collectionIcon} />
-          <span>{collection.peopleDonate}</span> донорів
+          <span>{collection.peopleDonate}</span>
+          {t('donor.3rd')}
         </p>
         <div className={s.buttonContainer}>
           <LinkButton
-            path={`/${locale}/${ROUTES.COLLECTION}/${ROUTES.ACTIVE}/${collection._id}`}
-            linkText={buttonDetails}
+            path={`/${locale}/${ROUTES.COLLECTION}/active/${collection._id}`}
+            linkText={t('button_details')}
             type={LINKDATA.TYPE_LIGHT_BORDER}
           />
           <LinkButton
-            path={`/${locale}/${ROUTES.PAYMENTS(1)}?value=${collection.goal}`}
+            path={`/${locale}/${ROUTES.PAYMENTS(1)}?value=${collection.value}`}
+            linkText={t('button_donats')}
             type={LINKDATA.TYPE_DARK_HEART}
-            linkText={buttonDonas}
           />
         </div>
       </div>

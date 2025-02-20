@@ -1,5 +1,8 @@
 {
     "about": {
         "learnMore": "Дізнатися більше"
+    },
+    "activeCollection": {
+        "moreBtn": "Всі збори"
     }
 }

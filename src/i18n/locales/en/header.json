@@ -1,9 +1,22 @@
 {
-    "navLinks": [
-        "Home",
-        "Current fees",
-        "Reporting",
-        "About us"
-    ],
-    "helpButton": "Help"
+  "helpButton": "Help",
+
+  "links": {
+    "home": {
+      "href": "/",
+      "text": "Home"
+    },
+    "currentFees": {
+      "href": "/collection",
+      "text": "Current fees"
+    },
+    "reporting": {
+      "href": "/reporting",
+      "text": "Reporting"
+    },
+    "about": {
+      "href": "/about",
+      "text": "About us"
+    }
+  }
 }

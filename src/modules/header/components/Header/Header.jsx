@@ -1,13 +1,15 @@
-import { Container, Icon } from '@/shared/components';
-import { inHarmonyLogo as Logo } from '/public/icons';
+import { Container, Icon } from '@/shared/components'
+import { inHarmonyLogo as Logo } from '/public/icons'
 
-import LangSwitcher from '../LangSwitcher/LangSwitcher';
-import Link from '../Link/Link';
-import NavLinks from '../NavLinks/NavLinks';
-import SocialLinks from '../SocialLinks/SocialLinks';
-import MobileMenu from '../MobileMenu/MobileMenu';
+import LangSwitcher from '../LangSwitcher/LangSwitcher'
+import Link from '../Link/Link'
+import MobileMenu from '../MobileMenu/MobileMenu'
+import NavLinks from '../NavLinks/NavLinks'
+import SocialLinks from '../SocialLinks/SocialLinks'
 
-import s from './Header.module.scss';
+
+
+import s from './Header.module.scss'
 
 const Header = ({ t }) => {
   return (

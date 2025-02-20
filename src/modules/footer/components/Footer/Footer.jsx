@@ -4,6 +4,7 @@ import { Container, Logo, Modal } from '@/shared/components';
 import { usePathname } from 'next/navigation.js';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import Contacts from '../Contacts/Contacts.jsx';
 import ContactUs from '../ContactUs/ContactUs.jsx';
 import LegalInfo from '../LegalInfo/LegalInfo.jsx';
@@ -72,7 +73,7 @@ const Footer = () => {
           </div>
 
           <div className={s.navigationSection}>
-            <SiteNavigation data={data.siteNavigation} />
+            <SiteNavigation />
             <LegalInfo data={data.company.legalInfo} />
           </div>
 

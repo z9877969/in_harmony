@@ -22,7 +22,10 @@ const NavLinks = () => {
             <Link
               href={`/${locale}${href}`}
               className={clsx(
-                pathname === `/${locale}${href}` ? s.active : '',
+                pathname.replace(/\/$/, '') === `/${locale}${href}` ||
+                  (href === '/' && pathname === `/${locale}`)
+                  ? s.active
+                  : '',
                 s.navLink
               )}
             >

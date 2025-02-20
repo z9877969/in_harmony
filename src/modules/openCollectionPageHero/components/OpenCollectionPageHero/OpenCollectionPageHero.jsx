@@ -14,7 +14,6 @@ const OpenCollectionPageHero = ({ content }) => {
         <Container>
           <div className={s.mainContent}>
             <div className={s.imageWrapper}>
-              {/* <div className={s.image}> */}
               <Image
                 className={s.image}
                 src={image[0]}
@@ -25,7 +24,6 @@ const OpenCollectionPageHero = ({ content }) => {
                 placeholder="blur"
                 blurDataURL="/images/blur-placeholder.jpg"
               />
-              {/* </div> */}
             </div>
             <div className={s.info}>
               <h2 className={s.title}>{title}</h2>

@@ -32,17 +32,16 @@ export const getPage = async (req, res) => {
 
 export const getPageByRoute = async (req, res) => {
   try {
-    const { route, locale } = req.query;
-
-    const page = await Pages.findOne({ route: route, local: locale }).lean();
-    if (!page) {
+    const { route, locale, page = 1, limit = 10 } = req.query;
+    const pages = await Pages.findOne({ route: route, local: locale }).lean();
+    if (!pages) {
       throw new Error(`Page not found for route: ${route}`);
     }
-    const updatedSections = await updateSections(page);
+    const updatedSections = await updateSections(pages, { page, limit });
 
     res.status(200).json({
       status: 200,
-      section: { ...page, sections_list: updatedSections },
+      section: { ...pages, sections_list: updatedSections },
     });
   } catch (error) {
     res.status(500).json({ message: error.message });

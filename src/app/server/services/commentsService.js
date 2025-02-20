@@ -11,7 +11,7 @@ export const getAllComments = async (req, res) => {
     const { locale } = req.query;
     const { page, perPage } = parsePaginationParams(req.query);
 
-    const totalCollections = await CommentsModel.countDocuments({
+    const totalComments = await CommentsModel.countDocuments({
       language: locale,
     });
     const comments = await CommentsModel.find({ language: locale })
@@ -23,8 +23,8 @@ export const getAllComments = async (req, res) => {
       status: 200,
       data: comments,
       pagination: {
-        totalItems: totalCollections,
-        totalPages: Math.ceil(totalCollections / perPage),
+        totalItems: totalComments,
+        totalPages: Math.ceil(totalComments / perPage),
         currentPage: page,
         perPage: perPage,
       },

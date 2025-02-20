@@ -1,16 +1,29 @@
 import CollectionModel from '../models/CollectionsModel';
 import { Pages } from '../models/PageModels';
 import { updatePages, updateSections } from '../utils';
+import { parsePaginationParams } from '../utils/pagination';
 
 export const getPage = async (req, res) => {
   try {
     const { locale } = req.query;
+    const { page, perPage } = parsePaginationParams(req.query);
+
+    const totalPages = await Pages.countDocuments({
+      language: locale,
+    });
+
     const pages = await Pages.find({ local: locale }).lean();
     const updatedPages = await updatePages(pages);
 
     res.status(200).json({
       status: 200,
       section: { ...pages, ...updatedPages },
+      pagination: {
+        totalItems: totalPages,
+        totalPages: Math.ceil(totalPages / perPage),
+        currentPage: page,
+        perPage: perPage,
+      },
     });
   } catch (error) {
     res.status(500).json({ message: error.message });

@@ -1,0 +1,18 @@
+{
+  "openModalButton": {
+    "openModalButtonText": "InHarmony Website Design and Development Team",
+    "openModalButtonAriaLabelText": "View the InHarmony website design and development team"
+  },
+  "contactUs": {
+    "placeholderName": "Your Name",
+    "placeholderEmail": "Your Email",
+    "placeholderMessage": "Your Message",
+    "buttonText": "Send",
+    "buttonAriaLabel": "Submit the contact form"
+  },
+  "apiErrors": {
+    "fetchingError": "Error while fetching data:",
+    "missingDataError": "Expected data is missing in the API response:",
+    "exceptionError": "Exception, Error during request:"
+  }
+}

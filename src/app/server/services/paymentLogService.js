@@ -4,74 +4,41 @@ import generateHash from '../utils/generateHash.js';
 
 export const createLogPayment = async (req, res) => {
   try {
-    const {
-      orderReference,
-      merchantAccount,
-      merchantSignature,
-      amount,
-      currency,
-      authCode,
-      email,
-      phone,
-      createdDate,
-      processingDate,
-      cardPan,
-      cardType,
-      issuerBankCountry,
-      issuerBankName,
-      recToken,
-      transactionStatus,
-      reason,
-      reasonCode,
-      fee,
-      paymentSystem,
-      acquirerBankName,
-      cardProduct,
-      clientName,
-    } = req.body;
+    let parsedBody;
 
+    try {
+      parsedBody =
+        typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
+
+      const firstKey = Object.keys(parsedBody)[0];
+      if (
+        typeof firstKey === 'string' &&
+        firstKey.includes('merchantAccount')
+      ) {
+        parsedBody = JSON.parse(firstKey);
+      }
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error(' Error parsing req.body:', error);
+      return res.status(400).json({ message: 'Invalid request body' });
+    }
+
+    const { key } = PAYMENT_CONFIG;
     const status = 'accept';
     const time = Math.floor(Date.now() / 1000);
-    const { key } = PAYMENT_CONFIG;
+    const { orderReference } = parsedBody;
 
-    const paymentLog = new PaymentLogModel({
-      merchantAccount,
-      merchantSignature,
-      orderReference,
-      amount,
-      currency,
-      authCode,
-      email,
-      phone,
-      createdDate,
-      processingDate,
-      cardPan,
-      cardType,
-      issuerBankCountry,
-      issuerBankName,
-      recToken,
-      transactionStatus,
-      reason,
-      reasonCode,
-      fee,
-      paymentSystem,
-      acquirerBankName,
-      cardProduct,
-      clientName,
-    });
-
-    await paymentLog.save();
-
-    const controlString = `${orderReference};${status};${time}`;
-    const signature = generateHash(controlString, key);
+    await new PaymentLogModel(parsedBody).save();
 
     return res.status(201).json({
       orderReference,
       status,
       time,
-      signature,
+      signature: generateHash(`${orderReference};${status};${time}`, key),
     });
   } catch (error) {
-    return res.status(500).json({ message: error.message });
+    // eslint-disable-next-line no-console
+    console.error(' Error creating payment log:', error);
+    return res.status(500).json({ message: 'Internal server error' });
   }
 };

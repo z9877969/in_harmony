@@ -2,10 +2,13 @@
 import React, { useState } from 'react';
 import Icon from '@/shared/components/Icon/Icon.jsx';
 import s from './CopyIcon.module.scss';
+import { useTranslation } from 'react-i18next';
 
 const CopyIcon = ({ text }) => {
   const [isCopied, setIsCopied] = useState(false);
   const [copyError, setCopyError] = useState('');
+
+  const { t } = useTranslation('copyIcon');
 
   const handleCopy = async () => {
     try {
@@ -14,7 +17,7 @@ const CopyIcon = ({ text }) => {
       setCopyError('');
     } catch (error) {
       setIsCopied(false);
-      setCopyError('помилка копіювання');
+      setCopyError(t('copyErrorMessage'));
     }
 
     setTimeout(() => {
@@ -25,7 +28,7 @@ const CopyIcon = ({ text }) => {
 
   return (
     <div className={s.containerContent}>
-      <span className={s.text}>{isCopied ? 'Скопировано' : text}</span>
+      <span className={s.text}>{isCopied ? t('copyMessage') : text} </span>
       <button className={s.copyIcon} onClick={handleCopy}>
         <Icon
           iconName="icon-content_copy"
@@ -34,7 +37,7 @@ const CopyIcon = ({ text }) => {
           className={s.icon}
         />
       </button>
-      {copyError && <p className={s.error}>{copyError}</p>}
+      {copyError && <p className={s.error}>{copyError}</p>}{' '}
     </div>
   );
 };

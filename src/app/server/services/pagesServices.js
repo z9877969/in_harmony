@@ -39,6 +39,7 @@ export const getPageByRoute = async (req, res) => {
 export const getCollectionDetailsById = async (req, res) => {
   try {
     const { route, id, sectionName = 'collection_details', locale } = req.query;
+
     const page = await Pages.findOne({ route: route, local: locale }).lean();
     if (!page) {
       return res
@@ -65,7 +66,12 @@ export const getCollectionDetailsById = async (req, res) => {
       return section;
     });
 
-    res.status(200).json({ status: 200, data: finalSections });
+    const updatedPage = {
+      ...page,
+      sections_list: finalSections,
+    };
+
+    res.status(200).json({ status: 200, sections: updatedPage });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

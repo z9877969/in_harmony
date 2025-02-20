@@ -28,6 +28,7 @@ export const NAMESPACES = [
   'mainPage',
   'errorBoundary',
   'notFound',
+  'reportingPage',
   'copyIcon',
   'footer',
   'activeCollectionCard',

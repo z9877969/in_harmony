@@ -10,7 +10,8 @@ import { ROUTES } from '@/shared/constants';
 import data from '../CardProjectReporting/data/sectionContent.json';
 
 import s from './CardProjectReporting.module.scss';
-// import { useTranslation } from 'react-i18next';
+
+import Image from 'next/image.js';
 
 export default function CardProjectReporting({ slid }) {
   const pathname = usePathname();
@@ -18,6 +19,9 @@ export default function CardProjectReporting({ slid }) {
   //   const { t } = useTranslation();
   const {
     _id,
+    image,
+    alt,
+
     title,
     collected_title,
     target,
@@ -30,22 +34,27 @@ export default function CardProjectReporting({ slid }) {
     //  image,
   } = slid;
 
+  comments;
+
+  const dataProps =
+    image && image.length > 0
+      ? {
+          imageUrl: image[0],
+        }
+      : {
+          imageUrl: '/images/default-image.jpg',
+        };
+
   return (
     <div className={s.list}>
       <div className={s.slide}>
-        <div className={s.imgBlock}>
-          {/* <DotsSwiper
-            customSwiper={s.customSwiper}
-            totalSlides={3}
-            slideCount={2}
-          >
-            {image.map((el, idx) => (
-              <SwiperSlide key={idx}>
-                <ActiveCollectionsCard collection={el} />
-              </SwiperSlide>
-            ))}
-          </DotsSwiper> */}
-        </div>
+        <Image
+          className={s.imgBlock}
+          src={dataProps.imageUrl}
+          alt={alt}
+          width={292}
+          height={234}
+        />
 
         <div className={s.wrapper}>
           <h3 className={s.title}>{title}</h3>

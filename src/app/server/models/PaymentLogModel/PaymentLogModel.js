@@ -1,23 +1,23 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
 
 const PaymentLogSchema = new mongoose.Schema(
   {
-    merchantAccount: { type: String, required: true },
-    merchantSignature: { type: String, required: true },
-    orderReference: { type: String, required: true },
-    amount: { type: Number, required: true },
-    currency: { type: String, required: true },
+    merchantAccount: { type: String },
+    merchantSignature: { type: String },
+    orderReference: { type: String },
+    amount: { type: Number },
+    currency: { type: String },
     authCode: { type: String },
     email: { type: String },
     phone: { type: String },
-    createdDate: { type: Number, required: true },
-    processingDate: { type: Number, required: true },
+    createdDate: { type: Number },
+    processingDate: { type: Number },
     cardPan: { type: String },
     cardType: { type: String },
     issuerBankCountry: { type: String },
     issuerBankName: { type: String },
     recToken: { type: String },
-    transactionStatus: { type: String, required: true },
+    transactionStatus: { type: String },
     reason: { type: String },
     reasonCode: { type: Number },
     fee: { type: Number },
@@ -26,7 +26,10 @@ const PaymentLogSchema = new mongoose.Schema(
     cardProduct: { type: String },
     clientName: { type: String },
   },
-  { timestamps: true }
+  {
+    timestamps: true,
+    strict: false,
+  }
 );
 
 export const PaymentLogModel =

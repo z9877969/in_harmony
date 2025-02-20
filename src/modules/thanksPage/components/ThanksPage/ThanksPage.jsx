@@ -5,8 +5,19 @@ import { useSearchParams } from 'next/navigation';
 import { Container, Icon } from '@/shared/components';
 import SocialLinks from '../SocialLinks/SocialLinks';
 import s from './ThankPage.module.scss';
+import Image from 'next/image';
 
-const ThanksPage = () => {
+const ThanksPage = ({
+  content: {
+    title,
+    thanksMessage,
+    teamMessage,
+    socialTitle,
+    socialText,
+    subTitle,
+    image,
+  },
+}) => {
   const query = useSearchParams();
   const [hasSent, setHasSent] = useState(false);
 
@@ -42,36 +53,40 @@ const ThanksPage = () => {
       <Container>
         <div className={s.titleContainer}>
           <Icon className={s.iconCheck} iconName="icon-check-mark" />
-          <h1 className={s.title}>Дякуємо, ваша допомога отримана!</h1>
+          <h1 className={s.title}>{title}</h1>
         </div>
       </Container>
       <div className={s.imageContainer}>
-        <Icon iconName="icon-non-image" className={s.image} />
+        <Image
+          className={s.image}
+          width={1540}
+          height={568}
+          src={image[0]}
+          alt="thanks image"
+        />
       </div>
       <Container>
         <div className={s.thanksBlock}>
-          <p className={s.thanksBlockText}>
-            &quot;Ваша підтримка — це основа нашої діяльності. Ми раді бути
-            містком між вашим бажанням допомагати і тими, хто цього потребує.
-            Дякуємо за довіру, за ваш вибір діяти разом із нами. Завдяки вам ми
-            маємо змогу реалізовувати проєкти, які змінюють життя людей на
-            краще!&quot;
-          </p>
-          <p className={s.thanksBlockDesc}>Дякуємо, команда InHarmony.UA ❤️</p>
+          <p className={s.thanksBlockText}>{thanksMessage}</p>
+          <p className={s.thanksBlockDesc}>{teamMessage}</p>
         </div>
         <div className={s.socialBlock}>
           <div>
-            <h2 className={s.socialTitle}>Будьте з нами!</h2>
-            <p className={s.socialText}>Приєднуйтеся до наших соцмереж...</p>
+            <h2 className={s.socialTitle}>{socialTitle}</h2>
+            <p className={s.socialText}>{socialText}</p>
             <SocialLinks />
           </div>
-          <div className={s.socialImage}>
-            <Icon className={s.image} iconName="icon-non-image" />
+          <div className={s.socialImageContainer}>
+            <Image
+              className={s.socialImage}
+              width={900}
+              height={900}
+              src={image[1]}
+              alt="thanks image"
+            />
           </div>
         </div>
-        <h3 className={s.thanksSubTitle}>
-          Кожен внесок допомагає створювати зміни для тих, хто поруч.
-        </h3>
+        <h3 className={s.thanksSubTitle}>{subTitle}</h3>
       </Container>
     </section>
   );

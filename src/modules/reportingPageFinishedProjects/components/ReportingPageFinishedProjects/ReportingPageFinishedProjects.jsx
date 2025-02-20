@@ -1,15 +1,18 @@
 'use client';
+
 import React from 'react';
 import { useEffect, useState } from 'react';
+
 import { Button, Container, SectionTitle } from '@/shared/components';
 import FinishedProjectsList from '../FinishedProjectsList/FinishedProjectsList';
+import { useTranslation } from 'react-i18next';
+
 import s from './ReportingPageFinishedProjects.module.scss';
 
-// import { content } from '../../data/sectionContent';
 export default function ReportingPageFinishedProjects({ content }) {
+  const { t } = useTranslation('reportingPage');
   const [isDesktop, setIsDesktop] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(4);
-  console.log(content);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -35,6 +38,10 @@ export default function ReportingPageFinishedProjects({ content }) {
     return <div>Loading...</div>;
   }
 
+  const shouldShowButton = isDesktop
+    ? content.cards.length > 6
+    : content.cards.length > 4;
+
   const handleClick = () => {
     if (isDesktop && currentIndex <= content.length) {
       setCurrentIndex((prevState) => prevState + 3);
@@ -55,16 +62,18 @@ export default function ReportingPageFinishedProjects({ content }) {
           currentIndex={currentIndex}
         />
 
-        <div className={s.btnWrapper}>
-          <Button
-            variant="secondary"
-            border="true"
-            className={s.button}
-            onClick={handleClick}
-          >
-            Показати ще
-          </Button>
-        </div>
+        {shouldShowButton && (
+          <div className={s.btnWrapper}>
+            <Button
+              variant="secondary"
+              border="true"
+              className={s.button}
+              onClick={handleClick}
+            >
+              {t('textBtn')}
+            </Button>
+          </div>
+        )}
       </Container>
     </section>
   );

@@ -11,6 +11,7 @@ const NavLinks = () => {
   const pathname = usePathname();
   const locale = pathname.split('/')[1];
   const { t } = useTranslation();
+
   return (
     <nav className={s.nav}>
       <ul className={s.navList}>

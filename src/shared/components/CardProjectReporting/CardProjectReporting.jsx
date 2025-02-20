@@ -32,9 +32,14 @@ export default function CardProjectReporting({ slid }) {
   } = slid;
   comments;
 
-  const dataProps = {
-    imageUrl: image[0],
-  };
+  const dataProps =
+    image && image.length > 0
+      ? {
+          imageUrl: image[0],
+        }
+      : {
+          imageUrl: '/images/default-image.jpg',
+        };
 
   return (
     <div className={s.list}>

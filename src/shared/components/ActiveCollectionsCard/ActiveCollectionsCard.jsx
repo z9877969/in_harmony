@@ -50,8 +50,8 @@ function ActiveCollectionsCard({ collection, buttonDetails, buttonDonas }) {
           />
           <LinkButton
             path={`/${locale}/${ROUTES.PAYMENTS(1)}?value=${collection.goal}`}
-            linkText={buttonDonas}
             type={LINKDATA.TYPE_DARK_HEART}
+            linkText={buttonDonas}
           />
         </div>
       </div>

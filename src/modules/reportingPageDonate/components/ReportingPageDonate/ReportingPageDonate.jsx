@@ -1,24 +1,30 @@
 'use client';
 
 import Image from 'next/image';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 
-import { Button, Container, Section } from '@/shared/components';
-import { ROUTES } from '@/shared/constants';
-import reporting from '../../data/section-content.json';
+import { Container, Section } from '@/shared/components';
+import { LINKDATA, ROUTES } from '@/shared/constants';
+import { useTranslation } from 'react-i18next';
+import LinkButton from '@/shared/components/LinkButton/LinkButton.jsx';
 
 import s from './ReportingPageDonate.module.scss';
 
 const ReportingPageDonate = ({ content }) => {
-  const route = useRouter();
+  const { t } = useTranslation('reportingPage');
   const pathname = usePathname();
 
   const locale = pathname.split('/')[1];
 
   // dataProps отримуємо з пропсів або з fetch-запиту
-  const dataProps = {
-    imageUrl: content.image[0],
-  };
+  const dataProps =
+    content.image && content.image.length > 0
+      ? {
+          imageUrl: content.image[0],
+        }
+      : {
+          imageUrl: '/images/default-image.jpg',
+        };
 
   return (
     <Section className={s.section}>
@@ -38,13 +44,14 @@ const ReportingPageDonate = ({ content }) => {
           </div>
           <div className={s.textContainer}>
             <h3 className={s.title}>{content.title}</h3>
-            <Button
-              onClick={() => route.push(`/${locale}/${ROUTES.COLLECTION}`)}
-              size="large"
-              className={s.button}
-            >
-              {reporting.button_to_collections}
-            </Button>
+            <div>
+              <LinkButton
+                path={`/${locale}/${ROUTES.COLLECTION}`}
+                type={LINKDATA.TYPE_DARK_BF}
+                className={s.button}
+                linkText={t('button_to_collections')}
+              />
+            </div>
           </div>
         </div>
       </Container>

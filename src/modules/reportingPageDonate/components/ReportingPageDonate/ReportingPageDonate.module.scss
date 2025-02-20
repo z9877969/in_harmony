@@ -12,7 +12,6 @@
 
   @include media(desktop) {
     padding: 76px 0;
-
   }
 }
 
@@ -102,7 +101,7 @@
   width: 100%;
 
   @include media(tablet) {
+    width: 385px !important;
     margin: 0 auto;
-    width: 385px;
   }
 }

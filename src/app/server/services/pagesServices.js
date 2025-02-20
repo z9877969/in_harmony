@@ -8,9 +8,7 @@ export const getPage = async (req, res) => {
     const { locale } = req.query;
     const { page, perPage } = parsePaginationParams(req.query);
 
-    const totalPages = await Pages.countDocuments({
-      language: locale,
-    });
+    const totalPages = await Pages.countDocuments({ local: locale });
 
     const pages = await Pages.find({ local: locale }).lean();
     const updatedPages = await updatePages(pages);
@@ -50,16 +48,23 @@ export const getPageByRoute = async (req, res) => {
 
 export const getCollectionDetailsById = async (req, res) => {
   try {
-    const { route, id, sectionName = 'collection_details', locale } = req.query;
+    const {
+      route,
+      id,
+      sectionName = 'collection_details',
+      locale,
+      page = 1,
+      limit = 10,
+    } = req.query;
 
-    const page = await Pages.findOne({ route: route, local: locale }).lean();
-    if (!page) {
+    const pages = await Pages.findOne({ route: route, local: locale }).lean();
+    if (!pages) {
       return res
         .status(404)
         .json({ error: `Page not found for route: ${route}` });
     }
 
-    const updatedSections = await updateSections(page);
+    const updatedSections = await updateSections(pages, { page, limit });
 
     const collection = await CollectionModel.findOne({ _id: id }).lean();
     if (!collection) {
@@ -79,7 +84,7 @@ export const getCollectionDetailsById = async (req, res) => {
     });
 
     const updatedPage = {
-      ...page,
+      ...pages,
       sections_list: finalSections,
     };
 

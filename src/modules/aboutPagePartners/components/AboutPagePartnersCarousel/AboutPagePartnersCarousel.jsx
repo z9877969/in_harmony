@@ -6,19 +6,18 @@ import AutoScroll from 'embla-carousel-auto-scroll';
 
 import AboutPagePartnersCard from '../AboutPagePartnersCard/AboutPagePartnersCard';
 
-const AboutPagePartnersCarousel = ({ partners }) => {
+const AboutPagePartnersCarousel = ({ cards }) => {
   const [emblaRef] = useEmblaCarousel({ loop: true }, [
     AutoScroll({ playOnInit: true, speed: 0.7, stopOnInteraction: false }),
   ]);
-
-  const duplicatedItems = [...partners.logo, ...partners.logo];
+  const duplicatedItems = [...cards, ...cards];
 
   return (
     <div className={s.embla} ref={emblaRef}>
       <ul className={s.embla__container}>
-        {duplicatedItems.map((partners, index) => (
+        {duplicatedItems.map((cards, index) => (
           <li className={s.embla__slide} key={index}>
-            <AboutPagePartnersCard partners={partners} />
+            <AboutPagePartnersCard cards={cards} />
           </li>
         ))}
       </ul>

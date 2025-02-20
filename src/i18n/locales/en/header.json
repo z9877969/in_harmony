@@ -1,9 +1,5 @@
 {
-    "navLinks": [
-        "Home",
-        "Current fees",
-        "Reporting",
-        "About us"
-    ],
-    "helpButton": "Help"
+  "navLinks": ["Home", "Current fees", "Reporting", "About us"],
+  "helpButton": "Help",
+  "helpBtn": "Help"
 }

@@ -74,9 +74,9 @@
       width: 332px;
     }
 
-    @include media(desktop) {
-      width: 166px;
-    }
+    // @include media(desktop) {
+    //   width: 166px;
+    // }
   }
 }
 
@@ -90,6 +90,18 @@
     width: 636px;
     height: 360px;
     background-color: $img-backdrop-color;
+    border-radius: 32px;
+  }
+}
+.imageWrapper {
+  display: none;
+
+  @include media(desktop) {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    width: 636px;
+    height: 360px;
     border-radius: 32px;
   }
 }

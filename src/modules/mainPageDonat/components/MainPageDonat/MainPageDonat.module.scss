@@ -3,11 +3,10 @@
 .section {
   max-width: 100%;
   padding-top: 48px;
-  padding-bottom: 48px;
-
+  padding-bottom: 96px;
   @include media(desktop) {
     padding-top: 76px;
-    padding-bottom: 76px;
+    padding-bottom: 152px;
   }
 }
 

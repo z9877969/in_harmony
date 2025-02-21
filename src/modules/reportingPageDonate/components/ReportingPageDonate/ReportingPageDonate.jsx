@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 
-import { Button, Container, Section } from '@/shared/components';
+import { Button, Container } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import reporting from '../../data/section-content.json';
 
@@ -21,7 +21,7 @@ const ReportingPageDonate = () => {
   };
 
   return (
-    <Section className={s.section}>
+    <section className={s.section}>
       <Container>
         <div className={s.content}>
           <div className={s.imageWrapper}>
@@ -48,7 +48,7 @@ const ReportingPageDonate = () => {
           </div>
         </div>
       </Container>
-    </Section>
+    </section>
   );
 };
 

@@ -19,7 +19,7 @@
   font-weight: 700;
   color: $secondary-text-color;
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 48px;
   @include font(32, 40);
 
   @include media(tablet) {
@@ -32,20 +32,17 @@
 }
 
 .paymentCard {
-  border: none;
   cursor: pointer;
   border-radius: 60px;
   padding: 12px 32px;
-  width: auto;
+  width: 100%;
   max-width: 636px;
   height: 44px;
-  background: $violet-ui-text-color;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: $primary-font-family;
   font-weight: 600;
-  color: $wite-text-color;
   @include font(16, 24);
 
   @include media(tablet) {

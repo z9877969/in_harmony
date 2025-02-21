@@ -13,19 +13,17 @@
 .btnWrapper {
   display: flex;
   justify-content: center;
-  margin: 32px auto 96px;
+  margin: auto;
+  margin-top: 32px;
   @include media(tablet) {
-    margin: 40px 0 96px;
+    margin-top: 40px;
   }
   @include media(desktop) {
-    margin: 32px 0 152px;
+    margin-top: 32px;
   }
 }
 .section {
-  padding: 76px 0;
-  @include media(tablet) {
-    padding: 48px 0;
-  }
+  padding: 48px 0;
   @include media(desktop) {
     padding: 76px 0;
   }

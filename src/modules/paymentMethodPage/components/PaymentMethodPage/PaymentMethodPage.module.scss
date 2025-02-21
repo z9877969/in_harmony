@@ -1,7 +1,10 @@
 @import '@/shared/styles/mixins';
 
 .sectionPayment {
-  margin-bottom: 96px;
+  padding: 8px 0 96px;
+  @include media(desktop) {
+    padding: 16px 0 156px;
+  }
 }
 .containerContent {
   display: flex;

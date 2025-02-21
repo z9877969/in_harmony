@@ -1,10 +1,21 @@
-import { Icon } from '@/shared/components';
+import Image from 'next/image';
 import s from './AboutPagePartnersCard.module.scss';
-const AboutPagePartnersCard = ({ partners }) => {
+const AboutPagePartnersCard = ({ cards }) => {
   return (
-    <div className={s.imageContainer}>
-      <Icon iconName={partners.logo} className={s.icon} />
-    </div>
+    <>
+      {Array.isArray(cards.image) && cards.image.length > 0 && (
+        <div className={s.imageWrapper}>
+          <Image
+            src={cards.image[0]}
+            alt={cards.logo}
+            priority
+            fill
+            sizes="100%"
+            style={{ objectFit: 'cover', objectPosition: 'center' }}
+          />
+        </div>
+      )}
+    </>
   );
 };
 

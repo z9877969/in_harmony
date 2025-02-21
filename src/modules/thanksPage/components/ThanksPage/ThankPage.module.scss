@@ -1,8 +1,8 @@
 .section {
-  padding-top: 36px;
+  padding-top: 24px;
   padding-bottom: 94px;
   @include media(tablet) {
-    padding-top: 96px;
+    padding-top: 40px;
     padding-bottom: 96px;
   }
   @include media(desktop) {

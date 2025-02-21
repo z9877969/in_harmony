@@ -11,7 +11,7 @@ import { LANGUAGES, SOCIALROUTES } from '@/shared/constants';
 import { useNavigationLinks } from '@/shared/hooks/useNavigationLinks.js';
 import MobileMenuBtn from '../MobileMenuBtn/MobileMenuBtn';
 import s from './MobileMenu.module.scss';
-import { googleLogo as EnIcon, uaFlag as UaIcon } from '/public/icons';
+import { enFlag as EnIcon, uaFlag as UaIcon } from '/public/icons';
 
 const MobileMenu = () => {
   const pathname = usePathname();

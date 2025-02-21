@@ -11,7 +11,7 @@ const InfoCardHelp = ({ statsTitle, stats, IconComponent }) => {
               iconName={iconName}
               width="40"
               height="40"
-              style={{ fill: '#444' }}
+              style={{ fill: '#222222' }}
             />
             <h3 className={s.amount}>{amount}</h3>
             <p className={s.description}>{description}</p>

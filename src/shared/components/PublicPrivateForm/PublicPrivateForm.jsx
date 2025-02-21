@@ -2,7 +2,6 @@
 
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import Link from 'next/link';
-import * as Yup from 'yup';
 
 import {
   Button,
@@ -13,27 +12,16 @@ import {
   WFPForm,
 } from '../index.js';
 
-import data from './data/PublicPrivateForm.json';
 import dropdownData from '../Dropdown/data/Dropdown.json';
 
 import s from './PublicPrivateForm.module.scss';
 
 import { useState, useEffect, useRef } from 'react';
-
-const validationSchemaPublic = Yup.object().shape({
-  name: Yup.string().required(data.validationMessage.required),
-  email: Yup.string()
-    .email(data.validationMessage.email)
-    .required(data.validationMessage.required),
-  message: Yup.string().required(data.validationMessage.required),
-  dropdown: Yup.string().required(data.validationMessage.dropdown),
-  isChecked: Yup.boolean(),
-});
-
-const validationSchemaAnonymous = Yup.object().shape({
-  dropdown: Yup.string().required(data.validationMessage.dropdown),
-  isChecked: Yup.boolean(),
-});
+import { useTranslation } from 'react-i18next';
+import {
+  validationSchemaAnonymous,
+  validationSchemaPublic,
+} from './validation/validationSchema.js';
 
 const collections = dropdownData.dropdownOptions;
 
@@ -48,6 +36,8 @@ const PublicPrivateForm = () => {
     donateTime: '',
     isPublic: true,
   });
+  const { t } = useTranslation('forms');
+
   // const [isPublic, setIsPublic] = useState(true);
   const [loading, setLoading] = useState(false);
 
@@ -56,9 +46,9 @@ const PublicPrivateForm = () => {
   let validationSchema;
 
   if (initialValues.isPublic) {
-    validationSchema = validationSchemaPublic;
+    validationSchema = validationSchemaPublic(t);
   } else {
-    validationSchema = validationSchemaAnonymous;
+    validationSchema = validationSchemaAnonymous(t);
   }
 
   const handleRadioButtonChange = (value) => {
@@ -108,7 +98,7 @@ const PublicPrivateForm = () => {
   return (
     <div className={s.boxForm}>
       <h2 className={s.title} id="title">
-        {data.title}
+        {t('paymentInfo.title')}
       </h2>
       <Formik
         initialValues={initialValues}
@@ -124,7 +114,9 @@ const PublicPrivateForm = () => {
           <Form>
             <div>
               <RadioButton
-                options={data.donateOptions}
+                options={t('paymentInfo.donateOptions', {
+                  returnObjects: true,
+                })}
                 name="donateOptions"
                 onChange={handleRadioButtonChange}
               />
@@ -134,7 +126,7 @@ const PublicPrivateForm = () => {
                   <Field
                     as={Input}
                     type="text"
-                    placeholder={data.placeholderName}
+                    placeholder={t('paymentInfo.placeholderName')}
                     name="name"
                     className={s.input}
                   />
@@ -143,7 +135,7 @@ const PublicPrivateForm = () => {
                   <Field
                     as={Input}
                     type="email"
-                    placeholder={data.placeholderEmail}
+                    placeholder={t('paymentInfo.placeholderEmail')}
                     name="email"
                     className={s.input}
                   />
@@ -155,7 +147,7 @@ const PublicPrivateForm = () => {
 
                   <Field
                     as={InputArea}
-                    placeholder={data.placeholderMessage}
+                    placeholder={t('paymentInfo.placeholderMessage')}
                     name="message"
                     style={{ padding: '16px' }}
                   />
@@ -168,7 +160,7 @@ const PublicPrivateForm = () => {
               )}
             </div>
 
-            <p className={s.destination}>{data.destination}</p>
+            <p className={s.destination}>{t('paymentInfo.destination')}</p>
             <Field name="dropdown">
               {({ field }) => (
                 <Dropdown
@@ -181,7 +173,7 @@ const PublicPrivateForm = () => {
             <ErrorMessage name="dropdown" component="p" className={s.error} />
             <div className={s.checkboxContainer}>
               <Field type="checkbox" name="isChecked" className={s.checkbox} />
-              <p>{data.coverCommission}</p>
+              <p>{t('paymentInfo.coverCommission')}</p>
             </div>
             <Field as={Input} type="hidden" name="amount" />
             <Field as={Input} type="hidden" name="donateTime" />
@@ -191,10 +183,10 @@ const PublicPrivateForm = () => {
               size="medium"
               className={s.btn}
             >
-              {!loading ? `${data.btnText}` : 'обробка запиту'}
+              {!loading ? `${t('paymentInfo.btnText')}` : 'обробка запиту'}
             </Button>
             <Link href="#" className={s.payment}>
-              {data.otherPaymentMethods}
+              {t('paymentInfo.otherPaymentMethods')}
             </Link>
           </Form>
         )}

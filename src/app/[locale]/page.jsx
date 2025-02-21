@@ -7,17 +7,13 @@ import { insideServerApi as api } from '@/shared/services';
 
 const MainPage = async ({ params: { locale } }) => {
   const { sectionsDict } = await api.getPageApi({ locale, page: 'main' });
-  const pages = await api.getAllPages({ locale });
-
-  // eslint-disable-next-line
-  console.log('sectionsDict :>> ', sectionsDict);
-  // eslint-disable-next-line
-  console.log('pages :>> ', pages);
 
   return (
     <>
       <MainPageHero content={sectionsDict.hero.section_content} />
-      <MainPageCollection />
+      <MainPageCollection
+        content={sectionsDict.active_collections.section_content}
+      />
       <MainPageAbout content={sectionsDict.about.section_content} />
       <MainPageProgress
         content={sectionsDict.closed_collections?.section_content}

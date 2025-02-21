@@ -7,12 +7,7 @@ const DiscardHelpPage = async ({ params: { locale } }) => {
     locale,
     page: 'discard',
   });
-  const pages = await api.getAllPages({ locale });
 
-  // eslint-disable-next-line
-  console.log('sectionsDict >> ', sectionsDict);
-  // eslint-disable-next-line
-  console.log('pages :>> ', pages);
   return (
     <>
       <DiscardHelpPageHero content={sectionsDict} />

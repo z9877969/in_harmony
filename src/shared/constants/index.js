@@ -30,7 +30,16 @@ export const NAMESPACES = [
   'notFound',
   'forms',
   'copyIcon',
-  'footer'
+  'footer',
+  'activeCollectionCard',
+  'aboutPage',
+  'activeCollectionPage',
+  'closedCollectionPage',
+  'collectionsListPage',
+  'discardPage',
+  'forms',
+  'paymentPage',
+  'projectReportingCard',
 ];
 
 export const LINKDATA = {

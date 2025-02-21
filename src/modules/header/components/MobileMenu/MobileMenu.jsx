@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 
 import { useLanguageChanger } from '@/i18n/utils/LanguageChanger';
 import { Icon } from '@/shared/components';
-import { uaFlag as UaIcon, googleLogo as EnIcon } from '/public/icons';
+import { uaFlag as UaIcon, enFlag as EnIcon } from '/public/icons';
 import MobileMenuBtn from '../MobileMenuBtn/MobileMenuBtn';
 import { LANGUAGES, ROUTES, SOCIALROUTES } from '@/shared/constants';
 import s from './MobileMenu.module.scss';

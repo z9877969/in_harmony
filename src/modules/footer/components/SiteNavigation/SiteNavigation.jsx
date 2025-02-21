@@ -1,24 +1,21 @@
 'use client';
 
+import { useNavigationLinks } from '@/shared/hooks/useNavigationLinks.js';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation.js';
 import s from './SiteNavigation.module.scss';
 
-const SiteNavigation = ({ data }) => {
-  const pathname = usePathname();
-  const locale = pathname.split('/')[1];
+const SiteNavigation = () => {
+  const { navLinks, locale } = useNavigationLinks();
 
-  if (!data) {
-    return null;
-  }
+  if (!navLinks) return null;
 
   return (
-    <nav className={s.navigation} aria-label={data.navAriaLabel}>
+    <nav className={s.navigation}>
       <ul className={s.navList}>
-        {data.navigation.map((tem, index) => (
+        {Object.values(navLinks).map(({ href, text }, index) => (
           <li className={s.navItem} key={index}>
-            <Link href={`/${locale}/`} className={s.navLink}>
-              {tem}
+            <Link href={`/${locale}${href}`} className={s.navLink}>
+              {text}
             </Link>
           </li>
         ))}

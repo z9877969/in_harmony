@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useLanguageChanger } from '@/i18n/utils/LanguageChanger';
 
-import { uaFlag as UaIcon, googleLogo as EnIcon } from '/public/icons';
+import { uaFlag as UaIcon, enFlag as EnIcon } from '/public/icons';
 import { Icon } from '@/shared/components';
 
 import s from './LangSwitcher.module.scss';

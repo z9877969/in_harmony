@@ -4,13 +4,31 @@ import CommentsModel from '../models/WasHelpedCommentsModels';
 import env from '../utils/evn.js';
 import { saveFileToCloudinary } from '../lib/saveFileToCloudinary.js';
 import saveFileToUploadDir from '../lib/saveFileToUploadDir.js';
+import { parsePaginationParams } from '../utils/pagination';
 
 export const getAllComments = async (req, res) => {
   try {
     const { locale } = req.query;
-    const comments = await CommentsModel.find({ language: locale }).lean();
+    const { page, perPage } = parsePaginationParams(req.query);
 
-    res.status(200).json({ status: 200, data: comments });
+    const totalComments = await CommentsModel.countDocuments({
+      language: locale,
+    });
+    const comments = await CommentsModel.find({ language: locale })
+      .skip((page - 1) * perPage)
+      .limit(perPage)
+      .lean();
+
+    res.status(200).json({
+      status: 200,
+      data: comments,
+      pagination: {
+        totalItems: totalComments,
+        totalPages: Math.ceil(totalComments / perPage),
+        currentPage: page,
+        perPage: perPage,
+      },
+    });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

@@ -36,7 +36,8 @@
   cursor: pointer;
   border-radius: 60px;
   padding: 12px 32px;
-  width: 100%;
+  width: auto;
+  max-width: 636px;
   height: 44px;
   background: $violet-ui-text-color;
   display: flex;
@@ -44,17 +45,16 @@
   justify-content: center;
   font-family: $primary-font-family;
   font-weight: 600;
-
   color: $wite-text-color;
   @include font(16, 24);
 
   @include media(tablet) {
-    width: 452px;
+    max-width: 452px;
     height: 44px;
   }
 
   @include media(desktop) {
-    width: 636px;
+    max-width: 636px;
     height: 64px;
     @include font(20, 30);
   }

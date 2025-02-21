@@ -1,6 +1,5 @@
 {
-  "button_details": "Детальніше",
-  "button_donats": "Задонатити",
+  "home": "Головна",
   "collection": "Поточні збори",
   "reporting": "Звітність",
   "about": "Про команду",
@@ -10,13 +9,5 @@
   "step": "Крок",
   "active": "Активний",
   "closed": "Закритий",
-  "importanceType": {
-    "permanent": "Збір відкрито",
-    "urgent": "Терміновий збір"
-  },
-  "donor": {
-    "1st": "донор",
-    "2nd": "донора",
-    "3rd": "донорів"
-  }
+  "methods": "Mетоди"
 }

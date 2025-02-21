@@ -1,4 +1,6 @@
 {
-    "section_1_Name": {},
-    "section_2_Name": {}
+  "button_details": "Details",
+  "allReports": "All reports",
+  "projectStatus": "Implemented project",
+  "section_2_Name": {}
 }

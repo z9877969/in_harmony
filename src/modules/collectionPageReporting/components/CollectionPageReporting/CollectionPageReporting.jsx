@@ -6,11 +6,13 @@ import { Container, SectionTitle } from '@/shared/components';
 import s from './CollectionPageReporting.module.scss';
 import CollectionCardList from '../CollectionCardList/CollectionCardList';
 // import { content } from '../../data/sectionContent';
-import { ROUTES } from '@/shared/constants';
-import Link from 'next/link';
+import { LINKDATA, ROUTES } from '@/shared/constants';
+import { useTranslation } from 'react-i18next';
+import LinkButton from '@/shared/components/LinkButton/LinkButton';
 
 export default function CollectionPageReporting({ content }) {
   const [isTablet, setIsTablet] = useState(false);
+  const { t } = useTranslation('closedCollectionPage');
 
   const visibleItems = isTablet ? 2 : 3;
   const { cards } = content;
@@ -34,9 +36,12 @@ export default function CollectionPageReporting({ content }) {
         <SectionTitle title="Звітність" className={s.title} />
         <CollectionCardList data={cards} visibleItems={visibleItems} />
         <div className={s.linkWrapper}>
-          <Link href={ROUTES.REPORTING} className={s.link}>
-            Всі звіти
-          </Link>
+          <LinkButton
+            path={ROUTES.REPORTING}
+            linkText={t('allReports')}
+            type={LINKDATA.TYPE_LIGHT_BORDER}
+            className={s.link}
+          />
         </div>
       </Container>
     </section>

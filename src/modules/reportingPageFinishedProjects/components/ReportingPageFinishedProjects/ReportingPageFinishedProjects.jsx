@@ -5,8 +5,9 @@ import { Button, Container, SectionTitle } from '@/shared/components';
 import FinishedProjectsList from '../FinishedProjectsList/FinishedProjectsList';
 import s from './ReportingPageFinishedProjects.module.scss';
 
-import { content } from '../../data/sectionContent';
-export default function ReportingPageFinishedProjects() {
+// import { content } from '../../data/sectionContent';
+
+export default function ReportingPageFinishedProjects({ content }) {
   const [isDesktop, setIsDesktop] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(4);
 
@@ -49,7 +50,10 @@ export default function ReportingPageFinishedProjects() {
       <Container>
         <SectionTitle title="Реалізовані проєкти" className={s.title} />
 
-        <FinishedProjectsList data={content} currentIndex={currentIndex} />
+        <FinishedProjectsList
+          data={content.cards}
+          currentIndex={currentIndex}
+        />
 
         <div className={s.btnWrapper}>
           <Button

@@ -1,4 +1,5 @@
 import { ClosedCollectionFeedbacks } from '@/modules/ClosedCollectionFeedbacks';
+import { ClosedCollectionOther } from '@/modules/closedCollectionOther';
 import { OpenCollectionPageHero as ClosedCollectionPageHero } from '@/modules/openCollectionPageHero';
 import { ROUTES } from '@/shared/constants';
 import { insideServerApi as api } from '@/shared/services';
@@ -17,6 +18,10 @@ const ClosedCollectionPage = async ({ params: { locale, id } }) => {
         content={sectionsDict.collection_details.section_content}
       />
       <ClosedCollectionFeedbacks />
+      <ClosedCollectionOther
+        id={id}
+        content={sectionsDict.closed_collections.section_content}
+      />
     </>
   );
 };

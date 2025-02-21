@@ -14,7 +14,6 @@
   @include media(desktop) {
     padding: 76px 0;
   }
-
 }
 
 .content {
@@ -66,7 +65,7 @@
 }
 .image {
   display: none;
-  
+
   @include media(desktop) {
     display: block;
     width: 416px;
@@ -77,14 +76,14 @@
 .about {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 16px;
 
   @include media(tablet) {
-    gap: 12px;
+    gap: 18px;
   }
 
   @include media(desktop) {
-    gap: 18px;
+    gap: 20px;
   }
 }
 .subtitle {
@@ -104,10 +103,12 @@
 .descriptionMain {
   @include font(16, 24);
   font-weight: 600;
-  font-family: var(--font-open_sans), sans-serif;
 
   @include media(tablet) {
     @include font(18, 27);
+  }
+  @include media(desktop) {
+    width: 416px;
   }
 }
 

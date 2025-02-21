@@ -30,6 +30,7 @@ export const NAMESPACES = [
   'notFound',
   'copyIcon',
   'footer',
+  'breadcrumbs',
   'activeCollectionCard',
   'aboutPage',
   'activeCollectionPage',

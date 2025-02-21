@@ -3,17 +3,16 @@
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { Container, Icon } from '@/shared/components';
-import { nameMap } from './route';
-import s from './Breadcrumbs.module.scss';
+import { useTranslation } from 'react-i18next';
 import { useEffect, useMemo, useState } from 'react';
-import collections from '../../../modules/collectionPageActive/data/section-content.json';
+import s from './Breadcrumbs.module.scss';
 const isId = (segment) => /^[a-f0-9]{24}$/i.test(segment);
 
 const Breadcrumbs = () => {
   const pathname = usePathname();
-  const locale = pathname.split('/')[1];
+  const local = pathname.split('/')[1];
+  const { t } = useTranslation('breadcrumbs');
   const [titles, setTitles] = useState({});
-  const collection = collections.collections;
 
   const pathSegments = useMemo(() => {
     return pathname
@@ -24,36 +23,54 @@ const Breadcrumbs = () => {
 
   useEffect(() => {
     const fetchTitles = async () => {
-      const newTitles = {};
+      try {
+        const response = await fetch(`/api/collections/${local}`);
+        if (!response.ok) throw new Error('Failed to fetch collections');
+        const collection = await response.json();
+        const allCollections = [
+          ...collection.data.activeCollections,
+          ...collection.data.closedCollections,
+        ];
+        const newTitles = {};
 
-      for (const segment of pathSegments) {
-        if (isId(segment)) {
-          const foundItem = collection.find((item) => item._id === segment);
-          if (foundItem) {
-            newTitles[segment] = foundItem.title;
+        for (const segment of pathSegments) {
+          if (isId(segment)) {
+            const foundItem = allCollections.find(
+              (item) => item._id === segment
+            );
+            if (foundItem) {
+              newTitles[segment] = foundItem.title;
+            }
           }
         }
+        setTitles(newTitles);
+      } catch (error) {
+        //eslint-disable-next-line
+        console.error('Error fetching titles:', error);
       }
-      setTitles(newTitles);
     };
 
     fetchTitles();
-  }, [pathSegments, collection]);
+  }, [local, pathSegments]);
 
-  if (pathname === `/${locale}`) return null;
+  if (pathname === `/${local}`) return null;
   return (
     <Container>
       <nav aria-label="breadcrumb" className={s.breadcrumbs}>
         <ul className={s.list}>
           <li className={s.item}>
-            <Link href={`/${locale}`} className={s.link}>
-              Головна
+            <Link href={`/${local}`} className={s.link}>
+              {t('home')}
             </Link>
           </li>
           {pathSegments.map((segment, index) => {
-            const href = `/${locale}/${pathSegments.slice(0, index + 1).join('/')}`;
+            const href = `/${local}/${pathSegments.slice(0, index + 1).join('/')}`;
             const isLast = index === pathSegments.length - 1;
-            let segmentName = nameMap[segment] || decodeURIComponent(segment);
+            const translatedSegment = t(segment, { defaultValue: segment });
+            let segmentName =
+              isId(segment) && titles[segment]
+                ? titles[segment]
+                : translatedSegment;
 
             if (isId(segment) && titles[segment]) {
               segmentName = titles[segment];

@@ -31,6 +31,15 @@ export const NAMESPACES = [
   'copyIcon',
   'footer',
   'breadcrumbs',
+  'activeCollectionCard',
+  'aboutPage',
+  'activeCollectionPage',
+  'closedCollectionPage',
+  'collectionsListPage',
+  'discardPage',
+  'forms',
+  'paymentPage',
+  'projectReportingCard',
 ];
 
 export const LINKDATA = {

@@ -11,7 +11,6 @@ const AboutPageTogether = ({ content }) => {
           <h2 className={s.title}>{content.title}</h2>
           <div className={s.team}>
             <h3>{content.team.title}</h3>
-            <p>{content.team.description}</p>
           </div>
           <ul className={s.cards}>
             {content.team.cards.map((item) => (

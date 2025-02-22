@@ -54,32 +54,6 @@
   }
 }
 
-.buttonsContainer {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 24px;
-
-  @include media(tablet) {
-    flex-direction: row;
-    justify-content: flex-start;
-  }
-
-  .buttonSize {
-    width: 100%;
-
-    @include media(tablet) {
-      width: 332px;
-    }
-
-    // @include media(desktop) {
-    //   width: 166px;
-    // }
-  }
-}
-
 .imageContainer {
   display: none;
 

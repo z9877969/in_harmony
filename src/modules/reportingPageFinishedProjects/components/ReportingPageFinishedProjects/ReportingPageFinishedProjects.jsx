@@ -1,4 +1,5 @@
-import { Container, SectionTitle } from '@/shared/components';
+import { Container, Section, SectionTitle } from '@/shared/components';
+
 import FinishedProjectsList from '../FinishedProjectsList/FinishedProjectsList';
 import ButtonReportingPageFinishedProjects from '../ButtonReportingPageFinishedProjects/ButtonReportingPageFinishedProjects.jsx';
 
@@ -8,7 +9,7 @@ const ReportingPageFinishedProjects = ({ content }) => {
   const shouldShowButton = content.cards.length > 4;
 
   return (
-    <section className={s.section}>
+    <Section className={s.section}>
       <Container>
         <SectionTitle title={content.title} className={s.title} />
 
@@ -20,7 +21,7 @@ const ReportingPageFinishedProjects = ({ content }) => {
           />
         )}
       </Container>
-    </section>
+    </Section>
   );
 };
 

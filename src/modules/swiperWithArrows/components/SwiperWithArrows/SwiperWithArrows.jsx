@@ -26,7 +26,7 @@ const SwiperWithArrows = (props) => {
       <div className={s.embla__viewport} ref={emblaRef}>
         <div className={`${s.container} ${className}`}>
           {slides.map((slid) => (
-            <Component slid={slid} key={slid.id} />
+            <Component slid={slid} key={slid._id} />
           ))}
         </div>
       </div>

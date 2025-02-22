@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { Container, Section } from '@/shared/components';
+import { Container } from '@/shared/components';
 import data from '../../data/sectionContent.json';
 
 import s from './DiscardHelpPageHero.module.scss';
@@ -11,7 +11,7 @@ const DiscardHelpPageHero = () => {
     imageUrl: '/images/peace-poster-desktop2x.png',
   };
   return (
-    <Section className={s.section}>
+    <section className={s.section}>
       <Container>
         <div className={s.content}>
           <div className={s.imageWrapper}>
@@ -33,7 +33,7 @@ const DiscardHelpPageHero = () => {
           </div>
         </div>
       </Container>
-    </Section>
+    </section>
   );
 };
 

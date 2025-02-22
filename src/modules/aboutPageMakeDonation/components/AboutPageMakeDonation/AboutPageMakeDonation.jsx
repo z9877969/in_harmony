@@ -1,13 +1,9 @@
-'use client';
 import Image from 'next/image';
-import { useTranslation } from 'react-i18next';
-import { useRouter } from 'next/navigation';
-import { Button, Container, SectionTitle } from '@/shared/components';
+import { Container, SectionTitle } from '@/shared/components';
 import s from './AboutPageMakeDonation.module.scss';
+import HelpButton from '../HelpButton/HelpButton';
 
 const AboutPageMakeDonation = ({ content }) => {
-  const { t } = useTranslation();
-  const router = useRouter();
   return (
     <section className={s.makeDonationSection}>
       <Container>
@@ -18,23 +14,7 @@ const AboutPageMakeDonation = ({ content }) => {
               <p className={s.desc}>{content.desc}</p>
             </div>
             <div className={s.buttonsContainer}>
-              <Button
-                size="large"
-                fontSize="eighteen"
-                onClick={() => router.push('/donate')}
-                className={s.buttonSize}
-              >
-                {t('helpBtn')}
-              </Button>
-              {/* <Button
-                onClick={() => router.push('/enjoy')}
-                size="large"
-                border="true"
-                fontSize="eighteen"
-                className={s.buttonSize}
-              >
-                {t('helpBtn')}
-              </Button> */}
+              <HelpButton />
             </div>
           </div>
           {Array.isArray(content.image) && content.image.length > 0 && (

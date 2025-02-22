@@ -1,12 +1,15 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
-import { Button, Container, Icon, SectionTitle } from '@/shared/components';
+import { usePathname } from 'next/navigation';
+import { Container, Icon, SectionTitle } from '@/shared/components';
 import donation from '../../data/section-content.json';
 import s from './AboutPageMakeDonation.module.scss';
+import LinkButton from '@/shared/components/LinkButton/LinkButton.jsx';
+import { LINKDATA, ROUTES } from '@/shared/constants/index.js';
 
 const AboutPageMakeDonation = () => {
-  const router = useRouter(s);
+  const pathname = usePathname();
+  const locale = pathname.split('/')[1];
 
   return (
     <section className={s.makeDonationSection}>
@@ -18,23 +21,12 @@ const AboutPageMakeDonation = () => {
               <p className={s.desc}>{donation.desc}</p>
             </div>
             <div className={s.buttonsContainer}>
-              <Button
-                size="large"
-                fontSize="eighteen"
-                onClick={() => router.push('/donate')}
+              <LinkButton
+                path={`/${locale}/${ROUTES.PAYMENTS(1)}`}
+                linkText={donation.button_donate}
+                type={LINKDATA.TYPE_DARK_BF}
                 className={s.buttonSize}
-              >
-                {donation.button_donate}
-              </Button>
-              <Button
-                onClick={() => router.push('/enjoy')}
-                size="large"
-                border="true"
-                fontSize="eighteen"
-                className={s.buttonSize}
-              >
-                {donation.button_enjoy}
-              </Button>
+              />
             </div>
           </div>
           {donation.image && (

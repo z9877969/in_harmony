@@ -1,64 +1,43 @@
 'use client';
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { useTranslation } from 'react-i18next';
-import { ROUTES } from '@/shared/constants';
-import s from './NavLinks.module.scss';
+import { useNavigationLinks } from '@/shared/hooks/useNavigationLinks.js';
 import clsx from 'clsx';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation.js';
+import s from './NavLinks.module.scss';
 
 const NavLinks = () => {
   const pathname = usePathname();
+<<<<<<< HEAD
   const locale = pathname.split('/')[1];
   const { t } = useTranslation();
+=======
+  const { navLinks, locale } = useNavigationLinks();
+
+  if (!navLinks) {
+    return null;
+  }
+>>>>>>> main
 
   return (
     <nav className={s.nav}>
       <ul className={s.navList}>
-        <li>
-          <Link
-            className={clsx(
-              pathname === `/${locale}` ? s.active : '',
-              s.navLink
-            )}
-            href={`/${locale}`}
-          >
-            {t('navLinks.0')}
-          </Link>
-        </li>
-        <li>
-          <Link
-            className={clsx(
-              pathname === `/${locale}/${ROUTES.COLLECTION}` ? s.active : '',
-              s.navLink
-            )}
-            href={`/${locale}/${ROUTES.COLLECTION}`}
-          >
-            {t('navLinks.1')}
-          </Link>
-        </li>
-        <li>
-          <Link
-            className={clsx(
-              pathname === `/${locale}/${ROUTES.REPORTING}` ? s.active : '',
-              s.navLink
-            )}
-            href={`/${locale}/${ROUTES.REPORTING}`}
-          >
-            {t('navLinks.2')}
-          </Link>
-        </li>
-        <li>
-          <Link
-            className={clsx(
-              pathname === `/${locale}/${ROUTES.ABOUT}` ? s.active : '',
-              s.navLink
-            )}
-            href={`/${locale}/${ROUTES.ABOUT}`}
-          >
-            {t('navLinks.3')}
-          </Link>
-        </li>
+        {Object.values(navLinks).map(({ href, text }, index) => (
+          <li key={index}>
+            <Link
+              href={`/${locale}${href}`}
+              className={clsx(
+                pathname.replace(/\/$/, '') === `/${locale}${href}` ||
+                  (href === '/' && pathname === `/${locale}`)
+                  ? s.active
+                  : '',
+                s.navLink
+              )}
+            >
+              {text}
+            </Link>
+          </li>
+        ))}
       </ul>
     </nav>
   );

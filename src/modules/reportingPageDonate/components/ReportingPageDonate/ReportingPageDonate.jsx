@@ -3,10 +3,11 @@
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
-import { Container, Section } from '@/shared/components';
 import { LINKDATA, ROUTES } from '@/shared/constants';
 import { useTranslation } from 'react-i18next';
 import LinkButton from '@/shared/components/LinkButton/LinkButton.jsx';
+
+import { Container } from '@/shared/components';
 
 import s from './ReportingPageDonate.module.scss';
 
@@ -27,7 +28,7 @@ const ReportingPageDonate = ({ content }) => {
         };
 
   return (
-    <Section className={s.section}>
+    <section className={s.section}>
       <Container>
         <div className={s.content}>
           <div className={s.imageWrapper}>
@@ -55,7 +56,7 @@ const ReportingPageDonate = ({ content }) => {
           </div>
         </div>
       </Container>
-    </Section>
+    </section>
   );
 };
 

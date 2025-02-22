@@ -8,16 +8,11 @@ import s from './NavLinks.module.scss';
 
 const NavLinks = () => {
   const pathname = usePathname();
-<<<<<<< HEAD
-  const locale = pathname.split('/')[1];
-  const { t } = useTranslation();
-=======
   const { navLinks, locale } = useNavigationLinks();
 
   if (!navLinks) {
     return null;
   }
->>>>>>> main
 
   return (
     <nav className={s.nav}>

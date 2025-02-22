@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import { useEffect, useState } from 'react';
-import { Button, Container, SectionTitle } from '@/shared/components';
+import { Button, Container, Section, SectionTitle } from '@/shared/components';
 import FinishedProjectsList from '../FinishedProjectsList/FinishedProjectsList';
 import s from './ReportingPageFinishedProjects.module.scss';
 
@@ -45,7 +45,7 @@ export default function ReportingPageFinishedProjects() {
   };
 
   return (
-    <section className={s.section}>
+    <Section className={s.section}>
       <Container>
         <SectionTitle title="Реалізовані проєкти" className={s.title} />
 
@@ -62,6 +62,6 @@ export default function ReportingPageFinishedProjects() {
           </Button>
         </div>
       </Container>
-    </section>
+    </Section>
   );
 }

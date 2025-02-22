@@ -14,17 +14,12 @@
   display: flex;
   justify-content: center;
   margin: auto;
-  margin-top: 32px;
+  margin-top: 12px;
+
   @include media(tablet) {
-    margin-top: 40px;
+    margin-top: 20px;
   }
   @include media(desktop) {
-    margin-top: 32px;
-  }
-}
-.section {
-  padding: 48px 0;
-  @include media(desktop) {
-    padding: 76px 0;
+    margin-top: 28px;
   }
 }

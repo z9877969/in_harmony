@@ -1,27 +1,7 @@
 .title {
   margin-bottom: 12px;
 }
-.button {
-  padding: 14px 120px;
-  @include media(tablet) {
-    padding: 10px 169px;
-  }
-  @include media(desktop) {
-    padding: 14px 169px;
-  }
-}
-.btnWrapper {
-  display: flex;
-  justify-content: center;
-  margin: auto;
-  margin-top: 32px;
-  @include media(tablet) {
-    margin-top: 40px;
-  }
-  @include media(desktop) {
-    margin-top: 32px;
-  }
-}
+
 .section {
   padding: 48px 0;
   @include media(desktop) {

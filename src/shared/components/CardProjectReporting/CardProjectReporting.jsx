@@ -16,12 +16,11 @@ import Image from 'next/image.js';
 export default function CardProjectReporting({ slid }) {
   const pathname = usePathname();
   const locale = pathname.split('/')[1];
-  //   const { t } = useTranslation();
+
   const {
     _id,
     image,
     alt,
-
     title,
     collected_title,
     target,
@@ -31,7 +30,6 @@ export default function CardProjectReporting({ slid }) {
     period,
     comments,
     quantity,
-    //  image,
   } = slid;
 
   comments;

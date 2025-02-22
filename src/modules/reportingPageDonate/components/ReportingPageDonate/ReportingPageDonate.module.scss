@@ -91,12 +91,3 @@
     @include font(32, 40);
   }
 }
-
-.button {
-  width: 100%;
-
-  @include media(tablet) {
-    width: 385px !important;
-    margin: 0 auto;
-  }
-}

@@ -6,8 +6,8 @@
   flex-direction: row;
 }
 .embla__slide {
-  margin-right: 16px;
+  margin-right: 56px;
   @include media(tablet) {
-    margin-right: 24px;
+    margin-right: 64px;
   }
 }

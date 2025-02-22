@@ -4,11 +4,21 @@ import { saveFileToUploadDir } from '../lib';
 import { saveFileToCloudinary } from '../lib/saveFileToCloudinary';
 import { env } from '../utils';
 import CollectionModel from '../models/CollectionsModel';
+import { parsePaginationParams } from '../utils/pagination';
 
 export const getAllCollections = async (req, res) => {
   try {
     const { locale } = req.query;
-    const collections = await CollectionModel.find({ language: locale }).lean();
+    const { page, perPage } = parsePaginationParams(req.query);
+
+    const totalCollections = await CollectionModel.countDocuments({
+      language: locale,
+    });
+
+    const collections = await CollectionModel.find({ language: locale })
+      .skip((page - 1) * perPage)
+      .limit(perPage)
+      .lean();
 
     const sortedCollections = collections.reduce(
       (acc, collection) => {
@@ -21,7 +31,17 @@ export const getAllCollections = async (req, res) => {
       },
       { activeCollections: [], closedCollections: [] }
     );
-    res.status(200).json({ status: 200, data: sortedCollections });
+
+    res.status(200).json({
+      status: 200,
+      data: sortedCollections,
+      pagination: {
+        totalItems: totalCollections,
+        totalPages: Math.ceil(totalCollections / perPage),
+        currentPage: page,
+        perPage: perPage,
+      },
+    });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

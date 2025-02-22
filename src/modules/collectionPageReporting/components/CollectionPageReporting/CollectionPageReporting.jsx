@@ -29,7 +29,7 @@ export default function CollectionPageReporting({ content }) {
   }, []);
 
   return (
-    <section>
+    <section className={s.section}>
       <Container>
         <SectionTitle title="Звітність" className={s.title} />
         <CollectionCardList data={cards} visibleItems={visibleItems} />

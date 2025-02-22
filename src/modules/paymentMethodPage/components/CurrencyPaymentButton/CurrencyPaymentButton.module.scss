@@ -57,8 +57,7 @@
 .section {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-bottom: 10px;
+  gap: 18px;
 }
 .sectionTitle {
   font-family: $primary-font-family;
@@ -66,7 +65,6 @@
   color: $violet-ui-text-color;
   @include font(18, 24);
   text-align: center;
-  margin-top: 10px;
   margin-bottom: 10px;
 
   @include media(tablet) {

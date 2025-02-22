@@ -1,6 +1,6 @@
 .card {
   width: 100%;
-  background-color: #f4f4f4;
+  background-color: $team_cards_bg;
   padding: 16px;
   border-radius: 22px;
 
@@ -9,12 +9,12 @@
   }
   @include media(tablet) {
     width: 332px;
-    height: 361px;
+    height: 306px;
     padding: 20px;
   }
   @include media(desktop) {
-    width: 306px;
-    height: 422px;
+    width: 416px;
+    height: 368px;
   }
 }
 
@@ -30,8 +30,8 @@
 }
 
 .icon {
-  width: 46px;
-  height: 46px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
   background-color: #d9d9d9;
   flex-shrink: 0;
@@ -75,7 +75,7 @@
 .title > p {
   @include font(20, 30);
   font-family: $primary-font-family;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
 .title > span {
@@ -94,17 +94,15 @@
   font-weight: 400;
   font-style: italic;
   margin-top: 12px;
+  text-align: center;
 
-  @include media(tablet) {
-    @include font(16, 24);
-  }
   @include media(desktop) {
     @include font(18, 27);
   }
 }
 .imageWrapper {
-  width: 46px;
-  height: 46px;
+  width: 64px;
+  height: 64px;
   position: relative;
   border-radius: 50%;
   overflow: hidden;

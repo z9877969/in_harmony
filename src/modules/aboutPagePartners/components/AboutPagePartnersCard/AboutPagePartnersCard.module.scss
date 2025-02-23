@@ -1,11 +1,9 @@
-
-.imageContainer {
+.imageWrapper {
   width: 162px;
   height: 162px;
-  background-color: $img-backdrop-color;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
 
   @include media(tablet) {
     width: 196px;
@@ -13,8 +11,7 @@
   }
 }
 
-.icon {
-  width: 48px;
-  height: 48px;
-  fill: #444444;
+.partnersName {
+  text-align: center;
+  margin-top: 10px;
 }

@@ -1,7 +1,10 @@
 @import '@/shared/styles/mixins';
 
 .sectionPayment {
-  margin-bottom: 96px;
+  padding: 8px 0 96px;
+  @include media(desktop) {
+    padding: 16px 0 156px;
+  }
 }
 .containerContent {
   display: flex;
@@ -16,7 +19,7 @@
   font-weight: 700;
   color: $secondary-text-color;
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 48px;
   @include font(32, 40);
 
   @include media(tablet) {
@@ -29,29 +32,26 @@
 }
 
 .paymentCard {
-  border: none;
   cursor: pointer;
   border-radius: 60px;
   padding: 12px 32px;
   width: 100%;
+  max-width: 636px;
   height: 44px;
-  background: $violet-ui-text-color;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: $primary-font-family;
   font-weight: 600;
-
-  color: $wite-text-color;
   @include font(16, 24);
 
   @include media(tablet) {
-    width: 452px;
+    max-width: 452px;
     height: 44px;
   }
 
   @include media(desktop) {
-    width: 636px;
+    max-width: 636px;
     height: 64px;
     @include font(20, 30);
   }

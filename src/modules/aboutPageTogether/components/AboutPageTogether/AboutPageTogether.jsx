@@ -1,23 +1,23 @@
 import { Container, Section } from '@/shared/components';
 import TeamPersonCard from '../TeamPersonCard/TeamPersonCard';
-import data from '../../data/sectionContent.json';
+
 import s from './AboutPageTogether.module.scss';
 
-const AboutPageTogether = () => {
+const AboutPageTogether = ({ content }) => {
   return (
     <Section>
       <Container>
         <div className={s.contentContainer}>
-          <h2 className={s.title}>{data.title}</h2>
+          <h2 className={s.title}>{content.title}</h2>
           <div className={s.team}>
-            <h3>{data.team.title}</h3>
-            <p>{data.team.description}</p>
+            <h3>{content.team.title}</h3>
           </div>
           <ul className={s.cards}>
-            {data.team.cards.map((item) => (
+            {content.team.cards.map((item) => (
               <li key={item.id}>
                 <TeamPersonCard
                   icon={item.icon}
+                  image={item.image ? item.image : item.icon}
                   name={item.name}
                   role={item.role}
                   description={item.description}

@@ -9,6 +9,7 @@
   background-color: #dddddd;
   position: absolute;
   top: 140%;
+  z-index: 20;
 
   @include media(tablet) {
     width: 688px;
@@ -59,6 +60,7 @@
     justify-content: flex-start;
   }
 }
+
 .amount {
   font-family: $secondary-font-family;
   @include font(36, 36);

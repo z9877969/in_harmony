@@ -22,6 +22,7 @@
     "destination": "Purpose",
     "coverCommission": "Cover 2% commission. No losses for help.",
     "btnText": "Proceed to Payment",
+    "loadingText": "Processing request",
     "otherPaymentMethods": "Other payment methods",
     "validationMessage": {
       "required": "This field is required",

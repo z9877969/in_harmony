@@ -1,5 +1,3 @@
-'use client';
-
 import { Container, Icon, SectionTitle } from '@/shared/components';
 import donation from '../../data/section-content.json';
 

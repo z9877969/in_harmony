@@ -34,7 +34,6 @@ const CollectionPageActive = ({ content }) => {
           <ActiveCollectionList
             visibleItems={visibleItems}
             allCollection={cards}
-            className={s.list}
           />
           <Button
             onClick={handleToggleVisibleItems}

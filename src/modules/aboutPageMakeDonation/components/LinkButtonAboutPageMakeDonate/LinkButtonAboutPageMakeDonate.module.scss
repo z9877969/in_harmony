@@ -1,0 +1,27 @@
+.buttonsContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 24px;
+
+  @include media(tablet) {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .buttonSize {
+    width: 100%;
+    height: 48px;
+
+    @include media(tablet) {
+      width: 385px;
+      margin: 0 auto;
+    }
+
+    @include media(desktop) {
+      margin: 0;
+    }
+  }
+}

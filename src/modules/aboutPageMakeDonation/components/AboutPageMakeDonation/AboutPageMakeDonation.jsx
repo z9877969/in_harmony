@@ -1,8 +1,9 @@
 import { Container, Icon, SectionTitle } from '@/shared/components';
 import donation from '../../data/section-content.json';
-
 import s from './AboutPageMakeDonation.module.scss';
 import HelpButton from '../HelpButton/HelpButton';
+
+import LinkButtonAboutPageMakeDonate from '../LinkButtonAboutPageMakeDonate/LinkButtonAboutPageMakeDonate.jsx';
 
 const AboutPageMakeDonation = ({ content }) => {
   return (
@@ -14,9 +15,7 @@ const AboutPageMakeDonation = ({ content }) => {
               <SectionTitle title={content.title} />
               <p className={s.desc}>{donation.desc}</p>
             </div>
-            <div className={s.buttonsContainer}>
-              <HelpButton />
-            </div>
+            <LinkButtonAboutPageMakeDonate />
           </div>
           {donation.image && (
             <div className={s.imageContainer}>

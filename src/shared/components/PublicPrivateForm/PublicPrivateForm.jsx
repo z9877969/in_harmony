@@ -38,7 +38,6 @@ const PublicPrivateForm = () => {
   });
   const { t } = useTranslation('forms');
 
-  // const [isPublic, setIsPublic] = useState(true);
   const [loading, setLoading] = useState(false);
 
   const wfpFormRef = useRef(null);
@@ -198,7 +197,7 @@ const PublicPrivateForm = () => {
         clientEmail={initialValues.email}
         message={initialValues.message}
         paymentPurpose={initialValues.dropdown}
-        isRegular={initialValues.donateTime}
+        isRegular={initialValues.donateTime === 'true'}
         clientFirstName={initialValues.name}
         isPublic={initialValues.isPublic}
       />

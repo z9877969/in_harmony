@@ -1,7 +1,9 @@
-import Image from 'next/image';
-import { Container, SectionTitle } from '@/shared/components';
+import { Container, Icon, SectionTitle } from '@/shared/components';
+import donation from '../../data/section-content.json';
 import s from './AboutPageMakeDonation.module.scss';
 import HelpButton from '../HelpButton/HelpButton';
+
+import LinkButtonAboutPageMakeDonate from '../LinkButtonAboutPageMakeDonate/LinkButtonAboutPageMakeDonate.jsx';
 
 const AboutPageMakeDonation = ({ content }) => {
   return (
@@ -13,20 +15,11 @@ const AboutPageMakeDonation = ({ content }) => {
               <SectionTitle title={content.title} />
               <p className={s.desc}>{content.desc}</p>
             </div>
-            <div className={s.buttonsContainer}>
-              <HelpButton />
-            </div>
+            <LinkButtonAboutPageMakeDonate />
           </div>
-          {Array.isArray(content.image) && content.image.length > 0 && (
-            <div className={s.imageWrapper}>
-              <Image
-                src={content.image[0]}
-                alt={content.title}
-                size="100%"
-                priority
-                fill
-                style={{ objectFit: 'cover', objectPosition: 'center' }}
-              />
+          {donation.image && (
+            <div className={s.imageContainer}>
+              <Icon iconName={donation.image} />
             </div>
           )}
         </div>

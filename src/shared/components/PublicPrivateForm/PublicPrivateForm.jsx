@@ -189,7 +189,9 @@ const PublicPrivateForm = () => {
               size="medium"
               className={s.btn}
             >
-              {!loading ? `${t('paymentInfo.btnText')}` : 'обробка запиту'}
+              {!loading
+                ? `${t('paymentInfo.btnText')}`
+                : t('paymentInfo.loadingText')}
             </Button>
             <Link href="#" className={s.payment}>
               {t('paymentInfo.otherPaymentMethods')}

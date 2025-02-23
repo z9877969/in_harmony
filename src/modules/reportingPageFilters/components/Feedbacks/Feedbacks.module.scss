@@ -25,3 +25,27 @@
   stroke: $wite-text-color;
   fill: $violet-ui-text-color;
 }
+
+.boxReporting {
+  margin: 0 auto;
+  text-align: center;
+  @include media(tablet) {
+    width: 450px;
+  }
+  @include media(desktop) {
+    width: 636px;
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-bottom: 32px;
+  @include media(tablet) {
+    margin-bottom: 40px;
+  }
+  @include media(desktop) {
+    margin-bottom: 48px;
+  }
+}

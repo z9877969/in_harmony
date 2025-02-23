@@ -13,7 +13,7 @@ const AboutPageMakeDonation = ({ content }) => {
           <div className={s.mainContentContainer}>
             <div className={s.contentContainer}>
               <SectionTitle title={content.title} />
-              <p className={s.desc}>{content.desc}</p>
+              <p className={s.desc}>{donation.desc}</p>
             </div>
             <LinkButtonAboutPageMakeDonate />
           </div>

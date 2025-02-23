@@ -43,6 +43,11 @@ const PublicPrivateForm = () => {
 
   const wfpFormRef = useRef(null);
 
+  const title = t('paymentInfo.title');
+  const index = title.indexOf('–');
+  const title1 = title.slice(0, index + 1);
+  const title2 = title.slice(index + 1);
+
   let validationSchema;
 
   if (initialValues.isPublic) {
@@ -98,7 +103,8 @@ const PublicPrivateForm = () => {
   return (
     <div className={s.boxForm}>
       <h2 className={s.title} id="title">
-        {t('paymentInfo.title')}
+        <span>{title1}</span><br />
+        <span>{title2}</span>
       </h2>
       <Formik
         initialValues={initialValues}

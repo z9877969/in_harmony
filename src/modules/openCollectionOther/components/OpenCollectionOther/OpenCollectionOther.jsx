@@ -6,7 +6,6 @@ import {
   ActiveCollectionsCard,
   Container,
   DotsSwiper,
-  Section,
   SectionTitle,
 } from '@/shared/components';
 import other_collection from '../../data/section-content.json';
@@ -45,7 +44,7 @@ const OpenCollectionOther = ({ content, id }) => {
   }, [otherCollections]);
 
   return (
-    <Section className={s.section}>
+    <section className={s.section}>
       {otherCollections && (
         <Container>
           <SectionTitle title={content.title} className={s.title} />
@@ -69,7 +68,7 @@ const OpenCollectionOther = ({ content, id }) => {
           </div>
         </Container>
       )}
-    </Section>
+    </section>
   );
 };
 

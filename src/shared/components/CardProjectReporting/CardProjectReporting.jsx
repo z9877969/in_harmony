@@ -1,20 +1,10 @@
-'use client';
-
-import React from 'react';
-
-import { usePathname } from 'next/navigation.js';
-
-import LinkButton from '../LinkButton/LinkButton';
-import { LINKDATA, ROUTES } from '@/shared/constants';
-
-import s from './CardProjectReporting.module.scss';
 import Image from 'next/image';
-import { useTranslation } from 'react-i18next';
+import s from './CardProjectReporting.module.scss';
+
+import CardQuantityComments from './CardQuantityComments/CardQuantityComments';
+import ProjectDetailsButton from './ProjectDetailsButton/ProjectDetailsButton';
 
 export default function CardProjectReporting({ slid }) {
-  const pathname = usePathname();
-  const locale = pathname.split('/')[1];
-  const { t } = useTranslation('closedCollectionPage');
   const {
     _id,
     title,
@@ -72,17 +62,11 @@ export default function CardProjectReporting({ slid }) {
             <p className={s.text}>
               <span className={s.preTitle}>{comments}</span>
               &#8197;
-              <span>{quantity ? quantity : 'Немає'}</span>
+              <CardQuantityComments quantity={quantity} />
             </p>
           </div>
         </div>
-        <div className={s.btnWrapper}>
-          <LinkButton
-            path={`/${locale}/${ROUTES.COLLECTION}/${ROUTES.CLOSED}/${_id}`}
-            linkText={t('button_details')}
-            type={LINKDATA.TYPE_LIGHT_BORDER}
-          />
-        </div>
+        <ProjectDetailsButton id={_id} />
       </div>
     </div>
   );

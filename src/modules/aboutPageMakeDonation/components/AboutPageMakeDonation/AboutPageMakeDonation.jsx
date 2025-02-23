@@ -1,45 +1,32 @@
-'use client';
-
-import { useRouter } from 'next/navigation';
-import { Button, Container, Icon, SectionTitle } from '@/shared/components';
-import donation from '../../data/section-content.json';
+import Image from 'next/image';
+import { Container, SectionTitle } from '@/shared/components';
 import s from './AboutPageMakeDonation.module.scss';
+import HelpButton from '../HelpButton/HelpButton';
 
-const AboutPageMakeDonation = () => {
-  const router = useRouter(s);
-
+const AboutPageMakeDonation = ({ content }) => {
   return (
     <section className={s.makeDonationSection}>
       <Container>
         <div className={s.mainContainer}>
           <div className={s.mainContentContainer}>
             <div className={s.contentContainer}>
-              <SectionTitle title={donation.title} />
-              <p className={s.desc}>{donation.desc}</p>
+              <SectionTitle title={content.title} />
+              <p className={s.desc}>{content.desc}</p>
             </div>
             <div className={s.buttonsContainer}>
-              <Button
-                size="large"
-                fontSize="eighteen"
-                onClick={() => router.push('/donate')}
-                className={s.buttonSize}
-              >
-                {donation.button_donate}
-              </Button>
-              <Button
-                onClick={() => router.push('/enjoy')}
-                size="large"
-                border="true"
-                fontSize="eighteen"
-                className={s.buttonSize}
-              >
-                {donation.button_enjoy}
-              </Button>
+              <HelpButton />
             </div>
           </div>
-          {donation.image && (
-            <div className={s.imageContainer}>
-              <Icon iconName={donation.image} />
+          {Array.isArray(content.image) && content.image.length > 0 && (
+            <div className={s.imageWrapper}>
+              <Image
+                src={content.image[0]}
+                alt={content.title}
+                size="100%"
+                priority
+                fill
+                style={{ objectFit: 'cover', objectPosition: 'center' }}
+              />
             </div>
           )}
         </div>

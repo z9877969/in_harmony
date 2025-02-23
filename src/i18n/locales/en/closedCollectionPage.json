@@ -1,6 +1,8 @@
 {
+  "reporting": "Reporting",
   "button_details": "Details",
   "allReports": "All reports",
-  "projectStatus": "Implemented project",
+  "showMore": "Show more",
+  "noCommentsQuantity": "None",
   "section_2_Name": {}
 }

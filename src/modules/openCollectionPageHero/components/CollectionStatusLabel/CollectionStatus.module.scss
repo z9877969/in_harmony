@@ -1,4 +1,37 @@
 .containerStatus {
   display: flex;
   gap: 5px;
+  border-radius: 24px;
+  padding: 4px 12px;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.5;
+  color: $progress-bar-line;
+  background-color: $progress-term-bg;
+}
+
+.closedContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+.closedText {
+  border-radius: 24px;
+  padding: 4px 12px;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.5;
+  background-color: $card_beige_bg;
+}
+.closedTextTerm {
+  border-radius: 24px;
+  padding: 4px 12px;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.5;
+  color: $progress-bar-line;
+  background-color: $progress-term-bg;
+}
+.days {
+  font-weight: 400;
 }

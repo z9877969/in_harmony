@@ -1,9 +1,22 @@
 {
-    "navLinks": [
-        "Головна",
-        "Поточні збори",
-        "Звітність",
-        "Про нас"
-    ],
-    "helpButton": "Допомога"
+  "helpButton": "Допомога",
+
+  "links": {
+    "home": {
+      "href": "/",
+      "text": "Головна"
+    },
+    "currentFees": {
+      "href": "/collection",
+      "text": "Поточні збори"
+    },
+    "reporting": {
+      "href": "/reporting",
+      "text": "Звітність"
+    },
+    "about": {
+      "href": "/about",
+      "text": "Про нас"
+    }
+  }
 }

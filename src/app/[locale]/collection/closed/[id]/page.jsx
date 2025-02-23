@@ -17,7 +17,9 @@ const ClosedCollectionPage = async ({ params: { locale, id } }) => {
       <ClosedCollectionPageHero
         content={sectionsDict.collection_details.section_content}
       />
-      <ClosedCollectionFeedbacks />
+      <ClosedCollectionFeedbacks
+        content={sectionsDict.comments.section_content}
+      />
       <ClosedCollectionOther
         id={id}
         content={sectionsDict.closed_collections.section_content}

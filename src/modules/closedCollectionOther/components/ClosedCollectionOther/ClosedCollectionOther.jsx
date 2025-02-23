@@ -10,7 +10,6 @@ import {
   Section,
   SectionTitle,
 } from '@/shared/components';
-// import other_collection from '../../data/section-content.json';
 import s from './ClosedCollectionOther.module.scss';
 
 const ClosedCollectionOther = ({ content, id }) => {

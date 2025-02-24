@@ -1,28 +1,31 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useTranslation } from 'react-i18next';
+import { useEffect, useState } from 'react';
 
 import { useLanguageChanger } from '@/i18n/utils/LanguageChanger';
 import { Icon } from '@/shared/components';
-import { uaFlag as UaIcon, googleLogo as EnIcon } from '/public/icons';
+import { LANGUAGES, SOCIALROUTES } from '@/shared/constants';
+import { useNavigationLinks } from '@/shared/hooks/useNavigationLinks.js';
 import MobileMenuBtn from '../MobileMenuBtn/MobileMenuBtn';
-import { LANGUAGES, ROUTES, SOCIALROUTES } from '@/shared/constants';
 import s from './MobileMenu.module.scss';
+import { enFlag as EnIcon, uaFlag as UaIcon } from '/public/icons';
 
 const MobileMenu = () => {
   const pathname = usePathname();
-  const locale = pathname.split('/')[1];
+  const { navLinks, locale } = useNavigationLinks();
   const [visible, setVisible] = useState(false);
 
-  const { t } = useTranslation();
   const { handleChangeLanguage } = useLanguageChanger();
 
   const handleLanguageSelect = (newLocale) => {
     handleChangeLanguage(newLocale);
+  };
+
+  const handleToggleVisible = () => {
+    setVisible((prev) => !prev);
   };
 
   useEffect(() => {
@@ -47,9 +50,13 @@ const MobileMenu = () => {
     };
   }, [visible]);
 
+  if (!navLinks) {
+    return null;
+  }
+
   return (
     <>
-      <MobileMenuBtn onClick={() => setVisible(!visible)} visible={visible} />
+      <MobileMenuBtn onClick={handleToggleVisible} visible={visible} />
       <div className={clsx(s.mobileMenu, visible && s.visible)}>
         <div className={s.langBlock}>
           <UaIcon
@@ -69,56 +76,23 @@ const MobileMenu = () => {
         </div>
         <nav className={s.nav}>
           <ul className={s.navList}>
-            <li>
-              <Link
-                className={clsx(
-                  pathname === `/${locale}` ? s.active : '',
-                  s.navLink
-                )}
-                href={`/${locale}`}
-                onClick={() => setVisible(!visible)}
-              >
-                {t('navLinks.0')}
-              </Link>
-            </li>
-            <li>
-              <Link
-                className={clsx(
-                  pathname === `/${locale}/${ROUTES.COLLECTION}`
-                    ? s.active
-                    : '',
-                  s.navLink
-                )}
-                href={`/${locale}/${ROUTES.COLLECTION}`}
-                onClick={() => setVisible(!visible)}
-              >
-                {t('navLinks.1')}
-              </Link>
-            </li>
-            <li>
-              <Link
-                className={clsx(
-                  pathname === `/${locale}/${ROUTES.REPORTING}` ? s.active : '',
-                  s.navLink
-                )}
-                href={`/${locale}/${ROUTES.REPORTING}`}
-                onClick={() => setVisible(!visible)}
-              >
-                {t('navLinks.2')}
-              </Link>
-            </li>
-            <li>
-              <Link
-                className={clsx(
-                  pathname === `/${locale}/${ROUTES.ABOUT}` ? s.active : '',
-                  s.navLink
-                )}
-                href={`/${locale}/${ROUTES.ABOUT}`}
-                onClick={() => setVisible(!visible)}
-              >
-                {t('navLinks.3')}
-              </Link>
-            </li>
+            {Object.values(navLinks).map(({ href, text }, index) => (
+              <li key={index}>
+                <Link
+                  href={`/${locale}${href}`}
+                  className={clsx(
+                    pathname.replace(/\/$/, '') === `/${locale}${href}` ||
+                      (href === '/' && pathname === `/${locale}`)
+                      ? s.active
+                      : '',
+                    s.navLink
+                  )}
+                  onClick={handleToggleVisible}
+                >
+                  {text}
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
         <ul className={s.socials}>

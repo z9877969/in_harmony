@@ -1,41 +1,21 @@
-'use client';
-
-import { useRouter } from 'next/navigation';
-import { Button, Container, Icon, SectionTitle } from '@/shared/components';
+import { Container, Icon, SectionTitle } from '@/shared/components';
 import donation from '../../data/section-content.json';
 import s from './AboutPageMakeDonation.module.scss';
+import HelpButton from '../HelpButton/HelpButton';
 
-const AboutPageMakeDonation = () => {
-  const router = useRouter(s);
+import LinkButtonAboutPageMakeDonate from '../LinkButtonAboutPageMakeDonate/LinkButtonAboutPageMakeDonate.jsx';
 
+const AboutPageMakeDonation = ({ content }) => {
   return (
     <section className={s.makeDonationSection}>
       <Container>
         <div className={s.mainContainer}>
           <div className={s.mainContentContainer}>
             <div className={s.contentContainer}>
-              <SectionTitle title={donation.title} />
+              <SectionTitle title={content.title} />
               <p className={s.desc}>{donation.desc}</p>
             </div>
-            <div className={s.buttonsContainer}>
-              <Button
-                size="large"
-                fontSize="eighteen"
-                onClick={() => router.push('/donate')}
-                className={s.buttonSize}
-              >
-                {donation.button_donate}
-              </Button>
-              <Button
-                onClick={() => router.push('/enjoy')}
-                size="large"
-                border="true"
-                fontSize="eighteen"
-                className={s.buttonSize}
-              >
-                {donation.button_enjoy}
-              </Button>
-            </div>
+            <LinkButtonAboutPageMakeDonate />
           </div>
           {donation.image && (
             <div className={s.imageContainer}>

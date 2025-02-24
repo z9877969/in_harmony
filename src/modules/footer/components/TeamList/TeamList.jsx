@@ -48,7 +48,7 @@ const TeamList = () => {
     <ul className={s.teamList}>
       {data.map((member) => {
         return (
-          <li className={s.teamItem} key={member.id}>
+          <li className={s.teamItem} key={member._id}>
             <ImageContainer>
               {member.image[0] ? (
                 <Image

@@ -160,3 +160,9 @@
 	flex-direction: column;
 	gap: 16px;
 }
+.shadow {
+  padding: 6px;
+  @include media(tablet) {
+    padding: 8px;
+  }
+}

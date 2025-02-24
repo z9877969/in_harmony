@@ -1,0 +1,92 @@
+{
+  "paymentAmount": {
+    "donateTimeOptions": [
+      { "value": "false", "label": "Одноразово" },
+      { "value": "true", "label": "Щомісячно" }
+    ],
+    "text": "Регулярна допомога рятує більше життів!",
+    "submitButton": "До сплати",
+    "otherPayment": "Інші способи оплати",
+    "amountRequired": "Сума є обов'язковою",
+    "positiveRequired": "Значення має бути позитивним"
+  },
+  "paymentInfo": {
+    "title": " Надихайте інших – зробіть свій внесок публічним!",
+    "donateOptions": [
+      { "value": "public", "label": "Публічно" },
+      { "value": "anonymous", "label": "Анонімно" }
+    ],
+    "placeholderName": "Ім'я",
+    "placeholderEmail": "Email",
+    "placeholderMessage": "Повідомлення",
+    "destination": "Призначення",
+    "coverCommission": "Покрити комісію 2%. Без втрат для допомоги.",
+    "btnText": "До сплати",
+    "loadingText": "обробка запиту",
+    "otherPaymentMethods": "Інші способи оплати",
+    "validationMessage": {
+      "required": "Це поле обов'язкове",
+      "email": "Невірний формат email",
+      "name": "Невірний формат name",
+      "message": "Невірний формат message",
+      "dropdownTitle": "Виберіть опцію з випадаючого списку",
+      "dropdown": {
+        "placeholder": "Підтримати фонд",
+        "dropdownOptions": [
+          { "value": "foodCollection", "title": "Збір на їжу військовим" },
+          {
+            "value": "medicineCollection",
+            "title": "Збір на ліки "
+          },
+          {
+            "value": "clothesCollection",
+            "title": "Збір на теплий одяг "
+          },
+          { "value": "waterCollection", "title": "Збір на воду в сіру зону" },
+
+          { "value": "carCollection", "title": "Збір на машину" },
+          { "value": "houseCollection", "title": "Світло в кожен дім" },
+          { "value": "gasCollection", "title": "Збір на газ" },
+          { "value": "bplaCollection", "title": "Збір на БПЛА" },
+          { "value": "allCollection", "title": "Збір на все" }
+        ]
+      }
+    }
+  },
+  "support": {
+    "title": "Зв'язатися з нами",
+    "placeholderName": "Ваше ім'я",
+    "placeholderEmail": "Ваш email",
+    "placeholderMessage": "Ваше повідомлення",
+    "buttonText": "Надіслати",
+    "nameRequired": "Ім’я обов’язкове",
+    "nameLenght": "Ім’я повинно бути не менше 2 символів",
+    "emailRequired": "Електронна адреса обов’язкова",
+    "emailInvalid": "Невірна електронна адреса",
+    "messageRequired": "Повідомлення обов’язкове",
+    "messageLenght": "Повідомленнямає містити не менше 5 символів"
+  },
+  "paymentDiscard": {
+    "nameLabel": "Ваше Ім'я та Прізвище",
+    "namePlaceholder": "Ім'я та Прізвище",
+    "emailLabel": "Email",
+    "emailPlaceholder": "email@email.com",
+    "amountLabel": "Сума платежу",
+    "amountPlaceholder": "200",
+    "dateLabel": "Дата останнього списання",
+    "datePlaceholder": "29.01.2024",
+    "cardLastDigitsLabel": "Останні 2 цифри банківської карти, на яку оформлена підписка",
+    "cardLastDigitsPlaceholder": "11",
+    "reasonLabel": "Вкажіть, будь ласка, причину скасування щомісячної підписки",
+    "reasonPlaceholder": "Ваше повідомлення",
+    "submitButton": "Скасувати",
+    "nameRequired": "Ім'я є обов'язковим",
+    "emailRequired": "Пошта є обов'язковим",
+    "emailInvalid": "Пошта повинен містити '@' та '.'",
+    "amountRequired": "Сума є обов'язковою",
+    "numberRequired": "Значення має бути числом",
+    "positiveRequired": "Значення має бути позитивним",
+    "dateRequired": "Дата є обов'язковою",
+    "cardLastDigitsRequired": "Останні цифри карти є обов'язковими"
+  }
+}

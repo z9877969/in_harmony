@@ -77,7 +77,7 @@ const Footer = () => {
             <LegalInfo data={data.company.legalInfo} />
           </div>
 
-          <ContactUs />
+          <ContactUs data={data.company.contactUs} />
         </div>
         <div className={s.teamSection}>
           <button

@@ -19,6 +19,7 @@ const ContactUs = ({ data }) => {
   const innerRef = useRef(null);
   const [size, setSize] = useState({ width: '100%', height: '100%' });
   const flipTimeoutRef = useRef(null);
+  console.log('>>>>>>>>');
 
   const validationSchema = useMemo(
     () =>
@@ -63,13 +64,16 @@ const ContactUs = ({ data }) => {
   }, []);
 
   useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (!containerRef.current.contains(e.target)) {
-        setFlipped(false);
-      }
+    const { current: discountEl } = containerRef;
+    const handleDiscountFlipToFront = (e) => {
+      if (e.target.closest('#contact-us') === discountEl) return;
+      setFlipped((p) => (p ? !p : p));
     };
-    document.addEventListener('click', handleClickOutside);
-    return () => document.removeEventListener('click', handleClickOutside);
+    document.addEventListener('click', handleDiscountFlipToFront);
+
+    return () => {
+      document.removeEventListener('click', handleDiscountFlipToFront);
+    };
   }, []);
 
   const saveSupportData = async (data) => {
@@ -112,6 +116,7 @@ const ContactUs = ({ data }) => {
     return () => clearTimeout(flipTimeoutRef.current);
   }, []);
 
+  console.log('data: ', data);
   if (!data) return null;
 
   return (
@@ -133,7 +138,7 @@ const ContactUs = ({ data }) => {
             name="name"
             value={formik.values.name}
             type="text"
-            placeholder={t('support.placeholderName')}
+            placeholder={t('contactUs.placeholderName')}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             error={formik.touched.name && formik.errors.name}
@@ -143,7 +148,7 @@ const ContactUs = ({ data }) => {
             name="email"
             value={formik.values.email}
             type="text"
-            placeholder={t('support.placeholderEmail')}
+            placeholder={t('contactUs.placeholderEmail')}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             error={formik.touched.email && formik.errors.email}
@@ -152,7 +157,7 @@ const ContactUs = ({ data }) => {
             className={s.textAreaFooter}
             name="message"
             value={formik.values.message}
-            placeholder={t('support.placeholderMessage')}
+            placeholder={t('contactUs.placeholderMessage')}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             error={formik.touched.message && formik.errors.message}

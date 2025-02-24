@@ -78,3 +78,14 @@ export const PAYMENT_CONFIG = {
   regularOn: '1',
   regularCount: '12',
 };
+export const donorsDict = {
+  ua: {
+    1: 'донор',
+    2: 'донори',
+    3: 'донорів',
+  },
+  en: {
+    1: 'donor',
+    2: 'donors',
+  },
+};

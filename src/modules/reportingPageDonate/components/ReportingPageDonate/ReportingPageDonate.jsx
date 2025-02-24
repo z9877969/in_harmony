@@ -1,34 +1,31 @@
-'use client';
-
 import Image from 'next/image';
-import { usePathname, useRouter } from 'next/navigation';
 
-import { Button, Container, Section } from '@/shared/components';
-import { ROUTES } from '@/shared/constants';
-import reporting from '../../data/section-content.json';
+import { Container } from '@/shared/components';
+
+import LinkButtonReportingPageDonate from '../LinkButtonReportingPageDonate/LinkButtonReportingPageDonate.jsx';
 
 import s from './ReportingPageDonate.module.scss';
 
-const ReportingPageDonate = () => {
-  const route = useRouter();
-  const pathname = usePathname();
-
-  const locale = pathname.split('/')[1];
-
+const ReportingPageDonate = ({ content }) => {
   // dataProps отримуємо з пропсів або з fetch-запиту
-  const dataProps = {
-    imageUrl: '/images/girl-desktop2x.png',
-  };
+  const dataProps =
+    content.image && content.image.length > 0
+      ? {
+          imageUrl: content.image[0],
+        }
+      : {
+          imageUrl: '/images/default-image.jpg',
+        };
 
   return (
-    <Section className={s.section}>
+    <section className={s.section}>
       <Container>
         <div className={s.content}>
           <div className={s.imageWrapper}>
             <Image
               className={s.image}
               src={dataProps.imageUrl}
-              alt={reporting.title}
+              alt={content.title}
               fill
               priority
               sizes="100%"
@@ -37,18 +34,12 @@ const ReportingPageDonate = () => {
             />
           </div>
           <div className={s.textContainer}>
-            <h3 className={s.title}>{reporting.title}</h3>
-            <Button
-              onClick={() => route.push(`/${locale}/${ROUTES.COLLECTION}`)}
-              size="large"
-              className={s.button}
-            >
-              {reporting.button_to_collections}
-            </Button>
+            <h3 className={s.title}>{content.title}</h3>
+            <LinkButtonReportingPageDonate />
           </div>
         </div>
       </Container>
-    </Section>
+    </section>
   );
 };
 

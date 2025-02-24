@@ -1,0 +1,19 @@
+{
+  "monthNames": [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+  ],
+  "textBtn": "Show more",
+  "textBtnClose": "Close",
+  "button_to_collections": "Donate"
+}

@@ -1,12 +1,13 @@
 @import '@/shared/styles/mixins';
+@import '../../../../shared/styles/colors';
 
 .title {
   font-family: $secondary-font-family;
   font-weight: 700;
-  @include font(24, 28.08);
+  @include font(24, 28);
   text-align: center;
   color: $primary-text-color;
-  margin-bottom: 32px;
+  margin-bottom: 48px;
 
   @include media(desktop) {
     @include font(40, 48);
@@ -29,11 +30,11 @@
   }
 }
 
-.label {
+.description {
   font-family: $primary-font-family;
   font-weight: 400;
   color: $secondary-text-color;
-  @include font(16, 20);
+  @include font(16, 24);
 }
 
 .containerCards {
@@ -41,9 +42,9 @@
   flex-direction: column;
   align-items: center;
   border-radius: 32px;
-  padding: 16px 32px;
+  padding: 32px 16px;
   max-width: 370px;
-  background: $img-backdrop-color;
+  background: $card_beige_bg;
 
   @include media(tablet) {
     padding: 40px 0;
@@ -54,27 +55,24 @@
   @include media(desktop) {
     padding: 40px;
     width: 1296px;
-    height: 312px;
   }
 }
 
 .infoCards {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  row-gap: 64px;
+  flex-wrap: wrap;
 
   @include media(tablet) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
+    column-gap: 40px;
   }
 
   @include media(desktop) {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 40px;
-    width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
   }
 }
 
@@ -83,4 +81,7 @@
   flex-direction: column;
   align-items: center;
   gap: 8px;
+  @include media(tablet) {
+    width: 306px;
+  }
 }

@@ -3,7 +3,7 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { usePathname, useRouter } from 'next/navigation.js';
 import { useEffect, useState } from 'react';
-import * as yup from 'yup';
+
 import clsx from 'clsx';
 import Link from 'next/link.js';
 
@@ -13,18 +13,9 @@ import { Button, RadioButton } from '..';
 
 import { arrowFormDonate as FormIcon } from '/public/icons';
 
-import data from './data/sectionContent.json';
-
 import s from './FormWithSumButtons.module.scss';
-
-const validationSchemaFormDonate = yup.object().shape({
-  donateTime: yup.string().required(),
-  amount: yup
-    .number()
-    .typeError()
-    .positive(data.positiveRequired)
-    .required(data.amountRequired),
-});
+import { useTranslation } from 'react-i18next';
+import { validationSchema } from './validation/validationSchema';
 
 const FormWithSumButtons = ({ className = '' }) => {
   const [initialValues, setInitialValues] = useState({
@@ -33,6 +24,7 @@ const FormWithSumButtons = ({ className = '' }) => {
     value: '',
   });
 
+  const { t } = useTranslation('forms');
   const router = useRouter();
   const locale = usePathname().split('/')[1];
   const amounts = [200, 500, 1000];
@@ -62,7 +54,7 @@ const FormWithSumButtons = ({ className = '' }) => {
     <div className={clsx(s.boxForm, `${className}`)}>
       <Formik
         initialValues={initialValues}
-        validationSchema={validationSchemaFormDonate}
+        validationSchema={validationSchema(t)}
         onSubmit={onSubmit}
       >
         {({ setFieldValue }) => (
@@ -70,14 +62,16 @@ const FormWithSumButtons = ({ className = '' }) => {
             <Field name="donateTime">
               {({ field }) => (
                 <RadioButton
-                  options={data.donateTimeOptions}
+                  options={t('paymentAmount.donateTimeOptions', {
+                    returnObjects: true,
+                  })}
                   name="donateTime"
                   onChange={(value) => setFieldValue(field.name, value)}
                 />
               )}
             </Field>
             <div className={s.textForm}>
-              <p>{data.text}</p>
+              <p>{t('paymentAmount.text')}</p>
               <FormIcon className={s.iconForm} />
             </div>
             <div className={s.boxBtn}>
@@ -110,13 +104,13 @@ const FormWithSumButtons = ({ className = '' }) => {
             </div>
 
             <Button type="submit" variant="primary" className={s.btnSubmit}>
-              {data.submitButton}
+              {t('paymentAmount.submitButton')}
             </Button>
           </Form>
         )}
       </Formik>
       <div className={s.boxLink}>
-        <Link href={ROUTES.PAYMENTS(0)}>{data.otherPayment}</Link>
+        <Link href={ROUTES.PAYMENTS(0)}>{t('paymentAmount.otherPayment')}</Link>
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ import TeamMembersModel from '../models/TeamMembersModels';
 import CommentsModel from '../models/WasHelpedCommentsModels';
 import { sectionConfigs } from './updatePages.js';
 
-export default async function updateSections(page) {
+export default async function updateSections(page, paginationParams) {
   const updatedSections = await Promise.all(
     page.sections_list.map(async (section) => {
       const config = sectionConfigs[section.section_name];
@@ -14,11 +14,22 @@ export default async function updateSections(page) {
         const query = {
           type: config.type,
           ...(config.status && { status: config.status }),
-          ...(config.type !== 'partners' && { language: section.local }),
+          language: section.local,
         };
+
         let data;
+        let totalItems = 0;
+
         if (config.type === 'collections') {
-          data = await CollectionModel.find(query).lean();
+          const { page = 1, limit = 10 } = paginationParams;
+          const pageNumber = parseInt(page, 10);
+          const limitNumber = parseInt(limit, 10);
+
+          totalItems = await CollectionModel.countDocuments(query);
+          data = await CollectionModel.find(query)
+            .skip((pageNumber - 1) * limitNumber)
+            .limit(limitNumber)
+            .lean();
         } else if (config.type === 'filter') {
           data = await FiltersModel.find(query).lean();
         } else if (config.type === 'was-helped') {
@@ -34,6 +45,14 @@ export default async function updateSections(page) {
           section_content: {
             ...section.section_content,
             cards: data,
+            ...(config.type === 'collections' && {
+              pagination: {
+                totalItems,
+                totalPages: Math.ceil(totalItems / paginationParams.limit),
+                currentPage: paginationParams.page,
+                limit: paginationParams.limit,
+              },
+            }),
           },
         };
       }

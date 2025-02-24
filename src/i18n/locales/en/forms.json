@@ -1,6 +1,97 @@
 {
-    "paymentAmount": {},
-    "paymentInfo": {},
-    "support": {},
-    "paymentDiscard": {}
+  "paymentAmount": {
+    "donateTimeOptions": [
+      { "value": "false", "label": "One-time" },
+      { "value": "true", "label": "Monthly" }
+    ],
+    "text": "Regular donations save more lives!",
+    "submitButton": "Proceed to Payment",
+    "otherPayment": "Other payment methods",
+    "amountRequired": "Amount is required",
+    "positiveRequired": "Value must be positive"
+  },
+  "paymentInfo": {
+    "title": "Inspire others – make your contribution public!",
+    "donateOptions": [
+      { "value": "public", "label": "Public" },
+      { "value": "anonymous", "label": "Anonymous" }
+    ],
+    "placeholderName": "Name",
+    "placeholderEmail": "Email",
+    "placeholderMessage": "Message",
+    "destination": "Purpose",
+    "coverCommission": "Cover 2% commission. No losses for help.",
+    "btnText": "Proceed to Payment",
+    "loadingText": "Processing request",
+    "otherPaymentMethods": "Other payment methods",
+    "validationMessage": {
+      "required": "This field is required",
+      "email": "Invalid email format",
+      "name": "Invalid name format",
+      "message": "Invalid message format",
+      "dropdownTitle": "Select an option from the dropdown list",
+      "dropdown": {
+        "placeholder": "Support the fund",
+        "dropdownOptions": [
+          {
+            "value": "foodCollection",
+            "title": "Fundraising for food for the military"
+          },
+          {
+            "value": "medicineCollection",
+            "title": "Fundraising for medicine"
+          },
+          {
+            "value": "clothesCollection",
+            "title": "Fundraising for warm clothing"
+          },
+          {
+            "value": "waterCollection",
+            "title": "Fundraising for water in the gray zone"
+          },
+          { "value": "carCollection", "title": "Fundraising for a car" },
+          { "value": "houseCollection", "title": "Light in every home" },
+          { "value": "gasCollection", "title": "Fundraising for gas" },
+          { "value": "bplaCollection", "title": "Fundraising for UAVs" },
+          { "value": "allCollection", "title": "Fundraising for everything" }
+        ]
+      }
+    }
+  },
+  "support": {
+    "title": "Contact us",
+    "placeholderName": "Your name",
+    "placeholderEmail": "Your email",
+    "placeholderMessage": "Your message",
+    "buttonText": "Send",
+    "nameRequired": "Name is required",
+    "nameLenght": "Name must be at least 2 characters long",
+    "emailRequired": "Email is required",
+    "emailInvalid": "Invalid email address",
+    "messageRequired": "Message is required",
+    "messageLenght": "Message must be at least 5 characters long"
+  },
+  "paymentDiscard": {
+    "nameLabel": "Your First and Last Name",
+    "namePlaceholder": "First and Last Name",
+    "emailLabel": "Email",
+    "emailPlaceholder": "email@email.com",
+    "amountLabel": "Payment Amount",
+    "amountPlaceholder": "200",
+    "dateLabel": "Date of last charge",
+    "datePlaceholder": "29.01.2024",
+    "cardLastDigitsLabel": "Last 2 digits of the bank card used for subscription",
+    "cardLastDigitsPlaceholder": "11",
+    "reasonLabel": "Please specify the reason for canceling the monthly subscription",
+    "reasonPlaceholder": "Your message",
+    "submitButton": "Cancel",
+    "nameRequired": "Name is required",
+    "emailRequired": "Email is required",
+    "emailInvalid": "Email must contain '@' and '.'",
+    "amountRequired": "Amount is required",
+    "numberRequired": "Value must be a number",
+    "positiveRequired": "Value must be positive",
+    "dateRequired": "Date is required",
+    "cardLastDigitsRequired": "Last digits of the card are required"
+  }
 }

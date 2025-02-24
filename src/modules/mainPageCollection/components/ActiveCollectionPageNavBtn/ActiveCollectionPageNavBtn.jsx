@@ -1,8 +1,7 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { Button } from '@/shared/components';
-import { useRouter } from 'next/compat/router';
 import { ROUTES } from '@/shared/constants';
 import { useTranslation } from 'react-i18next';
 

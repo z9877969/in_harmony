@@ -10,6 +10,7 @@ import LinkButton from '../LinkButton/LinkButton.jsx';
 
 import s from './ActiveCollectionsCard.module.scss';
 import { useTranslation } from 'react-i18next';
+import OpenCollectionPageBadge from '@/modules/openCollectionPageHero/components/openCollectionPageBadge/openCollectionPageBadge.jsx';
 
 function ActiveCollectionsCard({ collection }) {
   const pathname = usePathname();
@@ -17,7 +18,6 @@ function ActiveCollectionsCard({ collection }) {
   const { t } = useTranslation('activeCollectionCard');
 
   return (
-
     <div className={s.shadow}>
       <div className={s.content}>
         <div className={s.imageWrapper}>
@@ -31,11 +31,9 @@ function ActiveCollectionsCard({ collection }) {
             placeholder="blur"
             blurDataURL="/images/blur-placeholder.jpg"
           />
-
         </div>
-        <p className={s.importance}>
-          {t(`importanceType.${collection.importance}`)}
-        </p>
+        <OpenCollectionPageBadge importance={collection.importance} />
+        
         <div className={s.mainContentContainer}>
           <div className={s.contentContainer}>
             <h3 className={s.title}>{collection.title} </h3>

@@ -1,13 +1,12 @@
-'use client';
 import { Container } from '@/shared/components';
 import s from './OpenCollectionPageHero.module.scss';
 import OpenCollectionProgress from '../OpenCollectionProgress/OpenCollectionProgress';
-import { useTranslation } from 'react-i18next';
 import Image from 'next/image';
+import OpenCollectionPageBadge from '../openCollectionPageBadge/openCollectionPageBadge';
 
 const OpenCollectionPageHero = ({ content }) => {
   const { title, long_desc, importance, image } = content;
-  const { t } = useTranslation('activeCollectionCard');
+
   return (
     <section className={s.wrapper}>
       {content && (
@@ -27,11 +26,7 @@ const OpenCollectionPageHero = ({ content }) => {
             </div>
             <div className={s.info}>
               <h2 className={s.title}>{title}</h2>
-              <p
-                className={importance === 'urgent' ? s.importance : s.nonUrgent}
-              >
-                {t(`importanceType.${importance}`)}
-              </p>
+              <OpenCollectionPageBadge importance={importance} />
               <div className={s.description}>
                 <p>{long_desc.section1}</p>
                 <p>{long_desc.section2}</p>

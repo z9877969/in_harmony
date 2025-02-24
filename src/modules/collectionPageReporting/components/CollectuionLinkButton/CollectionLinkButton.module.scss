@@ -1,0 +1,23 @@
+.linkWrapper {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  margin-top: 32px;
+  @include media(tablet) {
+    margin-top: 40px;
+  }
+  @include media(desktop) {
+    margin-top: 32px;
+  }
+}
+
+.collectionBtn {
+  padding: 13px 32px;
+  font-size: 18px;
+  line-height: 1.5;
+  text-align: center;
+  width: 100%;
+  @include media(tablet) {
+    width: 416px;
+  }
+}

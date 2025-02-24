@@ -32,6 +32,28 @@ $spacing-lg: calc(var(--slide-spacing-lg) * -1);
   @include media(desktop) {
     display: flex;
     margin-left: $spacing-lg;
-     flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+}
+.button {
+  padding: 14px 120px;
+  @include media(tablet) {
+    padding: 10px 169px;
+  }
+  @include media(desktop) {
+    padding: 14px 169px;
+  }
+}
+.btnWrapper {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  margin-top: 12px;
+
+  @include media(tablet) {
+    margin-top: 20px;
+  }
+  @include media(desktop) {
+    margin-top: 28px;
   }
 }

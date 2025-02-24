@@ -45,14 +45,9 @@
 
 .btnDonate {
   @include font(16, 24);
-  padding: 0 10px;
+  padding: 0 !important;
+  width: 100% !important;
   color: $footer-bold-text-color;
-  @include media(tablet) {
-    padding: 0 22px;
-  }
-  @include media(desktop) {
-    padding: 0 16px;
-  }
 }
 
 .boxInput {

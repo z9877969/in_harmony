@@ -1,8 +1,8 @@
 {
-    "hero": {
-        "collectionStatus": {
-            "active": "Активний",
-            "closed": "Закритий"
-        }
+  "hero": {
+    "collectionStatus": {
+      "active": "Збір відкрито",
+      "closed": "Збір завершено"
     }
+  }
 }

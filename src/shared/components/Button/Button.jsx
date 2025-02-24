@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import React from 'react';
 import s from './Button.module.scss';
 
 const Button = ({
@@ -11,6 +10,7 @@ const Button = ({
   fontSize,
   className,
   onClick,
+  ...props
 }) => {
   return (
     <button
@@ -26,6 +26,7 @@ const Button = ({
         }
       )}
       onClick={onClick}
+      {...props}
     >
       {children}
     </button>

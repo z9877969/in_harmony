@@ -18,7 +18,7 @@ function LegalInfo({ data }) {
   return (
     <section className={s.legalInfoSection}>
       <h1 className="visuallyHidden">{data.title}</h1>
-      <Link href={`/${locale}/policy`} className={s.navLink}>
+      <Link href={`/${locale}/${ROUTES.TERMS}`} className={s.navLink}>
         {data.linkPolicyText}
       </Link>
 

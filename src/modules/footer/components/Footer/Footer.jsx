@@ -88,7 +88,7 @@ const Footer = () => {
           >
             {t('openModalButton.openModalButtonText')}
           </button>
-          <small className={s.copyright}>{data.company.copyright}</small>
+          <small className={s.copyright}>{data.copyright}</small>
         </div>
       </Container>
       <Modal className={'teamModal'} open={isOpen} onClose={toggleModal}>

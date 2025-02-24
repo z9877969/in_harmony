@@ -13,8 +13,7 @@
   @include media(desktop) {
     padding: 16px 0 76px 0;
   }
-} 
-
+}
 
 .content {
   width: 100%;
@@ -23,15 +22,6 @@
   gap: 32px;
 }
 
-.list {
-  flex-wrap: wrap;
-
-  @include media(tablet) {
-    row-gap: 32px;
-    flex-direction: row;
-    column-gap: 24px;
-  }
-}
 
 .button {
   @include media(tablet) {

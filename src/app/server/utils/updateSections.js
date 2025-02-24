@@ -14,7 +14,7 @@ export default async function updateSections(page, paginationParams) {
         const query = {
           type: config.type,
           ...(config.status && { status: config.status }),
-          ...(config.type !== 'partners' && { language: section.local }),
+          language: section.local,
         };
 
         let data;

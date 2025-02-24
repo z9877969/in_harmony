@@ -22,6 +22,7 @@
     "destination": "Призначення",
     "coverCommission": "Покрити комісію 2%. Без втрат для допомоги.",
     "btnText": "До сплати",
+    "loadingText": "обробка запиту",
     "otherPaymentMethods": "Інші способи оплати",
     "validationMessage": {
       "required": "Це поле обов'язкове",

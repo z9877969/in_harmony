@@ -1,16 +1,14 @@
 import Image from 'next/image';
 import s from './CardProjectReporting.module.scss';
 
-
 import CardQuantityComments from './CardQuantityComments/CardQuantityComments';
 import ProjectDetailsButton from './ProjectDetailsButton/ProjectDetailsButton';
 
 export default function CardProjectReporting({ slid }) {
-
   const {
     _id,
     image,
-    alt,
+    // alt,
     title,
     collected_title,
     target,
@@ -20,25 +18,22 @@ export default function CardProjectReporting({ slid }) {
     period,
     comments,
     quantity,
-    image,
-
   } = slid;
 
   comments;
 
-  const dataProps =
-    image && image.length > 0
-      ? {
-          imageUrl: image[0],
-        }
-      : {
-          imageUrl: '/images/default-image.jpg',
-        };
+  // const dataProps =
+  //   image && image.length > 0
+  //     ? {
+  //         imageUrl: image[0],
+  //       }
+  //     : {
+  //         imageUrl: '/images/default-image.jpg',
+  //       };
 
   return (
     <div className={s.list}>
       <div className={s.slide}>
-
         <div className={s.overlay}>
           <Image
             className={s.image}
@@ -61,7 +56,6 @@ export default function CardProjectReporting({ slid }) {
               </SwiperSlide>
             ))}
           </DotsSwiper> */}
-
 
           <div className={s.wrapper}>
             <h3 className={s.title}>{title}</h3>

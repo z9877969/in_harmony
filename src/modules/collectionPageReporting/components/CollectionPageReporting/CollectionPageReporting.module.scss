@@ -4,31 +4,3 @@
 .title {
   margin-bottom: 12px;
 }
-.link {
-  padding: 11px 32px;
-  border-radius: 60px;
-  border: 2px solid $violet-ui-text-color;
-  background: transparent;
-  color: $violet-ui-text-color;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 1.5;
-  width: 100%;
-  text-align: center;
-  @include media(tablet) {
-    width: 416px;
-  }
-}
-
-.linkWrapper {
-  display: flex;
-  justify-content: center;
-  margin: auto;
-  margin-top: 32px;
-  @include media(tablet) {
-    margin-top: 40px;
-  }
-  @include media(desktop) {
-    margin-top: 32px;
-  }
-}

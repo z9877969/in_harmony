@@ -1,7 +1,6 @@
 import { Container, Icon, SectionTitle } from '@/shared/components';
 import donation from '../../data/section-content.json';
 import s from './AboutPageMakeDonation.module.scss';
-import HelpButton from '../HelpButton/HelpButton';
 
 import LinkButtonAboutPageMakeDonate from '../LinkButtonAboutPageMakeDonate/LinkButtonAboutPageMakeDonate.jsx';
 

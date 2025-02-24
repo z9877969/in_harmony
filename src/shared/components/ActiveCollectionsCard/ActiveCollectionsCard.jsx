@@ -10,6 +10,7 @@ import LinkButton from '../LinkButton/LinkButton.jsx';
 
 import s from './ActiveCollectionsCard.module.scss';
 import { useTranslation } from 'react-i18next';
+import { getDonorText } from '../../helpers/getDonorText.js';
 
 function ActiveCollectionsCard({ collection }) {
   const pathname = usePathname();
@@ -46,7 +47,7 @@ function ActiveCollectionsCard({ collection }) {
           <p className={s.peopleDonate}>
             <Icon iconName="icon-people" className={s.collectionIcon} />
             <span>{collection.peopleDonate}</span>
-            {t('donor.3rd')}
+            {` ${getDonorText(collection.peopleDonate, locale)}`}
           </p>
           <div className={s.buttonContainer}>
             <LinkButton

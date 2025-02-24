@@ -85,3 +85,15 @@ export const TELEGRAM_CONFIG = {
 };
 
 export const FLIPPED_TIME_MS=15000
+
+export const donorsDict = {
+  ua: {
+    1: 'донор',
+    2: 'донори',
+    3: 'донорів',
+  },
+  en: {
+    1: 'donor',
+    2: 'donors',
+  },
+};

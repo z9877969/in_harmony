@@ -38,8 +38,8 @@
   object-fit: cover;
 }
 
-.importance {
-  background-color: $collection-importance;
+@mixin importance($color) {
+  color: $color;
   border-radius: 24px;
   padding: 4px 12px;
   width: max-content;
@@ -49,13 +49,11 @@
   font-weight: 600;
   @include font(16, 24);
 
-  color: $collection-importance-text;
-
   &::before {
     content: '';
     width: 8px;
     height: 8px;
-    background-color: $collection-importance-text;
+    background-color: $color;
     display: block;
     border-radius: 100%;
   }
@@ -143,4 +141,12 @@
   @include media(tablet) {
     padding: 8px;
   }
+}
+.permanent {
+  @include importance($progress-bar-line);
+  background-color: $progress-term-bg;
+}
+.urgent {
+  @include importance($collection-importance-text);
+  background-color: $collection-importance;
 }

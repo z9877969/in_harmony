@@ -19,7 +19,6 @@ const ContactUs = ({ data }) => {
   const innerRef = useRef(null);
   const [size, setSize] = useState({ width: '100%', height: '100%' });
   const flipTimeoutRef = useRef(null);
-  console.log('>>>>>>>>');
 
   const validationSchema = useMemo(
     () =>
@@ -116,7 +115,6 @@ const ContactUs = ({ data }) => {
     return () => clearTimeout(flipTimeoutRef.current);
   }, []);
 
-  console.log('data: ', data);
   if (!data) return null;
 
   return (

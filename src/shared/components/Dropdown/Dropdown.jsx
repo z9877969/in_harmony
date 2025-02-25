@@ -26,7 +26,7 @@ const Dropdown = ({ onSelect, initialValue, collections }) => {
         }
       }
     }
-  }, [initialValue]);
+  }, [initialValue, collections]);
 
   const toggleDropdown = () => {
     setIsDropdownOpen((prev) => !prev);

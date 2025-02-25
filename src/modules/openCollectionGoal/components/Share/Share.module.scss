@@ -26,19 +26,19 @@
 }
 
 .listClassName {
-  gap: 24px;
+  gap: 10px;
 }
 
 .itemClassName {
   width: 40px;
   height: 40px;
   flex-shrink: 0;
-  background-color: $social-icons-dark-grey-color;
+  background-color: $footer-input-bg-color;
 }
 
 .iconClassName {
-  width: 24px;
-  height: 24px;
+  width: 25px;
+  height: 25px;
   flex-shrink: 0;
-  fill: $wite-text-color;
+  fill: $radio-active-bg-color;
 }

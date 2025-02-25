@@ -1,30 +1,31 @@
 import { Container, Section, SectionTitle } from '@/shared/components/index.js';
-import data from '../../data/sectionContent.json';
 import Share from '../Share/Share.jsx';
 import SupportForm from '../SupportForm/SupportForm.jsx';
 import WhatCanBeDone from '../WhatCanBeDone/WhatCanBeDone.jsx';
 
 import s from './OpenCollectionGoal.module.scss';
 
-const OpenCollectionGoal = ({ goal }) => {
+const OpenCollectionGoal = async ({ content, goal }) => {
   return (
     <Section>
       <Container>
         <div className={s.grid}>
-          <SectionTitle className={s.gridItemTitle} title={data.sectionTitle} />
-          <WhatCanBeDone
-            className={s.gridItemWhatCanBeDone}
-            data={data.whatCanBeDone}
-          />
+          <div className={s.gridItemTitle}>
+            <SectionTitle className={s.sectionTitle} title={content.title} />
+            <WhatCanBeDone
+              className={s.gridItemWhatCanBeDone}
+              data={content.whatCanBeDone}
+            />
+          </div>
 
           <SupportForm
             value={goal}
             className={s.gridItemForm}
-            data={data.supportForm}
+            data={content.supportForm}
             goal={goal}
           />
 
-          <Share data={data.share} className={s.gridItemShare} />
+          <Share data={content.share} className={s.gridItemShare} />
         </div>
       </Container>
     </Section>

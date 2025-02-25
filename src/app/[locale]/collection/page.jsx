@@ -4,10 +4,7 @@ import { insideServerApi as api } from '@/shared/services';
 // import s from './page.module.scss';
 
 const CollectionPage = async ({ params: { locale } }) => {
-  const { sectionsDict } = await api.getPageApi({
-    locale,
-    page: 'collection',
-  });
+  const { sectionsDict } = await api.getPageApi({ locale, page: 'collection' });
 
   return (
     <>

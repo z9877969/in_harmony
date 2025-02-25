@@ -32,7 +32,11 @@ function ActiveCollectionsCard({ collection }) {
             blurDataURL="/images/blur-placeholder.jpg"
           />
         </div>
-        <p className={s.importance}>
+        <p
+          className={
+            collection?.importance === 'permanent' ? s.permanent : s.urgent
+          }
+        >
           {t(`importanceType.${collection.importance}`)}
         </p>
         <div className={s.mainContentContainer}>

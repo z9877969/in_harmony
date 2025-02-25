@@ -82,9 +82,10 @@ export const PAYMENT_CONFIG = {
 export const TELEGRAM_CONFIG = {
   TOKEN: process.env.TELEGRAM_TOKEN,
   CHAT_ID: process.env.TELEGRAM_CHAT_ID,
+  TIMEOUT_S: 60,
 };
 
-export const FLIPPED_TIME_MS=15000
+export const FLIPPED_TIME_MS = 15000;
 
 export const donorsDict = {
   ua: {

@@ -26,7 +26,6 @@ const OpenCollectionPageHero = ({ content }) => {
             />
             <div className={s.info}>
               <h2 className={s.title}>{title}</h2>
-
               <OpenCollectionPageBadge importance={importance} />
               <div className={s.description}>
                 <p>{long_desc.section1}</p>

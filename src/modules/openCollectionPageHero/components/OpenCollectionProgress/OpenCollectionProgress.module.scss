@@ -8,7 +8,7 @@
   @include font(16, 24);
   font-family: $primary-font-family;
   font-weight: 400;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 
   @include media(desktop) {
     @include font(18, 27);
@@ -32,24 +32,35 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 12px;
+
+  @include media(desktop) {
+    margin-bottom: 18px;
+  }
 }
 
 .bar {
   width: 281px;
   height: 12px;
   background-color: #d9d9d9;
+  margin-right: 16px;
 
   @include media(tablet) {
     width: 569px;
     height: 14px;
+    margin-right: 24px;
   }
   @include media(desktop) {
     width: 1186px;
+    margin-right: 32px;
   }
 }
 
 .progressLine {
-  background-color: $primary-text-color;
+  background-color: $progress-bar-numbers;
+}
+.progreessBarText {
+  color: $progress-bar-numbers;
 }
 
 .progressContainer > p {
@@ -70,20 +81,29 @@
   display: flex;
   gap: 8px;
   align-items: center;
-  margin-top: 16px;
+  margin-bottom: 12px;
 
-  @include media(tablet) {
-    margin-top: 32px;
+  @include media(desktop) {
+    margin-bottom: 18px;
   }
 }
 
 .icon {
   width: 24px;
   height: 24px;
+  fill: $radio-active-bg-color;
 }
 
 .donors > p {
   @include font(16, 24);
   font-family: $primary-font-family;
   font-weight: 400;
+}
+
+.activeProgressBar {
+  background-color: $progress-bar-line;
+}
+
+.activeProgressAmount {
+  color: $progress-bar-numbers;
 }

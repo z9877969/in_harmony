@@ -18,9 +18,6 @@ const nextConfig = {
       @import "src/shared/styles/_variables.scss";
       `,
   },
-  images: {
-    domains: ['res.cloudinary.com'],
-  },
 };
 
 export default nextConfig;

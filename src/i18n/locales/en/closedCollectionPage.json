@@ -1,4 +1,8 @@
 {
-    "section_1_Name": {},
-    "section_2_Name": {}
+  "reporting": "Reporting",
+  "button_details": "Details",
+  "allReports": "All reports",
+  "showMore": "Show more",
+  "noCommentsQuantity": "None",
+  "section_2_Name": {}
 }

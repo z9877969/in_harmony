@@ -26,6 +26,25 @@
 	}
 }
 
+.image {
+	width: 100%;
+	height: 100%;
+	background-color: $img-backdrop-color;
+	border-radius: 22px;
+	object-fit: cover;
+
+	@include media(mobile) {
+		width: 370px;
+	}
+	@include media(tablet) {
+		width: 688px;
+		height: 360px;
+	}
+	@include media(desktop) {
+		width: 526px;
+	}
+}
+
 .icon {
 	width: 36px;
 	height: 36px;

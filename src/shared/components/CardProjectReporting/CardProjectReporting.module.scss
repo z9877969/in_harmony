@@ -26,8 +26,14 @@ $slide-spacing-lg: 2rem;
   padding: 16px;
   border-radius: 32px;
 
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
   @include media(tablet) {
     padding: 20px;
+    justify-content: space-between;
+
   }
   @include media(desktop) {
     padding: 20px;
@@ -61,12 +67,16 @@ $slide-spacing-lg: 2rem;
   color: $secondary-text-color;
 }
 
-.imgBlock {
+
+.image {
+
   width: 100%;
   height: 234px;
   border-radius: 22px;
   background: #dddddd;
   margin-bottom: 50px;
+  object-fit: cover;
+
 }
 
 .btnWrapper {

@@ -8,11 +8,32 @@
     "placeholderEmail": "Your Email",
     "placeholderMessage": "Your Message",
     "buttonText": "Send",
-    "buttonAriaLabel": "Submit the contact form"
+    "buttonTextLoading": "Sending...",
+    "buttonAriaLabel": "Submit the contact form",
+    "tgMessage": "📩 New request! Name: <b>{{name}}</b> Email: <b>{{email}}</b> Message: <b>\"{{message}}.\"</b>"
   },
   "apiErrors": {
     "fetchingError": "Error while fetching data:",
     "missingDataError": "Expected data is missing in the API response:",
     "exceptionError": "Exception, Error during request:"
+  },
+  "errorMessage": {
+    "supportFormSaveError": "Error saving support form data: {{status}} {{statusText}}. Please try again later.",
+    "supportFormSaveErrorException": "Error saving and sending data:"
+  },
+
+  "validationForm": {
+    "name": {
+      "min": "Name must be at least {{min}} characters long",
+      "required": "Name is required"
+    },
+    "email": {
+      "invalid": "Invalid email address",
+      "required": "Email is required"
+    },
+    "message": {
+      "min": "Message must be at least {{min}} characters long",
+      "required": "Message is required"
+    }
   }
 }

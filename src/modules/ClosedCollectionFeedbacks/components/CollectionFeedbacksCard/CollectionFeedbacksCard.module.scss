@@ -4,7 +4,7 @@
   justify-content: space-between;
   height: 194px;
   box-sizing: border-box;
-  background-color: $feedback_bg_color;
+  background-color: $card_beige_bg;
   border-radius: 22px;
   padding: 16px;
 
@@ -48,8 +48,11 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  font-weight: 400;
+  font-weight: 600;
   @include font(16, 24);
+  @include media(tablet) {
+    @include font(18, 27);
+  }
 
   &::before {
     content: '';

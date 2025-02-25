@@ -1,7 +1,6 @@
 import { Container } from '@/shared/components';
 import s from './OpenCollectionPageHero.module.scss';
 import OpenCollectionProgress from '../OpenCollectionProgress/OpenCollectionProgress';
-import CollectionStatusLabel from '../CollectionStatusLabel/CollectionStatusLabel';
 import Image from 'next/image';
 import OpenCollectionPageBadge from '../openCollectionPageBadge/openCollectionPageBadge';
 // import StatusCollectionReport from '../StatusCollectionReport/StatusCollectionReport';

@@ -20,7 +20,7 @@ export default async function handler(req, res) {
         throw new Error('Failed to save support data');
       }
     } catch (error) {
-      // eslint-disable-next-line
+      // eslint-disable-next-line no-console
       console.error('Database Error: Unable to save support form data', error);
       return res.status(500).json({
         message: 'Internal Server Error: Could not save support request.',
@@ -36,7 +36,7 @@ export default async function handler(req, res) {
         throw new Error('Telegram API request failed');
       }
     } catch (error) {
-      // eslint-disable-next-line
+      // eslint-disable-next-line no-console
       console.error('Telegram Error: Failed to send message', error);
       return res.status(500).json({
         message: 'Internal Server Error: Could not send Telegram message.',
@@ -48,11 +48,11 @@ export default async function handler(req, res) {
     try {
       updatedData = await updateSupportData({
         id: supportData._id,
-        tgResult: tgResult.data,
+        tgResult: tgResult.result,
         status: 'Delivered',
       });
     } catch (error) {
-      // eslint-disable-next-line
+      // eslint-disable-next-line no-console
       console.error('Database Error: Unable to update support data', error);
       return res.status(500).json({
         message: 'Internal Server Error: Could not update support request.',
@@ -65,7 +65,7 @@ export default async function handler(req, res) {
       supportData: updatedData,
     });
   } catch (error) {
-    // eslint-disable-next-line
+    // eslint-disable-next-line no-console
     console.error('Unexpected Error:', error?.stack);
     return res.status(500).json({
       message: 'Unexpected Server Error',

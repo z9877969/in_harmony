@@ -2,6 +2,8 @@
 
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import Link from 'next/link';
+import { useState, useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import {
   Button,
@@ -12,20 +14,16 @@ import {
   WFPForm,
 } from '../index.js';
 
-import dropdownData from '../Dropdown/data/Dropdown.json';
-
-import s from './PublicPrivateForm.module.scss';
-
-import { useState, useEffect, useRef } from 'react';
-import { useTranslation } from 'react-i18next';
 import {
   validationSchemaAnonymous,
   validationSchemaPublic,
 } from './validation/validationSchema.js';
 
-const collections = dropdownData.dropdownOptions;
+import s from './PublicPrivateForm.module.scss';
 
-const PublicPrivateForm = () => {
+const PublicPrivateForm = ({ content }) => {
+  const collections = content.cards;
+
   const [initialValues, setInitialValues] = useState({
     name: '',
     email: '',
@@ -102,7 +100,8 @@ const PublicPrivateForm = () => {
   return (
     <div className={s.boxForm}>
       <h2 className={s.title} id="title">
-        <span>{title1}</span><br />
+        <span>{title1}</span>
+        <br />
         <span>{title2}</span>
       </h2>
       <Formik
@@ -172,6 +171,7 @@ const PublicPrivateForm = () => {
                   value={field.value}
                   onSelect={(value) => setFieldValue('dropdown', value)}
                   initialValue={initialValues.dropdown}
+                  collections={collections}
                 />
               )}
             </Field>

@@ -18,11 +18,7 @@ import { validationSchema } from './validation/validationSchema';
 import s from './FormWithSumButtons.module.scss';
 
 const FormWithSumButtons = ({ className = '' }) => {
-  const initialValues = {
-    amount: '',
-    donateTime: 'false',
-    value: '',
-  };
+  const initialValues = { amount: '', donateTime: 'false', value: '' };
 
   const { t } = useTranslation('forms');
   const router = useRouter();
@@ -33,11 +29,7 @@ const FormWithSumButtons = ({ className = '' }) => {
     initialValues,
     validationSchema: validationSchema(t),
     onSubmit: (values) => {
-      const valuesAll = {
-        ...values,
-        value: initialValues.value || '',
-      };
-      const query = new URLSearchParams(valuesAll).toString();
+      const query = new URLSearchParams(values).toString();
       router.push(`/${locale}/${ROUTES.PAYMENTS(2)}?${query}`);
     },
   });
@@ -54,8 +46,10 @@ const FormWithSumButtons = ({ className = '' }) => {
 
   useEffect(() => {
     const searchParams = new URLSearchParams(window.location.search);
+    const value = searchParams.get('value') || '';
 
-    formik.setFieldValue('value', searchParams.get('value') || '');
+    formik.setFieldValue('value', value);
+    initialValues.value = value;
   }, []);
 
   return (

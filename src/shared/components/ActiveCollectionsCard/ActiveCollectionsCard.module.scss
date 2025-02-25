@@ -82,6 +82,26 @@
 		border-radius: 100%;
 	}
 }
+@mixin importance($color) {
+	color: $color;
+	border-radius: 24px;
+	padding: 4px 12px;
+	width: max-content;
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	font-weight: 600;
+	@include font(16, 24);
+
+	&::before {
+		content: "";
+		width: 8px;
+		height: 8px;
+		background-color: $color;
+		display: block;
+		border-radius: 100%;
+	}
+}
 
 .mainContentContainer {
 	display: flex;
@@ -161,8 +181,16 @@
 	gap: 16px;
 }
 .shadow {
-  padding: 6px;
-  @include media(tablet) {
-    padding: 8px;
-  }
+	padding: 6px;
+	@include media(tablet) {
+		padding: 8px;
+	}
+}
+.permanent {
+	@include importance($progress-bar-line);
+	background-color: $progress-term-bg;
+}
+.urgent {
+	@include importance($collection-importance-text);
+	background-color: $collection-importance;
 }

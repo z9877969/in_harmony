@@ -6,7 +6,7 @@ import OpenCollectionPageBadge from '../openCollectionPageBadge/openCollectionPa
 // import StatusCollectionReport from '../StatusCollectionReport/StatusCollectionReport';
 
 const OpenCollectionPageHero = ({ content }) => {
-  const { title, long_desc, importance, status, term, days, period } = content;
+  const { title, long_desc, importance } = content;
 
   return (
     <section className={s.wrapper}>

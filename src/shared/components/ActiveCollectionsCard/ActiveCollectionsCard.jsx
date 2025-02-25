@@ -10,6 +10,8 @@ import LinkButton from '../LinkButton/LinkButton.jsx';
 
 import s from './ActiveCollectionsCard.module.scss';
 import { useTranslation } from 'react-i18next';
+import OpenCollectionPageBadge from '@/modules/openCollectionPageHero/components/openCollectionPageBadge/openCollectionPageBadge.jsx';
+import { getDonorText } from '../../helpers/getDonorText.js';
 
 function ActiveCollectionsCard({ collection }) {
   const pathname = usePathname();
@@ -31,9 +33,8 @@ function ActiveCollectionsCard({ collection }) {
             blurDataURL="/images/blur-placeholder.jpg"
           />
         </div>
-        <p className={s.importance}>
-          {t(`importanceType.${collection.importance}`)}
-        </p>
+        <OpenCollectionPageBadge importance={collection.importance} />
+
         <div className={s.mainContentContainer}>
           <div className={s.contentContainer}>
             <h3 className={s.title}>{collection.title} </h3>
@@ -46,7 +47,7 @@ function ActiveCollectionsCard({ collection }) {
           <p className={s.peopleDonate}>
             <Icon iconName="icon-people" className={s.collectionIcon} />
             <span>{collection.peopleDonate}</span>
-            {t('donor.3rd')}
+            {` ${getDonorText(collection.peopleDonate, locale)}`}
           </p>
           <div className={s.buttonContainer}>
             <LinkButton

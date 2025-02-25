@@ -1,124 +1,147 @@
 .wrapper {
-  padding-top: 8px;
-  padding-bottom: 48px;
+	padding-top: 8px;
+	padding-bottom: 48px;
 
-  @include media(tablet) {
-    padding-top: 16px;
-  }
-  @include media(desktop) {
-    padding-bottom: 76px;
-  }
+	@include media(tablet) {
+		padding-top: 16px;
+	}
+	@include media(desktop) {
+		padding-bottom: 76px;
+	}
 }
 
 .mainContent {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  margin-bottom: 16px;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	margin-bottom: 16px;
 
-  @include media(tablet) {
-    gap: 24px;
-    margin-bottom: 32px;
-  }
-  @include media(desktop) {
-    gap: 48px;
-    flex-direction: row;
-  }
+	@include media(tablet) {
+		gap: 24px;
+		margin-bottom: 32px;
+	}
+	@include media(desktop) {
+		gap: 48px;
+		flex-direction: row;
+	}
 }
 
 .image {
-  width: 100%;
-  height: 240px;
-  background-color: $img-backdrop-color;
-  border-radius: 22px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	width: 100%;
+	height: 100%;
+	background-color: $img-backdrop-color;
+	border-radius: 22px;
+	object-fit: cover;
 
-  @include media(mobile) {
-    width: 370px;
-  }
-  @include media(tablet) {
-    width: 688px;
-    height: 360px;
-  }
-  @include media(desktop) {
-    width: 526px;
-  }
+	@include media(mobile) {
+		width: 370px;
+	}
+	@include media(tablet) {
+		width: 688px;
+		height: 360px;
+	}
+	@include media(desktop) {
+		width: 526px;
+	}
 }
 
 .icon {
-  width: 36px;
-  height: 36px;
+	width: 36px;
+	height: 36px;
 }
 
 .info {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
 
-  @include media(tablet) {
-    gap: 18px;
-  }
+	@include media(tablet) {
+		gap: 18px;
+	}
 }
 
 .title {
-  @include font(32, 40);
-  font-family: $secondary-font-family;
+	@include font(32, 40);
+	font-family: $secondary-font-family;
 
-  @include media(tablet) {
-    @include font(40, 48);
-  }
-  @include media(desktop) {
-    @include font(48, 56);
-  }
+	@include media(tablet) {
+		@include font(40, 48);
+	}
+	@include media(desktop) {
+		@include font(48, 56);
+	}
 }
 
 .status {
-  display: flex;
-  gap: 12px;
-  align-items: center;
+	display: flex;
+	gap: 12px;
+	align-items: center;
 }
 
 .status > span {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: $primary-text-color;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background-color: $primary-text-color;
 }
 
 .status > p {
-  @include font(18, 27);
-  font-family: $primary-font-family;
+	@include font(18, 27);
+	font-family: $primary-font-family;
 
-  @include media(tablet) {
-    @include font(16, 24);
-  }
-  @include media(desktop) {
-    @include font(18, 27);
-  }
+	@include media(tablet) {
+		@include font(16, 24);
+	}
+	@include media(desktop) {
+		@include font(18, 27);
+	}
 }
 
 .description {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
 
-  @include media(tablet) {
-    gap: 16px;
-  }
-  @include media(desktop) {
-    gap: 8px;
-  }
+	@include media(tablet) {
+		gap: 16px;
+	}
+	@include media(desktop) {
+		gap: 8px;
+	}
 }
 
 .description > p {
-  @include font(16, 24);
-  font-family: $primary-font-family;
-  font-weight: 400;
+	@include font(16, 24);
+	font-family: $primary-font-family;
+	font-weight: 400;
 
-  @include media(desktop) {
-    @include font(18, 27);
-    max-width: 722px;
-  }
+	@include media(desktop) {
+		@include font(18, 27);
+		max-width: 722px;
+	}
+}
+
+.imageWrapper {
+	position: relative;
+	border-radius: 22px;
+	background: #ddd;
+	width: 100%;
+	aspect-ratio: 16 / 11.35;
+	height: auto;
+	max-height: 360px;
+	overflow: hidden;
+
+	@include media(mobile) {
+		width: 370px;
+	}
+	@include media(tablet) {
+		width: 688px;
+		height: 360px;
+	}
+	@include media(desktop) {
+		width: 526px;
+	}
+}
+.image {
+	object-fit: cover;
 }

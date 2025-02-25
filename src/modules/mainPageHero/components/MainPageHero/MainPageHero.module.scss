@@ -82,17 +82,19 @@
 }
 
 .form {
-  max-width: 374px;
   position: absolute;
   top: 40%;
   left: 50%;
   transform: translate(-50%, 40%);
-  width: calc(100% - 32px);
-  z-index: 2;
+  z-index: 10;
+  width: 100%;
 
   @include media(mobile) {
     width: 100%;
     top: 40%;
+
+    top: 30%;
+
     left: 50%;
     transform: translate(-50%, 40%);
     width: auto;

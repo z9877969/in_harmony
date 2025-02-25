@@ -78,3 +78,23 @@ export const PAYMENT_CONFIG = {
   regularOn: '1',
   regularCount: '12',
 };
+
+export const TELEGRAM_CONFIG = {
+  TOKEN: process.env.TELEGRAM_TOKEN,
+  CHAT_ID: process.env.TELEGRAM_CHAT_ID,
+  TIMEOUT_S: 60,
+};
+
+export const FLIPPED_TIME_MS = 15000;
+
+export const donorsDict = {
+  ua: {
+    1: 'донор',
+    2: 'донори',
+    3: 'донорів',
+  },
+  en: {
+    1: 'donor',
+    2: 'donors',
+  },
+};

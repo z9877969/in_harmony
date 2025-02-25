@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import s from './CardForSwiperWhithArrow.module.scss';
 
 const CardForSwiperWhithArrow = ({ slid }) => {
@@ -10,7 +11,12 @@ const CardForSwiperWhithArrow = ({ slid }) => {
     days,
     period,
     currency,
+    image,
   } = slid;
+  const dataImage =
+    image && image.length > 0
+      ? { imageUrl: image[1] }
+      : { imageUrl: '/images/default_image.webp' };
 
   return (
     <div className={s.list}>
@@ -28,7 +34,18 @@ const CardForSwiperWhithArrow = ({ slid }) => {
             </p>
           </div>
         </div>
-        <div className={s.imgBlock}></div>
+        <div className={s.imgBlock}>
+          <Image
+            className={s.image}
+            src={dataImage.imageUrl}
+            alt={title}
+            fill
+            priority
+            sizes="100%"
+            placeholder="blur"
+            blurDataURL="/images/blur-placeholder.jpg"
+          />
+        </div>
       </div>
     </div>
   );

@@ -8,11 +8,16 @@ import {
   SectionTitle,
 } from '@/shared/components';
 
+import { insideServerApi as api } from '@/shared/services';
+
 import s from './page.module.scss';
 
-const PaymentsPage = ({ params }) => {
+const PaymentsPage = async ({ params }) => {
   const { stepAmount } = params;
   const progress = stepAmount === '1' ? 30 : stepAmount === '2' ? 60 : 100;
+
+  const { locale } = params;
+  const { sectionsDict } = await api.getPageApi({ locale, page: 'collection' });
 
   return (
     <>
@@ -26,7 +31,11 @@ const PaymentsPage = ({ params }) => {
             />
             <SectionTitle className={s.titlePaymentPage} title={data.title} />
             {stepAmount === '1' && <FormWithSumButtons />}
-            {stepAmount === '2' && <PublicPrivateForm />}
+            {stepAmount === '2' && (
+              <PublicPrivateForm
+                content={sectionsDict.active_collections.section_content}
+              />
+            )}
           </div>
         </Container>
       </section>

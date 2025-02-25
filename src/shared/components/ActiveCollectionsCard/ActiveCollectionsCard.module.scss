@@ -1,146 +1,196 @@
 .content {
-  padding: 16px 16px 24px 16px;
-  border-radius: 32px;
-  width: 100%;
-  max-width: 370px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  box-shadow: 0 0 20px 0 rgba(71, 0, 123, 0.1);
+	padding: 16px 16px 24px 16px;
+	border-radius: 32px;
+	width: 100%;
+	max-width: 370px;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	box-shadow: 0 0 20px 0 rgba(71, 0, 123, 0.1);
 
-  @include media(tablet) {
-    max-width: 332px;
-    padding: 20px 20px 28px 20px;
-    gap: 16px;
-  }
+	@include media(tablet) {
+		max-width: 332px;
+		padding: 20px 20px 28px 20px;
+		gap: 16px;
+	}
 
-  @include media(desktop) {
-    max-width: 416px;
-  }
+	@include media(desktop) {
+		max-width: 416px;
+	}
 }
 
 .imageWrapper {
-  position: relative;
-  border-radius: 22px;
-  background: #ddd;
-  width: 100%;
-  aspect-ratio: 16 / 11.35;
-  height: auto;
-  max-height: 240px;
-  overflow: hidden;
+	position: relative;
+	border-radius: 22px;
+	background: #ddd;
+	width: 100%;
+	aspect-ratio: 16 / 11.35;
+	height: auto;
+	max-height: 240px;
+	overflow: hidden;
 }
 
 .image {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
 .importance {
-  background-color: $collection-importance;
-  border-radius: 24px;
-  padding: 4px 12px;
-  width: max-content;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  font-weight: 600;
-  @include font(16, 24);
+	background-color: $collection-importance;
+	border-radius: 24px;
+	padding: 4px 12px;
+	width: max-content;
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	font-weight: 600;
+	@include font(16, 24);
 
-  color: $collection-importance-text;
+	color: $collection-importance-text;
 
-  &::before {
-    content: '';
-    width: 8px;
-    height: 8px;
-    background-color: $collection-importance-text;
-    display: block;
-    border-radius: 100%;
-  }
+	&::before {
+		content: "";
+		width: 8px;
+		height: 8px;
+		background-color: $collection-importance-text;
+		display: block;
+		border-radius: 100%;
+	}
+}
+.nonUrgent {
+	background-color: #f5faf5;
+	border-radius: 24px;
+	padding: 4px 12px;
+	width: max-content;
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	font-weight: 600;
+	@include font(16, 24);
+
+	color: $progress-bar-line;
+
+	&::before {
+		content: "";
+		width: 8px;
+		height: 8px;
+		background-color: $progress-bar-line;
+		display: block;
+		border-radius: 100%;
+	}
+}
+@mixin importance($color) {
+	color: $color;
+	border-radius: 24px;
+	padding: 4px 12px;
+	width: max-content;
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	font-weight: 600;
+	@include font(16, 24);
+
+	&::before {
+		content: "";
+		width: 8px;
+		height: 8px;
+		background-color: $color;
+		display: block;
+		border-radius: 100%;
+	}
 }
 
 .mainContentContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
 
-  @include media(tablet) {
-    gap: 28px;
-  }
+	@include media(tablet) {
+		gap: 28px;
+	}
 
-  .contentContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+	.contentContainer {
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
 
-    @include media(tablet) {
-      gap: 32px;
-    }
-  }
+		@include media(tablet) {
+			gap: 32px;
+		}
+	}
 }
 
 .title {
-  height: 74px;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  font-weight: 700;
-  @include font(20, 28);
-  font-family: $secondary-font-family;
-  padding-top: 16px;
+	height: 74px;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	font-weight: 700;
+	@include font(20, 28);
+	font-family: $secondary-font-family;
+	padding-top: 16px;
 
-  @include media(tablet) {
-    padding-top: 20px;
-  }
+	@include media(tablet) {
+		padding-top: 20px;
+	}
 
-  @include media(desktop) {
-    @include font(24, 28);
-  }
+	@include media(desktop) {
+		@include font(24, 28);
+	}
 }
 
 .desc {
-  height: 102px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  font-weight: 400;
-  @include font(16, 24);
+	height: 102px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 4;
+	-webkit-box-orient: vertical;
+	font-weight: 400;
+	@include font(16, 24);
 }
 
 .peopleDonate {
-  font-weight: 400;
-  @include font(16, 24);
-  display: flex;
-  align-items: center;
-  gap: 8px;
+	font-weight: 400;
+	@include font(16, 24);
+	display: flex;
+	align-items: center;
+	gap: 8px;
 }
 
 //icon style
 .collectionIcon {
-  width: 24px;
-  height: 24px;
-  fill: $radio-active-bg-color;
+	width: 24px;
+	height: 24px;
+	fill: $radio-active-bg-color;
 }
 
 .heartIcon {
-  width: 24px;
-  height: 24px;
-  fill: $wite-text-color;
+	width: 24px;
+	height: 24px;
+	fill: $wite-text-color;
 }
 
 .buttonContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
 }
 .shadow {
-  padding: 6px;
-  @include media(tablet) {
-    padding: 8px;
-  }
+	padding: 6px;
+	@include media(tablet) {
+		padding: 8px;
+	}
+}
+.permanent {
+	@include importance($progress-bar-line);
+	background-color: $progress-term-bg;
+}
+.urgent {
+	@include importance($collection-importance-text);
+	background-color: $collection-importance;
 }

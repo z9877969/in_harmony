@@ -6,6 +6,7 @@ import { Container, Icon } from '@/shared/components';
 import { useTranslation } from 'react-i18next';
 import { useEffect, useMemo, useState } from 'react';
 import s from './Breadcrumbs.module.scss';
+import usePageTitle from '@/shared/hooks/usePageTitle';
 const isId = (segment) => /^[a-f0-9]{24}$/i.test(segment);
 
 const Breadcrumbs = () => {
@@ -53,6 +54,8 @@ const Breadcrumbs = () => {
     fetchTitles();
   }, [local, pathSegments]);
 
+  usePageTitle(pathSegments, titles);
+
   if (pathname === `/${local}`) return null;
   return (
     <Container>
@@ -71,10 +74,6 @@ const Breadcrumbs = () => {
               isId(segment) && titles[segment]
                 ? titles[segment]
                 : translatedSegment;
-
-            if (isId(segment) && titles[segment]) {
-              segmentName = titles[segment];
-            }
 
             return (
               <li key={href} className={`${s.item} ${isLast ? s.active : ''}`}>

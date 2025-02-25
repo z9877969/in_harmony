@@ -1,17 +1,17 @@
 'use client';
 
+import { useTranslation } from 'react-i18next';
 import { useState, useEffect, useRef } from 'react';
-import { Icon } from '..';
 
-import data from './data/Dropdown.json';
+import { Icon } from '..';
 
 import s from './Dropdown.module.scss';
 
-const collections = data.dropdownOptions;
+const Dropdown = ({ onSelect, initialValue, collections }) => {
+  const { t } = useTranslation('forms');
 
-const Dropdown = ({ onSelect, initialValue }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [title, setTitle] = useState(data.title);
+  const [title, setTitle] = useState(t('paymentInfo.dropdown'));
   const buttonRef = useRef(null);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const Dropdown = ({ onSelect, initialValue }) => {
         }
       }
     }
-  }, [initialValue]);
+  }, [initialValue, collections]);
 
   const toggleDropdown = () => {
     setIsDropdownOpen((prev) => !prev);

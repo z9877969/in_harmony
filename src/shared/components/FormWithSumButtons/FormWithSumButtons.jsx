@@ -34,8 +34,6 @@ const FormWithSumButtons = ({ className = '' }) => {
     },
   });
 
-  const { setFieldValue } = formik;
-
   const {
     handleChange,
     handleBlur,

@@ -1,7 +1,7 @@
 import { initServerI18n } from '@/i18n/utils/serverI18n.js';
 import { TELEGRAM_CONFIG } from '@/shared/constants/index.js';
 
-const { TOKEN, CHAT_ID } = TELEGRAM_CONFIG;
+const { TOKEN, CHAT_ID, TIMEOUT_S } = TELEGRAM_CONFIG;
 
 export const sendMessageTg = async (data) => {
   try {
@@ -11,7 +11,7 @@ export const sendMessageTg = async (data) => {
     const tgMessage = t('contactUs.tgMessage', { name, email, message });
 
     const response = await fetch(
-      `https://api.telegram.org/bot${TOKEN}/sendMessage`,
+      `https://api.telegram.org/bot${TOKEN}/sendMessage?timeout=${TIMEOUT_S}`,
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

@@ -31,6 +31,7 @@ export default async function handler(req, res) {
     let tgResult;
     try {
       tgResult = await sendMessageTg(req.body);
+      console.log('>>>tgResult: ', tgResult);
 
       if (!tgResult || !tgResult?.ok) {
         throw new Error('Telegram API request failed');
@@ -48,7 +49,7 @@ export default async function handler(req, res) {
     try {
       updatedData = await updateSupportData({
         id: supportData._id,
-        tgResult: tgResult.data,
+        tgResult: tgResult.result,
         status: 'Delivered',
       });
     } catch (error) {

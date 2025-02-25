@@ -9,6 +9,7 @@ export const createSupportData = async (data) => {
     await supportData.save();
     return supportData;
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error('Error creating support data:', error);
     throw new Error(error.message);
   }
@@ -37,6 +38,7 @@ export const updateSupportData = async (data) => {
 
     return updatedData;
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error('Error updating support data:', error);
     throw new Error(error.message);
   }

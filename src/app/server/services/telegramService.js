@@ -32,6 +32,7 @@ export const sendMessageTg = async (data) => {
     const result = await response.json();
     return result;
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error('Error sending Telegram message:', error);
     throw error;
   }

@@ -105,7 +105,8 @@ const ContactUs = ({ data }) => {
           FLIPPED_TIME_MS
         );
       } catch (error) {
-        console.error(t('supportFormSaveErrorException'), error);
+        // eslint-disable-next-line no-console
+        console.error(t('errorMessage.supportFormSaveErrorException'), error);
         setError(error.message);
       }
     },

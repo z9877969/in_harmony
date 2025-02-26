@@ -1,16 +1,14 @@
-import data from './data/sectionContent.json';
-
 import {
   Container,
   FormWithSumButtons,
   ProgressBar,
   PublicPrivateForm,
-  SectionTitle,
 } from '@/shared/components';
 
 import { insideServerApi as api } from '@/shared/services';
 
 import s from './page.module.scss';
+import PaymentsPageStep from '@/modules/paymentsPageStep/components/PaymentsPageStep/PaymentsPageStep.jsx';
 
 const PaymentsPage = async ({ params }) => {
   const { stepAmount } = params;
@@ -29,7 +27,7 @@ const PaymentsPage = async ({ params }) => {
               progress={progress}
               progressLine={s.progressLinePaymentPage}
             />
-            <SectionTitle className={s.titlePaymentPage} title={data.title} />
+            <PaymentsPageStep />
             {stepAmount === '1' && <FormWithSumButtons />}
             {stepAmount === '2' && (
               <PublicPrivateForm

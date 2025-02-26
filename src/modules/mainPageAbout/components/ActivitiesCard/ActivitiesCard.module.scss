@@ -64,11 +64,17 @@
   left: 18px;
 }
 
+.icon-trident {
+  width: 65px;
+  height: 84px;
+  top: 23px;
+  left: 28px;
+}
+
 .card > h3 {
   @include font(18, 27);
   font-family: $primary-font-family;
   max-width: 266px;
-  height: 54px;
   text-align: center;
   color: $secondary-text-color;
 

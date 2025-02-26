@@ -16,8 +16,14 @@
   flex-direction: column;
   align-items: center;
   margin: auto;
-  margin-bottom: 64px;
-  max-width: 768px;
+  margin-bottom: 36px;
+  @include media(tablet) {
+    margin-bottom: 44px;
+    max-width: 768px;
+  }
+  @include media(desktop) {
+    margin-bottom: 64px;
+  }
 }
 .iconCheck {
   width: 42px;
@@ -81,8 +87,8 @@
   background-color: $primary-bg-color;
   padding: 16px;
   border-radius: 32px;
-  transform: translateY(-64px);
-  margin-bottom: 30px;
+  transform: translateY(-94px);
+
   box-shadow: 0px 4px 25px 0px $shadow-color;
 
   @include media(tablet) {
@@ -90,6 +96,7 @@
     width: 636px;
     padding: 28px 20px;
     border-radius: 40px;
+    transform: translateY(-56px);
   }
   @include media(desktop) {
     width: 856px;
@@ -120,7 +127,8 @@
   flex-direction: column;
   margin-bottom: 72px;
   @include media(tablet) {
-    margin-bottom: 120px;
+    margin-bottom: 94px;
+    padding-top: 20px;
   }
   @include media(desktop) {
     flex-direction: row;

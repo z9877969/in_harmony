@@ -37,7 +37,7 @@ const Breadcrumbs = () => {
         for (const segment of pathSegments) {
           if (isId(segment)) {
             const foundItem = allCollections.find(
-              (item) => item._id === segment
+              (item) => item._id || item.translations === segment
             );
             if (foundItem) {
               newTitles[segment] = foundItem.title;

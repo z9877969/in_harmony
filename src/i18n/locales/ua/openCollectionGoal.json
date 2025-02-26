@@ -1,0 +1,10 @@
+{
+  "supportForm": {
+    "submitBtnText": "До сплати",
+    "otherPaymentsLinkText": "Інші способи оплати",
+    "validation": {
+      "positive": "Сума повинна бути більше 0",
+      "required": "Вкажіть суму"
+    }
+  }
+}

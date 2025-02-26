@@ -1,4 +1,40 @@
 .sectionClass {
+  @include media(desktop) {
+    align-self: center;
+    padding-inline: 110px;
+  }
+}
+
+.donateLabel {
+  display: flex;
+  justify-content: flex-end;
+  height: 25px;
+  padding: 0px 29.746px 0.279px 0px;
+  gap: 12.254px;
+  margin-bottom: 12px;
+
+  @include media(tablet) {
+    margin-bottom: 18px;
+  }
+}
+
+.donateText {
+  color: $footer-bold-text-color;
+  @include font(14, 22);
+  font-style: normal;
+  font-weight: 400;
+  align-self: stretch;
+}
+
+.donateArrowIcon {
+  display: flex;
+  width: 28px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.formWrapper {
   color: $footer-bold-text-color;
   padding: 24px 16px;
   background-color: $form-donate-bg-color;
@@ -13,6 +49,10 @@
 
   box-shadow: 0px 0px 12px 0px $shadow-color;
   backdrop-filter: blur(5px);
+
+  @include media(tablet) {
+    padding: 28px 20px;
+  }
 }
 
 .title {

@@ -14,6 +14,7 @@ const collectionSchema = new mongoose.Schema({
   language: { type: String, required: true },
   collected_title: { type: String, default: null },
   target_title: { type: String, default: null },
+  translations: { type: String, default: null, required: true },
   //reporting options
   term: { type: String, default: null },
   days: { type: String, default: null },
@@ -34,6 +35,7 @@ const collectionSchema = new mongoose.Schema({
     type: String,
     required: true,
     enum: ['collections'],
+    default: 'collections',
   },
   value: {
     type: String,
@@ -43,7 +45,7 @@ const collectionSchema = new mongoose.Schema({
     type: String,
     enum: ['urgent', 'important', 'non-urgent', 'permanent'],
     required: true,
-    default: 'important',
+    default: null,
   },
 });
 

@@ -4,6 +4,8 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
+import { usePathname } from 'next/navigation.js';
+import { ROUTES } from '@/shared/constants';
 
 import {
   Button,
@@ -23,6 +25,7 @@ import s from './PublicPrivateForm.module.scss';
 
 const PublicPrivateForm = ({ content }) => {
   const collections = content.cards;
+  const locale = usePathname().split('/')[1];
 
   const [initialValues, setInitialValues] = useState({
     name: '',
@@ -192,8 +195,11 @@ const PublicPrivateForm = ({ content }) => {
                 ? `${t('paymentInfo.btnText')}`
                 : t('paymentInfo.loadingText')}
             </Button>
-            <Link href="#" className={s.payment}>
-              {t('paymentInfo.otherPaymentMethods')}
+            <Link
+              className={s.payment}
+              href={`/${locale}/${ROUTES.PAYMENTS(0)}`}
+            >
+              {t('paymentAmount.otherPayment')}
             </Link>
           </Form>
         )}

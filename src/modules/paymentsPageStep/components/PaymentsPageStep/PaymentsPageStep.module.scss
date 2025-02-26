@@ -1,0 +1,12 @@
+.titlePaymentPage {
+  font-size: 32px;
+  line-height: 1.25;
+  @include media(tablet) {
+    font-size: 40px;
+    line-height: 1.2;
+  }
+  @include media(desktop) {
+    font-size: 48px;
+    line-height: 1.16667;
+  }
+}

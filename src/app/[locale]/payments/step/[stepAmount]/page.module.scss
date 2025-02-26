@@ -1,15 +1,11 @@
 @import '../../../../../shared/styles/colors.scss';
 
 .section {
-  padding-top: 40px;
-  padding-bottom: 40px;
-  @include media(tablet) {
-    padding-top: 32px;
-    padding-bottom: 32px;
-  }
+  padding-top: 24px;
+  padding-bottom: 96px;
   @include media(desktop) {
-    padding-top: 56px;
-    padding-bottom: 56px;
+    padding-top: 32px;
+    padding-bottom: 152px;
   }
 }
 
@@ -39,17 +35,4 @@
 
 .progressLinePaymentPage {
   background-color: $radio-active-bg-color;
-}
-
-.titlePaymentPage {
-  font-size: 32px;
-  line-height: 1.25;
-  @include media(tablet) {
-    font-size: 40px;
-    line-height: 1.2;
-  }
-  @include media(desktop) {
-    font-size: 48px;
-    line-height: 1.16667;
-  }
 }

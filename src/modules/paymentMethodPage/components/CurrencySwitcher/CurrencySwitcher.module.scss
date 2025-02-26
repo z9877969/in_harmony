@@ -4,7 +4,7 @@
   background: transparent;
   font-family: $primary-font-family;
   font-weight: 600;
-  color: $violet-ui-text-color;
+  color: $payment-text-color;
   @include font(14, 22);
 
   @include media(tablet) {

@@ -63,7 +63,7 @@
 .sectionTitle {
   font-family: $primary-font-family;
   font-weight: 600;
-  color: $violet-ui-text-color;
+  color: $payment-text-color;
   @include font(16, 22);
 
   @include media(tablet) {
@@ -78,7 +78,7 @@
 .subsectionContent {
   font-family: $primary-font-family;
   font-weight: 400;
-  color: $violet-ui-text-color;
+  color: $payment-text-color;
   display: flex;
   align-items: center;
   @include font(16, 22);

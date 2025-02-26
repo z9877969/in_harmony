@@ -177,7 +177,7 @@ const ContactUs = ({ data }) => {
       </div>
       <div className={clsx(s.cardInner, s.back, flipped && s.flipped)}>
         <h2 className={s.discountTitle}>
-          {error || data.supportSuccessMessage}
+          {error ? error : data.supportSuccessMessage}
         </h2>
       </div>
     </section>

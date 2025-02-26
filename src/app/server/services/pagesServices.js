@@ -66,11 +66,21 @@ export const getCollectionDetailsById = async (req, res) => {
 
     const updatedSections = await updateSections(pages, { page, limit });
 
-    const collection = await CollectionModel.findOne({ _id: id }).lean();
+    let collection = await CollectionModel.findOne({ _id: id }).lean();
     if (!collection) {
       return res
         .status(404)
         .json({ error: `Collection not found for ID: ${id}` });
+    }
+
+    if (collection.language !== locale) {
+      const translatedCollection = await CollectionModel.findOne({
+        _id: collection.translations,
+      }).lean();
+
+      if (translatedCollection) {
+        collection = translatedCollection;
+      }
     }
 
     const finalSections = updatedSections.map((section) => {

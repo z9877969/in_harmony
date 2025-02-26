@@ -1,13 +1,12 @@
 'use client';
-import { Button, CardProjectReporting } from '@/shared/components';
+import { CardProjectReporting } from '@/shared/components';
 import s from './FinishedProjectsList.module.scss';
 import { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 
 export default function FinishedProjectsList({ data }) {
   const [isDesktop, setIsDesktop] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(4);
-  const { t } = useTranslation('closedCollectionPage');
+
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const width = window.innerWidth;
@@ -53,14 +52,14 @@ export default function FinishedProjectsList({ data }) {
         ))}
       </div>
       <div className={s.btnWrapper}>
-        <Button
+        {/* <Button
           variant="secondary"
           border="true"
           className={s.button}
           onClick={handleClick}
         >
           {t('showMore')}
-        </Button>
+        </Button> */}
       </div>
     </div>
   );

@@ -12,7 +12,7 @@ const WhatCanBeDone = ({ data, className = '' }) => {
       <ul className={s.list}>
         {data.whatCanBeDoneItems.map((item, index) => (
           <li className={s.item} key={index}>
-            <span>{item}</span>
+            {item}
           </li>
         ))}
       </ul>

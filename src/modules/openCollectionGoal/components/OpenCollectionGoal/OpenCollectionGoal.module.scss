@@ -1,31 +1,36 @@
 .grid {
   display: grid;
-  row-gap: 24px;
-
-  @include media(tablet) {
-    row-gap: 40px;
-  }
+  row-gap: 48px;
 
   @include media(desktop) {
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: repeat(3, auto);
-    column-gap: 40px;
-    row-gap: 0;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(2, auto);
+    column-gap: 48px;
+    row-gap: 96px;
   }
 }
 
 .gridItemTitle {
-  font-family: Montserrat, sans-serif;
-  @include font(24, 28);
-  font-weight: 700;
-
-  @include media(tablet) {
-    @include font(40, 48);
-  }
-
   @include media(desktop) {
     grid-column: 1/2;
     grid-row: 1/2;
+  }
+}
+
+.sectionTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  @include font(24, 28);
+  font-weight: 700;
+  color: $secondary-text-color;
+  margin-bottom: 24px;
+
+  @include media(tablet) {
+    @include font(40, 48);
+    margin-bottom: 40px;
+  }
+
+  @include media(desktop) {
     margin-bottom: 48px;
   }
 }
@@ -34,7 +39,6 @@
   @include media(desktop) {
     grid-column: 1/2;
     grid-row: 2/3;
-    margin-bottom: 96px;
   }
 }
 

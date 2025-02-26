@@ -47,6 +47,7 @@
 
 .desc {
   font-weight: 600;
+  line-height: 1.5;
   @include font(16, 24);
 
   @include media(tablet) {
@@ -58,24 +59,18 @@
   display: none;
 
   @include media(desktop) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block;
     width: 636px;
     height: 360px;
     background-color: $img-backdrop-color;
     border-radius: 32px;
   }
 }
-.imageWrapper {
+.image {
   display: none;
 
   @include media(desktop) {
-    position: relative;
-    overflow: hidden;
-    display: inline-block;
-    width: 636px;
-    height: 360px;
+    display: block;
     border-radius: 32px;
   }
 }

@@ -103,7 +103,9 @@ const FormWithSumButtons = ({ className = '' }) => {
       </form>
 
       <div className={s.boxLink}>
-        <Link href={ROUTES.PAYMENTS(0)}>{t('paymentAmount.otherPayment')}</Link>
+        <Link href={`/${locale}/${ROUTES.PAYMENTS(0)}`}>
+          {t('paymentAmount.otherPayment')}
+        </Link>
       </div>
     </div>
   );

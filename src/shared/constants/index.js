@@ -32,6 +32,7 @@ export const NAMESPACES = [
   'forms',
   'copyIcon',
   'footer',
+  'openCollectionGoal',
   'breadcrumbs',
   'activeCollectionCard',
   'aboutPage',

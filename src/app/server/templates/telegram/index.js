@@ -3,9 +3,9 @@ export const TELEGRAM_TEMPLATES = {
     ua: {
       template: (name, email, message) => ({
         html: `
-				<b>📩 Нова заявка!</b>\n
-				<b>Ім'я:</b> ${name}\n
-				<b>Email:</b> ${email}\n
+				<b>📩 Нова заявка!</b>
+				<b>Ім'я:</b> ${name}
+				<b>Email:</b> ${email}
 				<b>Повідомлення:</b> "${message}"
 			`,
         text: `📩 Нова заявка!\n Ім'я: ${name}\n Email: ${email}\n Повідомлення: "${message}."`,
@@ -14,9 +14,9 @@ export const TELEGRAM_TEMPLATES = {
     en: {
       template: (name, email, message) => ({
         html: `
-				<b>📩 New Request!</b>\n
-				<b>Name:</b> ${name}\n
-				<b>Email:</b> ${email}\n
+				<b>📩 New Request!</b>
+				<b>Name:</b> ${name}
+				<b>Email:</b> ${email}
 				<b>Message:</b> "${message}"
 			`,
         text: `📩 New Request!\n Name: ${name}\n Email: ${email}\n Message: "${message}."`,

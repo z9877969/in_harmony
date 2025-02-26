@@ -12,7 +12,10 @@ const ReportingPageFinishedProjects = ({ content }) => {
     <Section className={s.section}>
       <Container>
         <SectionTitle title={content.title} className={s.title} />
-        <FinishedProjectsList data={content.cards} />
+        <FinishedProjectsList
+          data={content.cards}
+          contentLength={content.cards.length}
+        />
         {shouldShowButton && (
           <ButtonReportingPageFinishedProjects
             contentLength={content.cards.length}

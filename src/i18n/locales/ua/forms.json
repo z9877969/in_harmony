@@ -29,29 +29,9 @@
       "email": "Невірний формат email",
       "name": "Невірний формат name",
       "message": "Невірний формат message",
-      "dropdownTitle": "Виберіть опцію з випадаючого списку",
-      "dropdown": {
-        "placeholder": "Підтримати фонд",
-        "dropdownOptions": [
-          { "value": "foodCollection", "title": "Збір на їжу військовим" },
-          {
-            "value": "medicineCollection",
-            "title": "Збір на ліки "
-          },
-          {
-            "value": "clothesCollection",
-            "title": "Збір на теплий одяг "
-          },
-          { "value": "waterCollection", "title": "Збір на воду в сіру зону" },
-
-          { "value": "carCollection", "title": "Збір на машину" },
-          { "value": "houseCollection", "title": "Світло в кожен дім" },
-          { "value": "gasCollection", "title": "Збір на газ" },
-          { "value": "bplaCollection", "title": "Збір на БПЛА" },
-          { "value": "allCollection", "title": "Збір на все" }
-        ]
-      }
-    }
+      "dropdownTitle": "Виберіть опцію з випадаючого списку"
+    },
+    "dropdown": "Підтримати фонд"
   },
   "support": {
     "title": "Зв'язатися з нами",

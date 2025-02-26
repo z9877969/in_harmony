@@ -1,4 +1,3 @@
-
 @mixin button {
   touch-action: manipulation;
   display: inline-flex;
@@ -15,6 +14,7 @@
 
 .btnDisabled {
   @include button;
+  background-color: transparent;
   border: 1px solid $swiper-inactive-dots-color;
   .icon {
     fill: transparent;

@@ -20,7 +20,7 @@
 .iconCheck {
   width: 42px;
   height: 42px;
-  fill: #b3b3b3;
+  fill: $progress-bar-line;
   @include media(tablet) {
     width: 56px;
     height: 56px;

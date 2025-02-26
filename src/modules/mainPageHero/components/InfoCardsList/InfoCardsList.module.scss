@@ -1,36 +1,41 @@
 @import '@/shared/styles/mixins';
 
 .containerCards {
-  width: 100%;
-  max-width: 370px;
-  min-height: 344px;
+  width: calc(100% - 32px);
   padding: 32px 60px;
   border-radius: 32px;
-  background-color: #dddddd;
+  box-shadow: 0 0 25px 0 rgba(71, 0, 123, 0.14);
+  background-color: #fff;
   position: absolute;
-  top: 140%;
+  top: 155%;
   z-index: 20;
-
+  @include media(mobile) {
+    width: 100%;
+    max-width: 374px;
+    min-height: 344px;
+    top: 150%;
+  }
   @include media(tablet) {
     width: 688px;
-    height: 360px;
+    height: 188px;
     max-width: none;
     min-height: auto;
-    padding: 40px 40px;
+    padding: 40px;
     margin-top: 320px;
     display: flex;
     align-items: center;
     top: 105%;
+    align-items: center;
   }
 
   @include media(desktop) {
-    width: 766px;
-    height: 200px;
-    padding: 40px 40px;
+    width: 622px;
+    height: 180px;
+    padding: 40px;
     margin-top: 0px;
     position: absolute;
     top: 80%;
-    right: 44%;
+    left: 4%;
   }
 }
 
@@ -49,7 +54,6 @@
 
   @include media(tablet) {
     flex-direction: row;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
   }
@@ -63,19 +67,10 @@
 
 .amount {
   font-family: $secondary-font-family;
-  @include font(36, 36);
+  @include font(32, 32);
   font-weight: 700;
-  color: $primary-text-color;
+  color: $main-page-hero-number;
   margin-bottom: 12px;
-
-  @include media(tablet) {
-    @include font(40, 60);
-  }
-
-  @include media(desktop) {
-    @include font(40, 60);
-    white-space: nowrap;
-  }
 }
 
 .label {

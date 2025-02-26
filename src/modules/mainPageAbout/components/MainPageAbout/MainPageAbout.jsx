@@ -1,11 +1,15 @@
+import Image from 'next/image';
 import { Container, Section } from '@/shared/components';
 import ActivitiesCard from '../ActivitiesCard/ActivitiesCard';
 import LearnMoreButton from '../LearnMoreButton/LearnMoreButton';
-
 import s from './MainPageAbout.module.scss';
 
 const MainPageAbout = ({ content }) => {
   const icons = ['icon-support', 'icon-hand', 'icon-animal-paw', 'icon-house'];
+  const dataImage =
+    content.image && content.image.length > 0
+      ? { imageUrl: content.image[0] }
+      : { imageUrl: '/images/default_image.webp' };
 
   return (
     <Section>
@@ -30,7 +34,18 @@ const MainPageAbout = ({ content }) => {
             </ul>
           </div>
           <p className={s.motivation}>{content?.motivation}</p>
-          <div className={s.image}></div>
+          <div className={s.imageWrapper}>
+            <Image
+              className={s.image}
+              src={dataImage.imageUrl}
+              alt={content.title}
+              fill
+              priority
+              sizes="100%"
+              placeholder="blur"
+              blurDataURL="/images/blur-placeholder.jpg"
+            />
+          </div>
           <LearnMoreButton style={s.learnMore} />
         </div>
       </Container>

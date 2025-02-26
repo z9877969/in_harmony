@@ -1,17 +1,19 @@
-import { Container, Icon } from '@/shared/components'
-import { inHarmonyLogo as Logo } from '/public/icons'
+import { Container, Icon } from '@/shared/components';
+import { inHarmonyLogo as Logo } from '/public/icons';
 
-import LangSwitcher from '../LangSwitcher/LangSwitcher'
-import Link from '../Link/Link'
-import MobileMenu from '../MobileMenu/MobileMenu'
-import NavLinks from '../NavLinks/NavLinks'
-import SocialLinks from '../SocialLinks/SocialLinks'
+import LangSwitcher from '../LangSwitcher/LangSwitcher';
+import Link from '../Link/Link';
+import MobileMenu from '../MobileMenu/MobileMenu';
+import NavLinks from '../NavLinks/NavLinks';
+import SocialLinks from '../SocialLinks/SocialLinks';
 
-
-
-import s from './Header.module.scss'
+import s from './Header.module.scss';
+// import { useNavigationLinks } from '@/shared/hooks/useNavigationLinks.js';
 
 const Header = ({ t }) => {
+  // const { navLinks, locale } = useNavigationLinks();
+
+  // console.log(navLinks, locale);
   return (
     <>
       <header>
@@ -31,9 +33,13 @@ const Header = ({ t }) => {
               <SocialLinks />
               {/* Right side header */}
               <div className={s.rightSide}>
-                <Link href={'/'} className={s.donateLink}>
+                <Link
+                  href={`/${t('helpButton.href')}`}
+                  className={s.donateLink}
+                  as="style"
+                >
                   <Icon className={s.heartIcon} iconName="icon-heart" />
-                  {t('helpButton')}
+                  {t('helpButton.text')}
                 </Link>
                 <LangSwitcher />
               </div>

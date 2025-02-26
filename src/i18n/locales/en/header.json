@@ -1,22 +1,9 @@
 {
-  "helpButton": "Help",
-
+  "helpButton": { "href": "/payments/step/1", "text": "Help" },
   "links": {
-    "home": {
-      "href": "/",
-      "text": "Home"
-    },
-    "currentFees": {
-      "href": "/collection",
-      "text": "Current fees"
-    },
-    "reporting": {
-      "href": "/reporting",
-      "text": "Reporting"
-    },
-    "about": {
-      "href": "/about",
-      "text": "About us"
-    }
+    "home": { "href": "/", "text": "Home" },
+    "currentFees": { "href": "/collection", "text": "Current fees" },
+    "reporting": { "href": "/reporting", "text": "Reporting" },
+    "about": { "href": "/about", "text": "About us" }
   }
 }

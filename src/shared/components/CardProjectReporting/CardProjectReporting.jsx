@@ -60,7 +60,7 @@ export default function CardProjectReporting({ slid }) {
           <div className={s.wrapper}>
             <h3 className={s.title}>{title}</h3>
             <p className={s.text}>
-              <span className={s.preTitle}>{collected_title}</span>
+              <span className={s.preTitle}>{collected_title}:</span>
               &#8197;
               <span>{target}</span> &#8197;
               <span>{currency}</span>

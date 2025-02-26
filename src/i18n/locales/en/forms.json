@@ -29,34 +29,9 @@
       "email": "Invalid email format",
       "name": "Invalid name format",
       "message": "Invalid message format",
-      "dropdownTitle": "Select an option from the dropdown list",
-      "dropdown": {
-        "placeholder": "Support the fund",
-        "dropdownOptions": [
-          {
-            "value": "foodCollection",
-            "title": "Fundraising for food for the military"
-          },
-          {
-            "value": "medicineCollection",
-            "title": "Fundraising for medicine"
-          },
-          {
-            "value": "clothesCollection",
-            "title": "Fundraising for warm clothing"
-          },
-          {
-            "value": "waterCollection",
-            "title": "Fundraising for water in the gray zone"
-          },
-          { "value": "carCollection", "title": "Fundraising for a car" },
-          { "value": "houseCollection", "title": "Light in every home" },
-          { "value": "gasCollection", "title": "Fundraising for gas" },
-          { "value": "bplaCollection", "title": "Fundraising for UAVs" },
-          { "value": "allCollection", "title": "Fundraising for everything" }
-        ]
-      }
-    }
+      "dropdownTitle": "Select an option from the dropdown list"
+    },
+    "dropdown": "Support the fund"
   },
   "support": {
     "title": "Contact us",

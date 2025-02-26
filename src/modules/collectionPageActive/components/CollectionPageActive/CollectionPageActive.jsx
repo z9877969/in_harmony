@@ -12,6 +12,7 @@ const CollectionPageActive = ({ content }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const sectionRef = useRef(null);
   const { cards, title } = content;
+
   const handleToggleVisibleItems = () => {
     if (isExpanded) {
       setVisibleItems(initialVisibleItems);

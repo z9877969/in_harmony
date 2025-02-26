@@ -4,7 +4,6 @@ import { OpenCollectionPageHero } from '@/modules/openCollectionPageHero';
 import { ROUTES } from '@/shared/constants';
 import { insideServerApi as api } from '@/shared/services';
 // import s from './page.module.scss';
-
 const ActiveCollectionPage = async ({ params: { locale, id } }) => {
   const { sectionsDict } = await api.getCollectionPageById({
     locale,

@@ -59,7 +59,7 @@ const SupportForm = ({ data, value, className = '' }) => {
   return (
     <section className={sectionClasses}>
       <div className={s.donateLabel}>
-        <span className={s.donateText}>Задонатити комфортну суму</span>
+        <span className={s.donateText}>{data.donateTitle}</span>
         <Icon
           iconName="icon-donate-arrow"
           width="24.346"

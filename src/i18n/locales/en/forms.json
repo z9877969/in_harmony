@@ -7,6 +7,7 @@
     "text": "Regular donations save more lives!",
     "submitButton": "Proceed to Payment",
     "otherPayment": "Other payment methods",
+    "placeholderEmail": "Email",
     "amountRequired": "Amount is required",
     "positiveRequired": "Value must be positive"
   },

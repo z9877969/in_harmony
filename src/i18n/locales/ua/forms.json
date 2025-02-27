@@ -7,6 +7,7 @@
     "text": "Регулярна допомога рятує більше життів!",
     "submitButton": "До сплати",
     "otherPayment": "Інші способи оплати",
+    "placeholderEmail": "Email",
     "amountRequired": "Сума є обов'язковою",
     "positiveRequired": "Значення має бути позитивним"
   },

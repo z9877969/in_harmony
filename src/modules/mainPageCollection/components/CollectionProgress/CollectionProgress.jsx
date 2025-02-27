@@ -1,7 +1,12 @@
 import { ProgressBar } from '@/shared/components';
 import s from './CollectionProgress.module.scss';
 
-const CollectionProgress = ({ collected, target }) => {
+const CollectionProgress = ({
+  collected,
+  target,
+  collectedTitle,
+  targetTitle,
+}) => {
   const progress = (collected / target) * 100;
   const formattedProgress = Math.round(progress);
 
@@ -10,12 +15,17 @@ const CollectionProgress = ({ collected, target }) => {
       {collected && target && (
         <div className={s.targetContainer}>
           <p className={s.targetText}>
-            Зібрано
-            <span className={s.counts}>{collected} &#x20B4;</span>
+            {collectedTitle}
+            <span className={s.counts}>
+              {new Intl.NumberFormat('uk-UA').format(collected)} &#x20B4;
+            </span>
           </p>
-          <p className={s.targetText}>
-            Ціль
-            <span className={s.counts}>{target} &#x20B4;</span>
+          <p className={s.targetTextRight}>
+            {targetTitle}
+            <span className={s.counts}>
+              {' '}
+              {new Intl.NumberFormat('uk-UA').format(target)} &#x20B4;
+            </span>
           </p>
         </div>
       )}

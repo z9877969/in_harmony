@@ -26,6 +26,21 @@
       color: $progress-bar-numbers;
     }
   }
+  .targetTextRight {
+    font-weight: 400;
+    @include font(16, 24);
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+
+    .counts {
+      font-weight: 700;
+      @include font(20, 28);
+      font-family: $secondary-font-family;
+      line-height: 1.4;
+      color: $progress-bar-numbers;
+    }
+  }
 }
 
 .progressContainer {

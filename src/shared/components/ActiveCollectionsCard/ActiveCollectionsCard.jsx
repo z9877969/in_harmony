@@ -37,10 +37,12 @@ function ActiveCollectionsCard({ collection }) {
 
         <div className={s.mainContentContainer}>
           <div className={s.contentContainer}>
-            <h3 className={s.title}>{collection.title} </h3>
+            <h3 className={s.title}>{collection.title}</h3>
             <p className={s.desc}>{collection.desc}</p>
           </div>
           <CollectionProgress
+            collectedTitle={collection.collected_title}
+            targetTitle={collection.target_title}
             collected={collection.collected}
             target={collection.target}
           />

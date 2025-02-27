@@ -13,11 +13,20 @@ import { RadioButton } from '..';
 
 import { arrowFormDonate as FormIcon } from '/public/icons';
 
-import { validationSchema } from './validation/validationSchema';
+import {
+  validationSchemaAmount,
+  validationSchemaAmountEmail,
+} from './validation/validationSchema';
 
 import s from './FormWithSumButtons.module.scss';
 
-const initialValues = { amount: '', donateTime: 'false', value: '' };
+const initialValues = { amount: '', donateTime: 'false', value: '', email: '' };
+
+const validationSchema = (values, t) => {
+  return values.donateTime === 'false'
+    ? validationSchemaAmount(t)
+    : validationSchemaAmountEmail(t);
+};
 
 const FormWithSumButtons = ({ className = '' }) => {
   const { t } = useTranslation('forms');
@@ -27,10 +36,23 @@ const FormWithSumButtons = ({ className = '' }) => {
 
   const formik = useFormik({
     initialValues,
-    validationSchema: validationSchema(t),
+    validationSchema: validationSchema(initialValues, t),
     onSubmit: (values) => {
       const query = new URLSearchParams(values).toString();
       router.push(`/${locale}/${ROUTES.PAYMENTS(2)}?${query}`);
+    },
+    validateOnChange: true,
+    validateOnBlur: true,
+    validate: (values) => {
+      const schema = validationSchema(values, t);
+      try {
+        schema.validateSync(values, { abortEarly: false });
+      } catch (errors) {
+        return errors.inner.reduce((acc, currentError) => {
+          acc[currentError.path] = currentError.message;
+          return acc;
+        }, {});
+      }
     },
   });
 
@@ -96,6 +118,22 @@ const FormWithSumButtons = ({ className = '' }) => {
             currency="UAH"
           />
         </div>
+
+        {values.donateTime === 'true' && (
+          <div className={s.boxInput}>
+            <Input
+              type="email"
+              id="email"
+              name="email"
+              placeholder={t('paymentAmount.placeholderEmail')}
+              className={s.inputDonate}
+              value={values.email}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              error={touched.email && errors.email}
+            />
+          </div>
+        )}
 
         <Button type="submit" variant="primary" className={s.btnSubmit}>
           {t('paymentAmount.submitButton')}

@@ -5,7 +5,13 @@ import LearnMoreButton from '../LearnMoreButton/LearnMoreButton';
 import s from './MainPageAbout.module.scss';
 
 const MainPageAbout = ({ content }) => {
-  const icons = ['icon-support', 'icon-hand', 'icon-animal-paw', 'icon-house'];
+  const icons = [
+    'icon-support',
+    'icon-hand',
+    'icon-animal-paw',
+    'icon-house',
+    'icon-trident',
+  ];
   const dataImage =
     content.image && content.image.length > 0
       ? { imageUrl: content.image[0] }
@@ -18,6 +24,7 @@ const MainPageAbout = ({ content }) => {
           <div className={s.about}>
             <h2>{content?.title}</h2>
             <p>{content?.description}</p>
+            <p className={s.newText}>{content?.descriptionTwo}</p>
           </div>
           <div className={s.activities}>
             <h3>{content?.sub_titles}</h3>

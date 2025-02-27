@@ -24,6 +24,7 @@
       font-family: $secondary-font-family;
       line-height: 1.4;
       color: $progress-bar-numbers;
+      margin-top: 8px;
     }
   }
   .targetTextRight {
@@ -41,6 +42,10 @@
       color: $progress-bar-numbers;
     }
   }
+}
+
+.targetContainer p:last-child {
+  text-align: right;
 }
 
 .progressContainer {

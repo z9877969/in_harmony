@@ -26,6 +26,7 @@
     align-items: center;
     top: 105%;
     align-items: center;
+    justify-content: center;
   }
 
   @include media(desktop) {
@@ -54,7 +55,7 @@
 
   @include media(tablet) {
     flex-direction: row;
-    align-items: center;
+    align-items: first baseline;
     justify-content: center;
   }
 
@@ -78,4 +79,8 @@
   @include font(16, 24);
   font-weight: 400;
   color: $secondary-text-color;
+
+  @include media(tablet) {
+    max-width: 154px;
+  }
 }

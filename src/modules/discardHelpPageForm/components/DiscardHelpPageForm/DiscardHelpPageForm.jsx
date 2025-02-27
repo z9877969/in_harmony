@@ -110,7 +110,12 @@ const DiscardHelpPageForm = () => {
               error={touched.reason && errors.reason}
             />
           </div>
-          <Button colors="primary" size="extraLarge" type="submit">
+          <Button
+            colors="primary"
+            size="extraLarge"
+            fontSize="twenty"
+            type="submit"
+          >
             {t('paymentDiscard.submitButton')}
           </Button>
         </form>

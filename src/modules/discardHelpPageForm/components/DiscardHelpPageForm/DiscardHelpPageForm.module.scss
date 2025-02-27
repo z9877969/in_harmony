@@ -3,6 +3,7 @@
 .section {
   padding-top: 48px;
   padding-bottom: 96px;
+
   @include media(desktop) {
     padding-top: 78px;
     padding-bottom: 156px;
@@ -13,6 +14,7 @@
   display: flex;
   flex-direction: column;
   gap: 48px;
+
   @include media(desktop) {
     width: 636px;
     margin: 0 auto;
@@ -29,10 +31,9 @@
   font-family: $primary-font-family;
   border: 2px solid $violet-ui-text-color;
   padding: 12px 24px;
-  height: 64px;
+  height: 64px !important;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 1.5;
+  @include font(16, 24);
   margin-top: 8px;
 }
 
@@ -41,8 +42,7 @@
   height: 128px;
   border-radius: 24px;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 1.5;
+  @include font(16, 24);
   margin-top: 8px;
   font-family: $primary-font-family;
 }

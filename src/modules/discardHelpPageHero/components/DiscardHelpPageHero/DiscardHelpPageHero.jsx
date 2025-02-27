@@ -6,7 +6,7 @@ import data from '../../data/sectionContent.json';
 import s from './DiscardHelpPageHero.module.scss';
 
 const DiscardHelpPageHero = () => {
-  // dataProps отримуємо з пропсів або з fetch-запиту
+  // dataProps отримуємо з пропсів
   const dataProps = {
     imageUrl: '/images/peace-poster-desktop2x.png',
   };

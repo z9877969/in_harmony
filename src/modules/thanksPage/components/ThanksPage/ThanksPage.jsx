@@ -68,7 +68,10 @@ const ThanksPage = ({
       <Container>
         <div className={s.thanksBlock}>
           <p className={s.thanksBlockText}>{thanksMessage}</p>
-          <p className={s.thanksBlockDesc}>{teamMessage}</p>
+          <div className={s.thanksDiv}>
+            <p className={s.thanksBlockDesc}>{teamMessage}</p>
+            <div className={s.iconThanks}></div>
+          </div>
         </div>
         <div className={s.socialBlock}>
           <div>

@@ -17,9 +17,9 @@ import { validationSchema } from './validation/validationSchema';
 
 import s from './FormWithSumButtons.module.scss';
 
-const FormWithSumButtons = ({ className = '' }) => {
-  const initialValues = { amount: '', donateTime: 'false', value: '' };
+const initialValues = { amount: '', donateTime: 'false', value: '' };
 
+const FormWithSumButtons = ({ className = '' }) => {
   const { t } = useTranslation('forms');
   const router = useRouter();
   const locale = usePathname().split('/')[1];
@@ -48,9 +48,9 @@ const FormWithSumButtons = ({ className = '' }) => {
     const searchParams = new URLSearchParams(window.location.search);
     const value = searchParams.get('value') || '';
 
-    formik.setFieldValue('value', value);
+    setFieldValue('value', value);
     initialValues.value = value;
-  }, []);
+  }, [setFieldValue]);
 
   return (
     <div className={clsx(s.boxForm, `${className}`)}>
@@ -103,7 +103,9 @@ const FormWithSumButtons = ({ className = '' }) => {
       </form>
 
       <div className={s.boxLink}>
-        <Link href={ROUTES.PAYMENTS(0)}>{t('paymentAmount.otherPayment')}</Link>
+        <Link href={`/${locale}/${ROUTES.PAYMENTS(0)}`}>
+          {t('paymentAmount.otherPayment')}
+        </Link>
       </div>
     </div>
   );

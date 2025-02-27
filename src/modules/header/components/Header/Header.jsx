@@ -16,7 +16,7 @@ const Header = ({ t }) => {
   // console.log(navLinks, locale);
   return (
     <>
-      <header>
+      <header className={s.shadow}>
         <Container>
           {/* Left side header */}
           <div className={s.header}>

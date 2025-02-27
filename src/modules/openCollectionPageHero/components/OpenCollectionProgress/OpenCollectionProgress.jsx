@@ -1,9 +1,14 @@
+'use client';
+import { usePathname } from 'next/navigation';
 import { Icon } from '@/shared/components';
 import { ProgressBar } from '@/shared/components';
+import { getDonorText } from '@/shared/helpers/getDonorText';
 import s from './OpenCollectionProgress.module.scss';
 import clsx from 'clsx';
 
 const OpenCollectionProgress = ({ data }) => {
+  const pathname = usePathname();
+  const locale = pathname.split('/')[1];
   const progress = (data.collected / data.target) * 100;
   const formattedProgress = Math.round(progress);
   return (
@@ -11,7 +16,8 @@ const OpenCollectionProgress = ({ data }) => {
       <div className={s.donors}>
         <Icon className={s.icon} iconName={'icon-people'} />
         <p>
-          {data.peopleDonate} {data.peopleDonate_title}
+          {data.peopleDonate}
+          {` ${getDonorText(data.peopleDonate, locale)}`}
         </p>
       </div>
       <div className={s.progressContainer}>

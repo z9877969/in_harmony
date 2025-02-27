@@ -1,12 +1,14 @@
 'use client';
 
 import { useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button, Container, Section, SectionTitle } from '@/shared/components';
 import { ActiveCollectionList } from '@/modules/mainPageCollection';
-import collection from '../../data/section-content.json';
+
 import s from './CollectionPageActive.module.scss';
 
 const CollectionPageActive = ({ content }) => {
+  const { t } = useTranslation('closedCollectionPage');
   const initialVisibleItems = 6;
   const [visibleItems, setVisibleItems] = useState(initialVisibleItems);
   const [isExpanded, setIsExpanded] = useState(false);
@@ -42,9 +44,7 @@ const CollectionPageActive = ({ content }) => {
             size="extraLarge"
             border="true"
           >
-            {isExpanded
-              ? collection.hide_button
-              : collection.all_collections_button}
+            {isExpanded ? `${t('hide')}` : `${t('showMore')}`}
           </Button>
         </div>
       </Container>

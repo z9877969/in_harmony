@@ -23,15 +23,17 @@ export const getDiscardCollectionsList = async (req, res) => {
     );
 
     if (!filteredPayments.length) {
-      return res.status(404).json({ error: 'Not found' });
+      return res
+        .status(404)
+        .json({ error: 'This user has no regular payments.' });
     }
 
     const collectionName = filteredPayments.map(
-      (payment) => payment.paymentPurpose
+      (payment) => payment.donateValue
     );
 
     const collections = await CollectionModel.find({
-      title: { $in: collectionName },
+      value: { $in: collectionName },
       language: locale,
     }).lean();
 

@@ -29,9 +29,15 @@ const OpenCollectionProgress = ({ data }) => {
             data.status === 'active' && s.activeProgressBar
           )}
         />
-        <p className={s.progreessBarText}>
-          {data.collected_title}:<span>{formattedProgress}%</span>
-        </p>
+        <>
+          {data.status === 'active' ? (
+            <p>{formattedProgress}%</p>
+          ) : (
+            <p className={s.progreessBarTextClosed}>
+              {data.collected_title}:&nbsp;<span>{formattedProgress}%</span>
+            </p>
+          )}
+        </>
       </div>
       <div className={s.title}>
         <p>{data.collected_title}</p>

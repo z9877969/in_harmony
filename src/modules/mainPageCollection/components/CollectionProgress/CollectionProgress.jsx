@@ -1,11 +1,12 @@
-'use client';
-
-import { useTranslation } from 'react-i18next';
 import { ProgressBar } from '@/shared/components';
 import s from './CollectionProgress.module.scss';
 
-const CollectionProgress = ({ collected, target }) => {
-  const { t } = useTranslation('mainPage');
+const CollectionProgress = ({
+  collected,
+  target,
+  collectedTitle,
+  targetTitle,
+}) => {
   const progress = (collected / target) * 100;
   const formattedProgress = Math.round(progress);
 
@@ -14,12 +15,17 @@ const CollectionProgress = ({ collected, target }) => {
       {collected && target && (
         <div className={s.targetContainer}>
           <p className={s.targetText}>
-            {t('activeCollection.collected')}
-            <span className={s.counts}>{collected} &#x20B4;</span>
+            {collectedTitle}
+            <span className={s.counts}>
+              {Number(collected).toLocaleString('uk-UA')} &#x20B4;
+            </span>
           </p>
-          <p className={s.targetText}>
-            {t('activeCollection.target')}
-            <span className={s.counts}>{target} &#x20B4;</span>
+          <p className={s.targetTextRight}>
+            {targetTitle}
+            <span className={s.counts}>
+              {' '}
+              {Number(target).toLocaleString('uk-UA')} &#x20B4;
+            </span>
           </p>
         </div>
       )}

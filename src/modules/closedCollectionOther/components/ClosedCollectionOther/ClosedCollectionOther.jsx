@@ -3,14 +3,14 @@
 import { useEffect, useState } from 'react';
 import { SwiperSlide } from 'swiper/react';
 import {
-  //   ActiveCollectionsCard,
-  CardProjectReporting,
   Container,
   DotsSwiper,
   Section,
   SectionTitle,
 } from '@/shared/components';
 import s from './ClosedCollectionOther.module.scss';
+import ClosedOtherLink from '../ClosedOtherLink/ClosedOtherLink';
+import ClosedOtherCard from '../ClosedOtherCard/ClosedOtherCard';
 
 const ClosedCollectionOther = ({ content, id }) => {
   const [visibleItems, setVisibleItems] = useState(1);
@@ -58,15 +58,12 @@ const ClosedCollectionOther = ({ content, id }) => {
             >
               {otherCollections.map((collection) => (
                 <SwiperSlide key={collection._id}>
-                  <CardProjectReporting
-                    slid={collection}
-                    key={collection._id}
-                    className={s.listItem}
-                  />
+                  <ClosedOtherCard collection={collection} />
                 </SwiperSlide>
               ))}
             </DotsSwiper>
           </div>
+          <ClosedOtherLink />
         </Container>
       )}
     </Section>

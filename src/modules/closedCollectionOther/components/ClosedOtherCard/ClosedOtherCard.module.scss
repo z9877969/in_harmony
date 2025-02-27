@@ -1,0 +1,103 @@
+.content {
+  padding: 16px 16px 24px 16px;
+  border-radius: 32px;
+  width: 100%;
+  max-width: 370px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  box-shadow: 0 0 20px 0 rgba(71, 0, 123, 0.1);
+
+  @include media(tablet) {
+    max-width: 332px;
+    padding: 20px 20px 28px 20px;
+    gap: 16px;
+  }
+
+  @include media(desktop) {
+    max-width: 416px;
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  border-radius: 22px;
+  background: #ddd;
+  width: 100%;
+  aspect-ratio: 16 / 11.35;
+  height: auto;
+  max-height: 240px;
+  overflow: hidden;
+}
+
+.image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mainContentContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  @include media(tablet) {
+    gap: 12px;
+  }
+
+  .contentContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    @include media(tablet) {
+      gap: 12px;
+    }
+  }
+}
+
+.title {
+  height: 74px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-weight: 700;
+  @include font(20, 28);
+  font-family: $secondary-font-family;
+  padding-top: 16px;
+
+  @include media(tablet) {
+    padding-top: 20px;
+  }
+
+  @include media(desktop) {
+    @include font(24, 28);
+  }
+}
+
+.text {
+  @include font(16, 24);
+  font-weight: 400;
+  text-align: left;
+}
+.preTitle {
+  @include font(18, 27);
+  font-weight: 600;
+  text-align: left;
+  color: $secondary-text-color;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.shadow {
+  padding: 6px;
+  @include media(tablet) {
+    padding: 8px;
+  }
+}

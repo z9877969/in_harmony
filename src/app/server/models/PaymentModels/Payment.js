@@ -23,7 +23,8 @@ const PaymentSchema = new mongoose.Schema(
         message: 'clientEmail is required when isPublic is true',
       },
     },
-    paymentPurpose: { type: String, required: true },
+    donateTitle: { type: String, required: true },
+    donateValue: { type: String, required: true },
     message: {
       type: String,
       validate: {
@@ -34,7 +35,21 @@ const PaymentSchema = new mongoose.Schema(
       },
     },
     orderDate: { type: String, required: false },
-    status: { type: String, required: true },
+    status: {
+      type: String,
+      enum: [
+        'InProcessing',
+        'WaitingAuthComplete',
+        'Approved',
+        'Pending',
+        'Expired',
+        'Refunded',
+        'Voided',
+        'Declined',
+        'RefundInProcessing',
+      ],
+      required: true,
+    },
   },
   { timestamps: true }
 );

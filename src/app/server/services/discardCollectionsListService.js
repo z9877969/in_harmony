@@ -18,7 +18,8 @@ export const getDiscardCollectionsList = async (req, res) => {
     }
 
     const filteredPayments = userPayments.filter(
-      (payment) => payment.status === 'canceled' || payment.type === 'regular'
+      (payment) =>
+        payment.status === 'InProcessing' && payment.type === 'regular'
     );
 
     if (!filteredPayments.length) {
@@ -30,7 +31,7 @@ export const getDiscardCollectionsList = async (req, res) => {
     );
 
     const collections = await CollectionModel.find({
-      value: { $in: collectionName },
+      title: { $in: collectionName },
       language: locale,
     }).lean();
 

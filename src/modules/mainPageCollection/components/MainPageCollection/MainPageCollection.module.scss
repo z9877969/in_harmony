@@ -9,7 +9,7 @@
   padding: 48px 0;
 
   @include media(tablet) {
-    gap: 42px;
+    gap: 40px;
   }
 
   @include media(desktop) {
@@ -19,11 +19,18 @@
 }
 
 .title {
+  @include font(24, 28);
   max-width: 100%;
   font-family: $secondary-font-family;
   font-weight: 700;
-  font-size: 32px;
-  line-height: 1.25;
+
+  @include media(tablet) {
+    @include font(32, 40);
+  }
+
+  @include media(desktop) {
+    @include font(40, 48);
+  }
 }
 
 .desktopButton {
@@ -34,6 +41,7 @@
   }
 
   @include media(desktop) {
+    width: 385px;
     min-height: 48px;
   }
 }

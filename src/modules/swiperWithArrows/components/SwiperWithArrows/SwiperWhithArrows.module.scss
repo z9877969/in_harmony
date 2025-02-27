@@ -6,6 +6,15 @@
 }
 .embla__viewport {
   overflow: hidden;
+  box-shadow: 0 0 20px 0 rgba(71, 0, 123, 0.1);
+  border-radius: 32px;
+
+  @include media(tablet) {
+    border-radius: 40px;
+  }
+  @include media(desktop) {
+    border-radius: 48px;
+  }
 }
 .container {
   display: flex;

@@ -3,6 +3,8 @@
         "learnMore": "Learn more"
     },
     "activeCollection": {
-        "moreBtn": "All fees"
+        "moreBtn": "All fees",
+        "collected": "Collected",
+        "target": "Target"
     }
 }

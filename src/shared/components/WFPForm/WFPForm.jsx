@@ -74,6 +74,7 @@ const WFPForm = forwardRef(
 
       if (!response.ok) {
         const { message } = await response.json();
+        setError(message);
         throw new Error(message);
       }
 
@@ -98,54 +99,11 @@ const WFPForm = forwardRef(
         });
         setFormData(data);
       } catch (error) {
-        setError(error.message);
         console.error(error);
       } finally {
         setLoading(false);
       }
     };
-
-    // const generateOrderAndSubmit = async () => {
-    //   if (loading) return;
-
-    //   try {
-    //     setLoading(true);
-    //     setError('');
-    //     const response = await fetch('/api/payment', {
-    //       method: 'POST',
-    //       headers: { 'Content-Type': 'application/json' },
-    //       body: JSON.stringify({
-    //         amount,
-    //         type: isRegular ? 'regular' : 'one-time',
-    //         isPublic,
-    //         clientFirstName: isPublic ? clientFirstName : '',
-    //         clientEmail,
-    //         message: isPublic ? message : '',
-    //         donateTitle,
-    //         donateValue,
-    //         status: PAYMENT_STATUSES.IN_PROCESSING,
-    //       }),
-    //     });
-
-    //     if (!response.ok) {
-    //       const { message } = await response.json();
-    //       setError(message);
-    //       throw new Error(`
-    //         Помилка при створенні платежу: ${response.status} ${response.statusText}.
-    //         Відповідь сервера: ${JSON.stringify(message)}`);
-    //     }
-
-    //     const data = await response.json();
-    //     if (data) {
-    //       setFormData(data);
-    //     }
-    //   } catch (error) {
-    //     // eslint-disable-next-line
-    //     console.error('Error: ', error);
-    //   } finally {
-    //     setLoading(false);
-    //   }
-    // };
 
     const returnUrl = useMemo(() => {
       if (!formData) return '';
@@ -279,9 +237,7 @@ const WFPForm = forwardRef(
             )}
           </form>
         )}
-        {error && !formData && (
-          <ErrorMessage error={error} onClose={handleClearError} />
-        )}
+        {error && <ErrorMessage error={error} onClose={handleClearError} />}
       </>
     );
   }

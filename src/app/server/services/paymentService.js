@@ -1,4 +1,4 @@
-import { PAYMENT_CONFIG } from '@/shared/constants/index.js';
+import { PAYMENT_CONFIG, PAYMENT_STATUSES } from '@/shared/constants/index.js';
 
 import PaymentModel from '../models/PaymentModels/Payment.js';
 import generateHash from '../utils/generateHash.js';
@@ -9,7 +9,7 @@ export const getPayments = async (filters = {}) => {
   const query = {
     type,
     ...(clientEmail && { clientEmail }),
-    ...(status && { status: { $ne: status } }),
+    ...(status && { status: { $eq: status } }),
     ...(donateValue !== undefined && { donateValue }),
   };
 
@@ -38,19 +38,21 @@ export const createPayment = async (req, res) => {
     throw error;
   }
 
-  const foundedPayments = await getPayments({
-    type,
-    clientEmail,
-    donateValue,
-    status: 'Declined',
-  });
+  if (type === 'regular') {
+    const foundedPayments = await getPayments({
+      type,
+      clientEmail,
+      donateValue,
+      status: PAYMENT_STATUSES.APPROVED,
+    });
 
-  if (foundedPayments.length > 0) {
-    const message = `Ви вже маєте регулярні платежі: ${foundedPayments.map((p) => `${p._id.toString()} ${p.donateTitle}`)} `;
+    if (foundedPayments.length > 0) {
+      const message = `Ви вже маєте регулярні платежі: ${foundedPayments.map((p) => `${p._id.toString()} ${p.donateTitle}`)} `;
 
-    const error = new Error(message);
-    error.statusCode = 409;
-    throw error;
+      const error = new Error(message);
+      error.statusCode = 409;
+      throw error;
+    }
   }
 
   try {

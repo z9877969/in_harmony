@@ -5,9 +5,13 @@ import { useTranslation } from 'react-i18next';
 const OpenCollectionPageBadge = ({ importance }) => {
   const { t } = useTranslation('activeCollectionCard');
   return (
-    <div className={importance === 'urgent' ? s.importance : s.nonUrgent}>
-      {t(`importanceType.${importance}`)}
-    </div>
+    <>
+      {importance && (
+        <div className={importance === 'urgent' ? s.importance : s.nonUrgent}>
+          {t(`importanceType.${importance}`)}
+        </div>
+      )}
+    </>
   );
 };
 

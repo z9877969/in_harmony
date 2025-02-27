@@ -8,6 +8,6 @@
     "active": "The collection is open",
     "closed": "The collection is closed"
   },
-
-  "section_2_Name": {}
+  "section_2_Name": {},
+  "hide": "Hide"
 }

@@ -5,6 +5,7 @@
   margin-top: 32px;
   @include media(tablet) {
     margin-top: 40px;
+    width: 416px;
   }
   @include media(desktop) {
     margin-top: 32px;

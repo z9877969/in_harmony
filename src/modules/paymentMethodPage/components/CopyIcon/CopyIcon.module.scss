@@ -11,7 +11,7 @@
 }
 
 .icon {
-  fill: #7e00cc;
+  fill: $payment-text-color;
   transition: transform 0.2s ease;
 }
 
@@ -31,17 +31,9 @@
 .text {
   font-family: $primary-font-family;
   font-weight: 400;
-  color: $violet-ui-text-color;
-  @include font(14, 20);
+  color: $payment-text-color;
+  @include font(16, 24);
   display: flex;
   align-items: center;
   word-break: break-word;
-
-  @include media(tablet) {
-    @include font(16, 22);
-  }
-
-  @include media(desktop) {
-    @include font(18, 24);
-  }
 }

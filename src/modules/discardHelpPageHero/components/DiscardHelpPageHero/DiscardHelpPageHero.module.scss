@@ -1,13 +1,13 @@
 .section {
   max-width: 100%;
-  padding: 8px 0px 48px 0px;
+  padding: 8px 0px 48px;
 
   @include media(mobile) {
     width: 100%;
   }
 
   @include media(desktop) {
-    padding: 16px 0px 78px 0px;
+    padding: 16px 0px 78px;
   }
 }
 
@@ -47,8 +47,12 @@
 
 .textBlock {
   font-weight: 400;
+  @include font(16, 24);
+
   @include media(desktop) {
-    font-size: 18px;
+    display: inline-block;
+    margin: auto 0px;
+    @include font(18, 27);
   }
 }
 
@@ -57,14 +61,13 @@
 }
 
 .title {
+  font-family: $secondary-font-family;
   font-weight: 700;
-  font-size: 32px;
-  line-height: 1.25;
+  @include font(32, 40);
   margin-bottom: 24px;
 
   @include media(desktop) {
     font-weight: 700;
-    font-size: 48px;
-    line-height: 1.17;
+    @include font(48, 56);
   }
 }

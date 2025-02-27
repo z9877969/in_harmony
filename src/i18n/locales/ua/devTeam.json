@@ -3,91 +3,98 @@
     "firstName": "Марія",
     "lastName": "Бойко",
     "position": "Project manager",
-    "image": "",
+    "image": "/images/team/maria-boiko.jpg",
     "social": "https://www.linkedin.com/in/mariia-boiko-04083b32/"
   },
   {
     "firstName": "Юрій",
     "lastName": "Маковейчук",
     "position": "Developer",
-    "image": "",
+    "image": "/images/team/yurii-makoveichuk.jpg",
     "social": "https://www.linkedin.com/in/yurii-makoveichuk-709168281/"
   },
   {
     "firstName": "Ельдар",
     "lastName": "Меметов",
     "position": "Developer",
-    "image": "",
+    "image": "/images/team/eldar-memetov.jpg",
     "social": "https://www.linkedin.com/in/eldar-memetov/"
   },
   {
     "firstName": "Оксана",
     "lastName": "Танащук",
     "position": "Developer",
-    "image": "",
+    "image": "/images/team/oksana-tanashchuk.jpg",
     "social": "https://www.linkedin.com/in/oksana-tanashchuk/"
   },
   {
     "firstName": "Руслан",
     "lastName": "Івасюнько",
     "position": "Developer",
-    "image": "",
+    "image": "/images/team/ruslan-ivasiunko.jpeg",
     "social": "www.linkedin.com/in/ruslan-i-7a1722273"
   },
   {
     "firstName": "Олександр",
     "lastName": "Климович",
     "position": "Developer",
-    "image": "",
+    "image": "/images/team/oleksandr-klymovych.jpg",
     "social": "https://www.linkedin.com/in/oleksandr-klymovych/"
   },
   {
     "firstName": "Елла",
     "lastName": "Кадряєва",
     "position": "Developer",
-    "image": "",
+    "image": "/images/team/ella-kadriaieva.jpg",
     "social": "https://www.linkedin.com/in/ella-kadriaieva-79a197259/"
   },
   {
     "firstName": "Анастасія",
     "lastName": "Моцух",
     "position": "Developer",
-    "image": "",
+    "image": "/images/team/anastasiia-motsukh.jpg",
     "social": "https://www.linkedin.com/in/anastasiia-motsukh/"
   },
   {
     "firstName": "Наталія",
     "lastName": "Медведєва",
     "position": "UI/UX Designer",
-    "image": "",
+    "image": "/images/team/natalia-medvedeva.jpeg",
     "social": "https://www.linkedin.com/in/medvedeva-natalia/"
   },
   {
     "firstName": "Сергій",
     "lastName": "Гудзенко",
     "position": "Developer",
-    "image": "",
+    "image": "/images/team/sehii-hudzenko.jpg",
     "social": "https://www.linkedin.com/in/serhii-hudzenko/"
   },
   {
     "firstName": "Ганна",
     "lastName": "Желдак",
     "position": "UI/UX Designer",
-    "image": "",
+    "image": "/images/team/hanna-zheldak.png",
     "social": "https://www.linkedin.com/in/hanna-zheldak/"
   },
   {
     "firstName": "Павло",
     "lastName": "Хімчук",
     "position": "Developer",
-    "image": "",
+    "image": "/images/team/pavlo-khimchuk.jpg",
     "social": "https://www.linkedin.com/in/pavlo-khimchuk/"
   },
   {
     "firstName": "Максим",
     "lastName": "Гармаш",
     "position": "Team Lead Designer",
-    "image": "",
+    "image": "/images/team/maksym-harmash.jpg",
     "social": "https://www.linkedin.com/in/maxgrmsh/"
+  },
+  {
+    "firstName": "Ілона",
+    "lastName": "Морараш",
+    "position": "UI/UX Designer",
+    "image": "/images/team/ilona-morarash.png",
+    "social": "https://www.linkedin.com/in/ilonamorarash/"
   }
 ]

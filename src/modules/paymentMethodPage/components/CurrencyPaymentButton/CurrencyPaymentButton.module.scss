@@ -31,7 +31,7 @@
 
 .content {
   font-family: $primary-font-family;
-  color: $violet-ui-text-color;
+  color: $payment-text-color;
   font-weight: 400;
   @include font(16, 24);
   display: block;
@@ -62,7 +62,7 @@
 .sectionTitle {
   font-family: $primary-font-family;
   font-weight: 600;
-  color: $violet-ui-text-color;
+  color: $payment-text-color;
   @include font(18, 24);
   text-align: center;
   margin-bottom: 10px;
@@ -79,39 +79,23 @@
 .subsectionTitle {
   font-family: $primary-font-family;
   font-weight: 600;
-  color: $violet-ui-text-color;
-  @include font(14, 20);
-
-  @include media(tablet) {
-    @include font(16, 22);
-  }
-
-  @include media(desktop) {
-    @include font(18, 24);
-  }
+  color: $payment-text-color;
+  @include font(16, 24);
 }
 
 .subsectionContent {
   font-family: $primary-font-family;
   font-weight: 400;
-  color: $violet-ui-text-color;
-  @include font(14, 20);
+  color: $payment-text-color;
+  @include font(16, 24);
   display: flex;
   align-items: center;
-
-  @include media(tablet) {
-    @include font(16, 22);
-  }
-
-  @include media(desktop) {
-    @include font(18, 24);
-  }
 }
 
 .contentTitle {
   font-family: $primary-font-family;
   font-weight: 600;
-  color: $violet-ui-text-color;
+  color: $payment-text-color;
   @include font(14, 20);
 
   @include media(tablet) {

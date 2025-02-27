@@ -3,6 +3,8 @@
         "learnMore": "Дізнатися більше"
     },
     "activeCollection": {
-        "moreBtn": "Всі збори"
+        "moreBtn": "Всі збори",
+        "collected": "Зібрано",
+        "target": "Ціль"
     }
 }

@@ -2,8 +2,9 @@
 
 .sectionPayment {
   padding: 8px 0 96px;
+
   @include media(desktop) {
-    padding: 16px 0 156px;
+    padding: 16px 0 152px;
   }
 }
 .containerContent {
@@ -18,16 +19,23 @@
   font-family: $secondary-font-family;
   font-weight: 700;
   color: $secondary-text-color;
-  text-align: center;
-  margin-bottom: 48px;
+  text-align: left;
+  margin-bottom: 32px;
   @include font(32, 40);
+  width: 350px;
 
   @include media(tablet) {
     @include font(40, 48);
+    text-align: center;
+    width: auto;
+    margin-bottom: 40px;
   }
 
   @include media(desktop) {
     @include font(48, 56);
+    text-align: center;
+    width: auto;
+    margin-bottom: 48px;
   }
 }
 

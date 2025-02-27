@@ -15,7 +15,15 @@
   gap: 8px;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 24px;
+  margin: auto;
+  margin-bottom: 36px;
+  @include media(tablet) {
+    margin-bottom: 44px;
+    max-width: 768px;
+  }
+  @include media(desktop) {
+    margin-bottom: 64px;
+  }
 }
 .iconCheck {
   width: 42px;
@@ -76,16 +84,19 @@
   flex-direction: column;
   margin: 0 auto;
   gap: 12px;
-  background-color: $img-backdrop-color;
+  background-color: $primary-bg-color;
   padding: 16px;
   border-radius: 32px;
-  transform: translateY(-64px);
-  margin-bottom: 30px;
+  transform: translateY(-94px);
+
+  box-shadow: 0px 4px 25px 0px $shadow-color;
+
   @include media(tablet) {
     gap: 32px;
     width: 636px;
     padding: 28px 20px;
     border-radius: 40px;
+    transform: translateY(-56px);
   }
   @include media(desktop) {
     width: 856px;
@@ -116,12 +127,14 @@
   flex-direction: column;
   margin-bottom: 72px;
   @include media(tablet) {
-    margin-bottom: 120px;
+    margin-bottom: 94px;
+    padding-top: 20px;
   }
   @include media(desktop) {
     flex-direction: row;
     gap: 48px;
     margin-bottom: 160px;
+    margin-top: 100px;
   }
 }
 .socialTitle {
@@ -178,9 +191,25 @@
   @include media(tablet) {
     font-size: 40px;
     line-height: 1.5;
+    max-width: 768px;
+    margin: auto;
   }
   @include media(desktop) {
     font-size: 48px;
     line-height: 1.17;
+    max-width: 1000px;
   }
+}
+.iconThanks {
+  min-width: 43px;
+  height: 43px;
+
+  background: url('/images/like.png') repeat-x;
+  background-repeat: no-repeat;
+  object-fit: contain;
+}
+.thanksDiv {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
 }

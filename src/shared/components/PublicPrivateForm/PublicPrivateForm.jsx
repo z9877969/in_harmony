@@ -36,6 +36,7 @@ const PublicPrivateForm = ({ content }) => {
     amount: '',
     donateTime: '',
     isPublic: true,
+    value: '',
   });
   const { t } = useTranslation('forms');
 
@@ -66,11 +67,15 @@ const PublicPrivateForm = ({ content }) => {
   useEffect(() => {
     const searchParams = new URLSearchParams(window.location.search);
 
+    const email = searchParams.get('email');
+
     setInitialValues((prevValues) => ({
       ...prevValues,
+      email: email ? email : prevValues.email,
       amount: searchParams.get('amount'),
       donateTime: searchParams.get('donateTime'),
       dropdown: searchParams.get('value'),
+      value: searchParams.get('value'),
     }));
   }, []);
 
@@ -87,8 +92,8 @@ const PublicPrivateForm = ({ content }) => {
       amount: amountWithCommission.toFixed(0),
       donateTime: initialValues.donateTime,
       dropdown: selectedOption ? selectedOption.title : values.dropdown,
+      value: selectedOption ? selectedOption.value : initialValues.value,
     };
-
     setInitialValues(valuesAll);
   };
 
@@ -172,12 +177,15 @@ const PublicPrivateForm = ({ content }) => {
               {({ field }) => (
                 <Dropdown
                   value={field.value}
-                  onSelect={(value) => setFieldValue('dropdown', value)}
+                  onSelect={(selectedOption) =>
+                    setFieldValue('dropdown', selectedOption.value)
+                  }
                   initialValue={initialValues.dropdown}
                   collections={collections}
                 />
               )}
             </Field>
+
             <ErrorMessage name="dropdown" component="p" className={s.error} />
             <div className={s.checkboxContainer}>
               <Field type="checkbox" name="isChecked" className={s.checkbox} />
@@ -210,7 +218,8 @@ const PublicPrivateForm = ({ content }) => {
         amount={initialValues.amount}
         clientEmail={initialValues.email}
         message={initialValues.message}
-        paymentPurpose={initialValues.dropdown}
+        donateValue={initialValues.value}
+        donateTitle={initialValues.dropdown}
         isRegular={initialValues.donateTime === 'true'}
         clientFirstName={initialValues.name}
         isPublic={initialValues.isPublic}

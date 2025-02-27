@@ -17,14 +17,14 @@ const CollectionProgress = ({
           <p className={s.targetText}>
             {collectedTitle}
             <span className={s.counts}>
-              {new Intl.NumberFormat('uk-UA').format(collected)} &#x20B4;
+              {Number(collected).toLocaleString('uk-UA')} &#x20B4;
             </span>
           </p>
           <p className={s.targetTextRight}>
             {targetTitle}
             <span className={s.counts}>
               {' '}
-              {new Intl.NumberFormat('uk-UA').format(target)} &#x20B4;
+              {Number(target).toLocaleString('uk-UA')} &#x20B4;
             </span>
           </p>
         </div>

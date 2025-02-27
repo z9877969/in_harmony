@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react';
 import { SwiperSlide } from 'swiper/react';
 import {
-  CardProjectReporting,
   Container,
   DotsSwiper,
   Section,

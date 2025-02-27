@@ -1,5 +1,6 @@
 'use client';
 
+import { PAYMENT_STATUSES } from '@/shared/constants/index.js';
 import { usePathname } from 'next/navigation.js';
 import {
   forwardRef,
@@ -9,8 +10,9 @@ import {
   useRef,
   useState,
 } from 'react';
+import ErrorMessage from '../ErrorMessage/ErrorMessage.jsx';
 
-function generateQueryParams(params) {
+const generateQueryParams = (params) => {
   const encodedParams = Object.entries(params)
     .map(
       ([key, value]) =>
@@ -18,7 +20,7 @@ function generateQueryParams(params) {
     )
     .join('&');
   return encodedParams ? `${encodedParams}` : '';
-}
+};
 
 const WFPForm = forwardRef(
   (
@@ -27,67 +29,130 @@ const WFPForm = forwardRef(
       isRegular = false,
       message = '',
       amount = 0,
-      clientFirstName = '',
-      clientEmail = '',
-      paymentPurpose = 'inHarmony Donate',
+      clientFirstName,
+      clientEmail,
+      donateTitle = 'inHarmony Donate',
+      donateValue = 'inHarmony Donate',
     },
     ref
   ) => {
     const [formData, setFormData] = useState(null);
     const [loading, setLoading] = useState(false);
-
+    const [error, setError] = useState('');
     const formRef = useRef(null);
 
     const pathname = usePathname();
     const locale = pathname.split('/')[1];
 
-    async function generateOrderAndSubmit() {
+    const handleClearError = () => setError('');
+
+    const fetchPaymentData = async ({
+      amount,
+      isRegular,
+      isPublic,
+      clientFirstName,
+      clientEmail,
+      message,
+      donateTitle,
+      donateValue,
+    }) => {
+      const response = await fetch('/api/payment', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          amount,
+          type: isRegular ? 'regular' : 'one-time',
+          isPublic,
+          clientFirstName: isPublic ? clientFirstName : '',
+          clientEmail,
+          message: isPublic ? message : '',
+          donateTitle,
+          donateValue,
+          status: PAYMENT_STATUSES.IN_PROCESSING,
+        }),
+      });
+
+      if (!response.ok) {
+        const { message } = await response.json();
+        throw new Error(message);
+      }
+
+      return await response.json();
+    };
+
+    const generateOrderAndSubmit = async () => {
       if (loading) return;
+      setLoading(true);
+      setError('');
 
       try {
-        setLoading(true);
-        const response = await fetch('/api/payment', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            amount,
-            type: isRegular ? 'regular' : 'one-time',
-            isPublic,
-            clientFirstName: isPublic ? clientFirstName : '',
-            clientEmail: isPublic ? clientEmail : '',
-            message: isPublic ? message : '',
-            paymentPurpose,
-            status: 'InProcessing',
-          }),
+        const data = await fetchPaymentData({
+          amount,
+          isRegular,
+          isPublic,
+          clientFirstName,
+          clientEmail,
+          message,
+          donateTitle,
+          donateValue,
         });
-
-        if (!response.ok) {
-          throw new Error(
-            `Помилка при створенні платежу: ${response.statusText}`
-          );
-        }
-
-        const data = await response.json();
-        if (data) {
-          setFormData(data);
-        }
+        setFormData(data);
       } catch (error) {
-        // eslint-disable-next-line
-        console.error('Помилка під час запиту:', error);
+        setError(error.message);
+        console.error(error);
       } finally {
         setLoading(false);
       }
-    }
+    };
+
+    // const generateOrderAndSubmit = async () => {
+    //   if (loading) return;
+
+    //   try {
+    //     setLoading(true);
+    //     setError('');
+    //     const response = await fetch('/api/payment', {
+    //       method: 'POST',
+    //       headers: { 'Content-Type': 'application/json' },
+    //       body: JSON.stringify({
+    //         amount,
+    //         type: isRegular ? 'regular' : 'one-time',
+    //         isPublic,
+    //         clientFirstName: isPublic ? clientFirstName : '',
+    //         clientEmail,
+    //         message: isPublic ? message : '',
+    //         donateTitle,
+    //         donateValue,
+    //         status: PAYMENT_STATUSES.IN_PROCESSING,
+    //       }),
+    //     });
+
+    //     if (!response.ok) {
+    //       const { message } = await response.json();
+    //       setError(message);
+    //       throw new Error(`
+    //         Помилка при створенні платежу: ${response.status} ${response.statusText}.
+    //         Відповідь сервера: ${JSON.stringify(message)}`);
+    //     }
+
+    //     const data = await response.json();
+    //     if (data) {
+    //       setFormData(data);
+    //     }
+    //   } catch (error) {
+    //     // eslint-disable-next-line
+    //     console.error('Error: ', error);
+    //   } finally {
+    //     setLoading(false);
+    //   }
+    // };
 
     const returnUrl = useMemo(() => {
       if (!formData) return '';
 
       const baseUrl = `${formData.appBaseURL}/api/redirect-to-thanks`;
 
-      const params = {
-        locale,
-        orderId: formData.orderReference,
-      };
+      const params = { locale, orderId: formData.orderReference };
 
       const queryParams = generateQueryParams(params);
 
@@ -100,9 +165,7 @@ const WFPForm = forwardRef(
       }
     }, [formData]);
 
-    useImperativeHandle(ref, () => ({
-      generateOrderAndSubmit,
-    }));
+    useImperativeHandle(ref, () => ({ generateOrderAndSubmit }));
 
     return (
       <>
@@ -173,7 +236,7 @@ const WFPForm = forwardRef(
             <input
               type="hidden"
               name="productName[]"
-              value={formData.paymentPurpose}
+              value={formData.donateTitle}
             />
             <input
               type="hidden"
@@ -215,6 +278,9 @@ const WFPForm = forwardRef(
               </>
             )}
           </form>
+        )}
+        {error && !formData && (
+          <ErrorMessage error={error} onClose={handleClearError} />
         )}
       </>
     );

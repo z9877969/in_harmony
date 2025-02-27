@@ -1,0 +1,50 @@
+.messageContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  border: 1px dashed;
+  border-radius: 12px;
+  padding-block: 1rem;
+  padding-inline: 1.5rem;
+  color: $form-donate-error-color;
+
+  @include media(tablet) {
+    padding-inline: 4rem;
+  }
+
+  @include media(desktop) {
+    padding-inline: 3rem;
+  }
+}
+.closeBtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  padding: 6px;
+  border: none;
+  background-color: transparent;
+  color: $form-donate-error-color;
+  cursor: pointer;
+
+  @include animation-rules(transform, 0.3s);
+}
+
+.closeBtn:hover .iconX {
+  transform: scale(1.2);
+}
+
+.iconX {
+  fill: $form-donate-error-color;
+  width: 15px;
+  height: 15px;
+  @include animation-rules(transform, 0.3s);
+}
+
+.error {
+  text-align: center;
+}

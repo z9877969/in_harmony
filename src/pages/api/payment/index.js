@@ -5,14 +5,15 @@ export default async function handler(req, res) {
   await connectToDatabase();
 
   if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Метод не дозволено' });
+    return res.status(405).json({ message: 'Метод не дозволено' });
   }
 
   try {
-    await createPayment(req, res);
+    const result = await createPayment(req, res);
+    return res.status(201).json({ message: 'Платіж створено', data: result });
   } catch (error) {
-    // eslint-disable-next-line
-    console.error('Payment Handler Error:', error);
-    return res.status(500).json({ error: 'Помилка сервера' });
+    const statusCode = error.statusCode || 500;
+    const message = error.message;
+    return res.status(statusCode).json({ message: message });
   }
 }

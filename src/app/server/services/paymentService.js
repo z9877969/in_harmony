@@ -3,6 +3,21 @@ import { PAYMENT_CONFIG } from '@/shared/constants/index.js';
 import PaymentModel from '../models/PaymentModels/Payment.js';
 import generateHash from '../utils/generateHash.js';
 
+export const getPayments = async (filters = {}) => {
+  const { type = 'regular', clientEmail, donateValue, status } = filters;
+
+  const query = {
+    type,
+    ...(clientEmail && { clientEmail }),
+    ...(status && { status: { $ne: status } }),
+    ...(donateValue !== undefined && { donateValue }),
+  };
+
+  const payments = await PaymentModel.find(query);
+
+  return payments;
+};
+
 export const createPayment = async (req, res) => {
   const {
     amount,
@@ -11,14 +26,31 @@ export const createPayment = async (req, res) => {
     clientFirstName,
     clientEmail,
     message,
-    paymentPurpose,
+    donateTitle,
+    donateValue,
     status,
   } = req.body;
 
-  if (!amount || !type || !paymentPurpose) {
-    return res.status(400).json({
-      error: 'Поля сума, тип платежу та призначення платежу є обов’язковими',
-    });
+  if ((!amount || !type || !donateTitle, !donateValue)) {
+    const message = `Поля сума, тип донату(одноразово/щомісячно) та призначення донату є обов’язковими `;
+    const error = new Error(message);
+    error.statusCode = 400;
+    throw error;
+  }
+
+  const foundedPayments = await getPayments({
+    type,
+    clientEmail,
+    donateValue,
+    status: 'Declined',
+  });
+
+  if (foundedPayments.length > 0) {
+    const message = `Ви вже маєте регулярні платежі: ${foundedPayments.map((p) => `${p._id.toString()} ${p.donateTitle}`)} `;
+
+    const error = new Error(message);
+    error.statusCode = 409;
+    throw error;
   }
 
   try {
@@ -35,7 +67,8 @@ export const createPayment = async (req, res) => {
       clientFirstName,
       clientEmail,
       message,
-      paymentPurpose,
+      donateTitle,
+      donateValue,
       orderDate,
       status,
     });
@@ -61,7 +94,7 @@ export const createPayment = async (req, res) => {
       regularCount,
     } = PAYMENT_CONFIG;
 
-    const controlString = `${merchantAccount};${merchantDomainName};${orderReference};${orderDate};${amount};${currency};${paymentPurpose};${productCount};${amount}`;
+    const controlString = `${merchantAccount};${merchantDomainName};${orderReference};${orderDate};${amount};${currency};${donateTitle};${productCount};${amount}`;
 
     const merchantSignature = generateHash(controlString, key);
 
@@ -73,7 +106,8 @@ export const createPayment = async (req, res) => {
       type,
       clientFirstName,
       clientEmail,
-      paymentPurpose,
+      donateTitle,
+      donateValue,
       status,
       currency,
       merchantAccount,
@@ -93,6 +127,9 @@ export const createPayment = async (req, res) => {
 
     return res.status(201).json(data);
   } catch (error) {
-    res.status(500).json({ message: 'Помилка при створенні платежу', error });
+    const message = `Помилка при створенні платежу: ${error}`;
+    const e = new Error(message);
+    e.statusCode = 500;
+    throw e;
   }
 };

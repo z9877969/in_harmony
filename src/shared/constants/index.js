@@ -18,10 +18,7 @@ export const SOCIALROUTES = {
   FACEBOOK: 'https://www.facebook.com/inharmony.com.ua',
 };
 
-export const LANGUAGES = {
-  UA: 'ua',
-  EN: 'en',
-};
+export const LANGUAGES = { UA: 'ua', EN: 'en' };
 
 export const NAMESPACES = [
   'header',
@@ -80,6 +77,18 @@ export const PAYMENT_CONFIG = {
   regularCount: '12',
 };
 
+export const PAYMENT_STATUSES = {
+  IN_PROCESSING: 'InProcessing',
+  WAITING_AUTH_COMPLETE: 'WaitingAuthComplete',
+  APPROVED: 'Approved',
+  PENDING: 'Pending',
+  EXPIRED: 'Expired',
+  REFUNDED: 'Refunded',
+  VOIDED: 'Voided',
+  DECLINED: 'Declined',
+  REFUND_IN_PROCESSING: 'RefundInProcessing',
+};
+
 export const TELEGRAM_CONFIG = {
   TOKEN: process.env.TELEGRAM_TOKEN,
   CHAT_ID: process.env.TELEGRAM_CHAT_ID,
@@ -89,13 +98,6 @@ export const TELEGRAM_CONFIG = {
 export const FLIPPED_TIME_MS = 15000;
 
 export const donorsDict = {
-  ua: {
-    1: 'донор',
-    2: 'донори',
-    3: 'донорів',
-  },
-  en: {
-    1: 'donor',
-    2: 'donors',
-  },
+  ua: { 1: 'донор', 2: 'донори', 3: 'донорів' },
+  en: { 1: 'donor', 2: 'donors' },
 };

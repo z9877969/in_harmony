@@ -24,3 +24,4 @@ const MainPage = async ({ params: { locale } }) => {
 };
 
 export default MainPage;
+// comment to start redeploy

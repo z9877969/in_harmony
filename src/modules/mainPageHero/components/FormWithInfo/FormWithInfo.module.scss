@@ -1,0 +1,32 @@
+.form {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, 40%);
+  z-index: 10;
+  width: 100%;
+  width: calc(100% - 32px);
+
+  @include media(mobile) {
+    width: 100%;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, 40%);
+    width: auto;
+  }
+
+  @include media(tablet) {
+    max-width: none;
+    width: auto;
+    transform: translate(-76%, 40%);
+    top: 50%;
+  }
+
+  @include media(desktop) {
+    max-width: none;
+    width: auto;
+    top: 10%;
+    left: 83%;
+    transform: translate(-50%, 170px);
+  }
+}

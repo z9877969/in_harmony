@@ -27,7 +27,7 @@ const PublicPrivateForm = ({ content }) => {
   const collections = content.cards;
   const locale = usePathname().split('/')[1];
 
-  const [initialValues, setInitialValues] = useState({
+  const initialFormValues = {
     name: '',
     email: '',
     message: '',
@@ -37,7 +37,9 @@ const PublicPrivateForm = ({ content }) => {
     donateTime: '',
     isPublic: true,
     value: '',
-  });
+  };
+
+  const [initialValues, setInitialValues] = useState(initialFormValues);
   const { t } = useTranslation('forms');
 
   const [loading, setLoading] = useState(false);
@@ -117,8 +119,11 @@ const PublicPrivateForm = ({ content }) => {
         validationSchema={validationSchema}
         onSubmit={async (values, actions) => {
           await handleFormSubmit(values);
-          await handleFinalSubmit();
+          await handleFinalSubmit(actions);
           actions.setSubmitting(false);
+          actions.resetForm({
+            values: initialFormValues,
+          });
         }}
         enableReinitialize
       >

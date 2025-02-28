@@ -95,6 +95,7 @@ const Footer = () => {
         <ModalContent
           title={data.team.teamModalContent.title}
           text={data.team.teamModalContent.text}
+          text_two={data.team.teamModalContent.text_two}
         >
           <TeamList />
         </ModalContent>

@@ -40,6 +40,7 @@ export const NAMESPACES = [
   'forms',
   'paymentPage',
   'projectReportingCard',
+  'devTeam',
 ];
 
 export const LINKDATA = {

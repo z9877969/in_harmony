@@ -4,16 +4,18 @@
   max-width: 322px;
   border: none;
   border-radius: 32px;
-  background-color: $img-backdrop-color;
+  background-color: $final-bg-color;
   animation: fade-slide-up 0.3s ease forwards;
 
   @include media(tablet) {
-    max-width: 576px;
+    max-width: 688px;
+    width: 688px;
     border-radius: 48px;
   }
 
   @include media(desktop) {
-    max-width: 1144px;
+    max-width: 1258px;
+    width: 1258px;
   }
 
   &::-webkit-scrollbar {

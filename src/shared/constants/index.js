@@ -102,6 +102,14 @@ export const DONATE_TYPE = {
   ONE_TIME: 'one-time',
 };
 
+export const SENDPULSE_CONFIG = {
+  GRANT_TYPE: 'client_credentials',
+  CLIENT_ID: process.env.SENDPULSE_CLIENT_ID,
+  CLIENT_SECRET: process.env.SENDPULSE_CLIENT_SECRET,
+  SENDER_NAME: process.env.SENDPULSE_SENDER_NAME,
+  SENDER_EMAIL: process.env.SENDPULSE_SENDER_EMAIL,
+};
+
 export const FLIPPED_TIME_MS = 15000;
 
 export const donorsDict = {

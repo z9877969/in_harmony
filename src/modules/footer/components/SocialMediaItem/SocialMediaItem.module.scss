@@ -1,11 +1,21 @@
 .socialIconsItem {
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 40px;
-  height: 40px;
+  width: 20px;
+  height: 20px;
   flex-shrink: 0;
-  border-radius: 50%;
+  border-radius: 6px;
+  bottom: 0;
+  right: 0;
+  background-color: #0a66c2;
+
+  @include media(desktop) {
+    border-radius: 8px;
+    width: 28px;
+    height: 28px;
+  }
 }
 
 .socialIconsLink {

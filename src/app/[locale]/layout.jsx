@@ -47,7 +47,7 @@ export default async function RootLayout({ children, params: { locale } }) {
         locale={locale}
         resources={resources}
       >
-        <body className={clsx(montserrat.className, open_sans.className)}>
+        <body className={clsx(montserrat.variable, open_sans.variable)}>
           <ErrorBoundaryWithTranslation>
             <Header t={t} />
             <Breadcrumbs />

@@ -16,6 +16,7 @@ export const SOCIALROUTES = {
   TELEGRAM: 'https://t.me/inharmonyua',
   TIKTOK: 'https://www.tiktok.com/@inharmony.ua?_t=8pfFP3VEltN&_r=1',
   FACEBOOK: 'https://www.facebook.com/inharmony.com.ua',
+  YOUTUBE: 'https://www.youtube.com/@inharmony_ua/shorts',
 };
 
 export const LANGUAGES = { UA: 'ua', EN: 'en' };
@@ -40,6 +41,7 @@ export const NAMESPACES = [
   'forms',
   'paymentPage',
   'projectReportingCard',
+  'devTeam',
 ];
 
 export const LINKDATA = {

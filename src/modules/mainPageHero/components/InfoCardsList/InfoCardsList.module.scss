@@ -40,6 +40,13 @@
   }
 }
 
+.containerCardsTransition {
+  transform: translateY(75px);
+  @include media(desktop) {
+    transform: translateY(0);
+  }
+}
+
 .card {
   display: flex;
   flex-direction: column;

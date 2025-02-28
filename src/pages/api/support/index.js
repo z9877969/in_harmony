@@ -4,6 +4,8 @@ import {
   updateSupportData,
 } from '@/app/server/services/supportService.js';
 import { sendMessageTg } from '@/app/server/services/telegramService.js';
+import handleApiError from '@/app/server/utils/handleApiError.js';
+import createHttpError from 'http-errors';
 
 export default async function handler(req, res) {
   try {
@@ -13,35 +15,31 @@ export default async function handler(req, res) {
 
     await connectToDatabase();
 
+    if (!req.body) {
+      throw createHttpError(400, 'Request body is missing');
+    }
+
     let supportData;
+    const body = req.body;
+
     try {
-      supportData = await createSupportData(req.body);
+      supportData = await createSupportData(body);
       if (!supportData?._id) {
-        throw new Error('Failed to save support data');
+        throw createHttpError(500, 'Failed to save support data');
       }
     } catch (error) {
-      // eslint-disable-next-line no-console
-      console.error('Database Error: Unable to save support form data', error);
-      return res.status(500).json({
-        message: 'Internal Server Error: Could not save support request.',
-        details: error?.message,
-      });
+      handleApiError(error, res);
     }
 
     let tgResult;
     try {
-      tgResult = await sendMessageTg(req.body);
+      tgResult = await sendMessageTg(body);
 
       if (!tgResult || !tgResult?.ok) {
-        throw new Error('Telegram API request failed');
+        throw createHttpError(500, 'Telegram API request failed');
       }
     } catch (error) {
-      // eslint-disable-next-line no-console
-      console.error('Telegram Error: Failed to send message', error);
-      return res.status(500).json({
-        message: 'Internal Server Error: Could not send Telegram message.',
-        details: error?.message,
-      });
+      handleApiError(error, res);
     }
 
     let updatedData;
@@ -52,24 +50,14 @@ export default async function handler(req, res) {
         status: 'Delivered',
       });
     } catch (error) {
-      // eslint-disable-next-line no-console
-      console.error('Database Error: Unable to update support data', error);
-      return res.status(500).json({
-        message: 'Internal Server Error: Could not update support request.',
-        details: error?.message,
-      });
+      handleApiError(error, res);
     }
 
     return res.status(201).json({
       message: 'Support data created and updated successfully',
-      supportData: updatedData,
+      data: updatedData,
     });
   } catch (error) {
-    // eslint-disable-next-line no-console
-    console.error('Unexpected Error:', error?.stack);
-    return res.status(500).json({
-      message: 'Unexpected Server Error',
-      details: error?.message,
-    });
+    handleApiError(error, res);
   }
 }

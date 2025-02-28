@@ -28,7 +28,7 @@ const validationSchema = (values, t) => {
     : validationSchemaAmountEmail(t);
 };
 
-const FormWithSumButtons = ({ className = '' }) => {
+const FormWithSumButtons = ({ className = '', setDonateTime = () => {} }) => {
   const { t } = useTranslation('forms');
   const router = useRouter();
   const locale = usePathname().split('/')[1];
@@ -73,6 +73,10 @@ const FormWithSumButtons = ({ className = '' }) => {
     setFieldValue('value', value);
     initialValues.value = value;
   }, [setFieldValue]);
+
+  useEffect(() => {
+    setDonateTime(values.donateTime === 'true');
+  }, [values.donateTime, setDonateTime]);
 
   return (
     <div className={clsx(s.boxForm, `${className}`)}>

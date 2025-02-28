@@ -4,7 +4,7 @@ const SocialMediaItem = ({ socialItem, children, className = '' }) => {
   const itemClass = `${s.socialIconsItem} ${className}`;
 
   return (
-    <li className={itemClass}>
+    <div className={itemClass}>
       <a
         className={s.socialIconsLink}
         href={socialItem.url}
@@ -15,7 +15,7 @@ const SocialMediaItem = ({ socialItem, children, className = '' }) => {
       >
         {children}
       </a>
-    </li>
+    </div>
   );
 };
 

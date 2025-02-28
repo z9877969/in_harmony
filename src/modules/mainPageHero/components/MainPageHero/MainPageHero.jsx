@@ -1,5 +1,7 @@
-import { Container, FormWithSumButtons } from '@/shared/components';
-import InfoCardsList from '../InfoCardsList/InfoCardsList';
+import { Container } from '@/shared/components';
+
+import FormWithInfo from '../FormWithInfo/FormWithInfo.jsx';
+
 import s from './MainPageHero.module.scss';
 
 const MainPageHero = ({ content }) => {
@@ -15,11 +17,8 @@ const MainPageHero = ({ content }) => {
                 <source src={media} type="video/mp4" />
               </video>
             )}
-            <div className={s.containerTitleForm}>
-              <h1 className={s.heroTitle}>{content?.title}</h1>
-              <FormWithSumButtons className={s.form} />
-            </div>
-            <InfoCardsList infoCards={content?.cards} />
+            <h1 className={s.heroTitle}>{content?.title}</h1>
+            <FormWithInfo content={content} />
           </div>
         </div>
       </Container>

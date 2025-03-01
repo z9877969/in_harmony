@@ -103,9 +103,11 @@ export const DONATE_TYPE = {
 };
 
 export const SENDPULSE_CONFIG = {
+  URL_ACCESS_TOKEN: 'https://api.sendpulse.com/oauth/access_token',
   GRANT_TYPE: 'client_credentials',
   CLIENT_ID: process.env.SENDPULSE_CLIENT_ID,
   CLIENT_SECRET: process.env.SENDPULSE_CLIENT_SECRET,
+  URL_SMTP_EMAIL: 'https://api.sendpulse.com/smtp/emails',
   SENDER_NAME: process.env.SENDPULSE_SENDER_NAME,
   SENDER_EMAIL: process.env.SENDPULSE_SENDER_EMAIL,
 };

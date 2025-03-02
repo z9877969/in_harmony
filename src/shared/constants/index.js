@@ -97,6 +97,11 @@ export const TELEGRAM_CONFIG = {
   TIMEOUT_S: 60,
 };
 
+export const DONATE_TYPE = {
+  REGULAR: 'regular',
+  ONE_TIME: 'one-time',
+};
+
 export const FLIPPED_TIME_MS = 15000;
 
 export const donorsDict = {

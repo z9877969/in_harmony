@@ -4,7 +4,7 @@ import { TELEGRAM_TEMPLATES } from '../templates/telegram/index.js';
 
 const { TOKEN, CHAT_ID, TIMEOUT_S } = TELEGRAM_CONFIG;
 
-export const sendMessageTg = async (data) => {
+export const sendTelegramMessage = async (data) => {
   const { name, email, message, locale } = data;
 
   if (!name || !email || !message || !locale) {

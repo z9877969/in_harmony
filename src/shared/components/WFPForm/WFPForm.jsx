@@ -56,7 +56,7 @@ const WFPForm = forwardRef(
       donateTitle,
       donateValue,
     }) => {
-      const response = await fetch('/api/payment', {
+      const response = await fetch('/api/payment/create', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

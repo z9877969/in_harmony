@@ -1,4 +1,4 @@
-import { ClosedCollectionFeedbacks } from '@/modules/ClosedCollectionFeedbacks';
+import { ClosedCollectionFeedbacks } from '@/modules/closedCollectionFeedbacks';
 import { ClosedCollectionOther } from '@/modules/closedCollectionOther';
 import { OpenCollectionPageHero as ClosedCollectionPageHero } from '@/modules/openCollectionPageHero';
 import { ROUTES } from '@/shared/constants';

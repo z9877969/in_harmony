@@ -52,3 +52,46 @@
     height: 20px;
   }
 }
+
+.socialIconsItem {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  bottom: 0;
+  right: 0;
+  background-color: #0a66c2;
+
+  @include media(desktop) {
+    border-radius: 8px;
+    width: 28px;
+    height: 28px;
+  }
+}
+
+.socialIconsLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+.socialMediaSection {
+  grid-column: 1 / 3;
+  grid-row: 2 / 3;
+
+  @include media(tablet) {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+  }
+}
+
+.socialIconsList {
+  display: flex;
+  gap: 10px;
+}

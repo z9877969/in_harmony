@@ -1,6 +1,6 @@
-import PaymentModel from '../models/PaymentModels/Payment';
+import { DONATE_TYPE, PAYMENT_STATUSES } from '@/shared/constants';
 import CollectionModel from '../models/CollectionsModel';
-import { PAYMENT_STATUSES } from '@/shared/constants';
+import PaymentModel from '../models/PaymentModels/Payment';
 
 export const getDiscardCollectionsList = async (req, res) => {
   try {
@@ -20,8 +20,8 @@ export const getDiscardCollectionsList = async (req, res) => {
 
     const filteredPayments = userPayments.filter(
       (payment) =>
-        payment.status === PAYMENT_STATUSES.APPROVED &&
-        payment.type === 'regular'
+        payment.status === PAYMENT_STATUSES.ACTIVE &&
+        payment.type === DONATE_TYPE.REGULAR
     );
 
     if (!filteredPayments.length) {

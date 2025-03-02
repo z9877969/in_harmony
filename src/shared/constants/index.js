@@ -65,7 +65,10 @@ export const LINKDATA = {
 export const PAYMENT_CONFIG = {
   key: process.env.WAYFORPAY_KEY,
   merchantAccount: process.env.WAYFORPAY_MERCHANT_NAME,
+  merchantPassword: process.env.WAYFORPAY_MERCHANT_PASSWORD,
   merchantDomainName: process.env.WAYFORPAY_MERCHANT_DOMAIN,
+  requestType: { STATUS: 'STATUS', REMOVE: 'REMOVE' },
+  regularPaymentUrl: 'https://api.wayforpay.com/regularApi',
   paymentUrl: 'https://secure.wayforpay.com/pay',
   language: 'UA',
   orderTimeout: 49000,
@@ -89,6 +92,13 @@ export const PAYMENT_STATUSES = {
   VOIDED: 'Voided',
   DECLINED: 'Declined',
   REFUND_IN_PROCESSING: 'RefundInProcessing',
+  // статуси регулярних платежів
+  ACTIVE: 'Active', // - регулярний платіж активний, працює
+  SUSPENDED: 'Suspended', // - регулярний платіж призупинено
+  CREATED: 'Created', // - регулярний платіж створений, але не активований
+  REMOVED: 'Removed', // - регулярний платіж видалений
+  CONFIRMED: 'Confirmed', // - службовий статус
+  COMPLETED: 'Completed', // - регулярний платіж завершено
 };
 
 export const TELEGRAM_CONFIG = {

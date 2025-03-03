@@ -40,22 +40,14 @@
   align-items: center;
   gap: 10px;
   border-radius: 60px;
-  border: none;
-  background: $violet-ui-text-color;
   cursor: pointer;
 
-  color: $wite-text-color;
   @include font(20, 30);
   font-weight: 600;
 
-  @include media(tablet) {
-    border: 2px solid $violet-ui-text-color;
-    background-color: transparent;
-    color: $violet-ui-text-color;
-  }
-
   &:disabled {
     background-color: $swiper-inactive-dots-color;
+    border: 2px solid $violet-ui-text-color;
     color: $primary-text-color;
     cursor: none;
     font-weight: 400;

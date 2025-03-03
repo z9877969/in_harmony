@@ -1,75 +1,50 @@
 import connectToDatabase from '@/app/server/lib/mongodb';
+import { sendEmail } from '@/app/server/services/sendPulseService.js';
 import {
   createSupportData,
   updateSupportData,
 } from '@/app/server/services/supportService.js';
-import { sendMessageTg } from '@/app/server/services/telegramService.js';
+import { sendTelegramMessage } from '@/app/server/services/telegramService.js';
+import handleApiError from '@/app/server/utils/handleApiError.js';
+import createHttpError from 'http-errors';
 
 export default async function handler(req, res) {
-  try {
-    if (req.method !== 'POST') {
-      return res.status(405).json({ message: 'Method Not Allowed' });
-    }
+  if (req.method !== 'POST') {
+    return res.status(405).json({ message: 'Method Not Allowed' });
+  }
 
+  try {
     await connectToDatabase();
 
-    let supportData;
-    try {
-      supportData = await createSupportData(req.body);
-      if (!supportData?._id) {
-        throw new Error('Failed to save support data');
-      }
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.error('Database Error: Unable to save support form data', error);
-      return res.status(500).json({
-        message: 'Internal Server Error: Could not save support request.',
-        details: error?.message,
-      });
+    if (!req.body) {
+      throw createHttpError(400, 'Request body is missing');
     }
 
-    let tgResult;
-    try {
-      tgResult = await sendMessageTg(req.body);
+    const body = req.body;
 
-      if (!tgResult || !tgResult?.ok) {
-        throw new Error('Telegram API request failed');
-      }
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.error('Telegram Error: Failed to send message', error);
-      return res.status(500).json({
-        message: 'Internal Server Error: Could not send Telegram message.',
-        details: error?.message,
-      });
+    const supportData = await createSupportData(body);
+    if (!supportData?._id) {
+      throw createHttpError(500, 'Failed to save support data');
     }
 
-    let updatedData;
-    try {
-      updatedData = await updateSupportData({
-        id: supportData._id,
-        tgResult: tgResult.result,
-        status: 'Delivered',
-      });
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.error('Database Error: Unable to update support data', error);
-      return res.status(500).json({
-        message: 'Internal Server Error: Could not update support request.',
-        details: error?.message,
-      });
+    await sendEmail({ name: body.name, to: body.email, lang: body.locale });
+
+    const tgResult = await sendTelegramMessage(body);
+    if (!tgResult || !tgResult.ok) {
+      throw createHttpError(500, 'Telegram API request failed');
     }
+
+    const updatedData = await updateSupportData({
+      id: supportData._id,
+      tgResult: tgResult.result,
+      status: 'Delivered',
+    });
 
     return res.status(201).json({
       message: 'Support data created and updated successfully',
-      supportData: updatedData,
+      data: updatedData,
     });
   } catch (error) {
-    // eslint-disable-next-line no-console
-    console.error('Unexpected Error:', error?.stack);
-    return res.status(500).json({
-      message: 'Unexpected Server Error',
-      details: error?.message,
-    });
+    handleApiError(error, res);
   }
 }

@@ -1,6 +1,6 @@
 'use client';
 
-import { PAYMENT_STATUSES } from '@/shared/constants/index.js';
+import { DONATE_TYPE, PAYMENT_STATUSES } from '@/shared/constants/index.js';
 import { usePathname } from 'next/navigation.js';
 import {
   forwardRef,
@@ -10,7 +10,7 @@ import {
   useRef,
   useState,
 } from 'react';
-import ErrorMessage from '../ErrorMessage/ErrorMessage.jsx';
+import { ErrorMessage } from '../index.js';
 
 const generateQueryParams = (params) => {
   const encodedParams = Object.entries(params)
@@ -56,12 +56,12 @@ const WFPForm = forwardRef(
       donateTitle,
       donateValue,
     }) => {
-      const response = await fetch('/api/payment', {
+      const response = await fetch('/api/payment/create', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           amount,
-          type: isRegular ? 'regular' : 'one-time',
+          type: isRegular ? DONATE_TYPE.REGULAR : DONATE_TYPE.ONE_TIME,
           isPublic,
           clientFirstName: isPublic ? clientFirstName : '',
           clientEmail,
@@ -87,7 +87,7 @@ const WFPForm = forwardRef(
       setError('');
 
       try {
-        const data = await fetchPaymentData({
+        const { data } = await fetchPaymentData({
           amount,
           isRegular,
           isPublic,
@@ -145,7 +145,7 @@ const WFPForm = forwardRef(
             <input type="hidden" name="returnUrl" value={returnUrl} />
             <input
               name="serviceUrl"
-              value={`${formData.appBaseURL}/api/payment-log`}
+              value={`${formData.appBaseURL}/api/payment/log`}
               hidden
             />
             <input type="hidden" name="language" value={formData.language} />

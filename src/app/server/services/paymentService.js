@@ -6,6 +6,7 @@ import {
 
 import createHttpError from 'http-errors';
 import { Types } from 'mongoose';
+import PaymentLogModel from '../models/PaymentLogModel/PaymentLogModel.js';
 import PaymentModel from '../models/PaymentModels/Payment.js';
 import generateHash from '../utils/generateHash.js';
 
@@ -247,4 +248,24 @@ export const cancelRegularPayment = async (data) => {
   });
 
   return updatedPayment;
+};
+
+export const createPaymentLog = async (data) => {
+  const { key } = PAYMENT_CONFIG;
+  const status = 'accept';
+  const time = Math.floor(Date.now() / 1000);
+  const { orderReference } = data;
+
+  if (!orderReference) {
+    throw createHttpError(400, 'Missing orderReference');
+  }
+
+  await new PaymentLogModel(data).save();
+
+  return {
+    orderReference,
+    status,
+    time,
+    signature: generateHash(`${orderReference};${status};${time}`, key),
+  };
 };

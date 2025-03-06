@@ -6,7 +6,7 @@ export const validationSchema = (t) =>
       .email(t('paymentDiscard.emailInvalid'))
       .matches(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, t('paymentDiscard.emailInvalid'))
       .required(t('paymentDiscard.emailRequired')),
-    reason: Yup.string().min(3).required(t('paymentDiscard.reasonRequired')),
+    reason: Yup.string().required(t('paymentDiscard.reasonRequired')),
     donateValue: Yup.string()
       .nullable()
       .defined(t('paymentDiscard.purposeRequired'))

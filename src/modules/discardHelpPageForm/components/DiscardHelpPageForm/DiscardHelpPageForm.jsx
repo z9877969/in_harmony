@@ -157,8 +157,10 @@ const DiscardHelpPageForm = () => {
         }
         return formattedCollections;
       });
-    } catch (error) {}
-  }, [locale, values.email]);
+    } catch (error) {
+      setApiError(error.message);
+    }
+  }, [locale, setFieldValue, values.email]);
 
   const handleEmailBlur = (e) => {
     handleBlur(e);
@@ -175,7 +177,7 @@ const DiscardHelpPageForm = () => {
         setShouldFetch(false);
       });
     }
-  }, [shouldFetch]);
+  }, [fetchCollections, shouldFetch]);
 
   const handleResetError = () => {
     setApiError('');

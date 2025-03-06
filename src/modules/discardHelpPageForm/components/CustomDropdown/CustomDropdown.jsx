@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import clsx from 'clsx';
@@ -47,10 +47,10 @@ const CustomDropdown = ({
     });
   };
 
-  const resetDropdown = () => {
+  const resetDropdown = useCallback(() => {
     setTitle(t('paymentInfo.dropdown'));
     setIsDropdownOpen(false);
-  };
+  }, [t]);
 
   const handleSelect = (option) => {
     setTitle(option.title);
@@ -88,7 +88,7 @@ const CustomDropdown = ({
     } else {
       resetDropdown();
     }
-  }, [initialValue, collections, onSelect]);
+  }, [initialValue, collections, onSelect, resetDropdown]);
 
   return (
     <div>

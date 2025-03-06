@@ -1,5 +1,3 @@
-@import '../../../../shared/styles/_colors';
-
 .section {
   padding-top: 48px;
   padding-bottom: 96px;
@@ -30,7 +28,8 @@
 .inputDiscardForm {
   font-family: $primary-font-family;
   border: 2px solid $violet-ui-text-color;
-  padding: 12px 24px;
+  border-radius: 60px;
+  padding: 12px 24px !important;
   height: 64px !important;
   font-weight: 400;
   @include font(16, 24);
@@ -45,4 +44,8 @@
   @include font(16, 24);
   margin-top: 8px;
   font-family: $primary-font-family;
+}
+
+.errorMessage {
+  margin-top: 0 !important;
 }

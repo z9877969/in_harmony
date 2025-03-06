@@ -52,7 +52,7 @@ export const createPayment = async ({
       type,
       clientEmail,
       donateValue,
-      status: PAYMENT_STATUSES.APPROVED,
+      status: PAYMENT_STATUSES.ACTIVE,
     });
 
     if (existingPayments.length > 0) {

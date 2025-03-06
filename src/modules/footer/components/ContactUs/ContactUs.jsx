@@ -7,6 +7,7 @@ import { useFormik } from 'formik';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import * as Yup from 'yup';
+import SuccessSendMessage from '../SuccessSendMessage/SuccessSendMessage.jsx';
 import s from './ContactUs.module.scss';
 
 const ContactUs = ({ data }) => {
@@ -17,6 +18,7 @@ const ContactUs = ({ data }) => {
   const locale = i18n.language || 'ua';
   const containerRef = useRef(null);
   const innerRef = useRef(null);
+  const backRef = useRef(null);
   const [size, setSize] = useState({ width: '100%', height: '100%' });
   const flipTimeoutRef = useRef(null);
 
@@ -40,10 +42,14 @@ const ContactUs = ({ data }) => {
   );
 
   useEffect(() => {
-    if (!innerRef.current) return;
+    if (!innerRef.current || !(innerRef.current instanceof Element)) return;
+
+    if (flipped) return;
 
     const observer = new ResizeObserver((entries) => {
       for (let entry of entries) {
+        if (!innerRef.current) return;
+
         const { height } = entry.contentRect;
         const computedStyles = window.getComputedStyle(innerRef.current);
         const paddingTop = parseFloat(computedStyles.paddingTop);
@@ -60,7 +66,34 @@ const ContactUs = ({ data }) => {
 
     observer.observe(innerRef.current);
     return () => observer.disconnect();
-  }, []);
+  }, [flipped]);
+
+  useEffect(() => {
+    if (!backRef.current || !(backRef.current instanceof Element)) return;
+
+    if (!flipped) return;
+
+    const observer = new ResizeObserver((entries) => {
+      for (let entry of entries) {
+        if (!backRef.current) return;
+
+        const { height } = entry.contentRect;
+        const computedStyles = window.getComputedStyle(backRef.current);
+        const paddingTop = parseFloat(computedStyles.paddingTop);
+        const paddingBottom = parseFloat(computedStyles.paddingBottom);
+        const actualHeight = height + paddingTop + paddingBottom;
+
+        setSize((prevSize) =>
+          prevSize.height !== actualHeight
+            ? { ...prevSize, height: actualHeight }
+            : prevSize
+        );
+      }
+    });
+
+    observer.observe(backRef.current);
+    return () => observer.disconnect();
+  }, [flipped]);
 
   useEffect(() => {
     const { current: discountEl } = containerRef;
@@ -175,10 +208,15 @@ const ContactUs = ({ data }) => {
           </Button>
         </form>
       </div>
-      <div className={clsx(s.cardInner, s.back, flipped && s.flipped)}>
-        <h2 className={s.discountTitle}>
-          {error ? error : data.supportSuccessMessage}
-        </h2>
+      <div
+        ref={backRef}
+        className={clsx(s.cardInner, s.back, flipped && s.flipped)}
+      >
+        {error ? (
+          <h2 className={s.discountTitle}>{error}</h2>
+        ) : (
+          <SuccessSendMessage />
+        )}
       </div>
     </section>
   );

@@ -1,11 +1,11 @@
 'use client';
 
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import Link from 'next/link';
-import { useState, useEffect, useRef } from 'react';
-import { useTranslation } from 'react-i18next';
-import { usePathname } from 'next/navigation.js';
 import { ROUTES } from '@/shared/constants';
+import { ErrorMessage, Field, Form, Formik } from 'formik';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation.js';
+import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import {
   Button,
@@ -214,21 +214,20 @@ const PublicPrivateForm = ({ content }) => {
             >
               {t('paymentAmount.otherPayment')}
             </Link>
+            <WFPForm
+              ref={wfpFormRef}
+              amount={initialValues.amount}
+              clientEmail={initialValues.email}
+              message={initialValues.message}
+              donateValue={initialValues.value}
+              donateTitle={initialValues.dropdown}
+              isRegular={initialValues.donateTime === 'true'}
+              clientFirstName={initialValues.name}
+              isPublic={initialValues.isPublic}
+            />
           </Form>
         )}
       </Formik>
-
-      <WFPForm
-        ref={wfpFormRef}
-        amount={initialValues.amount}
-        clientEmail={initialValues.email}
-        message={initialValues.message}
-        donateValue={initialValues.value}
-        donateTitle={initialValues.dropdown}
-        isRegular={initialValues.donateTime === 'true'}
-        clientFirstName={initialValues.name}
-        isPublic={initialValues.isPublic}
-      />
     </div>
   );
 };

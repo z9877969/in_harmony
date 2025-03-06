@@ -58,16 +58,28 @@
     "datePlaceholder": "29.01.2024",
     "cardLastDigitsLabel": "Останні 2 цифри банківської карти, на яку оформлена підписка",
     "cardLastDigitsPlaceholder": "11",
+    "purpose": "Призначення",
     "reasonLabel": "Вкажіть, будь ласка, причину скасування щомісячної підписки",
     "reasonPlaceholder": "Ваше повідомлення",
     "submitButton": "Скасувати",
+    "submitButtonLoading": "Скасування...",
     "nameRequired": "Ім'я є обов'язковим",
     "emailRequired": "Пошта є обов'язковим",
     "emailInvalid": "Пошта повинен містити '@' та '.'",
+    "purposeRequired": "Призначення є обов’язкове",
+    "reasonRequired": "Причина скасуванняє є обов’язкове",
     "amountRequired": "Сума є обов'язковою",
     "numberRequired": "Значення має бути числом",
     "positiveRequired": "Значення має бути позитивним",
     "dateRequired": "Дата є обов'язковою",
-    "cardLastDigitsRequired": "Останні цифри карти є обов'язковими"
+    "cardLastDigitsRequired": "Останні цифри карти є обов'язковими",
+    "errorMessage": {
+      "wfpApiRemove": "Помилка скасування регулярного платежу:  {{status}} {{statusText}}. Спробуйте ще раз",
+      "searchPayment": "Помилка пошуку регулярного платежу",
+      "discardResult": "Не вдалось скасувати регулярний платіж. Спробуйте ще раз пізніше"
+    },
+    "successMessage": {
+      "successDiscardResult": "Регулярний платіж успішно скасовано. Дякуємо, що скористалися нашим сервісом!"
+    }
   }
 }

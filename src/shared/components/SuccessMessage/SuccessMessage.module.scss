@@ -3,12 +3,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 2rem;
-  border: 1px dashed $form-donate-error-color;
+  border: 2px dashed $violet-ui-text-color;
   border-radius: 12px;
   padding-block: 1rem;
   padding-inline: 1.5rem;
-  color: $form-donate-error-color;
+  color: $violet-ui-text-color;
 
   @include media(tablet) {
     padding-inline: 4rem;
@@ -28,7 +27,7 @@
   padding: 6px;
   border: none;
   background-color: transparent;
-  color: $form-donate-error-color;
+  color: $violet-ui-text-color;
   cursor: pointer;
 
   @include animation-rules(transform, 0.3s);
@@ -39,7 +38,7 @@
 }
 
 .iconX {
-  fill: $form-donate-error-color;
+  fill: $violet-ui-text-color;
   width: 15px;
   height: 15px;
   @include animation-rules(transform, 0.3s);

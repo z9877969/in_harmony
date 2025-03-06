@@ -1,6 +1,6 @@
 @import './breakpoints';
 /*
-screen types: 
+screen types:
     mobile,
     to-tablet
     tablet,
@@ -42,7 +42,8 @@ screen types:
 ) {
   &:hover,
   &:focus {
-    background: linear-gradient(
+    background:
+      linear-gradient(
         0deg,
         rgba(31, 31, 31, 0.1) 0%,
         rgba(31, 31, 31, 0.1) 100%
@@ -60,6 +61,6 @@ screen types:
   text-overflow: ellipsis;
 }
 
-@mixin animation-rules($_prop: all, $_duration: '0.3s') {
+@mixin animation-rules($_prop: all, $_duration: 0.3s) {
   transition: $_prop $_duration ease;
 }

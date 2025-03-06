@@ -1,0 +1,79 @@
+.button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: $primary-bg-color;
+  font-family: inherit;
+  align-self: stretch;
+  min-height: 48px;
+  border-radius: 60px;
+  color: $violet-ui-text-color;
+
+  @include font(20, 30);
+  font-weight: 600;
+  cursor: pointer;
+
+  &.buttonOpen {
+    border-radius: 32px;
+  }
+}
+
+.select {
+  border: none;
+  background-color: $primary-bg-color;
+  width: 100%;
+  text-align: start;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: $footer-bold-text-color;
+  font-family: inherit;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  border-radius: 60px;
+  border: 2px solid $violet-ui-text-color;
+  padding: 10px 20px;
+  background: $primary-bg-color;
+
+  &:focus,
+  :focus-visible {
+    outline: -webkit-focus-ring-color auto 1px;
+  }
+
+  &.containerOpen {
+    border-radius: 32px;
+  }
+}
+
+.list {
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  color: currentColor;
+  display: inline-block;
+  font-style: normal;
+  font-weight: 600;
+
+  @include font(16, 24);
+  margin-bottom: 8px;
+}
+
+.error {
+  color: $form-donate-error-color;
+  font-weight: 400;
+
+  @include font(16, 24);
+  margin-top: 8px;
+}

@@ -14,7 +14,7 @@ const Contacts = ({ data }) => {
         </p>
         <p className={s.text}>
           <span className={s.textDecoration}>{data.emailTitle}</span>
-          <a href="mailto:inharmony.ua@gmail.com">{data.email}</a>
+          <a href={`mailto:${data.email}`}>{data.email}</a>
         </p>
       </address>
     </section>

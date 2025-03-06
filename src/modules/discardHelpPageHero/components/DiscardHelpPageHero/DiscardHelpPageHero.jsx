@@ -1,15 +1,10 @@
 import Image from 'next/image';
-
 import { Container } from '@/shared/components';
-import data from '../../data/sectionContent.json';
-
 import s from './DiscardHelpPageHero.module.scss';
 
-const DiscardHelpPageHero = () => {
-  // dataProps отримуємо з пропсів
-  const dataProps = {
-    imageUrl: '/images/peace-poster-desktop2x.png',
-  };
+const DiscardHelpPageHero = ({ content }) => {
+  const data = content.discard_content.section_content;
+
   return (
     <section className={s.section}>
       <Container>
@@ -17,8 +12,8 @@ const DiscardHelpPageHero = () => {
           <div className={s.imageWrapper}>
             <Image
               className={s.image}
-              src={dataProps.imageUrl}
-              alt={data.alt}
+              src={data.image[0]}
+              alt={'pease image'}
               fill
               priority
               sizes="100%"

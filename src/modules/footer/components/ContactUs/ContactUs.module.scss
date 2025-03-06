@@ -1,7 +1,9 @@
 .contactUsSection {
   position: relative;
   width: 100%;
-  height: 388px;
+  min-height: 385px;
+  will-change: transform, height;
+  transition: height 0.5s ease-in-out;
 
   @include media(tablet) {
     grid-column: 1 / 3;

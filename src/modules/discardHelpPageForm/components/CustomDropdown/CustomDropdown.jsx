@@ -36,10 +36,7 @@ const CustomDropdown = ({
   );
 
   const toggleDropdown = () => {
-    setIsDropdownOpen((prev) => {
-      const newState = !prev;
-      return newState;
-    });
+    setIsDropdownOpen((prev) => !prev);
     requestAnimationFrame(() => {
       if (containerRef.current) {
         containerRef.current.focus();
@@ -65,7 +62,7 @@ const CustomDropdown = ({
   const handleBlur = () => {
     if (onBlur) {
       const event = {
-        target: { name: name },
+        target: { name },
       };
       onBlur(event);
     }

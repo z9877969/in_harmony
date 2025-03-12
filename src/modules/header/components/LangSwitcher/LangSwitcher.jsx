@@ -55,7 +55,10 @@ const LangSwitcher = () => {
         ) : (
           <EnIcon className={s.langIcon} />
         )}
-        <Icon className={s.langBtnIcon} iconName="icon-chevron-down" />
+        <Icon
+          className={`${s.langBtnIcon} ${isDropdownOpen ? s.open : ''}`}
+          iconName="icon-chevron-down"
+        />
       </button>
 
       {isDropdownOpen && (

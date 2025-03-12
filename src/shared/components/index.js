@@ -13,6 +13,7 @@ export { default as Icon } from './Icon/Icon';
 export { default as Input } from './Input/Input';
 export { default as InputArea } from './InputArea/InputArea';
 export { default as Loader } from './Loader/Loader';
+export { default as Loading } from './Loading/Loading';
 export { default as Logo } from './Logo/Logo';
 export { default as Modal } from './Modal/Modal';
 export { default as ProgressBar } from './ProgressBar/ProgressBar';
@@ -20,4 +21,5 @@ export { default as PublicPrivateForm } from './PublicPrivateForm/PublicPrivateF
 export { default as RadioButton } from './RadioButton/RadioButton';
 export { default as Section } from './Section/Section';
 export { default as SectionTitle } from './SectionTitle/SectionTitle';
+export { default as SuccessMessage } from './SuccessMessage/SuccessMessage';
 export { default as WFPForm } from './WFPForm/WFPForm';

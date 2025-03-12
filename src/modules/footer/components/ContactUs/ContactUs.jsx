@@ -4,9 +4,10 @@ import { Button, Input, InputArea } from '@/shared/components/index.js';
 import { FLIPPED_TIME_MS } from '@/shared/constants/index.js';
 import clsx from 'clsx';
 import { useFormik } from 'formik';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import * as Yup from 'yup';
+import SuccessSendMessage from '../SuccessSendMessage/SuccessSendMessage.jsx';
 import s from './ContactUs.module.scss';
 
 const ContactUs = ({ data }) => {
@@ -17,7 +18,8 @@ const ContactUs = ({ data }) => {
   const locale = i18n.language || 'ua';
   const containerRef = useRef(null);
   const innerRef = useRef(null);
-  const [size, setSize] = useState({ width: '100%', height: '100%' });
+  const backRef = useRef(null);
+  const [size, setSize] = useState({ width: '100%', height: '385px' });
   const flipTimeoutRef = useRef(null);
 
   const validationSchema = useMemo(
@@ -39,13 +41,16 @@ const ContactUs = ({ data }) => {
     [t]
   );
 
-  useEffect(() => {
-    if (!innerRef.current) return;
+  useLayoutEffect(() => {
+    const targetRef = flipped ? backRef : innerRef;
+    if (!targetRef.current || !(targetRef.current instanceof Element)) return;
 
     const observer = new ResizeObserver((entries) => {
       for (let entry of entries) {
+        if (!targetRef.current) return;
+
         const { height } = entry.contentRect;
-        const computedStyles = window.getComputedStyle(innerRef.current);
+        const computedStyles = window.getComputedStyle(targetRef.current);
         const paddingTop = parseFloat(computedStyles.paddingTop);
         const paddingBottom = parseFloat(computedStyles.paddingBottom);
         const actualHeight = height + paddingTop + paddingBottom;
@@ -58,9 +63,9 @@ const ContactUs = ({ data }) => {
       }
     });
 
-    observer.observe(innerRef.current);
+    observer.observe(targetRef.current);
     return () => observer.disconnect();
-  }, []);
+  }, [flipped]);
 
   useEffect(() => {
     const { current: discountEl } = containerRef;
@@ -116,7 +121,7 @@ const ContactUs = ({ data }) => {
     return () => clearTimeout(flipTimeoutRef.current);
   }, []);
 
-  if (!data) return null;
+  if (!data || !size.height) return null;
 
   return (
     <section
@@ -175,10 +180,15 @@ const ContactUs = ({ data }) => {
           </Button>
         </form>
       </div>
-      <div className={clsx(s.cardInner, s.back, flipped && s.flipped)}>
-        <h2 className={s.discountTitle}>
-          {error ? error : data.supportSuccessMessage}
-        </h2>
+      <div
+        ref={backRef}
+        className={clsx(s.cardInner, s.back, flipped && s.flipped)}
+      >
+        {error ? (
+          <h2 className={s.discountTitle}>{error}</h2>
+        ) : (
+          <SuccessSendMessage />
+        )}
       </div>
     </section>
   );

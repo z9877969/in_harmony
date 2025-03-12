@@ -16,6 +16,7 @@ export default async function handler(req, res) {
 
   try {
     const { status, reason } = await checkRegularPaymentStatus(req.body);
+
     if (status === PAYMENT_STATUSES.ACTIVE) {
       const updatedPayment = await cancelRegularPayment(req.body);
       return res.status(200).json(updatedPayment);

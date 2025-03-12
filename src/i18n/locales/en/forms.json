@@ -58,16 +58,28 @@
     "datePlaceholder": "29.01.2024",
     "cardLastDigitsLabel": "Last 2 digits of the bank card used for subscription",
     "cardLastDigitsPlaceholder": "11",
+    "purpose": "Purpose",
     "reasonLabel": "Please specify the reason for canceling the monthly subscription",
     "reasonPlaceholder": "Your message",
     "submitButton": "Cancel",
+    "submitButtonLoading": "Cancelling...",
     "nameRequired": "Name is required",
     "emailRequired": "Email is required",
     "emailInvalid": "Email must contain '@' and '.'",
+    "purposeRequired": "Purpose is required",
+    "reasonRequired": "The cancellation reason is required",
     "amountRequired": "Amount is required",
     "numberRequired": "Value must be a number",
     "positiveRequired": "Value must be positive",
     "dateRequired": "Date is required",
-    "cardLastDigitsRequired": "Last digits of the card are required"
+    "cardLastDigitsRequired": "Last digits of the card are required",
+    "errorMessage": {
+      "wfpApiRemove": "Error canceling the regular payment: {{status}} {{statusText}}. Please try again.",
+      "searchPayment": "Error searching for the regular payment",
+      "discardResult": "Failed to cancel the regular payment. Please try again later."
+    },
+    "successMessage": {
+      "successDiscardResult": "The regular payment has been successfully canceled. Thank you for using our service!"
+    }
   }
 }

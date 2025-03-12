@@ -1,8 +1,7 @@
 'use client';
 
 import { Container, Logo, Modal } from '@/shared/components';
-import { usePathname } from 'next/navigation.js';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Contacts from '../Contacts/Contacts.jsx';
@@ -14,43 +13,13 @@ import SocialMediaLinks from '../SocialMediaLinks/SocialMediaLinks.jsx';
 import TeamList from '../TeamList/TeamList.jsx';
 import s from './Footer.module.scss';
 
-const Footer = () => {
-  const pathname = usePathname();
-  const locale = pathname.split('/')[1];
+const Footer = ({ content: data }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [data, setData] = useState(null);
   const { t } = useTranslation('footer');
 
   const toggleModal = () => {
     setIsOpen((prev) => !prev);
   };
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(`/api/all-pages/${locale}/footer`);
-
-        if (!response.ok) {
-          throw new Error(
-            `${t('apiErrors.fetchingError')} ${response.statusText}`
-          );
-        }
-
-        const footerData = await response.json();
-        if (footerData?.section?.sections_list?.[1]?.section_content) {
-          setData(footerData.section.sections_list[1].section_content);
-        } else {
-          // eslint-disable-next-line
-          console.warn(`${t('apiErrors.missingDataError')}  ${footerData}`);
-        }
-      } catch (error) {
-        // eslint-disable-next-line
-        console.error(`${t('apiErrors.exceptionError')}  ${error}`);
-      }
-    };
-
-    fetchData();
-  }, [locale, t]);
 
   if (!data) {
     return null;

@@ -1,6 +1,6 @@
-import { SENDPULSE_CONFIG } from '@/shared/constants/index.js'
-import createHttpError from 'http-errors'
-import { EMAIL_TEMPLATES } from '../templates/email/index.js'
+import { SENDPULSE_CONFIG } from '@/shared/constants/index.js';
+import createHttpError from 'http-errors';
+import { EMAIL_TEMPLATES } from '../templates/email/index.js';
 
 const getSendPulseToken = async () => {
   try {
@@ -28,6 +28,7 @@ export const sendEmail = async ({ name, to, lang = 'ua' }) => {
   try {
     const token = await getSendPulseToken();
     const template = EMAIL_TEMPLATES[lang];
+
     if (!template) {
       throw createHttpError(400, 'Невідома мова email');
     }

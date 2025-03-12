@@ -1,0 +1,101 @@
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  justify-content: center;
+  align-items: center;
+
+  @include media(tablet) {
+    gap: 20px;
+  }
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.middleContent {
+  margin-block: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @include media(tablet) {
+    margin-block: 16px;
+  }
+}
+
+.title {
+  width: 262px;
+  color: $secondary-text-color;
+  text-align: center;
+  font-family: $secondary-font-family;
+
+  @include font(20, 28);
+  font-weight: 700;
+
+  @include media(tablet) {
+    width: 100%;
+  }
+}
+
+.text {
+  color: $secondary-text-color;
+  text-align: center;
+  font-family: $primary-font-family;
+  @include font(16, 24);
+  font-weight: 400;
+
+  @include media(tablet) {
+    @include font(18, 27);
+  }
+
+  @include media(desktop) {
+    @include font(16, 24);
+  }
+}
+
+.link {
+  color: $link-text-blue-color;
+  font-family: $primary-font-family;
+  @include font(16, 25);
+  font-weight: 400;
+  @include animation-rules(color, 0.3s);
+
+  &:visited,
+  &:focus,
+  &:hover {
+    color: $violet-ui-text-color;
+  }
+
+  @include media(tablet) {
+    @include font(18, 27);
+  }
+
+  @include media(desktop) {
+    @include font(16, 25);
+  }
+}
+
+.bottomContent {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+
+  @include media(tablet) {
+    flex-direction: row;
+  }
+
+  @include media(desktop) {
+    flex-direction: column;
+  }
+}
+
+.imgInHarmony {
+  width: 180px;
+}

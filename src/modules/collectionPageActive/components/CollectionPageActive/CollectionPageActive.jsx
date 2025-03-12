@@ -38,14 +38,16 @@ const CollectionPageActive = ({ content }) => {
             visibleItems={visibleItems}
             allCollection={cards}
           />
-          <Button
-            onClick={handleToggleVisibleItems}
-            className={s.button}
-            size="extraLarge"
-            border="true"
-          >
-            {isExpanded ? `${t('hide')}` : `${t('showMore')}`}
-          </Button>
+          {cards.length > 6 && (
+            <Button
+              onClick={handleToggleVisibleItems}
+              className={s.button}
+              size="extraLarge"
+              border="true"
+            >
+              {isExpanded ? `${t('hide')}` : `${t('showMore')}`}
+            </Button>
+          )}
         </div>
       </Container>
     </Section>

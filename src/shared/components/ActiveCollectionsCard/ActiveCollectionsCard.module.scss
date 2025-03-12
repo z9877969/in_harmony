@@ -17,6 +17,7 @@
 
   @include media(desktop) {
     max-width: 416px;
+    gap: 12px;
   }
 }
 
@@ -115,16 +116,12 @@
   .contentContainer {
     display: flex;
     flex-direction: column;
-    gap: 24px;
-
-    @include media(tablet) {
-      gap: 32px;
-    }
+    gap: 12px;
   }
 }
 
 .title {
-  height: 74px;
+  height: 60px;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -132,10 +129,9 @@
   font-weight: 700;
   @include font(20, 28);
   font-family: $secondary-font-family;
-  padding-top: 16px;
 
   @include media(tablet) {
-    padding-top: 20px;
+    height: 68px;
   }
 
   @include media(desktop) {

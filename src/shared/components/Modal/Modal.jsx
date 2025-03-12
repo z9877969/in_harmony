@@ -16,11 +16,13 @@ export default function Modal({ open, onClose, children, className }) {
 
   useEffect(() => {
     const dialog = dialogRef.current;
-    if (!dialog) return;
+    if (!dialog || !modalRoot) return;
 
     if (open) {
       requestAnimationFrame(() => {
-        dialog.showModal();
+        if (dialog.isConnected) {
+          dialog.showModal();
+        }
       });
       document.body.style.overflow = 'hidden';
     }
@@ -31,7 +33,7 @@ export default function Modal({ open, onClose, children, className }) {
         document.body.style.overflow = '';
       }
     };
-  }, [open]);
+  }, [open, modalRoot]);
 
   const handleBackdropClick = useCallback(
     (e) => {

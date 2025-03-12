@@ -1,32 +1,29 @@
 .form {
   position: absolute;
-  top: 40%;
+  top: 353px;
   left: 50%;
-  transform: translate(-50%, 40%);
+  transform: translateX(-50%);
   z-index: 10;
   width: 100%;
   width: calc(100% - 32px);
 
   @include media(mobile) {
     width: 100%;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, 40%);
+    top: 353px;
     width: auto;
   }
 
   @include media(tablet) {
     max-width: none;
     width: auto;
-    transform: translate(-76%, 40%);
-    top: 50%;
+    transform: translateX(-76%);
+    top: 444px;
   }
 
   @include media(desktop) {
     max-width: none;
     width: auto;
-    top: 10%;
-    left: 83%;
-    transform: translate(-50%, 170px);
+    top: 208px;
+    transform: translateX(54%);
   }
 }

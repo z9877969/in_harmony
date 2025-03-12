@@ -40,6 +40,7 @@ const ClosedCollectionFeedbacks = ({ content }) => {
   return (
     <Section>
       <Container>
+        <h2 className={s.title}>{content.title}</h2>
         <DotsSwiper
           customSwiper={s.customSwiper}
           totalSlides={totalSlides}

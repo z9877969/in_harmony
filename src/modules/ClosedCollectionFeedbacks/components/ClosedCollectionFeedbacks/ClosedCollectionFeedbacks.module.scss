@@ -1,1 +1,19 @@
+.title {
+  font-family: $secondary-font-family;
+  color: $secondary-text-color;
+  font-weight: 700;
+  @include font(24, 28);
+  margin-bottom: 24px;
 
+  @include media(tablet) {
+    @include font(32, 40);
+    margin-bottom: 32px;
+    width: 450px;
+  }
+
+  @include media(desktop) {
+    @include font(48, 56);
+    margin-bottom: 48px;
+    width: auto;
+  }
+}

@@ -57,25 +57,11 @@
       "social": "https://www.linkedin.com/in/anastasiia-motsukh/"
     },
     {
-      "firstName": "Наталія",
-      "lastName": "Медведєва",
-      "position": "UI/UX Designer",
-      "image": "/images/team/natalia-medvedeva.jpeg",
-      "social": "https://www.linkedin.com/in/medvedeva-natalia/"
-    },
-    {
       "firstName": "Сергій",
       "lastName": "Гудзенко",
       "position": "Developer",
       "image": "/images/team/sehii-hudzenko.jpg",
       "social": "https://www.linkedin.com/in/serhii-hudzenko/"
-    },
-    {
-      "firstName": "Ганна",
-      "lastName": "Желдак",
-      "position": "UI/UX Designer",
-      "image": "/images/team/hanna-zheldak.png",
-      "social": "https://www.linkedin.com/in/hanna-zheldak/"
     },
     {
       "firstName": "Павло",
@@ -90,6 +76,20 @@
       "position": "Team Lead Designer",
       "image": "/images/team/maksym-harmash.jpg",
       "social": "https://www.linkedin.com/in/maxgrmsh/"
+    },
+    {
+      "firstName": "Наталія",
+      "lastName": "Медведєва",
+      "position": "UI/UX Designer",
+      "image": "/images/team/natalia-medvedeva.jpeg",
+      "social": "https://www.linkedin.com/in/medvedeva-natalia/"
+    },
+    {
+      "firstName": "Ганна",
+      "lastName": "Желдак",
+      "position": "UI/UX Designer",
+      "image": "/images/team/hanna-zheldak.png",
+      "social": "https://www.linkedin.com/in/hanna-zheldak/"
     },
     {
       "firstName": "Ілона",

@@ -1,27 +1,25 @@
 'use client';
 
-import { usePathname, useRouter } from 'next/navigation';
-import { Button } from '@/shared/components';
-import { ROUTES } from '@/shared/constants';
+import { usePathname } from 'next/navigation';
+import { LINKDATA, ROUTES } from '@/shared/constants';
 import { useTranslation } from 'react-i18next';
+import LinkButton from '@/shared/components/LinkButton/LinkButton.jsx';
 
 const ActiveCollectionPageNavBtn = ({ className }) => {
-  const router = useRouter();
   const pathname = usePathname();
   const locale = pathname.split('/')[1];
 
   const { t } = useTranslation('mainPage');
 
   return (
-    <Button
-      onClick={() => router.push(`/${locale}/${ROUTES.COLLECTION}`)}
-      border="true"
-      className={className}
-      size="large"
-      fontSize="eighteen"
-    >
-      {t('activeCollection.moreBtn')}
-    </Button>
+    <>
+      <LinkButton
+        path={`/${locale}/${ROUTES.COLLECTION}`}
+        linkText={t('activeCollection.moreBtn')}
+        type={LINKDATA.TYPE_LIGHT_BORDER}
+        className={className}
+      />
+    </>
   );
 };
 

@@ -30,6 +30,18 @@ export const getPayments = async (filters = {}) => {
   return payments;
 };
 
+export const getPaymentById = async (id) => {
+  const payment = await PaymentModel.findOne({
+    _id: id,
+  });
+
+  if (!payment) {
+    throw createHttpError(404, 'Payment not found');
+  }
+
+  return payment;
+};
+
 export const createPayment = async ({
   amount,
   type,
@@ -52,7 +64,7 @@ export const createPayment = async ({
       type,
       clientEmail,
       donateValue,
-      status: PAYMENT_STATUSES.ACTIVE,
+      status: PAYMENT_STATUSES.APPROVED,
     });
 
     if (existingPayments.length > 0) {
@@ -172,9 +184,7 @@ export const updatePaymentStatus = async (data) => {
   return updatedPayment;
 };
 
-export const checkRegularPaymentStatus = async (data) => {
-  const { orderReference } = data;
-
+export const checkRegularPaymentStatus = async ({ orderReference }) => {
   if (!orderReference) {
     throw createHttpError(400, 'Missing orderReference');
   }
@@ -206,11 +216,40 @@ export const checkRegularPaymentStatus = async (data) => {
   return responseData;
 };
 
-export const cancelRegularPayment = async (data) => {
-  const { orderReference, cancellationReason } = data;
-
+export const cancelRegularPayment = async ({
+  orderReference,
+  cancellationReason,
+}) => {
   if (!orderReference) {
     throw createHttpError(400, 'Missing orderReference');
+  }
+
+  const [payment, paymentRegular] = await Promise.all([
+    checkPaymentStatus({ orderReference }),
+    checkRegularPaymentStatus({ orderReference }),
+  ]);
+
+  if (!payment || !paymentRegular) {
+    throw createHttpError(404, 'Payment not found');
+  }
+
+  const validPaymentStatuses = new Set([
+    PAYMENT_STATUSES.APPROVED,
+    PAYMENT_STATUSES.REFUNDED,
+  ]);
+
+  if (
+    payment.reasonCode !== 1100 &&
+    !validPaymentStatuses.has(payment.status)
+  ) {
+    throw createHttpError(404, 'Order Not Found');
+  }
+
+  if (
+    paymentRegular.reasonCode !== 4100 ||
+    paymentRegular.status !== PAYMENT_STATUSES.ACTIVE
+  ) {
+    throw createHttpError(404, 'Regular Order Not Found');
   }
 
   const requestBody = {
@@ -244,10 +283,43 @@ export const cancelRegularPayment = async (data) => {
   const updatedPayment = await updatePaymentStatus({
     orderReference,
     transactionStatus: PAYMENT_STATUSES.REMOVED,
-    cancellationReason,
+    cancellationReason: cancellationReason || 'Regular payment is closed',
   });
 
   return updatedPayment;
+};
+
+export const checkPaymentStatus = async ({ orderReference }) => {
+  const merchantAccount = PAYMENT_CONFIG.merchantAccount;
+
+  const controlString = [merchantAccount, orderReference].join(';');
+  const merchantSignature = generateHash(controlString, PAYMENT_CONFIG.key);
+
+  const requestBody = {
+    transactionType: PAYMENT_CONFIG.transactionType.CHECK_STATUS,
+    merchantAccount,
+    orderReference,
+    merchantSignature,
+    apiVersion: PAYMENT_CONFIG.apiVersion,
+  };
+
+  const response = await fetch(PAYMENT_CONFIG.paymentStatusURL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(requestBody),
+  });
+
+  if (!response.ok) {
+    throw createHttpError(
+      response.status,
+      `Failed to cancel regular payment. Status: ${response.status} (${response?.statusText}). `
+    );
+  }
+
+  const statusData = response.json();
+  return statusData;
 };
 
 export const createPaymentLog = async (data) => {

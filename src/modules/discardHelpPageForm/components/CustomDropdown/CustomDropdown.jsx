@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
 
 import { Icon, Loading } from '@/shared/components/index.js';
+import { NO_DATA_FOUND } from '@/shared/constants/index.js';
 import s from './CustomDropdown.module.scss';
 
 const CustomDropdown = ({
@@ -50,8 +51,10 @@ const CustomDropdown = ({
   }, [t]);
 
   const handleSelect = (option) => {
-    setTitle(option.title);
-    onSelect({ value: option.value, title: option.title });
+    if (option.value !== NO_DATA_FOUND) {
+      setTitle(option.title);
+      onSelect({ value: option.value, title: option.title });
+    }
     setIsDropdownOpen(false);
   };
 
@@ -71,7 +74,7 @@ const CustomDropdown = ({
   useEffect(() => {
     if (initialValue) {
       const selectedOption = collections.find(
-        (option) => option.value === initialValue
+        (option) => option.value === initialValue.value
       );
       if (selectedOption) {
         setTitle(selectedOption.title);

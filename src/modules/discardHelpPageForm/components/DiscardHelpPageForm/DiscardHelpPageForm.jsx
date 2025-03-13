@@ -11,9 +11,13 @@ import {
   SuccessMessage,
 } from '@/shared/components';
 
-import { DONATE_TYPE, PAYMENT_STATUSES } from '@/shared/constants/index.js';
+import {
+  DONATE_TYPE,
+  NO_DATA_FOUND,
+  PAYMENT_STATUSES,
+} from '@/shared/constants/index.js';
 import { usePathname } from 'next/navigation.js';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import CustomDropdown from '../CustomDropdown/CustomDropdown.jsx';
 import { validationSchema } from '../validation/validationSchema';
@@ -23,32 +27,34 @@ const DiscardHelpPageForm = () => {
   const initialValues = {
     email: '',
     reason: '',
-    donateValue: '',
+    donate: null,
   };
 
-  const [collections, setCollections] = useState([]);
+  const { t } = useTranslation('forms');
+  const noDataFound = useMemo(
+    () => ({
+      title: t('paymentDiscard.errorMessage.noDataFound'),
+      value: NO_DATA_FOUND,
+    }),
+    [t]
+  );
+  const [collections, setCollections] = useState([noDataFound]);
   const [shouldFetch, setShouldFetch] = useState(false);
 
   const [apiError, setApiError] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
 
-  const { t } = useTranslation('forms');
-
   const pathname = usePathname();
   const locale = pathname.split('/')[1];
 
   const handleCancelRegularPayment = async (data) => {
-    const {
-      email: clientEmail,
-      reason: cancellationReason,
-      donateValue,
-    } = data;
+    const { email: clientEmail, reason: cancellationReason, donate } = data;
 
     const params = new URLSearchParams({
       type: DONATE_TYPE.REGULAR,
       clientEmail,
-      donateValue,
-      status: PAYMENT_STATUSES.ACTIVE,
+      donateValue: donate.value,
+      status: PAYMENT_STATUSES.APPROVED,
     });
 
     const payment = await fetch(`/api/payment?${params.toString()}`);
@@ -59,6 +65,7 @@ const DiscardHelpPageForm = () => {
     }
 
     const result = await payment.json();
+
     if (!result || result.length === 0) {
       const message = t('paymentDiscard.errorMessage.searchPayment');
       throw new Error(message);
@@ -99,6 +106,7 @@ const DiscardHelpPageForm = () => {
         setSuccessMessage(
           t('paymentDiscard.successMessage.successDiscardResult')
         );
+        setCollections([noDataFound]);
         formik.resetForm();
       } catch (error) {
         setApiError(error.message);
@@ -120,10 +128,12 @@ const DiscardHelpPageForm = () => {
 
   const handleSelect = useCallback(
     (selected) => {
-      setFieldValue('donateValue', selected.value);
-      setFieldTouched('donateValue', true);
+      if (selected.value !== values.donate?.value) {
+        setFieldValue('donate', selected);
+      }
+      setFieldTouched('donate', true);
     },
-    [setFieldValue, setFieldTouched]
+    [setFieldValue, setFieldTouched, values.donate]
   );
 
   const fetchCollections = useCallback(async () => {
@@ -138,9 +148,9 @@ const DiscardHelpPageForm = () => {
         `/api/payment/discard/${locale}/collections?email=${encodeURIComponent(email)}&locale=${locale}`
       );
 
-      if (!response.ok) {
-        setFieldValue('donateValue', '');
-        setCollections([]);
+      if (!response?.ok) {
+        setFieldValue('donate', null);
+        setCollections([noDataFound]);
         return;
       }
 
@@ -160,7 +170,7 @@ const DiscardHelpPageForm = () => {
     } catch (error) {
       setApiError(error.message);
     }
-  }, [locale, setFieldValue, values.email]);
+  }, [locale, noDataFound, setFieldValue, values.email]);
 
   const handleEmailBlur = (e) => {
     handleBlur(e);
@@ -187,6 +197,8 @@ const DiscardHelpPageForm = () => {
     setSuccessMessage('');
   };
 
+  const memoizedInitialValue = useMemo(() => values.donate, [values.donate]);
+
   return (
     <section className={s.section}>
       <Container>
@@ -205,12 +217,12 @@ const DiscardHelpPageForm = () => {
             />
             <CustomDropdown
               collections={collections}
-              initialValue={values.donateValue}
+              initialValue={memoizedInitialValue}
               onBlur={handleBlur}
               onSelect={handleSelect}
               label={t('paymentDiscard.purpose')}
-              name="donateValue"
-              error={touched.donateValue && errors.donateValue}
+              name="donate"
+              error={touched.donate && errors.donate}
               loading={shouldFetch}
             />
 

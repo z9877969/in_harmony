@@ -62,5 +62,5 @@ screen types:
 }
 
 @mixin animation-rules($_prop: all, $_duration: 0.3s) {
-  transition: $_prop $_duration ease;
+  transition: $_prop $_duration ease-in-out;
 }

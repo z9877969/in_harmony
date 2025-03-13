@@ -139,100 +139,116 @@ const WFPForm = forwardRef(
             <input
               type="hidden"
               name="defaultPaymentSystem"
-              value={formData.defaultPaymentSystem}
+              defaultValue={formData.defaultPaymentSystem}
             />
 
-            <input type="hidden" name="returnUrl" value={returnUrl} />
+            <input type="hidden" name="returnUrl" defaultValue={returnUrl} />
             <input
+              type="hidden"
               name="serviceUrl"
-              value={`${formData.appBaseURL}/api/payment/log`}
-              hidden
+              defaultValue={`${formData?.appBaseURL}/api/payment/log`}
             />
-            <input type="hidden" name="language" value={formData.language} />
+            <input
+              type="hidden"
+              name="language"
+              defaultValue={formData.language}
+            />
             <input
               type="hidden"
               name="orderTimeout"
-              value={formData.orderTimeout}
+              defaultValue={formData.orderTimeout}
             />
             {isPublic && clientFirstName && (
               <input
                 type="hidden"
                 name="clientFirstName"
-                value={clientFirstName}
+                defaultValue={clientFirstName}
               />
             )}
             {isPublic && clientEmail && (
-              <input type="hidden" name="clientEmail" value={clientEmail} />
+              <input
+                type="hidden"
+                name="clientEmail"
+                defaultValue={clientEmail}
+              />
             )}
-            <input type="hidden" name="amount" value={formData.amount} />
+            <input type="hidden" name="amount" defaultValue={formData.amount} />
             <input
               type="hidden"
               name="merchantAccount"
-              value={formData.merchantAccount}
+              defaultValue={formData.merchantAccount}
             />
             <input
               type="hidden"
               name="merchantAuthType"
-              value={formData.merchantAuthType}
+              defaultValue={formData.merchantAuthType}
             />
             <input
               type="hidden"
               name="merchantDomainName"
-              value={formData.merchantDomainName}
+              defaultValue={formData.merchantDomainName}
             />
             <input
               type="hidden"
               name="merchantSignature"
-              value={formData.merchantSignature}
+              defaultValue={formData.merchantSignature}
             />
             <input
               type="hidden"
               name="orderReference"
-              value={formData.orderReference}
+              defaultValue={formData.orderReference}
             />
-            <input type="hidden" name="orderDate" value={formData.orderDate} />
-            <input type="hidden" name="currency" value={formData.currency} />
+            <input
+              type="hidden"
+              name="orderDate"
+              defaultValue={formData.orderDate}
+            />
+            <input
+              type="hidden"
+              name="currency"
+              defaultValue={formData.currency}
+            />
             <input
               type="hidden"
               name="productName[]"
-              value={formData.donateTitle}
+              defaultValue={formData.donateTitle}
             />
             <input
               type="hidden"
               name="productPrice[]"
-              value={formData.amount}
+              defaultValue={formData.amount}
             />
             <input
               type="hidden"
               name="productCount[]"
-              value={formData.productCount}
+              defaultValue={formData.productCount}
             />
             {isRegular && (
               <>
                 <input
                   type="hidden"
                   name="regularBehavior"
-                  value={formData.regularBehavior}
+                  defaultValue={formData.regularBehavior}
                 />
                 <input
                   type="hidden"
                   name="regularMode"
-                  value={formData.regularMode}
+                  defaultValue={formData.regularMode}
                 />
                 <input
                   type="hidden"
                   name="regularAmount"
-                  value={formData.amount}
+                  defaultValue={formData.amount}
                 />
                 <input
                   type="hidden"
                   name="regularOn"
-                  value={formData.regularOn}
+                  defaultValue={formData.regularOn}
                 />
                 <input
                   type="hidden"
                   name="regularCount"
-                  value={formData.regularCount}
+                  defaultValue={formData.regularCount}
                 />
               </>
             )}

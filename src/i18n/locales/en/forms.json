@@ -76,7 +76,8 @@
     "errorMessage": {
       "wfpApiRemove": "Error canceling the regular payment: {{status}} {{statusText}}. Please try again.",
       "searchPayment": "Error searching for the regular payment",
-      "discardResult": "Failed to cancel the regular payment. Please try again later."
+      "discardResult": "Failed to cancel the regular payment. Please try again later.",
+      "noDataFound": "Monthly donate information not found for the provided email"
     },
     "successMessage": {
       "successDiscardResult": "The regular payment has been successfully canceled. Thank you for using our service!"

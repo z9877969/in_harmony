@@ -7,8 +7,11 @@ export const validationSchema = (t) =>
       .matches(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, t('paymentDiscard.emailInvalid'))
       .required(t('paymentDiscard.emailRequired')),
     reason: Yup.string().required(t('paymentDiscard.reasonRequired')),
-    donateValue: Yup.string()
+    donate: Yup.object()
+      .shape({
+        title: Yup.string().required(t('paymentDiscard.purposeRequired')),
+        value: Yup.string().required(t('paymentDiscard.purposeRequired')),
+      })
       .nullable()
-      .defined(t('paymentDiscard.purposeRequired'))
       .required(t('paymentDiscard.purposeRequired')),
   });

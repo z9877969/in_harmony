@@ -7,16 +7,26 @@ export const validationSchemaPublic = (t) =>
       .email(t('paymentInfo.validationMessage.email'))
       .required(t('paymentInfo.validationMessage.required')),
     message: Yup.string().required(t('paymentInfo.validationMessage.required')),
-    dropdown: Yup.string().required(
-      t('paymentInfo.validationMessage.dropdownTitle')
-    ),
+    collection: Yup.object({
+      title: Yup.string().required(
+        t('paymentInfo.validationMessage.dropdownTitle')
+      ),
+      value: Yup.string().required(
+        t('paymentInfo.validationMessage.dropdownTitle')
+      ),
+    }),
     isChecked: Yup.boolean(),
   });
 
 export const validationSchemaAnonymous = (t) =>
   Yup.object().shape({
-    dropdown: Yup.string().required(
-      t('paymentInfo.validationMessage.dropdownTitle')
-    ),
+    collection: Yup.object({
+      title: Yup.string().required(
+        t('paymentInfo.validationMessage.dropdownTitle')
+      ),
+      value: Yup.string().required(
+        t('paymentInfo.validationMessage.dropdownTitle')
+      ),
+    }),
     isChecked: Yup.boolean(),
   });

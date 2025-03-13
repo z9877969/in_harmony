@@ -87,6 +87,7 @@ const FormWithSumButtons = ({ className = '', setDonateTime = () => {} }) => {
           })}
           name="donateTime"
           onChange={(value) => setFieldValue('donateTime', value)}
+          selctedOption={values.donateTime}
         />
 
         <div className={s.textForm}>

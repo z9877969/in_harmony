@@ -4,9 +4,8 @@ import { ROUTES } from '@/shared/constants';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation.js';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-
 import {
   Button,
   Dropdown,
@@ -15,36 +14,49 @@ import {
   RadioButton,
   WFPForm,
 } from '../index.js';
-
 import {
   validationSchemaAnonymous,
   validationSchemaPublic,
 } from './validation/validationSchema.js';
-
+import { collectionsOptions } from './options/collectionsOptions.js';
 import s from './PublicPrivateForm.module.scss';
+
+const initialFormValues = {
+  name: '',
+  email: '',
+  message: '',
+  isChecked: false,
+  amount: '',
+  donateTime: '',
+  isPublic: true,
+  collection: {
+    value: '',
+    title: '',
+  },
+};
 
 const PublicPrivateForm = ({ content }) => {
   const collections = content.cards;
   const locale = usePathname().split('/')[1];
-
-  const initialFormValues = {
-    name: '',
-    email: '',
-    message: '',
-    dropdown: '',
-    isChecked: false,
-    amount: '',
-    donateTime: '',
-    isPublic: true,
-    value: '',
-  };
-
   const [initialValues, setInitialValues] = useState(initialFormValues);
+  const [loading, setLoading] = useState(false);
   const { t } = useTranslation('forms');
 
-  const [loading, setLoading] = useState(false);
-
   const wfpFormRef = useRef(null);
+
+  const dropdownOptions = useMemo(() => {
+    const options = collections.map(({ value, title }) => ({
+      value,
+      title,
+    }));
+    return [
+      {
+        value: collectionsOptions.collectFund.value,
+        title: t('paymentInfo.dropdown'),
+      },
+      ...options,
+    ];
+  }, [collections, t]);
 
   const title = t('paymentInfo.title');
   const index = title.indexOf('–');
@@ -70,16 +82,24 @@ const PublicPrivateForm = ({ content }) => {
     const searchParams = new URLSearchParams(window.location.search);
 
     const email = searchParams.get('email');
+    const collectionValue =
+      searchParams.get('value') || dropdownOptions[0].value;
+    const amount = searchParams.get('amount');
+    const donateTime = searchParams.get('donateTime');
 
     setInitialValues((prevValues) => ({
       ...prevValues,
       email: email ? email : prevValues.email,
-      amount: searchParams.get('amount'),
-      donateTime: searchParams.get('donateTime'),
-      dropdown: searchParams.get('value'),
-      value: searchParams.get('value'),
+      amount,
+      donateTime,
+      collection: {
+        value: collectionValue,
+        title:
+          dropdownOptions.find((el) => el.value === collectionValue)?.title ||
+          '',
+      },
     }));
-  }, []);
+  }, [dropdownOptions]);
 
   const handleFormSubmit = async (values) => {
     const selectedOption = collections.find(
@@ -121,9 +141,6 @@ const PublicPrivateForm = ({ content }) => {
           await handleFormSubmit(values);
           await handleFinalSubmit(actions);
           actions.setSubmitting(false);
-          actions.resetForm({
-            values: initialFormValues,
-          });
         }}
         enableReinitialize
       >
@@ -134,7 +151,8 @@ const PublicPrivateForm = ({ content }) => {
                 options={t('paymentInfo.donateOptions', {
                   returnObjects: true,
                 })}
-                name="donateOptions"
+                selctedOption={initialValues.isPublic ? 'public' : 'anonymous'}
+                name="isPublic"
                 onChange={handleRadioButtonChange}
               />
 
@@ -178,17 +196,18 @@ const PublicPrivateForm = ({ content }) => {
             </div>
 
             <p className={s.destination}>{t('paymentInfo.destination')}</p>
-            <Field name="dropdown">
-              {({ field }) => (
-                <Dropdown
-                  value={field.value}
-                  onSelect={(selectedOption) =>
-                    setFieldValue('dropdown', selectedOption.value)
-                  }
-                  initialValue={initialValues.dropdown}
-                  collections={collections}
-                />
-              )}
+            <Field name="collection">
+              {({ field }) => {
+                return (
+                  <Dropdown
+                    option={field.value}
+                    onSelect={(selectedOption) =>
+                      setFieldValue('collection', selectedOption)
+                    }
+                    collections={dropdownOptions}
+                  />
+                );
+              }}
             </Field>
 
             <ErrorMessage name="dropdown" component="p" className={s.error} />
@@ -219,8 +238,8 @@ const PublicPrivateForm = ({ content }) => {
               amount={initialValues.amount}
               clientEmail={initialValues.email}
               message={initialValues.message}
-              donateValue={initialValues.value}
-              donateTitle={initialValues.dropdown}
+              donateValue={initialValues.collection.value}
+              donateTitle={initialValues.collection.title}
               isRegular={initialValues.donateTime === 'true'}
               clientFirstName={initialValues.name}
               isPublic={initialValues.isPublic}

@@ -20,7 +20,7 @@ export const getDiscardCollectionsList = async (req, res) => {
 
     const filteredPayments = userPayments.filter(
       (payment) =>
-        payment.status === PAYMENT_STATUSES.ACTIVE &&
+        payment.status === PAYMENT_STATUSES.APPROVED &&
         payment.type === DONATE_TYPE.REGULAR
     );
 

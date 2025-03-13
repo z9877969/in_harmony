@@ -69,8 +69,10 @@ export const PAYMENT_CONFIG = {
   merchantPassword: process.env.WAYFORPAY_MERCHANT_PASSWORD,
   merchantDomainName: process.env.WAYFORPAY_MERCHANT_DOMAIN,
   requestType: { STATUS: 'STATUS', REMOVE: 'REMOVE' },
+  transactionType: { CHECK_STATUS: 'CHECK_STATUS' },
   regularPaymentUrl: 'https://api.wayforpay.com/regularApi',
   paymentUrl: 'https://secure.wayforpay.com/pay',
+  paymentStatusURL: 'https://api.wayforpay.com/api',
   language: 'UA',
   orderTimeout: 49000,
   merchantAuthType: 'SimpleSignature',
@@ -81,6 +83,7 @@ export const PAYMENT_CONFIG = {
   regularMode: 'monthly',
   regularOn: '1',
   regularCount: '12',
+  apiVersion: 1,
 };
 
 export const PAYMENT_STATUSES = {
@@ -129,3 +132,5 @@ export const donorsDict = {
   ua: { 1: 'донор', 2: 'донори', 3: 'донорів' },
   en: { 1: 'donor', 2: 'donors' },
 };
+
+export const NO_DATA_FOUND = 'No data found';

@@ -4,13 +4,13 @@
   justify-content: center;
   cursor: pointer;
   font-family: inherit;
-
-  @include animation-rules();
-  border: none;
-  outline: transparent;
+  border: 2px solid $violet-ui-text-color;
   border-radius: 60px;
   font-weight: 600;
   font-size: 16px;
+  will-change: border-color, background-color, color;
+
+  @include animation-rules();
 
   &:disabled {
     background-color: transparent;
@@ -19,6 +19,18 @@
     cursor: not-allowed;
     opacity: 0.5;
     font-weight: 400;
+  }
+
+  &:hover,
+  &:focus {
+    border-color: $violet-ui-text-color;
+    background-color: transparent;
+    color: $violet-ui-text-color;
+  }
+
+  &:focus,
+  :focus-visible {
+    outline: -webkit-focus-ring-color auto 1px;
   }
 }
 

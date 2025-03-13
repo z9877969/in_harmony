@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { Container } from '@/shared/components';
+import { getImageSrc } from '@/shared/helpers';
 import s from './DiscardHelpPageHero.module.scss';
 
 const DiscardHelpPageHero = ({ content }) => {
@@ -12,7 +13,7 @@ const DiscardHelpPageHero = ({ content }) => {
           <div className={s.imageWrapper}>
             <Image
               className={s.image}
-              src={data.image[0]}
+              src={getImageSrc(data.image[0])}
               alt={'pease image'}
               fill
               priority

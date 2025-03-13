@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { getImageSrc } from '@/shared/helpers';
 import s from './CardForSwiperWhithArrow.module.scss';
 
 const CardForSwiperWhithArrow = ({ slid }) => {
@@ -15,7 +16,7 @@ const CardForSwiperWhithArrow = ({ slid }) => {
   } = slid;
   const dataImage =
     image && image.length > 0
-      ? { imageUrl: image[1] }
+      ? { imageUrl: getImageSrc(image[1]) }
       : { imageUrl: '/images/default_image.webp' };
 
   return (

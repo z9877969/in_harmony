@@ -1,6 +1,7 @@
 import Image from 'next/image';
 
 import { Container, Section, SectionTitle } from '@/shared/components';
+import { getImageSrc } from '@/shared/helpers';
 import { inHarmonyLogoMini as InHarmonyLogoMini } from '/public/icons';
 import { circleColors, textColors } from '../../data/dataStyles';
 
@@ -20,7 +21,7 @@ const AboutPageMission = ({ content }) => {
               {content.image[0] ? (
                 <Image
                   className={s.image}
-                  src={content.image[0]}
+                  src={getImageSrc(content.image[0])}
                   alt="Team Photo"
                   width={416}
                   height={306}

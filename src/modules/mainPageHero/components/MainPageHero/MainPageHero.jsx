@@ -2,10 +2,11 @@ import { Container } from '@/shared/components';
 
 import FormWithInfo from '../FormWithInfo/FormWithInfo.jsx';
 
+import { getImageSrc } from '@/shared/helpers/getImageSrc.js';
 import s from './MainPageHero.module.scss';
 
-const MainPageHero = ({ content }) => {
-  const media = content?.image?.[0];
+const MainPageHero = ({ content = {} }) => {
+  const media = getImageSrc(content.image?.[0]);
 
   return (
     <section>

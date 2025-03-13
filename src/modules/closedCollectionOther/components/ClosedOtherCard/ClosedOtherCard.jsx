@@ -1,16 +1,17 @@
 import Image from 'next/image';
-import s from './ClosedOtherCard.module.scss';
 import ProjectDetailsButton from '@/shared/components/CardProjectReporting/ProjectDetailsButton/ProjectDetailsButton.jsx';
 import CardQuantityComments from '@/shared/components/CardProjectReporting/CardQuantityComments/CardQuantityComments';
+import { getImageSrc } from '@/shared/helpers';
+import s from './ClosedOtherCard.module.scss';
 
-function ClosedOtherCard({ collection }) {
+function ClosedOtherCard({ collection = {} }) {
   return (
     <div className={s.shadow}>
       <div className={s.content}>
         <div className={s.imageWrapper}>
           <Image
             className={s.image}
-            src={collection.image[0]}
+            src={getImageSrc(collection.image[0])}
             alt={collection.title + 'image'}
             fill
             priority

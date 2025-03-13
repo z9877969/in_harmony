@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { Icon } from '@/shared/components';
+import { getImageSrc } from '@/shared/helpers';
 import s from './TeamPersonCard.module.scss';
 
 const TeamPersonCard = ({ icon, name, role, description, image }) => {
@@ -10,7 +11,7 @@ const TeamPersonCard = ({ icon, name, role, description, image }) => {
           {Array.isArray(image) && image.length > 0 ? (
             <div className={s.imageWrapper}>
               <Image
-                src={image[0]}
+                src={getImageSrc(image[0])}
                 alt="Team Photo"
                 fill
                 priority

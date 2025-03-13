@@ -87,6 +87,7 @@ const FormWithSumButtons = ({ className = '', setDonateTime = () => {} }) => {
           })}
           name="donateTime"
           onChange={(value) => setFieldValue('donateTime', value)}
+          selctedOption={values.donateTime}
         />
 
         <div className={s.textForm}>
@@ -96,15 +97,21 @@ const FormWithSumButtons = ({ className = '', setDonateTime = () => {} }) => {
 
         <div className={s.boxBtn}>
           {amounts.map((amount) => (
-            <Button
+            <label
               key={amount}
               type="button"
               variant="secondary"
               className={s.btnDonate}
-              onClick={() => setFieldValue('amount', amount)}
             >
               +{amount} UAH
-            </Button>
+              <input
+                type="radio"
+                onChange={() => setFieldValue('amount', amount)}
+                name="amount"
+                value={amount}
+                checked={amount.toString() === values.amount.toString()}
+              />
+            </label>
           ))}
         </div>
 

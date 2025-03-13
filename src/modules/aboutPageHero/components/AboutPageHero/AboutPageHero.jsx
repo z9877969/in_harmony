@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Container } from '@/shared/components';
 import Icon from '@/shared/components/Icon/Icon.jsx';
 import InfoCardHelp from '../infoCardHelp/infoCardHelp';
+import { getImageSrc } from '@/shared/helpers';
 import s from './aboutPageHero.module.scss';
 
 const AboutPageHero = ({ content }) => {
@@ -15,7 +16,7 @@ const AboutPageHero = ({ content }) => {
               {content.image[0] && (
                 <Image
                   className={s.image}
-                  src={content.image[0]}
+                  src={getImageSrc(content.image[0])}
                   alt={content.title}
                   width={416}
                   height={306}

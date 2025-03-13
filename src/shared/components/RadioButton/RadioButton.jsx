@@ -1,19 +1,9 @@
 'use client';
 
 import clsx from 'clsx';
-
-import useSelectedOption from './hooks/useSelectedOption.js';
-
 import s from './RadioButton.module.scss';
 
-const RadioButton = ({ options, onChange }) => {
-  const { selectedOption, handleChange } = useSelectedOption(options[0].value);
-
-  const onOptionChange = (value) => {
-    handleChange(value);
-    onChange(value);
-  };
-
+const RadioButton = ({ options, onChange, selctedOption }) => {
   return (
     <>
       <div className={s.boxRadio}>
@@ -23,9 +13,11 @@ const RadioButton = ({ options, onChange }) => {
             key={option.value}
             className={clsx(
               s.option,
-              `${selectedOption === option.value ? s.active : ''}`
+              clsx(option.value === selctedOption && s.active)
             )}
-            onClick={() => onOptionChange(option.value)}
+            onClick={() => {
+              onChange(option.value);
+            }}
           >
             {option.label}
           </button>

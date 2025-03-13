@@ -64,3 +64,10 @@
   font-family: $primary-font-family;
   font-weight: 400;
 }
+.langBtnIcon {
+  transition: transform 0.3s ease;
+}
+
+.langBtnIcon.open {
+  transform: rotate(180deg);
+}

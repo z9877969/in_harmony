@@ -1,47 +1,27 @@
 'use client';
 
-import { useTranslation } from 'react-i18next';
-import { useState, useEffect, useRef } from 'react';
-
+import { useState } from 'react';
 import { Icon } from '..';
-
 import s from './Dropdown.module.scss';
 
-const Dropdown = ({ onSelect, initialValue, collections }) => {
-  const { t } = useTranslation('forms');
-
+const Dropdown = ({ onSelect, collections, option }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [title, setTitle] = useState(t('paymentInfo.dropdown'));
-  const buttonRef = useRef(null);
 
-  useEffect(() => {
-    if (initialValue) {
-      const selectedOption = collections.find(
-        (option) => option.value === initialValue
-      );
-      if (selectedOption) {
-        setTitle(selectedOption.title);
-        onSelect({ value: selectedOption.value, title: selectedOption.title });
-      }
-    }
-  }, [initialValue, collections, onSelect]);
+  const arrowName = isDropdownOpen ? 'icon-arrow-up' : 'icon-arrow-down';
 
   const toggleDropdown = () => {
     setIsDropdownOpen((prev) => !prev);
   };
 
   const handleSelect = (option) => {
-    setTitle(option.title);
-    onSelect({ value: option.value, title: option.title });
+    onSelect(option);
     setIsDropdownOpen(false);
   };
-
-  const arrowName = isDropdownOpen ? 'icon-arrow-up' : 'icon-arrow-down';
 
   return (
     <div className={s.container}>
       <button className={s.button} onClick={toggleDropdown} type="button">
-        {title}
+        {option.title}
         <Icon
           iconName={arrowName}
           width="24"
@@ -54,13 +34,7 @@ const Dropdown = ({ onSelect, initialValue, collections }) => {
           <ul className={s.list}>
             {collections.map((el, idx) => (
               <li key={idx}>
-                <button
-                  className={s.select}
-                  onClick={() => handleSelect(el)}
-                  ref={
-                    initialValue && el.value === initialValue ? buttonRef : null
-                  }
-                >
+                <button className={s.select} onClick={() => handleSelect(el)}>
                   {el.title}
                 </button>
               </li>

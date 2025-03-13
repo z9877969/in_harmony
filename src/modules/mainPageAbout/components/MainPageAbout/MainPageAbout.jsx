@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Container, Section } from '@/shared/components';
 import ActivitiesCard from '../ActivitiesCard/ActivitiesCard';
 import LearnMoreButton from '../LearnMoreButton/LearnMoreButton';
+import { getImageSrc } from '@/shared/helpers';
 import s from './MainPageAbout.module.scss';
 
 const MainPageAbout = ({ content }) => {
@@ -14,7 +15,7 @@ const MainPageAbout = ({ content }) => {
   ];
   const dataImage =
     content.image && content.image.length > 0
-      ? { imageUrl: content.image[0] }
+      ? { imageUrl: getImageSrc(content.image[0]) }
       : { imageUrl: '/images/default_image.webp' };
 
   return (

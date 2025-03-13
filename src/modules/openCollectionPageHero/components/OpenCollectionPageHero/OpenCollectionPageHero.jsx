@@ -1,9 +1,10 @@
 import { Container } from '@/shared/components';
-import s from './OpenCollectionPageHero.module.scss';
 import OpenCollectionProgress from '../OpenCollectionProgress/OpenCollectionProgress';
 import Image from 'next/image';
 import OpenCollectionPageBadge from '../openCollectionPageBadge/openCollectionPageBadge';
 import CollectionStatusLabel from '../CollectionStatusLabel/CollectionStatusLabel';
+import { getImageSrc } from '@/shared/helpers';
+import s from './OpenCollectionPageHero.module.scss';
 // import StatusCollectionReport from '../StatusCollectionReport/StatusCollectionReport';
 
 const OpenCollectionPageHero = ({ content }) => {
@@ -16,7 +17,7 @@ const OpenCollectionPageHero = ({ content }) => {
           <div className={s.mainContent}>
             <Image
               className={s.image}
-              src={content.image[0]}
+              src={getImageSrc(content.image[0])}
               alt={title + 'image'}
               height={900}
               width={900}

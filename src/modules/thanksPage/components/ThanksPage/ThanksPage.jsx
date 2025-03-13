@@ -2,10 +2,11 @@
 
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
+import Image from 'next/image';
 import { Container, Icon } from '@/shared/components';
 import SocialLinks from '../SocialLinks/SocialLinks';
+import { getImageSrc } from '@/shared/helpers';
 import s from './ThankPage.module.scss';
-import Image from 'next/image';
 
 const ThanksPage = ({
   content: {
@@ -61,7 +62,7 @@ const ThanksPage = ({
           className={s.image}
           width={1540}
           height={568}
-          src={image[0]}
+          src={getImageSrc(image[0])}
           alt="thanks image"
         />
       </div>

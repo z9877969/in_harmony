@@ -1,8 +1,8 @@
 import Image from 'next/image';
-import s from './CardProjectReporting.module.scss';
-
 import CardQuantityComments from './CardQuantityComments/CardQuantityComments';
 import ProjectDetailsButton from './ProjectDetailsButton/ProjectDetailsButton';
+import { getImageSrc } from '@/shared/helpers';
+import s from './CardProjectReporting.module.scss';
 
 export default function CardProjectReporting({ slid }) {
   const {
@@ -20,16 +20,7 @@ export default function CardProjectReporting({ slid }) {
     quantity,
   } = slid;
 
-  comments;
-
-  // const dataProps =
-  //   image && image.length > 0
-  //     ? {
-  //         imageUrl: image[0],
-  //       }
-  //     : {
-  //         imageUrl: '/images/default-image.jpg',
-  //       };
+  // comments;
 
   return (
     <div className={s.list}>
@@ -37,7 +28,7 @@ export default function CardProjectReporting({ slid }) {
         <div className={s.overlay}>
           <Image
             className={s.image}
-            src={image && image[0]}
+            src={image && image[0] && getImageSrc(image[0])}
             alt={title + 'image'}
             height={400}
             width={400}

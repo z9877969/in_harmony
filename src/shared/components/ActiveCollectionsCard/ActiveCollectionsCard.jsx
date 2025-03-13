@@ -2,16 +2,15 @@
 
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-
+import { useTranslation } from 'react-i18next';
 import { Icon } from '@/shared/components';
-import { LINKDATA, ROUTES } from '@/shared/constants';
+import OpenCollectionPageBadge from '@/modules/openCollectionPageHero/components/openCollectionPageBadge/openCollectionPageBadge.jsx';
 import { CollectionProgress } from '@/modules/mainPageCollection';
 import LinkButton from '../LinkButton/LinkButton.jsx';
-
-import s from './ActiveCollectionsCard.module.scss';
-import { useTranslation } from 'react-i18next';
-import OpenCollectionPageBadge from '@/modules/openCollectionPageHero/components/openCollectionPageBadge/openCollectionPageBadge.jsx';
 import { getDonorText } from '../../helpers/getDonorText.js';
+import { getImageSrc } from '@/shared/helpers/getImageSrc.js';
+import { LINKDATA, ROUTES } from '@/shared/constants';
+import s from './ActiveCollectionsCard.module.scss';
 
 function ActiveCollectionsCard({ collection }) {
   const pathname = usePathname();
@@ -24,7 +23,7 @@ function ActiveCollectionsCard({ collection }) {
         <div className={s.imageWrapper}>
           <Image
             className={s.image}
-            src={collection.image[0]}
+            src={getImageSrc(collection.image[0])}
             alt={collection.title + 'image'}
             fill
             priority

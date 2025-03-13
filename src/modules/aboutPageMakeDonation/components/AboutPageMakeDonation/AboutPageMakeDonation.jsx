@@ -1,5 +1,6 @@
 import { Container, SectionTitle } from '@/shared/components';
 import Image from 'next/image.js';
+import { getImageSrc } from '@/shared/helpers';
 
 import LinkButtonAboutPageMakeDonate from '../LinkButtonAboutPageMakeDonate/LinkButtonAboutPageMakeDonate.jsx';
 
@@ -21,7 +22,7 @@ const AboutPageMakeDonation = ({ content }) => {
           <div className={s.imageContainer}>
             <Image
               className={s.image}
-              src={image && image[0]}
+              src={getImageSrc(image[0])}
               alt={content.title}
               height={360}
               width={636}

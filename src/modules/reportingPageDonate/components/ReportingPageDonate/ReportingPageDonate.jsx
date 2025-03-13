@@ -1,9 +1,7 @@
 import Image from 'next/image';
-
 import { Container } from '@/shared/components';
-
 import LinkButtonReportingPageDonate from '../LinkButtonReportingPageDonate/LinkButtonReportingPageDonate.jsx';
-
+import { getImageSrc } from '@/shared/helpers/getImageSrc.js';
 import s from './ReportingPageDonate.module.scss';
 
 const ReportingPageDonate = ({ content }) => {
@@ -11,7 +9,7 @@ const ReportingPageDonate = ({ content }) => {
   const dataProps =
     content.image && content.image.length > 0
       ? {
-          imageUrl: content.image[0],
+          imageUrl: getImageSrc(content.image[0]),
         }
       : {
           imageUrl: '/images/default-image.jpg',

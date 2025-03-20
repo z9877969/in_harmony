@@ -26,3 +26,15 @@
     line-height: 1.16;
   }
 }
+
+.feedbacksPlaceholder {
+  min-height: 454px;
+
+  @include media(tablet) {
+    min-height: 456px;
+  }
+
+  @include media(desktop) {
+    min-height: 544px;
+  }
+}

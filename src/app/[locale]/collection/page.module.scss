@@ -4,4 +4,18 @@
   margin-bottom: 40px;
 }
 
+.activePlaceholder {
+  min-height: 884px;
 
+  @include media(mobile) {
+    min-height: 924px;
+  }
+
+  @include media(tablet) {
+    min-height: 989px;
+  }
+
+  @include media(desktop) {
+    min-height: 1016px;
+  }
+}

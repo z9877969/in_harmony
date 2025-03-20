@@ -1,7 +1,14 @@
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
+
 import { Container } from '@/shared/components';
-import LinkButtonReportingPageDonate from '../LinkButtonReportingPageDonate/LinkButtonReportingPageDonate.jsx';
 import { getImageSrc } from '@/shared/helpers/getImageSrc.js';
+const LinkButtonReportingPageDonate = dynamic(
+  () =>
+    import('../LinkButtonReportingPageDonate/LinkButtonReportingPageDonate'),
+  { ssr: false }
+);
+
 import s from './ReportingPageDonate.module.scss';
 
 const ReportingPageDonate = ({ content }) => {

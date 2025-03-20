@@ -40,11 +40,16 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: 4px;
   margin-bottom: 24px;
+  @include media(tablet) {
+    gap: 20px;
+  }
 }
 
 .btnDonate {
+  text-align: center;
+  width: 100%;
   padding: 10px 11px;
   background-color: $primary-bg-color;
   border-radius: 60px;
@@ -54,18 +59,18 @@
   color: $footer-bold-text-color;
   cursor: pointer;
   transform: scale(1);
-  transition: transform 300ms 0linear;
+  transition: transform 300ms linear;
 
   &:active {
     transform: scale(0.98);
   }
 
   @include media(tablet) {
-    padding: 10px 24px;
+    padding: 10px;
   }
 
   @include media(desktop) {
-    padding: 10px 18px;
+    padding: 10px;
   }
 
   & input {

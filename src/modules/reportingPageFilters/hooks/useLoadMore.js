@@ -9,7 +9,7 @@ export const useLoadMore = (quantity, itemsLength) => {
     if (hasMore) {
       setItems(items + quantity);
     } else {
-      setItems(items - quantity);
+      setItems(quantity);
     }
   };
 

@@ -1,8 +1,14 @@
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
+
 import { Container, Section } from '@/shared/components';
 import ActivitiesCard from '../ActivitiesCard/ActivitiesCard';
-import LearnMoreButton from '../LearnMoreButton/LearnMoreButton';
 import { getImageSrc } from '@/shared/helpers';
+const LearnMoreButton = dynamic(
+  () => import('../LearnMoreButton/LearnMoreButton'),
+  { ssr: false }
+);
+
 import s from './MainPageAbout.module.scss';
 
 const MainPageAbout = ({ content }) => {

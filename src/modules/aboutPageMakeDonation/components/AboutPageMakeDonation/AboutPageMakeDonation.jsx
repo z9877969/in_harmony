@@ -1,8 +1,13 @@
-import { Container, SectionTitle } from '@/shared/components';
+import dynamic from 'next/dynamic';
 import Image from 'next/image.js';
-import { getImageSrc } from '@/shared/helpers';
 
-import LinkButtonAboutPageMakeDonate from '../LinkButtonAboutPageMakeDonate/LinkButtonAboutPageMakeDonate.jsx';
+import { Container, SectionTitle } from '@/shared/components';
+import { getImageSrc } from '@/shared/helpers';
+const LinkButtonAboutPageMakeDonate = dynamic(
+  () =>
+    import('../LinkButtonAboutPageMakeDonate/LinkButtonAboutPageMakeDonate'),
+  { ssr: false }
+);
 
 import s from './AboutPageMakeDonation.module.scss';
 

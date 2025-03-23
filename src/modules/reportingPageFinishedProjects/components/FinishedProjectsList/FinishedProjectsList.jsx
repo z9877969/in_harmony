@@ -5,14 +5,13 @@ import { useCurrentIndexWithIsDesktop } from '../../hooks/useCurrentIndexWithIsD
 
 export default function FinishedProjectsList({ data, contentLength }) {
   const { currentIndex } = useCurrentIndexWithIsDesktop(contentLength);
-
   return (
     <div className={s.main}>
       <div className={s.container}>
         {data.slice(0, currentIndex).map((slid) => (
           <CardProjectReporting
             slid={slid}
-            key={slid.id}
+            key={slid._id}
             className={s.listItem}
           />
         ))}

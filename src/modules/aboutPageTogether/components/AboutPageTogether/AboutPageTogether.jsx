@@ -14,7 +14,7 @@ const AboutPageTogether = ({ content }) => {
           </div>
           <ul className={s.cards}>
             {content.team.cards.map((item) => (
-              <li key={item.id}>
+              <li key={item._id}>
                 <TeamPersonCard
                   icon={item.icon}
                   image={item.image ? item.image : item.icon}

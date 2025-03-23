@@ -1,8 +1,13 @@
+import dynamic from 'next/dynamic.js';
+
 import { Container } from '@/shared/components';
-
 import FormWithInfo from '../FormWithInfo/FormWithInfo.jsx';
-
 import { getImageSrc } from '@/shared/helpers/getImageSrc.js';
+const VideoBackground = dynamic(
+  () => import('../VideoBackground/VideoBackground.jsx'),
+  { ssr: false }
+);
+
 import s from './MainPageHero.module.scss';
 
 const MainPageHero = ({ content = {} }) => {
@@ -13,11 +18,7 @@ const MainPageHero = ({ content = {} }) => {
       <Container>
         <div className={s.contentContainer}>
           <div className={s.imagePlaceholder}>
-            {media && (
-              <video className={s.heroVideo} autoPlay loop muted playsInline>
-                <source src={media} type="video/mp4" />
-              </video>
-            )}
+            <VideoBackground media={media} />
             <h1 className={s.heroTitle}>{content?.title}</h1>
             <FormWithInfo content={content} />
           </div>

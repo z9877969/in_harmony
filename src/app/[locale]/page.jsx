@@ -1,9 +1,25 @@
+import dynamic from 'next/dynamic';
+
 import { MainPageAbout } from '@/modules/mainPageAbout';
-import { MainPageCollection } from '@/modules/mainPageCollection';
 import { MainPageDonat } from '@/modules/mainPageDonat';
 import { MainPageHero } from '@/modules/mainPageHero';
-import { MainPageProgress } from '@/modules/mainPageProgress';
 import { insideServerApi as api } from '@/shared/services';
+const MainPageCollection = dynamic(
+  () =>
+    import(
+      '@/modules/mainPageCollection/components/MainPageCollection/MainPageCollection'
+    ),
+  { ssr: false, loading: () => <div className={s.collectionPlaceholder} /> }
+);
+const MainPageProgress = dynamic(
+  () =>
+    import(
+      '@/modules/mainPageProgress/components/MainPageProgress/MainPageProgress'
+    ),
+  { ssr: false }
+);
+
+import s from './page.module.scss';
 
 const MainPage = async ({ params: { locale } }) => {
   const { sectionsDict } = await api.getPageApi({ locale, page: 'main' });
@@ -14,6 +30,7 @@ const MainPage = async ({ params: { locale } }) => {
       <MainPageCollection
         content={sectionsDict.active_collections.section_content}
       />
+
       <MainPageAbout content={sectionsDict.about.section_content} />
       <MainPageProgress
         content={sectionsDict.closed_collections?.section_content}

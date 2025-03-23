@@ -29,7 +29,7 @@ const Feedbacks = ({ content }) => {
       <div className={s.boxReporting}>
         <ul className={s.list}>
           {visibleItems.map((item) => (
-            <li key={item.id}>
+            <li key={item._id}>
               <Link href={item.url} className={s.linkFeedbacks} target="_blank">
                 <p>
                   {item.month} {item.year}

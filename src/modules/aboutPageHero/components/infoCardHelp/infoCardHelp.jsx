@@ -5,7 +5,7 @@ const InfoCardHelp = ({ statsTitle, stats, IconComponent }) => {
     <div className={s.containerCards}>
       <h2 className={s.title}>{statsTitle}</h2>
       <ul className={s.infoCards}>
-        {stats.map(({ id, amount, description, iconName }) => (
+        {stats.map(({ _id: id, amount, description, iconName }) => (
           <li key={id} className={s.card}>
             <IconComponent
               iconName={iconName}

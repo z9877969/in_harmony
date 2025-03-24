@@ -33,6 +33,7 @@ async function optimizeImages() {
     const outputFile = path.join(outputDir, file);
 
     if (!/\.(jpg|jpeg|png|webp)$/i.test(file)) {
+      // eslint-disable-next-line no-console
       console.log(`Пропущено: ${file} (не зображення)`);
       continue;
     }
@@ -45,13 +46,14 @@ async function optimizeImages() {
       } else if (/\.webp$/i.test(file)) {
         await sharp(inputFile).webp({ quality: 75 }).toFile(outputFile);
       }
-
+      // eslint-disable-next-line no-console
       console.log(`✅ Опрацьовано: ${file}`);
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error(`❌ Помилка обробки ${file}:`, error);
     }
   }
-
+  // eslint-disable-next-line no-console
   console.log('✅ Усі зображення оброблені!');
 }
 

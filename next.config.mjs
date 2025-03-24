@@ -1,7 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['res.cloudinary.com'],
+    // domains: ['res.cloudinary.com'],
+    remotePatterns: [
+      {
+        protocol: process.env.NEXT_PUBLIC_SITE_PROTOCOL,
+        hostname: process.env.NEXT_PUBLIC_SITE_DOMAIN,
+        pathname: '/**', // Дозволяє завантажувати всі зображення з цього домену
+      },
+    ],
   },
   webpack(config) {
     config.module.rules.push({

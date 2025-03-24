@@ -21,7 +21,8 @@ class InsideServerApi {
 
   getPageApi = async ({ locale, page }) => {
     const response = await fetch(
-      `${this.serverUrl}/api/all-pages/${locale}/${page}`
+      `${this.serverUrl}/api/all-pages/${locale}/${page}`,
+      { next: { revalidate: 60 } }
     );
 
     if (!response.ok) {
@@ -35,7 +36,9 @@ class InsideServerApi {
   };
 
   getAllPages = async ({ locale }) => {
-    const response = await fetch(`${this.serverUrl}/api/all-pages/${locale}`);
+    const response = await fetch(`${this.serverUrl}/api/all-pages/${locale}`, {
+      next: { revalidate: 60 },
+    });
 
     if (!response.ok) {
       throw new Error(`Failed to fetch all pages data: ${response.statusText}`);
@@ -52,7 +55,8 @@ class InsideServerApi {
     collectionType /* active | closed */,
   }) => {
     const response = await fetch(
-      `${this.serverUrl}/api/all-pages/${locale}/${collectionType}/${id}`
+      `${this.serverUrl}/api/all-pages/${locale}/${collectionType}/${id}`,
+      { next: { revalidate: 60 } }
     );
 
     if (!response.ok) {

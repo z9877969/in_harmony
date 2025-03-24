@@ -1,5 +1,11 @@
+import dynamic from 'next/dynamic';
+
 import { Container } from '@/shared/components';
-import AboutPagePartnersCarousel from '../AboutPagePartnersCarousel/AboutPagePartnersCarousel';
+const AboutPagePartnersCarousel = dynamic(
+  () => import('../AboutPagePartnersCarousel/AboutPagePartnersCarousel'),
+  { ssr: false }
+);
+
 import s from './AboutPagePartners.module.scss';
 
 const AboutPagePartners = ({ content }) => {

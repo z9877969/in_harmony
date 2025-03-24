@@ -1,19 +1,24 @@
+import dynamic from 'next/dynamic';
 import { Container, Icon } from '@/shared/components';
 import { inHarmonyLogo as Logo } from '/public/icons';
-
-import LangSwitcher from '../LangSwitcher/LangSwitcher';
 import Link from '../Link/Link';
-import MobileMenu from '../MobileMenu/MobileMenu';
 import NavLinks from '../NavLinks/NavLinks';
-import SocialLinks from '../SocialLinks/SocialLinks';
-
 import s from './Header.module.scss';
-// import { useNavigationLinks } from '@/shared/hooks/useNavigationLinks.js';
+
+const MobileMenu = dynamic(() => import('../MobileMenu/MobileMenu'), {
+  ssr: false,
+  loading: () => <div className={s.mobileMenuPlaceholder} />,
+});
+const LangSwitcher = dynamic(() => import('../LangSwitcher/LangSwitcher'), {
+  ssr: false,
+  loading: () => <div className={s.langSwitcherPlaceholder} />,
+});
+const SocialLinks = dynamic(() => import('../SocialLinks/SocialLinks'), {
+  ssr: false,
+  loading: () => <div className={s.socialLinksPlaceholder} />,
+});
 
 const Header = ({ t }) => {
-  // const { navLinks, locale } = useNavigationLinks();
-
-  // console.log(navLinks, locale);
   return (
     <>
       <header className={s.shadow}>

@@ -1,7 +1,17 @@
-import { Container, Section, SectionTitle } from '@/shared/components';
+import dynamic from 'next/dynamic';
 
-import FinishedProjectsList from '../FinishedProjectsList/FinishedProjectsList';
-import ButtonReportingPageFinishedProjects from '../ButtonReportingPageFinishedProjects/ButtonReportingPageFinishedProjects.jsx';
+import { Container, Section, SectionTitle } from '@/shared/components';
+const FinishedProjectsList = dynamic(
+  () => import('../FinishedProjectsList/FinishedProjectsList.jsx'),
+  { ssr: false }
+);
+const ButtonReportingPageFinishedProjects = dynamic(
+  () =>
+    import(
+      '../ButtonReportingPageFinishedProjects/ButtonReportingPageFinishedProjects'
+    ),
+  { ssr: false }
+);
 
 import s from './ReportingPageFinishedProjects.module.scss';
 

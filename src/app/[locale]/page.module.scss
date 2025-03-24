@@ -17,3 +17,19 @@
   fill: none;
 }
 // to remove -End
+
+.collectionPlaceholder {
+  min-height: 2605px;
+
+  @include media(mobile) {
+    min-height: 2762px;
+  }
+
+  @include media(tablet) {
+    min-height: 1132px;
+  }
+
+  @include media(desktop) {
+    min-height: 1208px;
+  }
+}

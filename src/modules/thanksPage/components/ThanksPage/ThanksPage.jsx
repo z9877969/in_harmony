@@ -85,7 +85,7 @@ const ThanksPage = ({
               className={s.socialImage}
               width={900}
               height={900}
-              src={image[1]}
+              src={getImageSrc(image[1])}
               alt="thanks image"
             />
           </div>

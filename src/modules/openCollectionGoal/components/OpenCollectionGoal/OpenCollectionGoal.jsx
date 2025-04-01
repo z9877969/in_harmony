@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { Container, Section, SectionTitle } from '@/shared/components/index.js';
 import Share from '../Share/Share.jsx';
 import SupportForm from '../SupportForm/SupportForm.jsx';
@@ -24,8 +25,9 @@ const OpenCollectionGoal = async ({ content, goal }) => {
             data={content.supportForm}
             goal={goal}
           />
-
-          <Share data={content.share} className={s.gridItemShare} />
+          <Suspense fallback={null}>
+            <Share data={content.share} className={s.gridItemShare} />
+          </Suspense>
         </div>
       </Container>
     </Section>

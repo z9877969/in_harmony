@@ -1,17 +1,17 @@
 import s from './SocialMediaItem.module.scss';
 
-const SocialMediaItem = ({ socialItem, children, className = '' }) => {
+const SocialMediaItem = ({ itemUrl, itemName, children, className = '' }) => {
   const itemClass = `${s.socialIconsItem} ${className}`;
 
   return (
     <div className={itemClass}>
       <a
         className={s.socialIconsLink}
-        href={socialItem.url}
+        href={itemUrl}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label={socialItem.name}
-        title={socialItem.name}
+        aria-label={itemName}
+        title={itemName}
       >
         {children}
       </a>

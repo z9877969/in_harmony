@@ -1,11 +1,11 @@
 'use client';
 
-import { ROUTES } from '@/shared/constants';
-import { ErrorMessage, Field, Form, Formik } from 'formik';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation.js';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { ErrorMessage, Field, Form, Formik } from 'formik';
+import Link from 'next/link';
+import { usePathname, useSearchParams } from 'next/navigation.js';
+import { ROUTES, WFP_COMMISION } from '@/shared/constants';
 import {
   Button,
   Dropdown,
@@ -26,8 +26,6 @@ const initialFormValues = {
   email: '',
   message: '',
   isChecked: false,
-  amount: '',
-  donateTime: '',
   isPublic: true,
   collection: {
     value: '',
@@ -35,14 +33,30 @@ const initialFormValues = {
   },
 };
 
+const calcCommisionAmount = ({ amount, isChecked }) => {
+  return isChecked
+    ? parseFloat(amount) * (1 + WFP_COMMISION / 100)
+    : parseFloat(amount);
+};
+
 const PublicPrivateForm = ({ content }) => {
   const collections = content.cards;
+  const searchParams = useSearchParams();
   const locale = usePathname().split('/')[1];
   const [initialValues, setInitialValues] = useState(initialFormValues);
   const [loading, setLoading] = useState(false);
   const { t } = useTranslation('forms');
 
   const wfpFormRef = useRef(null);
+
+  const prevFormData = useMemo(() => {
+    const amount = searchParams.get('amount');
+    const donateTime = searchParams.get('donateTime');
+    return {
+      amount,
+      donateTime,
+    };
+  }, [searchParams]);
 
   const dropdownOptions = useMemo(() => {
     const options = collections.map(({ value, title }) => ({
@@ -58,66 +72,15 @@ const PublicPrivateForm = ({ content }) => {
     ];
   }, [collections, t]);
 
-  const title = t('paymentInfo.title');
-  const index = title.indexOf('–');
-  const title1 = title.slice(0, index + 1);
-  const title2 = title.slice(index + 1);
+  const title = useMemo(() => {
+    const title = t('paymentInfo.title');
+    const index = title.indexOf('–');
 
-  let validationSchema;
-
-  if (initialValues.isPublic) {
-    validationSchema = validationSchemaPublic(t);
-  } else {
-    validationSchema = validationSchemaAnonymous(t);
-  }
-
-  const handleRadioButtonChange = (value) => {
-    setInitialValues((prevValues) => ({
-      ...prevValues,
-      isPublic: value === 'public',
-    }));
-  };
-
-  useEffect(() => {
-    const searchParams = new URLSearchParams(window.location.search);
-
-    const email = searchParams.get('email');
-    const collectionValue =
-      searchParams.get('value') || dropdownOptions[0].value;
-    const amount = searchParams.get('amount');
-    const donateTime = searchParams.get('donateTime');
-
-    setInitialValues((prevValues) => ({
-      ...prevValues,
-      email: email ? email : prevValues.email,
-      amount,
-      donateTime,
-      collection: {
-        value: collectionValue,
-        title:
-          dropdownOptions.find((el) => el.value === collectionValue)?.title ||
-          '',
-      },
-    }));
-  }, [dropdownOptions]);
-
-  const handleFormSubmit = async (values) => {
-    const selectedOption = collections.find(
-      (option) => option.value === values.dropdown
-    );
-    const amountWithCommission = values.isChecked
-      ? parseFloat(initialValues.amount) * 1.02
-      : parseFloat(initialValues.amount);
-
-    const valuesAll = {
-      ...values,
-      amount: amountWithCommission.toFixed(0),
-      donateTime: initialValues.donateTime,
-      dropdown: selectedOption ? selectedOption.title : values.dropdown,
-      value: selectedOption ? selectedOption.value : initialValues.value,
+    return {
+      begin: title?.slice(0, index + 1) ?? '',
+      end: title?.slice(index + 1) ?? '',
     };
-    setInitialValues(valuesAll);
-  };
+  }, [t]);
 
   const handleFinalSubmit = async () => {
     if (wfpFormRef.current) {
@@ -127,70 +90,111 @@ const PublicPrivateForm = ({ content }) => {
     }
   };
 
+  useEffect(() => {
+    const email = searchParams.get('email');
+    const collectionValue =
+      searchParams.get('value') || dropdownOptions[0].value;
+
+    setInitialValues((prevValues) => ({
+      ...prevValues,
+      email: email ? email : prevValues.email,
+      collection: {
+        value: collectionValue,
+        title:
+          dropdownOptions.find((el) => el.value === collectionValue)?.title ||
+          '',
+      },
+    }));
+  }, [dropdownOptions, searchParams]);
+
   return (
     <div className={s.boxForm}>
       <h2 className={s.title} id="title">
-        <span>{title1}</span>
+        <span>{title.begin}</span>
         <br />
-        <span>{title2}</span>
+        <span>{title.end}</span>
       </h2>
       <Formik
         initialValues={initialValues}
-        validationSchema={validationSchema}
-        onSubmit={async (values, actions) => {
-          await handleFormSubmit(values);
-          await handleFinalSubmit(actions);
+        validate={(values) => {
+          try {
+            const schema = values.isPublic
+              ? validationSchemaPublic(t)
+              : validationSchemaAnonymous(t);
+            schema.validateSync(values, { abortEarly: false });
+            return {};
+          } catch (errors) {
+            const validationErrors = {};
+            errors.inner?.forEach((err) => {
+              validationErrors[err.path] = err.message;
+            });
+            return validationErrors;
+          }
+        }}
+        onSubmit={async (_, actions) => {
+          await handleFinalSubmit();
           actions.setSubmitting(false);
         }}
         enableReinitialize
       >
-        {({ setFieldValue }) => (
+        {({ values, setFieldValue }) => (
           <Form>
             <div>
               <RadioButton
                 options={t('paymentInfo.donateOptions', {
                   returnObjects: true,
                 })}
-                selctedOption={initialValues.isPublic ? 'public' : 'anonymous'}
+                selctedOption={values.isPublic ? 'public' : 'anonymous'}
                 name="isPublic"
-                onChange={handleRadioButtonChange}
+                onChange={(value) => {
+                  setFieldValue('isPublic', value === 'public');
+                }}
               />
 
-              {initialValues.isPublic && (
+              {values.isPublic && (
                 <div className={s.inputContainer}>
-                  <Field
-                    as={Input}
-                    type="text"
-                    placeholder={t('paymentInfo.placeholderName')}
-                    name="name"
-                    className={s.input}
-                  />
-                  <ErrorMessage name="name" component="p" className={s.error} />
+                  <div>
+                    <Field
+                      as={Input}
+                      type="text"
+                      placeholder={t('paymentInfo.placeholderName')}
+                      name="name"
+                      className={s.input}
+                    />
+                    <ErrorMessage
+                      name="name"
+                      component="p"
+                      className={s.error}
+                    />
+                  </div>
+                  <div>
+                    <Field
+                      as={Input}
+                      type="email"
+                      placeholder={t('paymentInfo.placeholderEmail')}
+                      name="email"
+                      className={s.input}
+                    />
+                    <ErrorMessage
+                      name="email"
+                      component="p"
+                      className={s.error}
+                    />
+                  </div>
 
-                  <Field
-                    as={Input}
-                    type="email"
-                    placeholder={t('paymentInfo.placeholderEmail')}
-                    name="email"
-                    className={s.input}
-                  />
-                  <ErrorMessage
-                    name="email"
-                    component="p"
-                    className={s.error}
-                  />
-
-                  <Field
-                    as={InputArea}
-                    placeholder={t('paymentInfo.placeholderMessage')}
-                    name="message"
-                    style={{ padding: '16px' }}
-                  />
-                  <ErrorMessage
-                    name="message"
-                    component="p"
-                    className={s.error}
-                  />
+                  <div>
+                    <Field
+                      as={InputArea}
+                      placeholder={t('paymentInfo.placeholderMessage')}
+                      name="message"
+                      style={{ padding: '16px' }}
+                    />
+                    <ErrorMessage
+                      name="message"
+                      component="p"
+                      className={s.error}
+                    />
+                  </div>
                 </div>
               )}
             </div>
@@ -201,16 +205,16 @@ const PublicPrivateForm = ({ content }) => {
                 return (
                   <Dropdown
                     option={field.value}
-                    onSelect={(selectedOption) =>
-                      setFieldValue('collection', selectedOption)
-                    }
+                    onSelect={(selectedOption) => {
+                      setFieldValue('collection', selectedOption);
+                    }}
                     collections={dropdownOptions}
                   />
                 );
               }}
             </Field>
 
-            <ErrorMessage name="dropdown" component="p" className={s.error} />
+            <ErrorMessage name="collection" component="p" className={s.error} />
             <div className={s.checkboxContainer}>
               <Field type="checkbox" name="isChecked" className={s.checkbox} />
               <p>{t('paymentInfo.coverCommission')}</p>
@@ -235,14 +239,17 @@ const PublicPrivateForm = ({ content }) => {
             </Link>
             <WFPForm
               ref={wfpFormRef}
-              amount={initialValues.amount}
-              clientEmail={initialValues.email}
-              message={initialValues.message}
-              donateValue={initialValues.collection.value}
-              donateTitle={initialValues.collection.title}
-              isRegular={initialValues.donateTime === 'true'}
-              clientFirstName={initialValues.name}
-              isPublic={initialValues.isPublic}
+              amount={calcCommisionAmount({
+                amount: prevFormData.amount,
+                isChecked: values.isChecked,
+              })}
+              clientEmail={values.email || prevFormData.email}
+              message={values.message}
+              donateValue={values.collection.value}
+              donateTitle={values.collection.title}
+              isRegular={prevFormData.donateTime === 'true'}
+              clientFirstName={values.name}
+              isPublic={values.isPublic}
             />
           </Form>
         )}

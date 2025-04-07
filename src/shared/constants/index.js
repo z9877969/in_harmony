@@ -134,3 +134,5 @@ export const donorsDict = {
 };
 
 export const NO_DATA_FOUND = 'No data found';
+
+export const WFP_COMMISION = 2;

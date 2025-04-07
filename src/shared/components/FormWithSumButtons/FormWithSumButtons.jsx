@@ -20,7 +20,7 @@ import {
 
 import s from './FormWithSumButtons.module.scss';
 
-const initialValues = { amount: '', donateTime: 'false', value: '', email: '' };
+const initialValues = { amount: 0, donateTime: 'false', value: '', email: '' };
 
 const validationSchema = (values, t) => {
   return values.donateTime === 'false'
@@ -28,7 +28,7 @@ const validationSchema = (values, t) => {
     : validationSchemaAmountEmail(t);
 };
 
-const FormWithSumButtons = ({ className = '', setDonateTime = () => {} }) => {
+const FormWithSumButtons = ({ className = '' }) => {
   const { t } = useTranslation('forms');
   const router = useRouter();
   const locale = usePathname().split('/')[1];
@@ -36,7 +36,6 @@ const FormWithSumButtons = ({ className = '', setDonateTime = () => {} }) => {
 
   const formik = useFormik({
     initialValues,
-    validationSchema: validationSchema(initialValues, t),
     onSubmit: (values) => {
       const query = new URLSearchParams(values).toString();
       router.push(`/${locale}/${ROUTES.PAYMENTS(2)}?${query}`);
@@ -44,9 +43,10 @@ const FormWithSumButtons = ({ className = '', setDonateTime = () => {} }) => {
     validateOnChange: true,
     validateOnBlur: true,
     validate: (values) => {
-      const schema = validationSchema(values, t);
       try {
+        const schema = validationSchema(values, t);
         schema.validateSync(values, { abortEarly: false });
+        return {};
       } catch (errors) {
         return errors.inner.reduce((acc, currentError) => {
           acc[currentError.path] = currentError.message;
@@ -71,12 +71,7 @@ const FormWithSumButtons = ({ className = '', setDonateTime = () => {} }) => {
     const value = searchParams.get('value') || '';
 
     setFieldValue('value', value);
-    initialValues.value = value;
   }, [setFieldValue]);
-
-  useEffect(() => {
-    setDonateTime(values.donateTime === 'true');
-  }, [values.donateTime, setDonateTime]);
 
   return (
     <div className={clsx(s.boxForm, `${className}`)}>
@@ -122,7 +117,7 @@ const FormWithSumButtons = ({ className = '', setDonateTime = () => {} }) => {
             name="amount"
             placeholder="0"
             className={s.inputDonate}
-            value={values.amount}
+            value={values.amount > 0 || ''}
             onChange={handleChange}
             onBlur={handleBlur}
             error={touched.amount && errors.amount}

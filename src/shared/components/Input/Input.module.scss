@@ -16,22 +16,23 @@
 
 .inputWrapper {
   position: relative;
-
   align-items: center;
 }
 
 .input {
-  height: 48px;
   width: 100%;
   padding: 8px 16px;
   border-radius: 60px;
   display: flex;
   align-items: center;
   gap: 10px;
+  @include font(16, 24);
+  font-weight: 400;
 
   &::placeholder {
     font-family: $primary-font-family;
     color: $secondary-text-color;
+    opacity: 0.5;
     @include font(16, 24);
     font-weight: 400;
   }

@@ -1,9 +1,9 @@
-'use client';
 import { Container, Section } from '@/shared/components';
 import { SectionTitle } from '@/shared/components';
 import { CardForSwiperWhithArrow } from '@/shared/components';
 import { SwiperWithArrows } from '@/modules/swiperWithArrows';
 import s from './MainPageProgress.module.scss';
+import { Suspense } from 'react';
 
 const MainPageProgress = ({ content }) => {
   return (
@@ -17,9 +17,13 @@ const MainPageProgress = ({ content }) => {
             loop: false,
             containScroll: 'trimSnaps',
           }}
-          slides={content.cards}
-          Component={CardForSwiperWhithArrow}
-        />
+        >
+          <Suspense fallback={null}>
+            {content.cards.map((card) => (
+              <CardForSwiperWhithArrow key={card._id} card={card} />
+            ))}
+          </Suspense>
+        </SwiperWithArrows>
       </Container>
     </Section>
   );

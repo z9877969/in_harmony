@@ -1,11 +1,26 @@
+'use client';
+
 import Link from 'next/link';
-import { clsx } from 'clsx'
+import { clsx } from 'clsx';
 
 import { LINKDATA } from '@/shared/constants';
 
 import s from './LinkButton.module.scss';
+import { useTranslation } from 'react-i18next';
+import { usePathname } from 'next/navigation';
 
-const LinkButton = ({ path, linkText, type, className }) => {
+const LinkButton = ({
+  path,
+  linkText,
+  translatorPath = '',
+  translatorBlock = '',
+  relativePath = '',
+  type,
+  className,
+}) => {
+  const { t } = useTranslation(translatorBlock);
+  const pathname = usePathname();
+  const locale = pathname.split('/')[1];
   let linkStyle = '';
   let icon = null;
 
@@ -30,9 +45,12 @@ const LinkButton = ({ path, linkText, type, className }) => {
   }
 
   return (
-    <Link href={path} className={clsx(s.defaultLink, linkStyle,  className)}>
+    <Link
+      href={path || `${locale}` + relativePath}
+      className={clsx(s.defaultLink, linkStyle, className)}
+    >
       {icon && <span className={s.iconWrapper}>{icon}</span>}
-      {linkText}
+      {linkText || t(translatorPath)}
     </Link>
   );
 };

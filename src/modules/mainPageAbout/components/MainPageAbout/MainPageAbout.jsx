@@ -55,6 +55,7 @@ const MainPageAbout = ({ content }) => {
               alt={content.title}
               fill
               priority
+              quality={75}
               sizes="100%"
               placeholder="blur"
               blurDataURL="/images/blur-placeholder.jpg"

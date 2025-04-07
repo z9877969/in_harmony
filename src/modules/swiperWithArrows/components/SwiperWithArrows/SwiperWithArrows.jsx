@@ -7,8 +7,7 @@ import { useDotButton } from '../../hooks/useDotButton';
 import s from './SwiperWhithArrows.module.scss';
 
 const SwiperWithArrows = (props) => {
-  const { slides, Component, options, className, isArrowsShow, classEmbla } =
-    props;
+  const { options, className, isArrowsShow, classEmbla, children } = props;
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
 
   const { selectedIndex, scrollSnaps, onDotButtonClick } =
@@ -24,11 +23,7 @@ const SwiperWithArrows = (props) => {
   return (
     <section className={`${s.embla} ${classEmbla}`}>
       <div className={s.embla__viewport} ref={emblaRef}>
-        <div className={`${s.container} ${className}`}>
-          {slides.map((slid) => (
-            <Component slid={slid} key={slid._id} />
-          ))}
-        </div>
+        <div className={`${s.container} ${className}`}>{children}</div>
       </div>
       <div className={s.controls}>
         <div className={s.buttons}>

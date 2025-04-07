@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { getImageSrc } from '@/shared/helpers';
 import s from './CardForSwiperWhithArrow.module.scss';
 
-const CardForSwiperWhithArrow = ({ slid }) => {
+const CardForSwiperWhithArrow = ({ card }) => {
   const {
     title,
     long_desc,
@@ -13,7 +13,7 @@ const CardForSwiperWhithArrow = ({ slid }) => {
     period,
     currency,
     image,
-  } = slid;
+  } = card;
   const dataImage =
     image && image.length > 0
       ? { imageUrl: getImageSrc(image[1]) }
@@ -41,7 +41,8 @@ const CardForSwiperWhithArrow = ({ slid }) => {
             src={dataImage.imageUrl}
             alt={title}
             fill
-            priority
+            // priority
+            quality={75}
             sizes="100%"
             placeholder="blur"
             blurDataURL="/images/blur-placeholder.jpg"

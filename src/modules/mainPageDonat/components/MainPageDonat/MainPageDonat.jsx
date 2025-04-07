@@ -27,6 +27,7 @@ const MainPageDonat = ({ content }) => {
               priority
               sizes="100%"
               placeholder="blur"
+              quality={75}
               blurDataURL="/images/blur-placeholder.jpg"
             />
           </div>

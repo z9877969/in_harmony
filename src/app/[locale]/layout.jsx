@@ -1,22 +1,35 @@
-import dynamic from 'next/dynamic';
+// import dynamic from 'next/dynamic';
 
 import initTranslations from '@/i18n/utils/i18n';
 import TranslationsProvider from '@/i18n/utils/TranslationsProvider';
-import { Header } from '@/modules/header';
-import { Breadcrumbs } from '@/shared/components';
-import ErrorBoundaryWithTranslation from '@/shared/components/ErrorBoundary/ErrorBoundaryWithTranslation/ErrorBoundaryWithTranslation';
+// import { Header } from '@/modules/header';
+// import { Breadcrumbs } from '@/shared/components';
+// import ErrorBoundaryWithTranslation from '@/shared/components/ErrorBoundary/ErrorBoundaryWithTranslation/ErrorBoundaryWithTranslation';
 import { NAMESPACES } from '@/shared/constants';
 import { insideServerApi as api } from '@/shared/services';
 import clsx from 'clsx';
 import { dir } from 'i18next';
 import { Montserrat, Open_Sans } from 'next/font/google';
 import i18nConfig from '../../../i18nConfig';
-const Footer = dynamic(
-  () => import('@/modules/footer/components/Footer/Footer'),
-  { ssr: false }
-);
+// const Footer = dynamic(
+//   () => import('@/modules/footer/components/Footer/Footer'),
+//   { ssr: false }
+// );
 
 import '../globals.scss';
+import { lazy, Suspense } from 'react';
+
+const Footer = lazy(() => import('@/modules/footer/components/Footer/Footer'));
+const Header = lazy(() => import('@/modules/header/components/Header/Header'));
+const Breadcrumbs = lazy(
+  () => import('@/shared/components/Breadcrumbs/Breadcrumbs')
+);
+const ErrorBoundaryWithTranslation = lazy(
+  () =>
+    import(
+      '@/shared/components/ErrorBoundary/ErrorBoundaryWithTranslation/ErrorBoundaryWithTranslation'
+    )
+);
 
 export const metadata = {
   title: 'In Harmony',
@@ -54,23 +67,34 @@ export default async function RootLayout({ children, params: { locale } }) {
 
   return (
     <html lang={locale} dir={dir(locale)}>
-      <TranslationsProvider
-        namespaces={i18nNamespaces}
-        locale={locale}
-        resources={resources}
-      >
-        <body className={clsx(montserrat.variable, open_sans.variable)}>
-          <ErrorBoundaryWithTranslation>
-            <Header t={t} />
-            <Breadcrumbs />
+      <Suspense fallback={null}>
+        <TranslationsProvider
+          namespaces={i18nNamespaces}
+          locale={locale}
+          resources={resources}
+        >
+          <body className={clsx(montserrat.variable, open_sans.variable)}>
+            <Suspense fallback={null}>
+              <ErrorBoundaryWithTranslation>
+                <Suspense fallback={null}>
+                  <Header t={t} />
+                </Suspense>
+                <Suspense fallback={null}>
+                  <Breadcrumbs />
+                </Suspense>
+                <Suspense fallback={null}>
+                  <main>{children}</main>
+                </Suspense>
 
-            <main>{children}</main>
-
-            <Footer content={sectionsDict.footer.section_content} />
-          </ErrorBoundaryWithTranslation>
-          <div id="modal"></div>
-        </body>
-      </TranslationsProvider>
+                <Suspense fallback={null}>
+                  <Footer content={sectionsDict.footer.section_content} />
+                </Suspense>
+              </ErrorBoundaryWithTranslation>
+            </Suspense>
+            <div id="modal"></div>
+          </body>
+        </TranslationsProvider>
+      </Suspense>
     </html>
   );
 }

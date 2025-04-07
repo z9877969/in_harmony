@@ -150,21 +150,6 @@
   @include font(16, 24);
 }
 
-.peopleDonate {
-  font-weight: 400;
-  @include font(16, 24);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-//icon style
-.collectionIcon {
-  width: 24px;
-  height: 24px;
-  fill: $radio-active-bg-color;
-}
-
 .heartIcon {
   width: 24px;
   height: 24px;

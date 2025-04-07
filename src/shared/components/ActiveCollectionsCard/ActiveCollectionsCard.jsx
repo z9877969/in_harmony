@@ -1,21 +1,22 @@
-'use client';
+// 'use client';
 
 import Image from 'next/image';
-import { usePathname } from 'next/navigation';
-import { useTranslation } from 'react-i18next';
-import { Icon } from '@/shared/components';
+// import { usePathname } from 'next/navigation';
+// import { useTranslation } from 'react-i18next';
+// import { Icon } from '@/shared/components';
 import OpenCollectionPageBadge from '@/modules/openCollectionPageHero/components/openCollectionPageBadge/openCollectionPageBadge.jsx';
 import { CollectionProgress } from '@/modules/mainPageCollection';
 import LinkButton from '../LinkButton/LinkButton.jsx';
-import { getDonorText } from '../../helpers/getDonorText.js';
+// import { getDonorText } from '../../helpers/getDonorText.js';
 import { getImageSrc } from '@/shared/helpers/getImageSrc.js';
 import { LINKDATA, ROUTES } from '@/shared/constants';
 import s from './ActiveCollectionsCard.module.scss';
+import PeopleDonate from '../PeopleDonate/PeopleDonate.jsx';
 
 function ActiveCollectionsCard({ collection }) {
-  const pathname = usePathname();
-  const locale = pathname.split('/')[1];
-  const { t } = useTranslation('activeCollectionCard');
+  // const pathname = usePathname();
+  // const locale = pathname.split('/')[1];
+  // const { t } = useTranslation('activeCollectionCard');
 
   return (
     <div className={s.shadow}>
@@ -26,6 +27,7 @@ function ActiveCollectionsCard({ collection }) {
             src={getImageSrc(collection.image[0])}
             alt={collection.title + 'image'}
             fill
+            quality={75}
             priority
             sizes="100%"
             placeholder="blur"
@@ -45,21 +47,28 @@ function ActiveCollectionsCard({ collection }) {
             collected={collection.collected}
             target={collection.target}
           />
-          <p className={s.peopleDonate}>
+          {/* <p className={s.peopleDonate}>
             <Icon iconName="icon-people" className={s.collectionIcon} />
             <span>{collection.peopleDonate}</span>
             {` ${getDonorText(collection.peopleDonate, locale)}`}
-          </p>
+          </p> */}
+          <PeopleDonate textContent={collection.peopleDonate} />
           <div className={s.buttonContainer}>
             <LinkButton
-              path={`/${locale}/${ROUTES.COLLECTION}/active/${collection._id}`}
-              linkText={t('button_details')}
+              // path={`/${ROUTES.COLLECTION}/active/${collection._id}`}
+              // linkText={t('button_details')}
               type={LINKDATA.TYPE_LIGHT_BORDER}
+              relativePath={`/${ROUTES.COLLECTION}/active/${collection._id}`}
+              translatorBlock="activeCollectionCard"
+              translatorPath="button_details"
             />
             <LinkButton
-              path={`/${locale}/${ROUTES.PAYMENTS(1)}?value=${collection.value}`}
-              linkText={t('button_donats')}
+              // path={`/${ROUTES.PAYMENTS(1)}?value=${collection.value}`}
+              // linkText={t('button_donats')}
               type={LINKDATA.TYPE_DARK_HEART}
+              relativePath={`/${ROUTES.PAYMENTS(1)}?value=${collection.value}`}
+              translatorBlock="activeCollectionCard"
+              translatorPath="button_donats"
             />
           </div>
         </div>

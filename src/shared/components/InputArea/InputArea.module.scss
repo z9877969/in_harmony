@@ -20,12 +20,15 @@
   border-radius: 24px;
   resize: none;
   overflow: hidden;
+  @include font(16, 24);
+  font-weight: 400;
 
   &::placeholder {
     font-family: $primary-font-family;
     color: $secondary-text-color;
     @include font(16, 24);
     font-weight: 400;
+    opacity: 0.5;
   }
 }
 

@@ -19,9 +19,10 @@ const SocialMediaLinks = ({
         {data &&
           data.map((socialItem, index) => (
             <SocialMediaItem
-              className={itemClassName}
-              socialItem={socialItem}
               key={index}
+              className={itemClassName}
+              itemName={socialItem.name}
+              itemUrl={socialItem.url}
             >
               <Icon
                 iconName={`icon-${socialItem.name}`}

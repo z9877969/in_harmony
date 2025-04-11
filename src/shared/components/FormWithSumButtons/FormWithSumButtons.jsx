@@ -117,7 +117,7 @@ const FormWithSumButtons = ({ className = '' }) => {
             name="amount"
             placeholder="0"
             className={s.inputDonate}
-            value={values.amount > 0 || ''}
+            value={Number(values.amount) > 0 ? values.amount : ''}
             onChange={handleChange}
             onBlur={handleBlur}
             error={touched.amount && errors.amount}

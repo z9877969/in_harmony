@@ -138,105 +138,115 @@ const PublicPrivateForm = ({ content }) => {
         enableReinitialize
       >
         {({ values, setFieldValue }) => (
-          <Form>
-            <div>
-              <RadioButton
-                options={t('paymentInfo.donateOptions', {
-                  returnObjects: true,
-                })}
-                selctedOption={values.isPublic ? 'public' : 'anonymous'}
-                name="isPublic"
-                onChange={(value) => {
-                  setFieldValue('isPublic', value === 'public');
+          <>
+            <Form>
+              <div>
+                <RadioButton
+                  options={t('paymentInfo.donateOptions', {
+                    returnObjects: true,
+                  })}
+                  selctedOption={values.isPublic ? 'public' : 'anonymous'}
+                  name="isPublic"
+                  onChange={(value) => {
+                    setFieldValue('isPublic', value === 'public');
+                  }}
+                />
+
+                {values.isPublic && (
+                  <div className={s.inputContainer}>
+                    <div>
+                      <Field
+                        as={Input}
+                        type="text"
+                        placeholder={t('paymentInfo.placeholderName')}
+                        name="name"
+                        className={s.input}
+                      />
+                      <ErrorMessage
+                        name="name"
+                        component="p"
+                        className={s.error}
+                      />
+                    </div>
+                    <div>
+                      <Field
+                        as={Input}
+                        type="email"
+                        placeholder={t('paymentInfo.placeholderEmail')}
+                        name="email"
+                        className={s.input}
+                      />
+                      <ErrorMessage
+                        name="email"
+                        component="p"
+                        className={s.error}
+                      />
+                    </div>
+
+                    <div>
+                      <Field
+                        as={InputArea}
+                        placeholder={t('paymentInfo.placeholderMessage')}
+                        name="message"
+                        style={{ padding: '16px' }}
+                      />
+                      <ErrorMessage
+                        name="message"
+                        component="p"
+                        className={s.error}
+                      />
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              <p className={s.destination}>{t('paymentInfo.destination')}</p>
+              <Field name="collection">
+                {({ field }) => {
+                  return (
+                    <Dropdown
+                      option={field.value}
+                      onSelect={(selectedOption) => {
+                        setFieldValue('collection', selectedOption);
+                      }}
+                      collections={dropdownOptions}
+                    />
+                  );
                 }}
+              </Field>
+
+              <ErrorMessage
+                name="collection"
+                component="p"
+                className={s.error}
               />
-
-              {values.isPublic && (
-                <div className={s.inputContainer}>
-                  <div>
-                    <Field
-                      as={Input}
-                      type="text"
-                      placeholder={t('paymentInfo.placeholderName')}
-                      name="name"
-                      className={s.input}
-                    />
-                    <ErrorMessage
-                      name="name"
-                      component="p"
-                      className={s.error}
-                    />
-                  </div>
-                  <div>
-                    <Field
-                      as={Input}
-                      type="email"
-                      placeholder={t('paymentInfo.placeholderEmail')}
-                      name="email"
-                      className={s.input}
-                    />
-                    <ErrorMessage
-                      name="email"
-                      component="p"
-                      className={s.error}
-                    />
-                  </div>
-
-                  <div>
-                    <Field
-                      as={InputArea}
-                      placeholder={t('paymentInfo.placeholderMessage')}
-                      name="message"
-                      style={{ padding: '16px' }}
-                    />
-                    <ErrorMessage
-                      name="message"
-                      component="p"
-                      className={s.error}
-                    />
-                  </div>
-                </div>
-              )}
-            </div>
-
-            <p className={s.destination}>{t('paymentInfo.destination')}</p>
-            <Field name="collection">
-              {({ field }) => {
-                return (
-                  <Dropdown
-                    option={field.value}
-                    onSelect={(selectedOption) => {
-                      setFieldValue('collection', selectedOption);
-                    }}
-                    collections={dropdownOptions}
-                  />
-                );
-              }}
-            </Field>
-
-            <ErrorMessage name="collection" component="p" className={s.error} />
-            <div className={s.checkboxContainer}>
-              <Field type="checkbox" name="isChecked" className={s.checkbox} />
-              <p>{t('paymentInfo.coverCommission')}</p>
-            </div>
-            <Field as={Input} type="hidden" name="amount" />
-            <Field as={Input} type="hidden" name="donateTime" />
-            <Button
-              type="submit"
-              colors="secondary"
-              size="medium"
-              className={s.btn}
-            >
-              {!loading
-                ? `${t('paymentInfo.btnText')}`
-                : t('paymentInfo.loadingText')}
-            </Button>
-            <Link
-              className={s.payment}
-              href={`/${locale}/${ROUTES.PAYMENTS(0)}`}
-            >
-              {t('paymentAmount.otherPayment')}
-            </Link>
+              <div className={s.checkboxContainer}>
+                <Field
+                  type="checkbox"
+                  name="isChecked"
+                  className={s.checkbox}
+                />
+                <p>{t('paymentInfo.coverCommission')}</p>
+              </div>
+              <Field as={Input} type="hidden" name="amount" />
+              <Field as={Input} type="hidden" name="donateTime" />
+              <Button
+                type="submit"
+                colors="secondary"
+                size="medium"
+                className={s.btn}
+              >
+                {!loading
+                  ? `${t('paymentInfo.btnText')}`
+                  : t('paymentInfo.loadingText')}
+              </Button>
+              <Link
+                className={s.payment}
+                href={`/${locale}/${ROUTES.PAYMENTS(0)}`}
+              >
+                {t('paymentAmount.otherPayment')}
+              </Link>
+            </Form>
             <WFPForm
               ref={wfpFormRef}
               amount={calcCommisionAmount({
@@ -251,7 +261,7 @@ const PublicPrivateForm = ({ content }) => {
               clientFirstName={values.name}
               isPublic={values.isPublic}
             />
-          </Form>
+          </>
         )}
       </Formik>
     </div>

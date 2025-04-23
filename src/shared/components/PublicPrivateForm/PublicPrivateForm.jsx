@@ -12,7 +12,7 @@ import {
   Input,
   InputArea,
   RadioButton,
-  WFPForm,
+  // WFPForm,
 } from '../index.js';
 import {
   validationSchemaAnonymous,
@@ -20,6 +20,7 @@ import {
 } from './validation/validationSchema.js';
 import { collectionsOptions } from './options/collectionsOptions.js';
 import s from './PublicPrivateForm.module.scss';
+import DonateBtn from '../WFPForm/DonateBtn.jsx';
 
 const initialFormValues = {
   name: '',
@@ -247,8 +248,8 @@ const PublicPrivateForm = ({ content }) => {
                 {t('paymentAmount.otherPayment')}
               </Link>
             </Form>
-            <WFPForm
-              ref={wfpFormRef}
+            {/* <WFPForm
+              // ref={wfpFormRef}
               amount={calcCommisionAmount({
                 amount: prevFormData.amount,
                 isChecked: values.isChecked,
@@ -260,6 +261,19 @@ const PublicPrivateForm = ({ content }) => {
               isRegular={prevFormData.donateTime === 'true'}
               clientFirstName={values.name}
               isPublic={values.isPublic}
+            /> */}
+            <DonateBtn
+              amount={calcCommisionAmount({
+                amount: prevFormData.amount,
+                isChecked: values.isChecked,
+              })}
+              clientEmail={values.email || prevFormData.email}
+              clientFirstName={values.name}
+              donateTitle={values.collection.title}
+              donateValue={values.collection.value}
+              isPublic={values.isPublic}
+              isRegular={prevFormData.donateTime === 'true'}
+              message={values.message}
             />
           </>
         )}

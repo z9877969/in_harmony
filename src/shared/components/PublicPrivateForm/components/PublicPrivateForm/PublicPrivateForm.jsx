@@ -1,26 +1,19 @@
 'use client';
 
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import Link from 'next/link';
 import { usePathname, useSearchParams } from 'next/navigation.js';
 import { ROUTES, WFP_COMMISION } from '@/shared/constants';
-import {
-  Button,
-  Dropdown,
-  Input,
-  InputArea,
-  RadioButton,
-  // WFPForm,
-} from '../index.js';
+import { Dropdown, Input, InputArea, RadioButton } from '../../../index.js';
 import {
   validationSchemaAnonymous,
   validationSchemaPublic,
-} from './validation/validationSchema.js';
-import { collectionsOptions } from './options/collectionsOptions.js';
+} from '../../validation/validationSchema.js';
+import { collectionsOptions } from '../../options/collectionsOptions.js';
 import s from './PublicPrivateForm.module.scss';
-import DonateBtn from '../WFPForm/DonateBtn.jsx';
+import DonateBtn from '../DonateBtn/DonateBtn.jsx';
 
 const initialFormValues = {
   name: '',
@@ -45,10 +38,7 @@ const PublicPrivateForm = ({ content }) => {
   const searchParams = useSearchParams();
   const locale = usePathname().split('/')[1];
   const [initialValues, setInitialValues] = useState(initialFormValues);
-  const [loading, setLoading] = useState(false);
   const { t } = useTranslation('forms');
-
-  const wfpFormRef = useRef(null);
 
   const prevFormData = useMemo(() => {
     const amount = searchParams.get('amount');
@@ -82,14 +72,6 @@ const PublicPrivateForm = ({ content }) => {
       end: title?.slice(index + 1) ?? '',
     };
   }, [t]);
-
-  const handleFinalSubmit = async () => {
-    if (wfpFormRef.current) {
-      setLoading(true);
-      await wfpFormRef.current.generateOrderAndSubmit();
-      setLoading(false);
-    }
-  };
 
   useEffect(() => {
     const email = searchParams.get('email');
@@ -131,10 +113,6 @@ const PublicPrivateForm = ({ content }) => {
             });
             return validationErrors;
           }
-        }}
-        onSubmit={async (_, actions) => {
-          await handleFinalSubmit();
-          actions.setSubmitting(false);
         }}
         enableReinitialize
       >
@@ -231,16 +209,21 @@ const PublicPrivateForm = ({ content }) => {
               </div>
               <Field as={Input} type="hidden" name="amount" />
               <Field as={Input} type="hidden" name="donateTime" />
-              <Button
-                type="submit"
-                colors="secondary"
-                size="medium"
-                className={s.btn}
-              >
-                {!loading
-                  ? `${t('paymentInfo.btnText')}`
-                  : t('paymentInfo.loadingText')}
-              </Button>
+              <DonateBtn
+                amount={calcCommisionAmount({
+                  amount: prevFormData.amount,
+                  isChecked: values.isChecked,
+                })}
+                clientEmail={values.email || prevFormData.email}
+                clientFirstName={values.name}
+                donateTitle={values.collection.title}
+                donateValue={values.collection.value}
+                isPublic={values.isPublic}
+                isRegular={prevFormData.donateTime === 'true'}
+                message={values.message}
+                t={t}
+                locale={locale}
+              />
               <Link
                 className={s.payment}
                 href={`/${locale}/${ROUTES.PAYMENTS(0)}`}
@@ -248,33 +231,6 @@ const PublicPrivateForm = ({ content }) => {
                 {t('paymentAmount.otherPayment')}
               </Link>
             </Form>
-            {/* <WFPForm
-              // ref={wfpFormRef}
-              amount={calcCommisionAmount({
-                amount: prevFormData.amount,
-                isChecked: values.isChecked,
-              })}
-              clientEmail={values.email || prevFormData.email}
-              message={values.message}
-              donateValue={values.collection.value}
-              donateTitle={values.collection.title}
-              isRegular={prevFormData.donateTime === 'true'}
-              clientFirstName={values.name}
-              isPublic={values.isPublic}
-            /> */}
-            <DonateBtn
-              amount={calcCommisionAmount({
-                amount: prevFormData.amount,
-                isChecked: values.isChecked,
-              })}
-              clientEmail={values.email || prevFormData.email}
-              clientFirstName={values.name}
-              donateTitle={values.collection.title}
-              donateValue={values.collection.value}
-              isPublic={values.isPublic}
-              isRegular={prevFormData.donateTime === 'true'}
-              message={values.message}
-            />
           </>
         )}
       </Formik>

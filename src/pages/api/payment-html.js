@@ -101,17 +101,17 @@ export default async function POST(req, res) {
 
   const html = `
     <form id="payment" method="post" action="${data.paymentUrl}" accept-charset="utf-8">
-      <input type="hidden" name="merchantAccount" value="${data.merchantAccount}" /> /* formData.merchantAccount */
+      <input type="hidden" name="merchantAccount" value="${data.merchantAccount}" /> 
       <input type="hidden" name="merchantAuthType" value="${data.merchantAuthType}" />
-      <input type="hidden" name="merchantDomainName" value="${data.merchantDomainName}" /> /* formData.merchantDomainName */
-      <input type="hidden" name="merchantSignature" value="${data.merchantSignature}" /> /* formData.merchantSignature */
-      <input type="hidden" name="orderReference" value="${data.orderReference}" /> /* formData.orderReference */
-      <input type="hidden" name="orderDate" value="${data.orderDate}" /> /* formData.orderDate */
-      <input type="hidden" name="amount" value="${data.amount}" /> /* formData.amount */
-      <input type="hidden" name="currency" value="${data.currency}" /> /* formData.currency */
-      <input type="hidden" name="productName[]" value="${data.donateTitle}" /* formData.donateTitle */ /> /* formData.donateTitle */
-      <input type="hidden" name="productPrice[]" value="${data.amount}" /> /* formData.amount */
-      <input type="hidden" name="productCount[]" value="${data.productCount}" /> /* formData.productCount */
+      <input type="hidden" name="merchantDomainName" value="${data.merchantDomainName}" />
+      <input type="hidden" name="merchantSignature" value="${data.merchantSignature}" />
+      <input type="hidden" name="orderReference" value="${data.orderReference}" />
+      <input type="hidden" name="orderDate" value="${data.orderDate}" />
+      <input type="hidden" name="amount" value="${data.amount}" />
+      <input type="hidden" name="currency" value="${data.currency}" />
+      <input type="hidden" name="productName[]" value="${data.donateTitle}" />
+      <input type="hidden" name="productPrice[]" value="${data.amount}" />
+      <input type="hidden" name="productCount[]" value="${data.productCount}" />
       <input type="hidden" name="defaultPaymentSystem" value="${data.defaultPaymentSystem}" />
       <input type="hidden" name="returnUrl" value="${getReturnUrl()}" />
       <input type="hidden" name="serviceUrl" value="${data.appBaseURL}/api/payment/log" />

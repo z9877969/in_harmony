@@ -1,3 +1,3 @@
-export const getImageSrc = (fileName) => {
-  return fileName.path ? '/images/all/' + fileName.path : '';
+export const getImageSrc = (imageData) => {
+  return imageData.path ? '/images/all/' + imageData.path : '';
 };

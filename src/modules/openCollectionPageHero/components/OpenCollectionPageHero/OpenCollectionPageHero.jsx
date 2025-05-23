@@ -7,8 +7,30 @@ import { getImageSrc } from '@/shared/helpers';
 import s from './OpenCollectionPageHero.module.scss';
 // import StatusCollectionReport from '../StatusCollectionReport/StatusCollectionReport';
 
+const InsideList = ({ content }) => {
+  const itemsList = content.split('\n').map((el, idx) =>
+    idx === 0 ? (
+      el
+    ) : (
+      <>
+        <br />
+        {el}
+      </>
+    )
+  );
+
+  return itemsList;
+};
+
 const OpenCollectionPageHero = ({ content }) => {
   const { title, long_desc, importance, status, term, days, period } = content;
+
+  const descrList = Object.entries(long_desc).reduce((acc, [key, value]) => {
+    if (key.startsWith('section')) {
+      acc.push(value);
+    }
+    return acc;
+  }, []);
 
   return (
     <section className={s.wrapper}>
@@ -35,9 +57,15 @@ const OpenCollectionPageHero = ({ content }) => {
                 period={period}
               />
               <div className={s.description}>
-                <p>{long_desc.section1}</p>
-                <p>{long_desc.section2}</p>
-                <p>{long_desc.section3}</p>
+                {descrList.map((descr, idx) => (
+                  <>
+                    {descr.includes('\n') ? (
+                      <InsideList content={descr} />
+                    ) : (
+                      <p key={idx}>{descr}</p>
+                    )}
+                  </>
+                ))}
               </div>
             </div>
           </div>

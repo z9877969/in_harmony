@@ -14,10 +14,13 @@ const CardForSwiperWhithArrow = ({ slid }) => {
     currency,
     image,
   } = slid;
+
   const dataImage =
-    image && image.length > 0
+    image && image.length > 1
       ? { imageUrl: getImageSrc(image[1]) }
-      : { imageUrl: '/images/default_image.webp' };
+      : image && image.length > 0
+        ? { imageUrl: getImageSrc(image[0]) }
+        : { imageUrl: '/images/default_image.webp' };
 
   return (
     <div className={s.list}>

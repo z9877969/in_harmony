@@ -1,14 +1,12 @@
 'use client';
 import { CardProjectReporting } from '@/shared/components';
 import s from './FinishedProjectsList.module.scss';
-import { useCurrentIndexWithIsDesktop } from '../../hooks/useCurrentIndexWithIsDesktop.js';
 
-export default function FinishedProjectsList({ data, contentLength }) {
-  const { currentIndex } = useCurrentIndexWithIsDesktop(contentLength);
+export default function FinishedProjectsList({ data }) {
   return (
     <div className={s.main}>
       <div className={s.container}>
-        {data.slice(0, currentIndex).map((slid) => (
+        {data.map((slid) => (
           <CardProjectReporting
             slid={slid}
             key={slid._id}

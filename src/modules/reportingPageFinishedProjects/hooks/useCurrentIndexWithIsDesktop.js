@@ -3,8 +3,10 @@ import { useState, useEffect } from 'react';
 export const useCurrentIndexWithIsDesktop = ({ contentLength }) => {
   const [isDesktop, setIsDesktop] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(4);
+  const [isShowAllCards, setIsShowAllCards] = useState(false);
 
   useEffect(() => {
+    if (isShowAllCards) return null;
     if (typeof window !== 'undefined') {
       const width = window.innerWidth;
       setIsDesktop(width >= 1440);
@@ -19,7 +21,7 @@ export const useCurrentIndexWithIsDesktop = ({ contentLength }) => {
         window.removeEventListener('resize', handleResize);
       };
     }
-  }, []);
+  }, [isShowAllCards]);
 
   const handleClick = () => {
     if (isDesktop && currentIndex <= contentLength) {
@@ -29,7 +31,8 @@ export const useCurrentIndexWithIsDesktop = ({ contentLength }) => {
     } else {
       setCurrentIndex(contentLength);
     }
+    setIsShowAllCards(true);
   };
 
-  return { handleClick, currentIndex };
+  return { handleClick, currentIndex, isShowAllCards };
 };

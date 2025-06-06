@@ -1,15 +1,10 @@
 'use client';
 
 import { useTranslation } from 'react-i18next';
-
 import { Button } from '@/shared/components';
-
-import { useCurrentIndexWithIsDesktop } from '../../hooks/useCurrentIndexWithIsDesktop.js';
-
 import s from './ButtonReportingPageFinishedProjects.module.scss';
 
-const ButtonReportingPageFinishedProjects = ({ contentLength }) => {
-  const { handleClick } = useCurrentIndexWithIsDesktop(contentLength);
+const ButtonReportingPageFinishedProjects = ({ handleClick }) => {
   const { t } = useTranslation('reportingPage');
 
   return (

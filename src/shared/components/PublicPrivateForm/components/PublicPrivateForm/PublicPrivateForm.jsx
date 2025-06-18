@@ -216,7 +216,11 @@ const PublicPrivateForm = ({ content }) => {
                 })}
                 clientEmail={values.email || prevFormData.email}
                 clientFirstName={values.name}
-                donateTitle={values.collection.title}
+                donateTitle={
+                  values.collection.title.includes('"')
+                    ? values.collection.title.replace(/"/g, "'")
+                    : values.collection.title
+                }
                 donateValue={values.collection.value}
                 isPublic={values.isPublic}
                 isRegular={prevFormData.donateTime === 'true'}

@@ -11,6 +11,7 @@ export const JWT_ACCESS_SECRET = env(
   'JWT_ACCESS_SECRET',
   'your-super-secret-access-key-that-is-long'
 );
+
 export const JWT_REFRESH_SECRET = env(
   'JWT_REFRESH_SECRET',
   'your-super-secret-refresh-key-that-is-long'

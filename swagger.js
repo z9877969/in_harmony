@@ -24,6 +24,10 @@ export const swaggerOptions = {
     ],
     tags: [
       {
+        name: 'Auth',
+        description: 'API для керування авторизацією',
+      },
+      {
         name: 'Pages',
         description: 'API для керування сторінками',
       },

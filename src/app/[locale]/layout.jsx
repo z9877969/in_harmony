@@ -17,6 +17,7 @@ const Footer = dynamic(
 );
 
 import '../globals.scss';
+import { checkSupportedLocales } from '@/shared/utils/checkSupportedLocales';
 
 const montserrat = Montserrat({
   subsets: ['latin', 'cyrillic'],
@@ -47,9 +48,10 @@ const mainMetadataDict = {
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const generateMetadata = ({ params: { locale } }) => {
+  if (checkSupportedLocales(locale)) return;
   return {
     title: 'In Harmony',
-    description: mainMetadataDict[locale].description,
+    description: mainMetadataDict[locale]?.description,
   };
 };
 

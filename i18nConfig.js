@@ -1,7 +1,6 @@
 import { LANGUAGES } from '@/shared/constants';
-
 const i18nConfig = {
-  locales: [LANGUAGES.UA, LANGUAGES.EN],
+  locales: Object.values(LANGUAGES),
   defaultLocale: LANGUAGES.UA,
   prefixDefault: true,
 };

@@ -29,8 +29,6 @@ export function middleware(request) {
   const url = nextUrl.clone();
 
   if (url.pathname === '/docs') {
-    // Переписуємо URL, щоб він вказував на /docs без мовного префікса.
-    // Це зупиняє i18n-роутер від перенаправлення.
     url.pathname = '/docs';
     return NextResponse.rewrite(url);
   }
@@ -39,5 +37,6 @@ export function middleware(request) {
 }
 
 export const config = {
-  matcher: '/((?!api|static|.*\\..*|_next).*)',
+  matcher: '/((?!api|static|.*\\..*|_next|favicon.ico|\\.well-known|docs).*)',
+  // matcher: ['/((?!api|_next|\\.well-known|docs|.*\\..*).*)'],
 };

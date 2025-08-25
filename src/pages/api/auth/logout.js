@@ -19,6 +19,10 @@ import { logoutUser } from '@/app/server/services/authServices';
  *     responses:
  *       204:
  *         description: Успішне операція.
+ *       403:
+ *         description: Неавторизований доступ
+ *       404:
+ *         description: Відсутня сесія користувача
  */
 
 const methodHandlers = {

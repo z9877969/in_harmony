@@ -95,9 +95,7 @@ export const loginUser = async (req, res) => {
 
     res.status(200).json({ message: 'Logged in successfully' });
   } catch (error) {
-    res
-      .status(error.status || 500)
-      .json({ message: error.message || 'Server error' });
+    responseError(res, error);
   }
 };
 
@@ -139,6 +137,22 @@ export const logoutUser = async (req, res) => {
 
     if (!session) {
       throw createHttpError(404, 'Invalid session data');
+    }
+
+    res.status(204).json();
+  } catch (error) {
+    responseError(res, error);
+  }
+};
+
+export const removeUser = async (req, res) => {
+  try {
+    const { userId } = req.query;
+
+    const user = await UserModel.findByIdAndDelete(userId);
+
+    if (!user) {
+      throw createHttpError(404, 'User not found');
     }
 
     res.status(204).json();

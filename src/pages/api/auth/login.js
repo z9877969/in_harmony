@@ -28,6 +28,13 @@ import * as scm from '@/app/server/schemas';
  *     responses:
  *       200:
  *         description: Успішне отримання даних користувача.
+ *       400:
+ *         descritpion: Некоректне тіло запиту
+ *       401:
+ *         descritpion: Некоректні email або пароль
+ *       404:
+ *         description: Користувач відсутній
+ *
  */
 
 const methodHandlers = {

@@ -4,8 +4,10 @@ import { responseError } from '../lib';
 
 const isValidId = (next) => async (req, res) => {
   try {
-    const { id } = req.query;
-    if (!isValidObjectId(id)) {
+    const hasInvalidId = Object.entries(req.query)
+      .filter(([key]) => key.toLowerCase.endsWith('id'))
+      .some((_, value) => !isValidObjectId(value));
+    if (hasInvalidId) {
       throw createHttpError(400, 'Invalid id');
     }
     return await next(req, res);

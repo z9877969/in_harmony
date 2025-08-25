@@ -148,13 +148,11 @@ export const logoutUser = async (req, res) => {
 export const removeUser = async (req, res) => {
   try {
     const { userId } = req.query;
-
     const user = await UserModel.findByIdAndDelete(userId);
-
     if (!user) {
       throw createHttpError(404, 'User not found');
     }
-
+    await SessionModel.findOneAndDelete({ userId });
     res.status(204).json();
   } catch (error) {
     responseError(res, error);

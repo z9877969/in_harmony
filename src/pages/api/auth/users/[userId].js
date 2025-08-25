@@ -5,7 +5,7 @@ import {
   withAuth,
   withMethods,
 } from '@/app/server/lib';
-import { updateUser } from '@/app/server/services/authServices';
+import { removeUser, updateUser } from '@/app/server/services/authServices';
 import { validateBody } from '@/app/server/lib';
 import * as scm from '@/app/server/schemas';
 import { isValidId } from '@/app/server/utils';
@@ -76,7 +76,7 @@ const methodHandlers = {
     checkAdminRole,
     updateUser
   ),
-  DELETE: composeMidlwares(isValidId, withAuth, checkAdminRole, updateUser),
+  DELETE: composeMidlwares(isValidId, withAuth, checkAdminRole, removeUser),
 };
 
 export default async function handler(req, res) {

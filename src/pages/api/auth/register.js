@@ -16,6 +16,9 @@ import * as scm from '@/app/server/schemas';
  *     summary: Зареєструвати користувача
  *     description: Реєструє користувача в БД для подальшої авторизації та взаємодії з приватними ендпоінтами. Доступний лише для користувача в ролі 'admin'.
  *     tags: [Auth]
+ *     security:
+ *       - accessTokenAuth: []
+ *       - refreshTokenAuth: []
  *     requestBody:
  *       content:
  *         application/json:
@@ -38,8 +41,8 @@ import * as scm from '@/app/server/schemas';
 
 const methodHandlers = {
   POST: composeMidlwares(
-    validateBody(scm.user.registration),
     withAuth,
+    validateBody(scm.user.registration),
     checkAdminRole,
     registerUser
   ),

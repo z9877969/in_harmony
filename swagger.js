@@ -6,10 +6,10 @@ export const swaggerOptions = {
       title: 'My Next.js API',
       version: '1.0.0',
       description:
-        'A detailed description of my awesome Next.js API, documented with Swagger',
+        'A detailed description of InHarmony Next.js API, documented with Swagger',
       contact: {
-        name: 'Developer Name',
-        email: 'developer@example.com',
+        name: 'Andrii Kyrylenko',
+        email: 'z9877969@gmail.com',
       },
     },
     servers: [
@@ -28,14 +28,34 @@ export const swaggerOptions = {
         description: 'API для керування авторизацією',
       },
       {
-        name: 'Pages',
-        description: 'API для керування сторінками',
-      },
-      {
         name: 'Collections',
         description: 'Ендпоінти для взаємодії зі зборами',
       },
+      {
+        name: 'Pages',
+        description: 'API для керування сторінками',
+      },
     ],
+    components: {
+      securitySchemes: {
+        accessTokenAuth: {
+          type: 'apiKey',
+          in: 'cookie',
+          name: 'accessToken',
+        },
+        refreshTokenAuth: {
+          type: 'apiKey',
+          in: 'cookie',
+          name: 'refreshToken',
+        },
+      },
+      security: [
+        {
+          accessTokenAuth: [],
+          refreshTokenAuth: [],
+        },
+      ],
+    },
   },
   apis: ['./src/pages/api/**/*.js', './swagger-schemas.js'], // Шлях до файлів з JSDoc коментарями
 };

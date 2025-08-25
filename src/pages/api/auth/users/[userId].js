@@ -16,6 +16,13 @@ import * as scm from '@/app/server/schemas';
  *     summary: Оновити дані користувача
  *     description: Оновлює дані одного щ користувачів в БД. Доступний лише для користувача в ролі 'admin'.
  *     tags: [Auth]
+ *     parameters:
+ *       - name: userId
+ *         in: path
+ *         description: Id користувача
+ *     security:
+ *       - accessTokenAuth: []
+ *       - refreshTokenAuth: []
  *     requestBody:
  *       content:
  *         application/json:

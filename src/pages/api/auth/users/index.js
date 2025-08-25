@@ -5,7 +5,7 @@ import {
   withAuth,
   withMethods,
 } from '@/app/server/lib';
-import { getAllUsers } from '@/app/server/services/authServices';
+import * as s from '@/app/server/services/authServices';
 
 /**
  * @swagger
@@ -14,13 +14,16 @@ import { getAllUsers } from '@/app/server/services/authServices';
  *     summary: Отримати список всіх користувачів. Доступний лише для користувача в ролі 'admin'.
  *     description: Повертає список всіх користувачів з ролями
  *     tags: [Auth]
+ *     security:
+ *       - accessTokenAuth: []
+ *       - refreshTokenAuth: []
  *     responses:
  *       200:
  *         description: Успішне отримання даних користувача.
  */
 
 const methodHandlers = {
-  GET: composeMidlwares(withAuth, checkAdminRole, getAllUsers),
+  GET: composeMidlwares(withAuth, checkAdminRole, s.getAllUsers),
 };
 
 export default async function handler(req, res) {

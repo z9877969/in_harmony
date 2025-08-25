@@ -1,20 +1,24 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-// import env from '../utils/evn.js';
-import { insideServerApi } from '@/shared/services';
+import { APP_DOMAIN, PUBLIC_IMAGES_ALL_DIR } from '../constants';
 
-export const TEMPLATES_DIR = path.join(process.cwd(), 'src', 'templates');
-export const UPLOAD_DIR = path.join(process.cwd(), 'uploads');
-export const TEMP_UPLOAD_DIR = path.join(process.cwd(), 'temp');
+const saveFileToUploadDir = async (file, instanceId) => {
+  try {
+    const newFileName = instanceId
+      ? String(instanceId) + '_' + file.filename
+      : file.filename;
 
-const saveFileToUploadDir = async (file) => {
-  const tempPath = path.join(TEMP_UPLOAD_DIR, file.filename);
-  const uploadPath = path.join(UPLOAD_DIR, file.filename);
+    const uploadPath = path.join(PUBLIC_IMAGES_ALL_DIR, newFileName);
 
-  await fs.rename(tempPath, uploadPath);
+    await fs.rename(file.path, uploadPath);
 
-  // return `${env('APP_DOMAIN')}/uploads/${file.filename}`;
-  return `${insideServerApi.serverUrl}/public/images/all/${file.filename}`;
+    return {
+      url: `${APP_DOMAIN}/images/all/${newFileName}`,
+      path: newFileName,
+    };
+  } catch (error) {
+    await fs.unlink(file.path);
+  }
 };
 
 export default saveFileToUploadDir;

@@ -37,6 +37,7 @@ export function middleware(request) {
 }
 
 export const config = {
-  matcher: '/((?!api|static|.*\\..*|_next|favicon.ico|\\.well-known|docs).*)',
+  matcher:
+    '/((?!api|static|.*\\..*|_next|.next|favicon.ico|\\.well-known|docs).*)',
   // matcher: ['/((?!api|_next|\\.well-known|docs|.*\\..*).*)'],
 };

@@ -4,14 +4,15 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3000",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 3000",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0 --fix"
   },
   "dependencies": {
     "bcrypt": "^6.0.0",
+    "bson": "^6.10.4",
     "cloudinary": "^2.5.1",
     "clsx": "^2.1.1",
     "cookie": "^1.0.2",
@@ -20,7 +21,7 @@
     "embla-carousel-react": "^8.5.2",
     "formik": "^2.4.6",
     "http-errors": "^2.0.0",
-    "i18next": "^24.2.2",
+    "i18next": "^25.4.2",
     "i18next-fs-backend": "^2.6.0",
     "i18next-resources-to-backend": "^1.2.1",
     "joi": "^18.0.1",

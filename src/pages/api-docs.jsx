@@ -1,4 +1,3 @@
-// pages/docs.jsx
 import Head from 'next/head';
 import SwaggerUI from 'swagger-ui-react';
 import 'swagger-ui-react/swagger-ui.css';
@@ -12,7 +11,7 @@ const Docs = ({ spec }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <SwaggerUI spec={spec} />
+      <SwaggerUI spec={spec} withCredentials={true} />
     </div>
   );
 };

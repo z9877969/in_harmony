@@ -121,10 +121,27 @@ export const updateUser = async (req, res) => {
     responseError(res, error);
   }
 };
+
 export const getAllUsers = async (req, res) => {
   try {
     const users = await UserModel.find({}, '-password -__v');
     res.json(users);
+  } catch (error) {
+    responseError(res, error);
+  }
+};
+
+export const logoutUser = async (req, res) => {
+  try {
+    const { _id } = req.user;
+
+    const session = await SessionModel.deleteOne({ userId: _id });
+
+    if (!session) {
+      throw createHttpError(404, 'Invalid session data');
+    }
+
+    res.status(204).json();
   } catch (error) {
     responseError(res, error);
   }

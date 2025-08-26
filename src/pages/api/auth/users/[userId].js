@@ -13,7 +13,7 @@ import { isValidId } from '@/app/server/utils';
 /**
  * @swagger
  * /auth/users/{userId}:
- *   put:
+ *   patch:
  *     summary: Оновити дані користувача
  *     description: Оновлює дані одного щ користувачів в БД. Доступний лише для користувача в ролі 'admin'.
  *     tags: [Auth]
@@ -36,6 +36,8 @@ import { isValidId } from '@/app/server/utils';
  *                 $ref: '#/components/examples/user/email'
  *               role:
  *                 $ref: '#/components/examples/user/role'
+ *               password:
+ *                 $ref: '#/components/examples/user/password'
  *     responses:
  *       200:
  *         description: Успішне отримання даних користувача.
@@ -45,8 +47,7 @@ import { isValidId } from '@/app/server/utils';
  *         description: Неавторизований доступ
  *       404:
  *         description: Користувач відсутній
- * /auth/users/{userId}:
- *   dekete:
+ *   delete:
  *     summary: Видалити користувача
  *     description: Видаляє користувача з БД. Доступний лише для користувача в ролі 'admin'.
  *     tags: [Auth]
@@ -69,7 +70,7 @@ import { isValidId } from '@/app/server/utils';
  */
 
 const methodHandlers = {
-  PUT: composeMidlwares(
+  PATCH: composeMidlwares(
     isValidId,
     validateBody(scm.user.update),
     withAuth,

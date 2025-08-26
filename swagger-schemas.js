@@ -123,4 +123,26 @@
  *         enum: ['urgent', 'important', 'non-urgent', 'permanent']
  *         description: "Значення типу важливості збору: 'urgent' - Терміново, 'important' - Важливий, 'non-urgent' - Не терміново, 'permanent' - Постійний]"
  *         example: urgent
+ *     report:
+ *       month:
+ *         type: string
+ *         maxLength: 16
+ *         description: Назва збору. Max - 48
+ *         example: Квітень
+ *       year:
+ *         type: string
+ *         min: "2025"
+ *         description: Рік періоду звітності
+ *         patern: /20([2][5-9]|[3-9][0-9])/
+ *         example: 2025
+ *       url:
+ *         type: string
+ *         format: url
+ *         description: Посилання на звітність
+ *         example: https://some-reports-sourse.com/path/to/report
+ *       language:
+ *         type: string
+ *         enum: ['en', 'ua']
+ *         description: Мова контенту - ['en', 'ua']
+ *         example: ua
  */

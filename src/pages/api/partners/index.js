@@ -67,7 +67,10 @@ export default async function handler(req, res) {
  *               - logo
  *               - link
  *               - language
+ *               - image
  *             properties:
+ *               image:
+ *                 $ref: '#/components/examples/partner/image'
  *               logo:
  *                 $ref: '#/components/examples/partner/logo'
  *               link:

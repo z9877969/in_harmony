@@ -182,6 +182,8 @@ export const removeCollectionService = async (req, res) => {
       throw createHttpError(404, 'Collection not found');
     }
 
+    await findAndDeleteImage(collection.translations);
+
     res.status(204).json();
   } catch (error) {
     responseError(res, error);

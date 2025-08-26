@@ -53,7 +53,6 @@ export default async function handler(req, res) {
  *       content:
  *         application/json:
  *           schema:
- *             required: ['year', 'month', 'url', 'language']
  *             type: object
  *             properties:
  *               year:

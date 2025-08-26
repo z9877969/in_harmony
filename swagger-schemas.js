@@ -31,37 +31,33 @@
  *       title:
  *         type: string
  *         maxLength: 48
- *         description: Назва збору. Max - 48
+ *         description: Назва збору. Maкс - 48 симв.
  *         example: Допомога на лікування
  *       image:
- *         type: array
- *         minItems: 1
- *         maxItems: 5
- *         items:
- *           type: string
- *           format: binary
- *         description: Масив зображень збору. Min - 1, max - 5
- *         example: ["image1.jpg", "image2.jpg"]
+ *         type: string
+ *         format: binary
+ *         example: "image1.jpg"
+ *         description: Зображення збору
  *       collected:
  *         type: number
  *         minimum: 0
- *         description: Зібрана сума. Min - 0
+ *         description: Зібрана сума. Мінім - 0 симв.
  *         example: 15000
  *       target:
  *         type: number
  *         minimum: 0
- *         description: Цільова сума. Min - 0
+ *         description: Цільова сума. Мінім - 0 симв.
  *         example: 50000
  *       alt:
  *         type: string
  *         maxLength: 24
- *         description: Alt текст для зображення. Max - 24
+ *         description: Alt текст для зображення. Maкс - 24 симв.
  *         example: Фото пацієнта
  *       peopleDonate:
  *         type: integer
  *         minimum: 0
  *         format: int32
- *         description: Кількість донорів. Min - 0
+ *         description: Кількість донорів. Мінім - 0 симв.
  *         example: 156
  *       peopleDonate_title:
  *         type: string
@@ -71,7 +67,7 @@
  *       desc:
  *         type: string
  *         maxLength: 144
- *         description: Короткий опис збору. Max - 144
+ *         description: Короткий опис збору. Maкс - 144 симв.
  *         example: Допоможіть зібрати кошти на лікування
  *       language:
  *         type: string
@@ -82,7 +78,7 @@
  *         type: integer
  *         minimum: 0
  *         format: int32
- *         description: Кількість днів до завершення. Min - 0
+ *         description: Кількість днів до завершення. Мінім - 0 симв.
  *         example: 30
  *         default: 0
  *       period:
@@ -94,7 +90,7 @@
  *         type: integer
  *         minimum: 0
  *         format: int32
- *         description: К-сть відгуків. Min - 0
+ *         description: К-сть відгуків. Мінім - 0 симв.
  *         example: 12
  *         default: 0
  *       long_desc:
@@ -104,8 +100,8 @@
  *           type: string
  *           minLength: 1
  *           maxLength: 224
- *           description: Min - 1, max - 224
- *         description: Детальний опис збору. Min 1
+ *           description: Мінім - 1  симв., Макс - 224 симв.
+ *         description: Детальний опис збору. Мінім - 1 симв.
  *         example: ["Перший параграф опису", "Другий параграф опису"]
  *       status:
  *         type: string
@@ -116,7 +112,7 @@
  *       value:
  *         type: string
  *         maxLength: 48
- *         description: Унікальний тег, який повинен бути однаковим для однакових зборів на різних мовах. Max - 48
+ *         description: Унікальний тег, який повинен бути однаковим для однакових зборів на різних мовах. Maкс - 48 симв.
  *         example: help-treatment-ivan
  *       importance:
  *         type: string
@@ -127,7 +123,7 @@
  *       month:
  *         type: string
  *         maxLength: 16
- *         description: Назва збору. Max - 48
+ *         description: Назва збору. Maкс - 48 симв.
  *         example: Квітень
  *       year:
  *         type: string
@@ -154,11 +150,16 @@
  *       logo:
  *         type: string
  *         maxLength: 128
- *         description: Назва організації партнера
+ *         description: Назва організації партнера. Maкс - 128 симв.
  *         example: METRO
  *       link:
  *         type: string
  *         maxLength: 512
- *         description: Посилання на сайт партнера
+ *         description: Посилання на сайт партнера. Maкс - 512 симв.
  *         example: https://www.metro.ua/
+ *       image:
+ *         type: string
+ *         format: binary
+ *         example: "image1.jpg"
+ *         description: Зображення партнера
  */

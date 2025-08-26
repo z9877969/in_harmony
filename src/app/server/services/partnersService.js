@@ -84,3 +84,21 @@ export const updatePartner = async (req, res) => {
     responseError(res, error);
   }
 };
+
+export const removePartner = async (req, res) => {
+  try {
+    const { id } = req.query;
+
+    const partner = await PartnersModel.findByIdAndDelete(id);
+
+    if (!partner) {
+      throw createHttpError(404, 'Partner not found');
+    }
+
+    await findAndDeleteImage(partner.image.path);
+
+    res.status(204).json();
+  } catch (error) {
+    responseError(res, error);
+  }
+};

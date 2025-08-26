@@ -29,7 +29,7 @@ export const swaggerOptions = {
       },
       {
         name: 'Collections',
-        description: 'Ендпоінти для взаємодії зі зборами',
+        description: 'API для взаємодії зі зборами',
       },
       {
         name: 'Pages',

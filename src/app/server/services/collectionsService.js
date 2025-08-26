@@ -11,6 +11,7 @@ import { convertToLongDescrObj } from '../utils/convertToLongDescrObj';
 import {
   COLLECTION_COLLECTED_TITLES,
   COLLECTION_COMMENTS_LABEL,
+  COLLECTION_STATUS_TYPE,
   COLLECTION_TARGET_TITLES,
   COLLECTION_TERMS_LABEL,
   CURRENCY_TYPES,
@@ -164,6 +165,9 @@ export const updateCollectionService = async (req, res) => {
     if (photoUrls.length > 0) {
       req.body.image = photoUrls;
     }
+    if (req.body.status === COLLECTION_STATUS_TYPE.CLOSED) {
+      req.body.closedAt = new Date();
+    }
     const result = await CollectionModel.findByIdAndUpdate(
       id,
       { ...req.body },
@@ -178,4 +182,19 @@ export const updateCollectionService = async (req, res) => {
     responseError(res, error);
   }
 };
-//   closedAt: { type: Date, default: null }, - автоматично при зміні статусу на closed
+
+export const removeCollectionService = async (req, res) => {
+  try {
+    const { id } = req.query;
+
+    const collection = await CollectionModel.findByIdAndDelete(id);
+
+    if (!collection) {
+      throw createHttpError(404, 'Collection not found');
+    }
+
+    res.status(204).json();
+  } catch (error) {
+    responseError(res, error);
+  }
+};

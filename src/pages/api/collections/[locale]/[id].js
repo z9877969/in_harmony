@@ -5,6 +5,7 @@ import { validateBody, withAuth } from '@/app/server/lib';
 import {
   getCollectionById,
   updateCollectionService,
+  removeCollectionService,
 } from '@/app/server/services/collectionsService.js';
 import { composeMidlwares } from '@/app/server/lib/composeMidlwares.js';
 import {
@@ -32,6 +33,7 @@ const methodHandlers = {
     validateBody(scm.collection.update),
     updateCollectionService
   ),
+  DELETE: composeMidlwares(isValidId, withAuth, removeCollectionService),
 };
 
 export default async function handler(req, res) {
@@ -48,9 +50,23 @@ export default async function handler(req, res) {
  *     description: Повертає інформацію про збір
  *     tags:
  *       - Collections
+ *     parameters:
+ *       - name: locale
+ *         in: path
+ *         required: true
+ *         description: Вказує мову якою створено збір.
+ *         schema:
+ *           type: string
+ *           enum: [en, ua]
+ *       - name: id
+ *         in: path
+ *         required: true
+ *         description: Id збору
  *     responses:
  *       200:
  *         description: Успішне отримання даних про збір
+ *       404:
+ *         description: Збір відсутній
  *   patch:
  *     summary: Оновлює дані про збір
  *     description: Оновлює інформацію про збір
@@ -60,10 +76,14 @@ export default async function handler(req, res) {
  *       - name: locale
  *         in: path
  *         required: true
- *         description: Вказує мову якою створюється контент - en | ua
+ *         description: Вказує мову якою було створено контент - en | ua
  *         schema:
  *           type: string
  *           enum: [en, ua]
+ *       - name: id
+ *         in: path
+ *         required: true
+ *         description: Id збору який оновлюється
  *     security:
  *       - accessTokenAuth: []
  *       - refreshTokenAuth: []
@@ -108,7 +128,38 @@ export default async function handler(req, res) {
  *       200:
  *         description: Успішне оновлення збору
  *       400:
- *         description: Помилка валідації
+ *         description: Помилка валідації або некоректний Id
  *       403:
  *         description: Неавторизований доступ
+ *       404:
+ *         description: Збір відсутній
+ *   delete:
+ *     summary: Видалити збір
+ *     description: Видаляє збір з БД.
+ *     tags:
+ *       - Collections
+ *     parameters:
+ *       - name: locale
+ *         in: path
+ *         required: true
+ *         description: Вказує мову якою створено збір.
+ *         schema:
+ *           type: string
+ *           enum: [en, ua]
+ *       - name: id
+ *         in: path
+ *         required: true
+ *         description: Id збору
+ *     security:
+ *       - accessTokenAuth: []
+ *       - refreshTokenAuth: []
+ *     responses:
+ *       204:
+ *         description: Успішна операція
+ *       400:
+ *         descritpion: Некоректний Id
+ *       403:
+ *         description: Неавторизований доступ
+ *       404:
+ *         description: Збір відсутній
  */

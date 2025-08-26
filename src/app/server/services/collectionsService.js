@@ -198,3 +198,23 @@ export const removeCollectionService = async (req, res) => {
     responseError(res, error);
   }
 };
+
+export const getCollectionTags = async (req, res) => {
+  const tagsList = await CollectionModel.aggregate([
+    {
+      $match: { status: COLLECTION_STATUS_TYPE.ACTIVE },
+    },
+    {
+      $project: {
+        language: 1,
+        title: 1,
+        value: 1,
+      },
+    },
+    {
+      $sort: { value: -1 },
+    },
+  ]);
+
+  res.json(tagsList);
+};

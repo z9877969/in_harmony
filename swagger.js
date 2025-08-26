@@ -32,8 +32,8 @@ export const swaggerOptions = {
         description: 'API для взаємодії зі зборами',
       },
       {
-        name: 'Pages',
-        description: 'API для керування сторінками',
+        name: 'Reports',
+        description: 'API для керування звітністю',
       },
     ],
     components: {

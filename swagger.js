@@ -3,7 +3,7 @@ export const swaggerOptions = {
   definition: {
     openapi: '3.0.0',
     info: {
-      title: 'My Next.js API',
+      title: 'Inharmony Next.js project API',
       version: '1.0.0',
       description:
         'A detailed description of InHarmony Next.js API, documented with Swagger',
@@ -14,12 +14,12 @@ export const swaggerOptions = {
     },
     servers: [
       {
-        url: 'http://localhost:3000/api',
-        description: 'Development server',
+        url: 'https://in-harmony.vercel.app/api',
+        description: 'Production server',
       },
       {
-        url: 'https://production-url.com/api',
-        description: 'Production server',
+        url: 'http://localhost:3000/api',
+        description: 'Development server',
       },
     ],
     tags: [

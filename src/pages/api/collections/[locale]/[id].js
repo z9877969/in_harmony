@@ -157,7 +157,7 @@ export default async function handler(req, res) {
  *       204:
  *         description: Успішна операція
  *       400:
- *         descritpion: Некоректний Id
+ *         description: Некоректний Id
  *       403:
  *         description: Неавторизований доступ
  *       404:

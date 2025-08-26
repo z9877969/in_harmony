@@ -1,35 +1,28 @@
 import {
-  checkAdminRole,
   composeMidlwares,
   connectToDatabase,
   responseError,
+  validateEmptyBody,
   withAuth,
   withMethods,
 } from '@/app/server/lib';
 import {
-  removeUser,
-  updateUser,
-  createReport,
+  removeReport,
+  updateReport,
 } from '@/app/server/services/reportsServices';
 import { validateBody } from '@/app/server/lib';
 import * as scm from '@/app/server/schemas';
 import { isValidId } from '@/app/server/utils';
 
 const methodHandlers = {
-  POST: composeMidlwares(
-    // isValidId,
-    // validateBody(scm.user.update),
-    withAuth,
-    createReport
-  ),
   PATCH: composeMidlwares(
     isValidId,
-    validateBody(scm.user.update),
+    validateEmptyBody,
+    validateBody(scm.report.update),
     withAuth,
-    checkAdminRole,
-    updateUser
+    updateReport
   ),
-  DELETE: composeMidlwares(isValidId, withAuth, checkAdminRole, removeUser),
+  DELETE: composeMidlwares(isValidId, withAuth, removeReport),
 };
 
 export default async function handler(req, res) {
@@ -43,15 +36,16 @@ export default async function handler(req, res) {
 
 /**
  * @swagger
- * /auth/users/{userId}:
+ * /reports/{id}:
  *   patch:
- *     summary: Оновити дані користувача
- *     description: Оновлює дані одного щ користувачів в БД. Доступний лише для користувача в ролі 'admin'.
- *     tags: [Auth]
+ *     summary: Оновити дані звіту
+ *     description: Оновлює дані одного звіту в БД
+ *     tags:
+ *       - Reports
  *     parameters:
- *       - name: userId
+ *       - name: id
  *         in: path
- *         description: Id користувача дані якого оновлюють
+ *         description: Id звіту, дані якого оновлюють
  *     security:
  *       - accessTokenAuth: []
  *       - refreshTokenAuth: []
@@ -59,33 +53,34 @@ export default async function handler(req, res) {
  *       content:
  *         application/json:
  *           schema:
+ *             required: ['year', 'month', 'url', 'language']
  *             type: object
  *             properties:
- *               name:
- *                 $ref: '#/components/examples/user/name'
- *               email:
- *                 $ref: '#/components/examples/user/email'
- *               role:
- *                 $ref: '#/components/examples/user/role'
- *               password:
- *                 $ref: '#/components/examples/user/password'
+ *               year:
+ *                 $ref: '#/components/examples/report/year'
+ *               month:
+ *                 $ref: '#/components/examples/report/month'
+ *               url:
+ *                 $ref: '#/components/examples/report/url'
+ *               language:
+ *                 $ref: '#/components/examples/report/language'
  *     responses:
  *       200:
- *         description: Успішне отримання даних користувача.
+ *         description: Успішне оновлення звіту
  *       400:
- *         descritpion: Некоректний Id
+ *         description: Некоректні дані в тілі запиту або некоректний Id
  *       403:
  *         description: Неавторизований доступ
  *       404:
- *         description: Користувач відсутній
+ *         description: Звіт відсутній
  *   delete:
- *     summary: Видалити користувача
- *     description: Видаляє користувача з БД. Доступний лише для користувача в ролі 'admin'.
- *     tags: [Auth]
+ *     summary: Видалити звіт
+ *     description: Видаляє звіт з БД
+ *     tags: [Reports]
  *     parameters:
- *       - name: userId
+ *       - name: id
  *         in: path
- *         description: Id користувача якого видаляють
+ *         description: Id звіту який видаляють
  *     security:
  *       - accessTokenAuth: []
  *       - refreshTokenAuth: []
@@ -93,9 +88,9 @@ export default async function handler(req, res) {
  *       204:
  *         description: Успішна операція
  *       400:
- *         descritpion: Некоректний Id
+ *         description: Некоректний Id
  *       403:
  *         description: Неавторизований доступ
  *       404:
- *         description: Користувач відсутній
+ *         description: Звіт відсутній
  */

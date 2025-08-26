@@ -1,10 +1,15 @@
+import { responseError } from '../responseError';
 import { checkCors } from './checkCors';
 
 export const withMethods = (handlers) => (req, res) => {
   const handlerForMethod = handlers[req.method];
 
   if (handlerForMethod) {
-    return checkCors(handlerForMethod)(req, res);
+    try {
+      return checkCors(handlerForMethod)(req, res);
+    } catch (error) {
+      responseError(res, error);
+    }
   }
 
   res.setHeader('Allow', Object.keys(handlers).join(', '));

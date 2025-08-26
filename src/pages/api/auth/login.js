@@ -29,9 +29,9 @@ import * as scm from '@/app/server/schemas';
  *       200:
  *         description: Успішне отримання даних користувача.
  *       400:
- *         descritpion: Некоректне тіло запиту
+ *         description: Некоректне тіло запиту
  *       401:
- *         descritpion: Некоректні email або пароль
+ *         description: Некоректні email або пароль
  *       404:
  *         description: Користувач відсутній
  *

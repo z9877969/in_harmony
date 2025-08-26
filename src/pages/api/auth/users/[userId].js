@@ -42,7 +42,7 @@ import { isValidId } from '@/app/server/utils';
  *       200:
  *         description: Успішне отримання даних користувача.
  *       400:
- *         descritpion: Некоректний Id
+ *         description: Некоректний Id
  *       403:
  *         description: Неавторизований доступ
  *       404:
@@ -62,7 +62,7 @@ import { isValidId } from '@/app/server/utils';
  *       204:
  *         description: Успішна операція
  *       400:
- *         descritpion: Некоректний Id
+ *         description: Некоректний Id
  *       403:
  *         description: Неавторизований доступ
  *       404:

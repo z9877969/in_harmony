@@ -27,6 +27,9 @@ export default async function handler(req, res) {
  *     description: Повертає список тегів якими групуються однакові збори свторені різними мовами
  *     tags:
  *       - Collections
+ *     security:
+ *       - accessTokenAuth: []
+ *       - refreshTokenAuth: []
  *     responses:
  *       200:
  *         description: Успішне отримання списку тегів

@@ -38,3 +38,5 @@ next-env.d.ts
 # custom
 _notes
 _adv
+
+public/images/all/*

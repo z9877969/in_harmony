@@ -1,9 +1,21 @@
 import { isValidObjectId } from 'mongoose';
 import createHttpError from 'http-errors';
-const isValidId = (req) => {
-  const { id } = req.query;
-  if (!isValidObjectId(id)) {
-    throw createHttpError(404, 'Not found');
+import { responseError } from '../lib';
+
+const isValidId = (next) => async (req, res) => {
+  try {
+    const hasInvalidId = Object.entries(req.query)
+      .filter(([key]) => key.toLowerCase().endsWith('id'))
+      // eslint-disable-next-line
+      .some(([_, value]) => {
+        return !isValidObjectId(value);
+      });
+    if (hasInvalidId) {
+      throw createHttpError(400, 'Invalid id');
+    }
+    return await next(req, res);
+  } catch (error) {
+    return responseError(res, error);
   }
 };
 

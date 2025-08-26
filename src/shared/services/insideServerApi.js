@@ -20,6 +20,7 @@ class InsideServerApi {
   };
 
   getPageApi = async ({ locale, page }) => {
+    if (locale !== 'ua' && locale !== 'en') return;
     const response = await fetch(
       `${this.serverUrl}/api/all-pages/${locale}/${page}`,
       { next: { revalidate: 60 } }

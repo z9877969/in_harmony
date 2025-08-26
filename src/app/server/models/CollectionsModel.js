@@ -1,8 +1,20 @@
 import mongoose from 'mongoose';
+import {
+  COLLECTION_IMPORTANCE_TYPE,
+  COLLECTION_STATUS_TYPE,
+} from '@/app/server/constants';
 
 const collectionSchema = new mongoose.Schema({
   title: { type: String, default: null },
-  image: { type: [String], default: [] },
+  image: {
+    type: [
+      {
+        url: String,
+        path: String,
+      },
+    ],
+    default: [],
+  },
   collected: { type: Number, default: 0 },
   target: { type: Number, required: true },
   alt: { type: String, default: null },
@@ -22,15 +34,16 @@ const collectionSchema = new mongoose.Schema({
   comments: { type: String, default: null },
   quantity: { type: String, default: null },
   currency: { type: String, default: null },
-  //===========================
   long_desc: {
-    type: {
-      section1: { type: String, default: null },
-      section2: { type: String, default: null },
-      section3: { type: String, default: null },
-    },
+    type: Map,
+    of: String,
+    required: true,
   },
-  status: { type: String, enum: ['active', 'closed'], default: 'active' },
+  status: {
+    type: String,
+    enum: [COLLECTION_STATUS_TYPE.ACTIVE, COLLECTION_STATUS_TYPE.CLOSED],
+    default: COLLECTION_STATUS_TYPE.ACTIVE,
+  },
   type: {
     type: String,
     required: true,
@@ -40,12 +53,17 @@ const collectionSchema = new mongoose.Schema({
   value: {
     type: String,
     required: true,
+    default: null,
   },
   importance: {
     type: String,
-    enum: ['urgent', 'important', 'non-urgent', 'permanent'],
+    enum: [
+      COLLECTION_IMPORTANCE_TYPE.URGENT,
+      COLLECTION_IMPORTANCE_TYPE.IMPORTANT,
+      COLLECTION_IMPORTANCE_TYPE.NON_URGENT,
+      COLLECTION_IMPORTANCE_TYPE.PERMANENT,
+    ],
     required: true,
-    default: null,
   },
 });
 

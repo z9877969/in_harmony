@@ -8,7 +8,9 @@ export function middleware(request) {
   const { cookies, nextUrl } = request;
   const currentLocale = cookies.get('NEXT_LOCALE')?.value;
 
-  const localeRegex = new RegExp(`^/(${Object.values(LANGUAGES).join('|')})/(\\1)(/|$)`);
+  const localeRegex = new RegExp(
+    `^/(${Object.values(LANGUAGES).join('|')})/(\\1)(/|$)`
+  );
   if (localeRegex.test(nextUrl.pathname)) {
     nextUrl.pathname = nextUrl.pathname.replace(localeRegex, '/$1$3');
     return NextResponse.redirect(nextUrl);
@@ -24,9 +26,18 @@ export function middleware(request) {
     }
   }
 
+  const url = nextUrl.clone();
+
+  if (url.pathname === '/docs') {
+    url.pathname = '/docs';
+    return NextResponse.rewrite(url);
+  }
+
   return i18nRouter(request, i18nConfig);
 }
 
 export const config = {
-  matcher: '/((?!api|static|.*\\..*|_next).*)',
+  matcher:
+    '/((?!api|static|.*\\..*|_next|.next|favicon.ico|\\.well-known|docs).*)',
+  // matcher: ['/((?!api|_next|\\.well-known|docs|.*\\..*).*)'],
 };

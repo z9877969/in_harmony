@@ -1,16 +1,16 @@
 import mongoose from 'mongoose';
 
 const filtersSchema = new mongoose.Schema({
-  month: { type: String, default: null },
-  year: { type: String, default: null },
-  url: { type: String, default: null },
+  month: { type: String, required: true },
+  year: { type: String, required: true },
+  url: { type: String, required: true },
   type: {
     type: String,
-    required: true,
     enum: ['filter'],
+    default: 'filter',
   },
   language: { type: String, required: true },
-  status: { type: String, enum: ['filter'], required: true },
+  status: { type: String, enum: ['filter'], default: 'filter' },
 });
 
 export const FiltersModel =

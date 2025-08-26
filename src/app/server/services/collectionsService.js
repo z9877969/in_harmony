@@ -1,7 +1,5 @@
 import createHttpError from 'http-errors';
 import { ObjectId } from 'bson';
-import fs from 'node:fs/promises';
-import path from 'node:path';
 import { responseError, saveFileToUploadDir } from '../lib';
 import { saveFileToCloudinary } from '../lib/saveFileToCloudinary';
 import { env } from '../utils';
@@ -16,8 +14,8 @@ import {
   COLLECTION_TERMS_LABEL,
   CURRENCY_TYPES,
   LANGUAGE_TYPE,
-  PUBLIC_IMAGES_ALL_DIR,
 } from '../constants';
+import { findAndDeleteImage } from '../utils/findAndDeleteImage';
 
 export const getAllCollections = async (req, res) => {
   try {
@@ -120,15 +118,6 @@ export const createCollection = async (req, res) => {
     res.status(201).json(newCollection);
   } catch (error) {
     responseError(res, error);
-  }
-};
-
-const findAndDeleteImage = async (partialName) => {
-  const files = await fs.readdir(PUBLIC_IMAGES_ALL_DIR);
-  const fileToDelete = files.find((file) => file.startsWith(partialName));
-  if (fileToDelete) {
-    const fullPath = path.join(PUBLIC_IMAGES_ALL_DIR, fileToDelete);
-    await fs.unlink(fullPath);
   }
 };
 

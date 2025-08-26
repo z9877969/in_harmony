@@ -145,4 +145,20 @@
  *         enum: ['en', 'ua']
  *         description: Мова контенту - ['en', 'ua']
  *         example: ua
+ *     partner:
+ *       language:
+ *         type: string
+ *         enum: ['en', 'ua']
+ *         description: Мова контенту - ['en', 'ua']
+ *         example: ua
+ *       logo:
+ *         type: string
+ *         maxLength: 128
+ *         description: Назва організації партнера
+ *         example: METRO
+ *       link:
+ *         type: string
+ *         maxLength: 512
+ *         description: Посилання на сайт партнера
+ *         example: https://www.metro.ua/
  */

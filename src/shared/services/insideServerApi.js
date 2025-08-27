@@ -1,3 +1,6 @@
+import { connectToDatabase } from '@/app/server/lib';
+import { getPageByRouteService } from '@/app/server/services/pagesServices';
+
 class InsideServerApi {
   constructor() {}
 
@@ -20,24 +23,24 @@ class InsideServerApi {
 
   getPageApi = async ({ locale, page }) => {
     try {
-      if (locale !== 'ua' && locale !== 'en') return;
+      /* if (locale !== 'ua' && locale !== 'en') return;
       const response = await fetch(
         `${this.serverUrl}/api/all-pages/${locale}/${page}`,
         { next: { revalidate: 60 } }
       );
-      /* await connectToDatabase();
-      const { updatedSections } = await getPageByRouteService({
-        route: page,
-        locale,
-      }); */
-      // const sectionsList = updatedSections;
-
       if (!response.ok) {
         throw new Error(`Failed to fetch page data: ${response.statusText}`);
       }
 
       const body = await response.json();
-      const sectionsList = body.section?.sections_list ?? [];
+      const sectionsList = body.section?.sections_list ?? []; */
+      await connectToDatabase();
+      const { updatedSections } = await getPageByRouteService({
+        route: page,
+        locale,
+      });
+      const sectionsList = updatedSections;
+
       const sectionsDict = this.getSectionsDict(sectionsList);
       return { sectionsList, sectionsDict };
     } catch (error) {

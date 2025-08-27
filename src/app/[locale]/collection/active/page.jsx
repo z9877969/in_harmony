@@ -1,12 +1,10 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { redirect } from 'next/navigation';
 
 const RedirectingActivePage = ({ params }) => {
-  const router = useRouter();
   const { locale } = params;
-  router.push(`/${locale}/collection`);
-  return null;
+  redirect(`/${locale}/collection`);
 };
 
 export default RedirectingActivePage;

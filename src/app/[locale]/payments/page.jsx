@@ -1,12 +1,10 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { redirect } from 'next/navigation';
 
 const RedirectingPaymentPage = ({ params }) => {
-  const router = useRouter();
   const { locale } = params;
-  router.push(`/${locale}/payments/step/1`);
-  return null;
+  redirect(`/${locale}/payments/step/1`);
 };
 
 export default RedirectingPaymentPage;

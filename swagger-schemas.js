@@ -162,4 +162,20 @@
  *         format: binary
  *         example: "image1.jpg"
  *         description: Зображення партнера
+ *     merch:
+ *       status:
+ *         type: string
+ *         enum: ['on', 'off']
+ *         description: Статус відображення кнопки мерча
+ *         example: 'off'
+ *       content:
+ *         type: string
+ *         maxLength: 12
+ *         description: Текстовий контент кнопки мерча
+ *         example: Наш мерч
+ *       link:
+ *         type: string
+ *         maxLength: 512
+ *         description: Посилання на сайт мерча. Maкс - 512 симв.
+ *         example: https://some-link-to-merch.com/
  */

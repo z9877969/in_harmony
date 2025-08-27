@@ -3,6 +3,7 @@ import {
   parseDeepStructuredBody,
   validateBody,
   validateEmptyBody,
+  validateLocale,
   withAuth,
   withMethods,
 } from '@/app/server/lib';
@@ -22,8 +23,9 @@ export const config = {
 };
 
 const methodHandlers = {
-  GET: composeMidlwares(getAllCollections),
+  GET: composeMidlwares(validateLocale, getAllCollections),
   POST: composeMidlwares(
+    validateLocale,
     withAuth,
     uploadMiddleware(upload.single('image')),
     parseDeepStructuredBody(['long_desc']),

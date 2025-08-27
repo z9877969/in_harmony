@@ -92,3 +92,8 @@ export const CLIENT_DOMAINS_LIST = [
 export const PARTNER_TYPES = {
   PARTNERS: 'partners',
 };
+
+export const MERCH_BTN_STATUS = {
+  ON: 'on',
+  OFF: 'off',
+};

@@ -22,7 +22,7 @@ export const updateMerch = async (req, res) => {
   }
 
   const data = await PageModel.findOneAndUpdate(
-    { route: 'header', locale },
+    { route: 'header', local: locale },
     { $set: setFields },
     {
       arrayFilters: [{ 'elem.section_name': 'merch_button' }],

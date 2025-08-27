@@ -1,12 +1,10 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { redirect } from 'next/navigation';
 
 const RedirectingClosedPage = ({ params }) => {
-  const router = useRouter();
   const { locale } = params;
-  router.push(`/${locale}/reporting`);
-  return null;
+  redirect(`/${locale}/reporting`);
 };
 
 export default RedirectingClosedPage;

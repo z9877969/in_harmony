@@ -22,6 +22,11 @@
     height: 48px;
   }
 
+  .rightSide {
+    display: flex;
+    column-gap: 1em;
+  }
+
   .donateLink {
     display: flex;
     align-items: center;
@@ -30,8 +35,10 @@
     background-color: $orange-color;
     border: none;
     border-radius: 60px;
-    width: 177px;
     padding: 12px 0;
+    width: fit-content;
+    padding-left: 1em;
+    padding-right: 1em;
     font-family: var(--font-family);
     font-weight: 600;
     font-size: 16px;
@@ -53,6 +60,12 @@
 
   @include media(tablet) {
     padding: 14px 0px;
+
+    .donateLink {
+      width: 177px;
+      padding-right: 0;
+      padding-left: 0;
+    }
 
     .rightSide {
       display: flex;

@@ -18,7 +18,7 @@ const SocialLinks = dynamic(() => import('../SocialLinks/SocialLinks'), {
   loading: () => <div className={s.socialLinksPlaceholder} />,
 });
 
-const Header = ({ t }) => {
+const Header = ({ t, merchButton }) => {
   return (
     <>
       <header className={s.shadow}>
@@ -38,6 +38,16 @@ const Header = ({ t }) => {
               <SocialLinks />
               {/* Right side header */}
               <div className={s.rightSide}>
+                {merchButton && merchButton.status === 'on' && (
+                  <Link
+                    href={`/${merchButton.link}`}
+                    className={s.donateLink}
+                    as="style"
+                  >
+                    {/* <Icon className={s.heartIcon} iconName="icon-heart" /> */}
+                    {merchButton.content}
+                  </Link>
+                )}
                 <Link
                   href={`/${t('helpButton.href')}`}
                   className={s.donateLink}

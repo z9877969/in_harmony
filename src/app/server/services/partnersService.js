@@ -1,98 +1,104 @@
-import mongoose from 'mongoose';
 import createHttpError from 'http-errors';
-import env from '../utils/evn.js';
-import { saveFileToCloudinary } from '../lib/saveFileToCloudinary.js';
-import saveFileToUploadDir from '../lib/saveFileToUploadDir.js';
 import PartnersModel from '../models/PartnersModel.js';
+import {
+  saveFileToCloudinary,
+  saveFileToUploadDir,
+  responseError,
+} from '../lib';
+import env from '../utils/evn.js';
+import { findAndDeleteImage } from '../utils/findAndDeleteImage.js';
 
 export const getAllPartners = async (req, res) => {
   try {
     const partners = await PartnersModel.find().lean();
 
-    res.status(200).json({ status: 200, data: partners });
+    res.status(200).json(partners);
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    responseError(res, error);
   }
 };
 
 export const createPartner = async (req, res) => {
   try {
-    const image = req.files;
+    const image = req.file;
     let photoUrls = [];
 
-    if (image && image.length) {
-      for (const img of image) {
-        let photoUrl;
-        if (env('ENABLE_CLOUDINARY') === 'true') {
-          photoUrl = await saveFileToCloudinary(img);
-        } else {
-          photoUrl = await saveFileToUploadDir(img);
-        }
-        photoUrls.push(photoUrl);
+    if (image) {
+      let photoUrl;
+      if (env('ENABLE_CLOUDINARY') === 'true') {
+        photoUrl = await saveFileToCloudinary(image);
+      } else {
+        photoUrl = await saveFileToUploadDir(image);
       }
+      photoUrls.push(photoUrl);
     }
 
-    const newPartner = new PartnersModel({
+    const newPartner = await PartnersModel.create({
       ...req.body,
       image: photoUrls,
     });
 
-    await newPartner.save();
     res.status(201).json(newPartner);
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    responseError(res, error);
   }
 };
 
 export const updatePartner = async (req, res) => {
   try {
     const { id } = req.query;
-    const image = req.files;
+    const image = req.file;
 
-    if (!id) {
-      return null;
-    }
+    let photoUrls = [];
 
-    if (!mongoose.Types.ObjectId.isValid(id)) {
-      return res.status(400).json({ message: 'Invalid ID format' });
-    }
-    const existingPartner = await PartnersModel.findById(id);
-
-    if (!existingPartner) {
-      throw createHttpError(404, 'Comment not found');
-    }
-
-    let photoUrls = existingPartner.image || [];
-
-    if (image && image.length) {
-      for (const img of image) {
-        let photoUrl;
-        if (env('ENABLE_CLOUDINARY') === 'true') {
-          photoUrl = await saveFileToCloudinary(img);
-        } else {
-          photoUrl = await saveFileToUploadDir(img);
-        }
-        photoUrls.push(photoUrl);
+    if (image) {
+      let photoUrl;
+      if (env('ENABLE_CLOUDINARY') === 'true') {
+        photoUrl = await saveFileToCloudinary(image);
+      } else {
+        photoUrl = await saveFileToUploadDir(image);
       }
+      photoUrls.push(photoUrl);
+      req.body.image = photoUrls;
     }
 
-    const result = await PartnersModel.findByIdAndUpdate(
-      { _id: id },
-      { ...req.body, image: photoUrls },
-      {
-        new: true,
-        includeResultMetadata: true,
-      }
-    );
+    const prevResult = await PartnersModel.findByIdAndUpdate(
+      id,
+      req.body /* {
+      // new: true,
+      // includeResultMetadata: true,
+    } */
+    ).lean();
 
-    if (!result) {
+    if (!prevResult) {
       throw createHttpError(404, 'Partner not found');
     }
 
-    res.status(200).json({
-      data: result.value,
-    });
+    const imageToRemove = prevResult.image.path;
+
+    await findAndDeleteImage(imageToRemove);
+
+    const newResult = { ...prevResult, ...req.body };
+    res.status(200).json(newResult);
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    responseError(res, error);
+  }
+};
+
+export const removePartner = async (req, res) => {
+  try {
+    const { id } = req.query;
+
+    const partner = await PartnersModel.findByIdAndDelete(id);
+
+    if (!partner) {
+      throw createHttpError(404, 'Partner not found');
+    }
+
+    await findAndDeleteImage(partner.image.path);
+
+    res.status(204).json();
+  } catch (error) {
+    responseError(res, error);
   }
 };

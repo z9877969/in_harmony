@@ -63,9 +63,14 @@ export function generateStaticParams() {
 export default async function RootLayout({ children, params: { locale } }) {
   const { t, resources } = await initTranslations(locale, i18nNamespaces);
 
-  const { sectionsDict } = await api.getPageApi({
+  const { sectionsDict: footerSectionsDict } = await api.getPageApi({
     locale,
     page: 'footer',
+  });
+
+  const { sectionsDict: headerSectionsDict } = await api.getPageApi({
+    locale,
+    page: 'header',
   });
 
   return (
@@ -77,12 +82,12 @@ export default async function RootLayout({ children, params: { locale } }) {
       >
         <body className={clsx(montserrat.variable, open_sans.variable)}>
           <ErrorBoundaryWithTranslation>
-            <Header t={t} />
+            <Header t={t} merchButton={headerSectionsDict.merch_button} />
             <Breadcrumbs />
 
             <main>{children}</main>
 
-            <Footer content={sectionsDict.footer.section_content} />
+            <Footer content={footerSectionsDict.footer.section_content} />
           </ErrorBoundaryWithTranslation>
           <div id="modal"></div>
         </body>

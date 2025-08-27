@@ -1,7 +1,7 @@
 import connectToDatabase from '@/app/server/lib/mongodb.js';
 import { upload, uploadMiddleware } from '@/app/server/lib/multer';
 import isValidId from '@/app/server/utils/isValidId.js';
-import { validateBody, withAuth } from '@/app/server/lib';
+import { validateBody, validateLocale, withAuth } from '@/app/server/lib';
 import {
   getCollectionById,
   updateCollectionService,
@@ -23,9 +23,10 @@ export const config = {
 };
 
 const methodHandlers = {
-  GET: composeMidlwares(isValidId, getCollectionById),
+  GET: composeMidlwares(isValidId, validateLocale, getCollectionById),
   PATCH: composeMidlwares(
     isValidId,
+    validateLocale,
     withAuth,
     uploadMiddleware(upload.single('image')),
     validateEmptyBody,
@@ -33,7 +34,12 @@ const methodHandlers = {
     validateBody(scm.collection.update),
     updateCollectionService
   ),
-  DELETE: composeMidlwares(isValidId, withAuth, removeCollectionService),
+  DELETE: composeMidlwares(
+    isValidId,
+    validateLocale,
+    withAuth,
+    removeCollectionService
+  ),
 };
 
 export default async function handler(req, res) {

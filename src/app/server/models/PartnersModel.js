@@ -1,14 +1,24 @@
 import mongoose from 'mongoose';
+import { PARTNER_TYPES } from '../constants';
 
 const partnerSchema = new mongoose.Schema({
   logo: { type: String, default: null },
-  image: { type: [String], default: [] },
+  image: {
+    type: [
+      {
+        url: String,
+        path: String,
+      },
+    ],
+    default: [],
+  },
   link: { type: String, default: '' },
   language: { type: String, required: true },
   type: {
     type: String,
     required: true,
-    enum: ['partners'],
+    enum: [PARTNER_TYPES.PARTNERS],
+    default: PARTNER_TYPES.PARTNERS,
   },
 });
 

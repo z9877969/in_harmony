@@ -83,7 +83,17 @@ export const APP_DOMAIN =
   process.env.NODE_ENV === 'development'
     ? env('DEV_APP_DOMAIN')
     : env('PROD_APP_DOMAIN');
+
 export const CLIENT_DOMAINS_LIST = [
   env('DEV_CLIENT_DOMAIN'),
   env('PROD_CLIENT_DOMAIN'),
 ];
+
+export const PARTNER_TYPES = {
+  PARTNERS: 'partners',
+};
+
+export const MERCH_BTN_STATUS = {
+  ON: 'on',
+  OFF: 'off',
+};

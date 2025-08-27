@@ -15,6 +15,7 @@ export const pageSchema = new mongoose.Schema({
       'closed',
       'terms',
       'pay-methods',
+      'header',
     ],
   },
   sections_list: { type: [mongoose.Schema.Types.Mixed] },

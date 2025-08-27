@@ -1,5 +1,6 @@
 export { default as connectToDatabase } from './mongodb.js';
 export { default as saveFileToUploadDir } from './saveFileToUploadDir.js';
+export { saveFileToCloudinary } from './saveFileToCloudinary.js';
 export { COOKIE_NAME, create } from './cookies.js';
 export { composeMidlwares } from './composeMidlwares.js';
 export { withAuth } from './midlwares/withAuth.js';
@@ -8,5 +9,6 @@ export { validateBody } from './midlwares/validateBody.js';
 export { checkAdminRole } from './midlwares/checkAdminRole.js';
 export { parseDeepStructuredBody } from './midlwares/parseDeepStructuredBody.js';
 export { validateEmptyBody } from './midlwares/validateEmptyBody.js';
+export { validateLocale } from './midlwares/validateLocale.js';
 export { responseError } from './responseError.js';
 export { upload, uploadMiddleware } from './multer.js';

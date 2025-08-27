@@ -35,6 +35,10 @@ export const swaggerOptions = {
         name: 'Reports',
         description: 'API для керування звітністю',
       },
+      {
+        name: 'Partners',
+        description: 'API для керування інфорацією про партнерів',
+      },
     ],
     components: {
       securitySchemes: {

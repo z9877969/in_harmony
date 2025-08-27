@@ -1,16 +1,15 @@
 import { composeMidlwares, withAuth, withMethods } from '@/app/server/lib';
 import connectToDatabase from '@/app/server/lib/mongodb';
-import { getCollectionTags } from '@/app/server/services/collectionsService.js';
+import { getMerchData } from '@/app/server/services/merchServices';
 
 export const config = {
   api: {
-    bodyParser: false,
     externalResolver: true,
   },
 };
 
 const methodHandlers = {
-  GET: composeMidlwares(withAuth, getCollectionTags),
+  GET: composeMidlwares(withAuth, getMerchData),
 };
 
 export default async function handler(req, res) {
@@ -21,18 +20,18 @@ export default async function handler(req, res) {
 
 /**
  * @swagger
- * /collections/tags:
+ * /merch:
  *   get:
- *     summary: Повертає список тегів
- *     description: Повертає список тегів якими групуються однакові збори свторені різними мовами
+ *     summary: Повертає контент кнопки мерча
+ *     description: Повертає список з різними типами контенту для статусами кнопок мерча в хедері.
  *     tags:
- *       - Collections
+ *       - Merch
  *     security:
  *       - accessTokenAuth: []
  *       - refreshTokenAuth: []
  *     responses:
  *       200:
- *         description: Успішне отримання списку тегів
+ *         description: Успішне отримання списку зборів
  *       403:
  *         description: Неавторизований доступ
  */

@@ -1,3 +1,4 @@
+import { responseError } from '../lib';
 import CollectionModel from '../models/CollectionsModel';
 import { Pages } from '../models/PageModels';
 import { updatePages, updateSections } from '../utils';
@@ -28,21 +29,29 @@ export const getPage = async (req, res) => {
   }
 };
 
+export async function getPageByRouteService(query = {}) {
+  const { route, locale, page = 1, limit = 10 } = query;
+  const pages = await Pages.findOne({ route: route, local: locale }).lean();
+  if (!pages) {
+    throw new Error(`Page not found for route: ${route}`);
+  }
+  const updatedSections = await updateSections(pages, { page, limit });
+
+  return { page, updatedSections };
+}
+
 export const getPageByRoute = async (req, res) => {
   try {
-    const { route, locale, page = 1, limit = 10 } = req.query;
-    const pages = await Pages.findOne({ route: route, local: locale }).lean();
-    if (!pages) {
-      throw new Error(`Page not found for route: ${route}`);
-    }
-    const updatedSections = await updateSections(pages, { page, limit });
+    const { page: pages, updatedSections } = await getPageByRouteService(
+      req.query
+    );
 
     res.status(200).json({
       status: 200,
       section: { ...pages, sections_list: updatedSections },
     });
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    responseError(res, error);
   }
 };
 

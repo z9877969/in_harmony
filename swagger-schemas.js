@@ -178,7 +178,7 @@
  *         maxLength: 512
  *         description: Посилання на сайт мерча. Maкс - 512 симв.
  *         example: https://some-link-to-merch.com/
- *     teamamate:
+ *     teammate:
  *       name:
  *         type: string
  *         maxLength: 24

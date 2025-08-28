@@ -112,6 +112,8 @@ export default async function handler(req, res) {
  *             properties:
  *               title:
  *                 $ref: '#/components/examples/collection/title'
+ *               image:
+ *                 $ref: '#/components/examples/collection/image'
  *               collected:
  *                 $ref: '#/components/examples/collection/collected'
  *               target:

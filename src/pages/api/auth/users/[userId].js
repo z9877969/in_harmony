@@ -20,6 +20,7 @@ import { isValidId } from '@/app/server/utils';
  *     parameters:
  *       - name: userId
  *         in: path
+ *         required: true
  *         description: Id користувача дані якого оновлюють
  *     security:
  *       - accessTokenAuth: []
@@ -53,6 +54,7 @@ import { isValidId } from '@/app/server/utils';
  *     tags: [Auth]
  *     parameters:
  *       - name: userId
+ *         required: true
  *         in: path
  *         description: Id користувача якого видаляють
  *     security:

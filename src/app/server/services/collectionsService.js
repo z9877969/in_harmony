@@ -19,8 +19,11 @@ import { findAndDeleteImage } from '../utils/findAndDeleteImage';
 
 export const getAllCollections = async (req, res) => {
   try {
-    const { locale } = req.query;
-    const { page, perPage } = parsePaginationParams(req.query);
+    const { locale, page: reqPage = 1, perPage: reqPerPage = 6 } = req.query;
+    const { page, perPage } = parsePaginationParams({
+      page: reqPage,
+      perPage: reqPerPage,
+    });
 
     const totalCollections = await CollectionModel.countDocuments({
       language: locale,

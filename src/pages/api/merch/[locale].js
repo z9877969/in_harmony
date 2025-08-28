@@ -40,6 +40,7 @@ export default async function handler(req, res) {
  *       - Merch
  *     parameters:
  *       - name: locale
+ *         required: true
  *         in: path
  *         description: Мова кнокпи, дані для якої оновлюють
  *     security:

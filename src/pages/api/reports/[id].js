@@ -44,6 +44,7 @@ export default async function handler(req, res) {
  *       - Reports
  *     parameters:
  *       - name: id
+ *         required: true
  *         in: path
  *         description: Id звіту, дані якого оновлюють
  *     security:
@@ -78,6 +79,7 @@ export default async function handler(req, res) {
  *     tags: [Reports]
  *     parameters:
  *       - name: id
+ *         required: true
  *         in: path
  *         description: Id звіту який видаляють
  *     security:

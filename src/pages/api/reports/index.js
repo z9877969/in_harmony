@@ -45,7 +45,6 @@ export default async function handler(req, res) {
  *     parameters:
  *       - name: locale
  *         in: query
- *         required: true
  *         description: Вказує мову якою потрібно отримати контент - en | ua. За замовучуванням ua.
  *         schema:
  *           type: string

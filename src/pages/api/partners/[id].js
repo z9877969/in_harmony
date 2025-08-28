@@ -50,6 +50,7 @@ export default async function handler(req, res) {
  *       - Partners
  *     parameters:
  *       - name: id
+ *         required: true
  *         in: path
  *         description: Id партнера, дані якого оновлюють
  *     security:
@@ -86,6 +87,7 @@ export default async function handler(req, res) {
  *       - Partners
  *     parameters:
  *       - name: id
+ *         required: true
  *         in: path
  *         description: Id партнера який видаляють
  *     security:

@@ -35,10 +35,11 @@ class InsideServerApi {
       const body = await response.json();
       const sectionsList = body.section?.sections_list ?? []; */
       await connectToDatabase();
-      const { updatedSections } = await getPageByRouteService({
+      const data = await getPageByRouteService({
         route: page,
         locale,
       });
+      const { updatedSections } = JSON.parse(JSON.stringify(data));
       const sectionsList = updatedSections;
 
       const sectionsDict = this.getSectionsDict(sectionsList);

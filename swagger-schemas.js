@@ -178,4 +178,30 @@
  *         maxLength: 512
  *         description: Посилання на сайт мерча. Maкс - 512 симв.
  *         example: https://some-link-to-merch.com/
+ *     teamamate:
+ *       name:
+ *         type: string
+ *         maxLength: 24
+ *         description: Ім'я учасника команди. Maкс - 24 симв.
+ *         example: Жанна Іванівна
+ *       locale:
+ *         type: string
+ *         enum: ['en', 'ua']
+ *         description: Мова контенту - ['en', 'ua']
+ *         example: ua
+ *       description:
+ *         type: string
+ *         maxLength: 320
+ *         description: Описова інформація про учасника команди. Maкс - 320 симв.
+ *         example: Створюю та адмініструю проєкти вже 5 років. Р\nоблю...
+ *       role:
+ *         type: string
+ *         maxLength: 48
+ *         description: Посада учасника команди. Maкс - 48 симв.
+ *         example: засновник
+ *       image:
+ *         type: string
+ *         format: binary
+ *         example: "image1.jpg"
+ *         description: Фото учасника команди
  */

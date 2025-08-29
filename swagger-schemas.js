@@ -41,12 +41,12 @@
  *       collected:
  *         type: number
  *         minimum: 0
- *         description: Зібрана сума. Мінім - 0 симв.
+ *         description: Зібрана сума. Мінім - 0.
  *         example: 15000
  *       target:
  *         type: number
  *         minimum: 0
- *         description: Цільова сума. Мінім - 0 симв.
+ *         description: Цільова сума. Мінім - 0.
  *         example: 50000
  *       alt:
  *         type: string
@@ -57,7 +57,7 @@
  *         type: integer
  *         minimum: 0
  *         format: int32
- *         description: Кількість донорів. Мінім - 0 симв.
+ *         description: Кількість донорів. Мінім - 0.
  *         example: 156
  *       peopleDonate_title:
  *         type: string
@@ -78,7 +78,7 @@
  *         type: integer
  *         minimum: 0
  *         format: int32
- *         description: Кількість днів до завершення. Мінім - 0 симв.
+ *         description: Кількість днів до завершення. Мінім - 0.
  *         example: 30
  *         default: 0
  *       period:
@@ -90,7 +90,7 @@
  *         type: integer
  *         minimum: 0
  *         format: int32
- *         description: К-сть відгуків. Мінім - 0 симв.
+ *         description: К-сть відгуків. Мінім - 0.
  *         example: 12
  *         default: 0
  *       long_desc:
@@ -101,7 +101,7 @@
  *           minLength: 1
  *           maxLength: 224
  *           description: Мінім - 1  симв., Макс - 224 симв.
- *         description: Детальний опис збору. Мінім - 1 симв.
+ *         description: Детальний опис збору. Мінім - 1 елем.
  *         example: ["Перший параграф опису", "Другий параграф опису"]
  *       status:
  *         type: string

@@ -81,9 +81,12 @@ export const loginUser = async (req, res) => {
 
     await SessionModel.create({ userId: user._id, accessToken, refreshToken });
 
+    const origin = req.headers.origin;
+
     const accessTokenCookie = cookies.create(
       cookies.COOKIE_NAME.ACCESS_TOKEN,
-      accessToken
+      accessToken,
+      origin
     );
 
     const refreshTokenCookie = cookies.create(

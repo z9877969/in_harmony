@@ -17,4 +17,5 @@ export const update = Joi.object({
   name: Joi.string().max(64),
   email: Joi.string().email().max(64),
   role: Joi.string().valid(USER_ROLE.ADMIN, USER_ROLE.EDITOR),
+  password: Joi.string().valid(USER_ROLE.ADMIN, USER_ROLE.EDITOR),
 });

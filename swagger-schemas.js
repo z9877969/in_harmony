@@ -22,7 +22,7 @@
  *         example: example@mail.com
  *       password:
  *         type: string
- *         minLength: 128
+ *         minLength: 8
  *         maxLength: 128
  *         description: Пароль користувача
  *         example: xxxxxxxx

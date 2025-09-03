@@ -13,13 +13,17 @@
  *       name:
  *         type: string
  *         description: Ім'я користувача
+ *         maxLength: 64
  *         example: Іван Франко
  *       email:
  *         type: string
  *         description: Email користувача
+ *         maxLength: 64
  *         example: example@mail.com
  *       password:
  *         type: string
+ *         minLength: 8
+ *         maxLength: 128
  *         description: Пароль користувача
  *         example: xxxxxxxx
  *       role:

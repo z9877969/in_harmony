@@ -37,6 +37,10 @@ import * as scm from '@/app/server/schemas';
  *     responses:
  *       200:
  *         description: Успішне отримання даних користувача.
+ *       400:
+ *         description: Помилка валідації.
+ *       409:
+ *         description: Користувач з таким емейлом вже існує.
  */
 
 const methodHandlers = {

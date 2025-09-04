@@ -208,4 +208,41 @@
  *         format: binary
  *         example: "image1.jpg"
  *         description: Фото учасника команди
+ *     stats:
+ *       fedPeople:
+ *         type: number
+ *         format: integer
+ *         min: 0
+ *         description: Кількість нагодованих людей. Мін - 0.
+ *         example: 20000
+ *       providedWithClothing:
+ *         type: number
+ *         format: integer
+ *         min: 0
+ *         description: Кількість забезпечених одягом людей. Мін - 0.
+ *         example: 15000
+ *       providedWithWater:
+ *         type: number
+ *         format: integer
+ *         min: 0
+ *         description: Кількість забезпечених водою людей. Мін - 0.
+ *         example: 12000
+ *       receivedMedications:
+ *         type: number
+ *         format: integer
+ *         min: 0
+ *         description: Кількість людей, які отримали медикаменти. Мін - 0.
+ *         example: 3000
+ *       fedAnimals:
+ *         type: number
+ *         format: integer
+ *         min: 0
+ *         description: Кількість нагодованих тварин. Мін - 0.
+ *         example: 14000
+ *       providedWithElectricity:
+ *         type: number
+ *         format: integer
+ *         min: 0
+ *         description: Кількість людей забезпечених електроенергією. Мін - 0.
+ *         example: 4000
  */

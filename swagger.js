@@ -62,6 +62,11 @@ export const swaggerOptions = {
         name: 'Teammates',
         description: 'API для керування інфорацією про команду',
       },
+      {
+        name: 'Stats',
+        description:
+          'API для керування інфорацією про статистику на сторінці "Про нас"',
+      },
     ],
     components: {
       securitySchemes: {

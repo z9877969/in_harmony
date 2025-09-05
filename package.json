@@ -16,6 +16,7 @@
     "cloudinary": "^2.5.1",
     "clsx": "^2.1.1",
     "cookie": "^1.0.2",
+    "date-fns": "^4.1.0",
     "dotenv": "^16.4.7",
     "embla-carousel-auto-scroll": "^8.5.2",
     "embla-carousel-react": "^8.5.2",

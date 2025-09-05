@@ -67,6 +67,10 @@ export const swaggerOptions = {
         description:
           'API для керування інфорацією про статистику на сторінці "Про нас"',
       },
+      {
+        name: 'Dashboard',
+        description: 'API для отримання даних зі статистикою платежів',
+      },
     ],
     components: {
       securitySchemes: {

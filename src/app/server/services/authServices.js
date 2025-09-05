@@ -166,3 +166,16 @@ export const removeUser = async (req, res) => {
     responseError(res, error);
   }
 };
+
+export const getCurUser = async (req, res) => {
+  try {
+    const { _id } = req.user;
+    const user = await UserModel.findById(_id).select({
+      password: false,
+      __v: false,
+    });
+    res.json(user);
+  } catch (error) {
+    responseError(res, error);
+  }
+};

@@ -4,7 +4,7 @@ export const swaggerOptions = {
     openapi: '3.0.0',
     info: {
       title: 'Inharmony Next.js project API',
-      version: '1.1.2',
+      version: '1.3.0',
       description: `
 Ласкаво просимо до документації API!
 
@@ -66,6 +66,10 @@ export const swaggerOptions = {
         name: 'Stats',
         description:
           'API для керування інфорацією про статистику на сторінці "Про нас"',
+      },
+      {
+        name: 'Dashboard',
+        description: 'API для отримання даних зі статистикою платежів',
       },
     ],
     components: {

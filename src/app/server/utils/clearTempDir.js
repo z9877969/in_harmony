@@ -30,5 +30,3 @@ export const clearTempDir = async (TEMP_DIR_PATH = TEMP_UPLOAD_DIR) => {
     }
   }
 };
-
-await clearTempDir();

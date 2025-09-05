@@ -4,3 +4,4 @@ export { default as updateSections } from './updateSections.js';
 export { default as isValidId } from './isValidId.js';
 export { default as validateBody } from './validateBody.js';
 export { calcCookiesMaxAge } from './calcCookiesMaxAge.js';
+export { clearTempDir } from './clearTempDir.js';

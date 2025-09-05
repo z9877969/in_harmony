@@ -106,8 +106,6 @@ export default async function handler(req, res) {
  *                 $ref: '#/components/examples/teammate/description'
  *               image:
  *                 $ref: '#/components/examples/teammate/image'
- *               locale:
- *                 $ref: '#/components/examples/teammate/locale'
  *     responses:
  *       200:
  *         description: Успішне оновлення учасника команди

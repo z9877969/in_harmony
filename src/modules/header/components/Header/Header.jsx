@@ -40,9 +40,10 @@ const Header = ({ t, merchButton }) => {
               <div className={s.rightSide}>
                 {merchButton && merchButton.status === 'on' && (
                   <Link
-                    href={`/${merchButton.link}`}
+                    outsideHref={`${merchButton.link}`}
                     className={s.donateLink}
                     as="style"
+                    target="_blank"
                   >
                     {/* <Icon className={s.heartIcon} iconName="icon-heart" /> */}
                     {merchButton.content}

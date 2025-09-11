@@ -69,6 +69,8 @@ import { isValidId } from '@/app/server/utils';
  *         description: Неавторизований доступ
  *       404:
  *         description: Користувач відсутній
+ *       409:
+ *         description: Користувачу заборонено видаляти самого себе
  */
 
 const methodHandlers = {

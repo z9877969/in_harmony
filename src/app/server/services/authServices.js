@@ -156,6 +156,9 @@ export const logoutUser = async (req, res) => {
 export const removeUser = async (req, res) => {
   try {
     const { userId } = req.query;
+    if (userId === String(req.user._id)) {
+      throw createHttpError(409, 'User is not allowed to delete themselves');
+    }
     const user = await UserModel.findByIdAndDelete(userId);
     if (!user) {
       throw createHttpError(404, 'User not found');

@@ -1,12 +1,21 @@
+import { useParams } from 'next/navigation';
 import { useState, useEffect } from 'react';
 
+const initialCurIndex = 4;
+
 export const useCurrentIndexWithIsDesktop = ({ contentLength }) => {
+  const { locale } = useParams();
+
   const [isDesktop, setIsDesktop] = useState(null);
-  const [currentIndex, setCurrentIndex] = useState(4);
+  const [currentIndex, setCurrentIndex] = useState(initialCurIndex);
   const [isShowAllCards, setIsShowAllCards] = useState(false);
 
   useEffect(() => {
-    if (isShowAllCards) return null;
+    setCurrentIndex(initialCurIndex);
+  }, [locale]);
+
+  useEffect(() => {
+    if (isShowAllCards) return;
     if (typeof window !== 'undefined') {
       const width = window.innerWidth;
       setIsDesktop(width >= 1440);
